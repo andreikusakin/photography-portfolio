@@ -1,0 +1,12 @@
+.container {
+    padding: 2em;  
+}
+
+.faq_item {
+    padding-top: 1em;
+    padding-bottom: 2em;
+    display: grid;
+    gap: 1em;
+    width: 100%;
+    font-size: max(1.2em, min(1.7227513228vw, 4.0366598778svh)); 
+}

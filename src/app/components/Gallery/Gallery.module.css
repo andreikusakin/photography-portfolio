@@ -1,0 +1,38 @@
+.container {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-bottom: 2em;
+}
+
+.images_wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 1em;   
+   align-items: center;
+   
+}
+
+.image_container {
+
+}
+
+.image_container img {
+    max-height: 90vh;
+    max-width: 100%;
+}
+
+@media (max-width: 430px) {
+    .container {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }

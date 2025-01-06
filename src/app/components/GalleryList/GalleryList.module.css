@@ -1,0 +1,53 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 2em 0;
+}
+
+.item {
+  /* position: relative; */
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
+  overflow: hidden;
+  padding-bottom: 2em;
+}
+
+.item:hover {
+  opacity: 0.95;
+  .coverImage {
+    scale: 1.05;
+  }
+
+}
+
+.image {
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+  font-size: 0;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
+
+}
+
+.coverImage {
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
+  width: 100%;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2em;
+  padding-top: 1em;
+}
+
+.description > *:not(:first-child) {
+  opacity: 0.4;
+}
+
+.description > *:last-child {
+  display: flex;
+  justify-content: space-between;
+}
