@@ -1,0 +1,20 @@
+.contact {
+    font-size: max(1.2em, min(1.7227513228vw, 4.0366598778svh)); 
+    text-transform: uppercase;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
+.contact a {
+    text-decoration: underline;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+}
+
+.contactItem a {
+    text-decoration: underline;
+}

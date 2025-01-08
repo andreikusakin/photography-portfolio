@@ -8,34 +8,83 @@ export type Gallery = {
   count: number;
 };
 
-export type highlight = {
+export type Highlight = {
   src: string;
   horizontal: boolean;
 };
 
-export const weddingHighlights: highlight[] = [
+export const WEDDING_COST = 4000;
+
+export const weddingHighlights: Highlight[] = [
   {
-    src: "/wedding/highlights/1.jpg",
+    src: "/wedding/veronicajoseph/17.jpg",
     horizontal: false,
   },
   {
-    src: "/wedding/highlights/2.jpg",
-    horizontal: false,
-  },
-  {
-    src: "/wedding/highlights/3.jpg",
+    src: "/wedding/veronicajoseph/15.jpg",
     horizontal: true,
   },
   {
-    src: "/wedding/highlights/4.jpg",
+    src: "/wedding/veronicajoseph/24.jpg",
     horizontal: true,
   },
   {
-    src: "/wedding/highlights/5.jpg",
+    src: "/wedding/veronicajoseph/52.jpg",
+    horizontal: true,
+  },
+  {
+    src: "/wedding/orbreybrett/23.jpg",
+    horizontal: true,
+  },
+  {
+    src: "/wedding/orbreybrett/8.jpg",
     horizontal: false,
   },
   {
-    src: "/wedding/highlights/6.jpg",
+    src: "/wedding/valeriejoseph/5.jpg",
+    horizontal: true,
+  },
+  {
+    src: "/wedding/valeriejoseph/13.jpg",
+    horizontal: true,
+  },
+  {
+    src: "/wedding/valeriejoseph/15.jpg",
+    horizontal: false,
+  },
+  {
+    src: "/wedding/christiadam/18.jpg",
+    horizontal: true,
+  },
+  {
+    src: "/wedding/christiadam/22.jpg",
+    horizontal: false,
+  },
+
+  {
+    src: "/wedding/christiadam/46.jpg",
+    horizontal: false,
+  },
+
+  {
+    src: "/wedding/jessicageorge/2.jpg",
+    horizontal: false,
+  },
+
+  {
+    src: "/wedding/jessicageorge/18.jpg",
+    horizontal: false,
+  },
+  {
+    src: "/wedding/jessicageorge/20.jpg",
+    horizontal: false,
+  },
+  {
+    src: "/wedding/marissamichael/10.jpg",
+    horizontal: false,
+  },
+  {
+    src: "/wedding/marissamichael/25.jpg",
     horizontal: false,
   },
 ];
@@ -96,7 +145,7 @@ export const weddings: Gallery[] = [
   },
 ];
 
-export const portraitHighlights: highlight[] = [
+export const portraitHighlights: Highlight[] = [
   {
     src: "/wedding/highlights/1.jpg",
     horizontal: false,
@@ -114,7 +163,7 @@ export const portraitHighlights: highlight[] = [
 export const portraits: Gallery[] = [
   {
     id: "alinabrandon",
-    type: "portrait",
+    type: "couples",
     name: "Alina & Brandon",
     venue: "Borderland State Park",
     location: "North Easton, MA",
@@ -123,7 +172,7 @@ export const portraits: Gallery[] = [
   },
   {
     id: "roxanakonstantin",
-    type: "portrait",
+    type: "couples",
     name: "Roxana & Konstantin",
     venue: "Raffles Hotel",
     location: "Boston, MA",

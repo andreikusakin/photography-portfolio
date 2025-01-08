@@ -5,35 +5,39 @@
   width: 100%;
   text-transform: uppercase;
   padding: 2em 0;
+  font-size: max(1rem, min(1.2vw, 1.5svh));
 }
 
 .item {
-  /* position: relative; */
+  position: relative;
   transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
   overflow: hidden;
   padding-bottom: 2em;
 }
+
+
 
 .item:hover {
   opacity: 0.95;
   .coverImage {
     scale: 1.05;
   }
-
 }
 
 .image {
   overflow: hidden;
+  box-sizing: border-box;
   display: block;
+  position: relative;
   line-height: 0;
   font-size: 0;
   transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
 
 }
-
 .coverImage {
   transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
   width: 100%;
+  height: 100%;
 }
 
 .description {

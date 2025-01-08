@@ -10,11 +10,10 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 import "./embla.css";
 import Image from "next/image";
-import { highlight } from "@/lib/data";
-import { AnimatePresence, motion } from "framer-motion";
+import { Highlight } from "@/lib/data";
 
 type PropType = {
-  slides: highlight[];
+  slides: Highlight[];
   options?: EmblaOptionsType;
 };
 
@@ -34,12 +33,9 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   const { selectedSnap, snapCount } = useSelectedSnapDisplay(emblaApi);
 
   return (
-    <AnimatePresence>
-      <motion.section className="embla"
-      initial={{ opacity: 0,  }}
-      animate={{ opacity: 1,  }}
-      exit={{ opacity: 0,  }}
-      transition={{ duration: 0.5, delay: 0.5 }}
+    
+      <section className="embla"
+     
       >
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
@@ -58,8 +54,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   alt={`Wedding Highlight ${index + 1}`}
                   className="embla__slide__img"
                   quality={100}
-                  width={image.horizontal ? 1800 : 1200}
-                  height={image.horizontal ? 1200 : 1800}
+                  width={image.horizontal ? 900 : 600}
+                  height={image.horizontal ? 600 : 900}
                 />
               </div>
             ))}
@@ -83,8 +79,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             snapCount={snapCount}
           />
         </div>
-      </motion.section>
-    </AnimatePresence>
+      </section>
+
   );
 };
 

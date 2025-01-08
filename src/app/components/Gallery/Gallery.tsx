@@ -1,16 +1,16 @@
-"use client";
-
 import React from "react";
 import type { Gallery } from "@/lib/data";
 import Image from "next/image";
 import styles from "./Gallery.module.css";
-import { AnimatePresence, motion } from "framer-motion";
+import { MotionDiv } from "../MotionDiv/MotionDiv";
+import PageContainer from "../PageContainer/PageContainer";
+
 
 export default function Gallery({ gallery }: { gallery: Gallery }) {
   return (
-    <div className={styles.container}>
-      <motion.div
-        className={styles.header}
+    <PageContainer>
+      <MotionDiv
+        className={styles.description}
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -5 }}
@@ -19,23 +19,23 @@ export default function Gallery({ gallery }: { gallery: Gallery }) {
         <h1>{gallery.name}</h1>
         <h2>{gallery.venue}</h2>
         <h2>{gallery.location}</h2>
-      </motion.div>
+      </MotionDiv>
       <div className={styles.images_wrapper}>
         {Array.from({ length: gallery.count }, (_, i) => i + 1).map((item) => (
-          <motion.div
+          <MotionDiv
             key={item}
             className={styles.image_container}
             variants={{
               offscreen: {
                 opacity: 0,
-                y: 50,
+                y: 10,
               },
               onscreen: {
                 opacity: 1,
                 y: 0,
 
                 transition: {
-                  duration: 1,
+                  duration: 0.5,
                 },
               },
             }}
@@ -54,9 +54,9 @@ export default function Gallery({ gallery }: { gallery: Gallery }) {
               src={`/${gallery.type}/${gallery.id}/${item}.jpg`}
               alt={`${gallery.name} image-${item}`}
             />
-          </motion.div>
+          </MotionDiv>
         ))}
       </div>
-    </div>
+    </PageContainer>
   );
 }

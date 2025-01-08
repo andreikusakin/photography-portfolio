@@ -1,7 +1,4 @@
-.container { 
-    padding: 2em;
-    font-size: max(1.2em, min(1.7227513228vw, 4.0366598778svh)); 
-}
+
 .description {
     padding-top: 1em;
     padding-bottom: 2em;
@@ -11,23 +8,44 @@
    
 }
 
-.wedding {
-    display: grid;
-    gap: 1em;
+.section {
+    display: flex;
+    gap: 2em;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    padding-top: 1em;
+    padding-bottom: 4em;
+    margin-top: 1em
 }
 
-.wedding ul {
+.section a {
     text-decoration: underline;
+}
+
+
+.section ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
     line-height: 1.2;
 }
 
-.wedding h4 {
+.section h4 {
     line-height: 2;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 65%;
+}
+
+
 .imageContainer {
-    min-width: 10em;
-    width: 100%;
+    position: relative;
+    width: 35%;
+    height: auto;
+   
 }
 
 .imageContainer img {
@@ -40,13 +58,27 @@
 
 
 
+
 @media (max-width: 768px) {
     .description {
         flex-direction: column;
         gap: 1em;
     }
+
+    .imageContainer {
+  
+        width: 100%;
+    }
     .imageContainer img {
         aspect-ratio: 1/1;
+    }
+
+    .section {
+        flex-direction: column;
+    }
+
+    .column {
+        width: 100%;
     }
 }
 

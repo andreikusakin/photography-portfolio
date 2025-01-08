@@ -14,15 +14,16 @@ export default function GalleryList({ gallery }: { gallery: Gallery[] }) {
           key={gallery.id}
         >
           <div className={styles.image}>
-            <img
+            <Image
               src={`/${gallery.type}/${gallery.id}/${gallery.cover}.jpg`}
               alt={gallery.name}
               className={styles.coverImage}
+              width={600}
+              height={900}
             />
           </div>
           <div className={styles.description}>
             <span>{gallery.name}</span>
-
             <span>{gallery.venue}</span>
             <span>{gallery.location}</span>
           </div>
