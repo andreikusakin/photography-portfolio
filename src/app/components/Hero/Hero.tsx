@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
-import { s } from "motion/react-client";
+
 
 interface ImageProps {
     src: string;
@@ -14,7 +14,22 @@ interface ImageProps {
   
   interface ColumnProps {
     images: ImageProps[];
-    animation: any;
+    animation: {
+      hidden: {
+        opacity: number;
+        y?: number;
+      };
+      show: {
+        opacity: number;
+        y?: number;
+        transition: {
+          delayChildren?: number;
+          staggerChildren?: number;
+          delay?: number;
+          duration?: number;
+        };
+      };
+    };
   }
 
 const colOneImages: ImageProps[] = [

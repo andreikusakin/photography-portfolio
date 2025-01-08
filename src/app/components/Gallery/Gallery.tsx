@@ -1,6 +1,5 @@
 import React from "react";
 import type { Gallery } from "@/lib/data";
-import Image from "next/image";
 import styles from "./Gallery.module.css";
 import { MotionDiv } from "../MotionDiv/MotionDiv";
 import PageContainer from "../PageContainer/PageContainer";

@@ -6,7 +6,6 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import PageContainer from "../components/PageContainer/PageContainer";
 import Link from "next/link";
-import { MotionDiv } from "../components/MotionDiv/MotionDiv";
 import { WEDDING_COST } from "@/lib/data";
 
 const containerVariants = {

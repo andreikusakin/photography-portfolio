@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Sidebar.module.css";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";

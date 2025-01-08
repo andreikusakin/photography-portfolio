@@ -20,7 +20,7 @@ type PropType = {
 useEmblaCarousel.globalOptions = { loop: true };
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
+  const { slides } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "center" });
 
   const {
@@ -51,7 +51,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               >
                 <Image
                   src={image.src}
-                  alt={`Wedding Highlight ${index + 1}`}
+                  alt={`Highlight ${index + 1}`}
                   className="embla__slide__img"
                   quality={100}
                   width={image.horizontal ? 900 : 600}

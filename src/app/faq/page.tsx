@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import PageContainer from "../components/PageContainer/PageContainer";
 import { WEDDING_COST } from "@/lib/data";
 import Image from "next/image";

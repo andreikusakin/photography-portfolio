@@ -160,7 +160,7 @@ export const portraitHighlights: Highlight[] = [
   },
 ];
 
-export const portraits: Gallery[] = [
+export const couples: Gallery[] = [
   {
     id: "alinabrandon",
     type: "couples",

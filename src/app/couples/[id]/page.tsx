@@ -1,11 +1,18 @@
 import React from "react";
-import { portraits } from "@/lib/data";
-import Image from "next/image";
+import { couples } from "@/lib/data";
 import Gallery from "@/app/components/Gallery/Gallery";
 
-export default function PortraitPage({ params }: { params: { id: string } }) {
-  const portrait = portraits.find((wedding) => wedding.id === params.id);
+type Params = Promise<{ id: string }>;
+
+export default async function CouplePage(props: {
+  params: Params
+}) {
+  const params = await props.params;
+  const couple = couples.find((wedding) => wedding.id === params.id);
+  if (!couple) {
+    return <div>Images not found</div>;
+  }
   return <div>
-    <Gallery gallery={portrait}/>
+    <Gallery gallery={couple}/>
   </div>;
 }
