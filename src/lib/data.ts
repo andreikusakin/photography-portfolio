@@ -145,19 +145,21 @@ export const weddings: Gallery[] = [
   },
 ];
 
-export const portraitHighlights: Highlight[] = [
+export const couplesHighlights: Highlight[] = [
   {
-    src: "/wedding/highlights/1.jpg",
-    horizontal: false,
-  },
-  {
-    src: "/wedding/highlights/2.jpg",
-    horizontal: false,
-  },
-  {
-    src: "/wedding/highlights/3.jpg",
+    src: "/couples/alinabrandon/20.jpg",
     horizontal: true,
   },
+  {
+    src: "/couples/alinabrandon/23.jpg",
+    horizontal: false,
+  },
+  {
+    src: "/couples/alinabrandon/30.jpg",
+    horizontal: true,
+  },
+  { src: "/couples/roxanakonstantin/8.jpg", horizontal: false },
+  { src: "/couples/roxanakonstantin/18.jpg", horizontal: true },
 ];
 
 export const couples: Gallery[] = [
