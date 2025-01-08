@@ -3,7 +3,7 @@ import type { Gallery } from "@/lib/data";
 import styles from "./Gallery.module.css";
 import { MotionDiv } from "../MotionDiv/MotionDiv";
 import PageContainer from "../PageContainer/PageContainer";
-
+import Image from "next/image";
 
 export default function Gallery({ gallery }: { gallery: Gallery }) {
   return (
@@ -19,7 +19,11 @@ export default function Gallery({ gallery }: { gallery: Gallery }) {
         <h2>{gallery.venue}</h2>
         <h2>{gallery.location}</h2>
       </MotionDiv>
-      <div className={styles.images_wrapper}>
+      <MotionDiv className={styles.images_wrapper}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
+      >
         {Array.from({ length: gallery.count }, (_, i) => i + 1).map((item) => (
           <MotionDiv
             key={item}
@@ -42,20 +46,16 @@ export default function Gallery({ gallery }: { gallery: Gallery }) {
             whileInView="onscreen"
             viewport={{ once: true }}
           >
-            {/* <Image
-              src={`/${gallery.type}/${gallery.id}/${item}.jpg`}
-              objectFit="contain"
-              alt={`${gallery.name} image-${item}`}
-              fill
-              quality={95}
-            /> */}
-            <img
+            <Image
               src={`/${gallery.type}/${gallery.id}/${item}.jpg`}
               alt={`${gallery.name} image-${item}`}
+              quality={90}
+              width={1500}
+              height={1500}
             />
           </MotionDiv>
         ))}
-      </div>
+      </MotionDiv>
     </PageContainer>
   );
 }
