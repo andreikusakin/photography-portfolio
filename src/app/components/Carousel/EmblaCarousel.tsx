@@ -56,6 +56,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   quality={90}
                   width={image.horizontal ? 900 : 600}
                   height={image.horizontal ? 600 : 900}
+                  priority
                 />
               </div>
             ))}

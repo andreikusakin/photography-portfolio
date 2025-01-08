@@ -14,7 +14,7 @@
   --color-white: var(--color-neutral-100);
   --color-black: var(--color-neutral-900);
   --color-error: var(--color-primary);
-  --color-success: #0ba954; 
+  --color-success: #0ba954;
   --color-background: #dfded2;
   --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
   --duration-default: 0.735s;
@@ -26,16 +26,18 @@
   --footer-height: calc(2.785em + (var(--gap) * 2));
 }
 
-
-
-
-
 /* ------------------------- Hide Scrollbar -------------------------------------------------- */
 
 body ::-webkit-scrollbar,
-body::-webkit-scrollbar {display: none;} /* Chrome, Safari, Opera */
-body {-ms-overflow-style: none;} /* IE & Edge */
-html {scrollbar-width: none;} /* Firefox */
+body::-webkit-scrollbar {
+  display: none;
+} /* Chrome, Safari, Opera */
+body {
+  -ms-overflow-style: none;
+} /* IE & Edge */
+html {
+  scrollbar-width: none;
+} /* Firefox */
 
 /* ------------------------- Reset -------------------------------------------------- */
 *,
@@ -56,8 +58,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--color-background);
-  
-  
 }
 
 svg {
@@ -66,7 +66,12 @@ svg {
   box-sizing: border-box;
   vertical-align: middle;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
   line-height: 0.8;
@@ -94,16 +99,16 @@ ul {
   margin: 0;
 }
 
-
 button {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 body {
   color: #171717;
-  font-family: 'PP Neue Montreal', Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-family: "PP Neue Montreal", Arial, Helvetica Neue, Helvetica, sans-serif;
   /* font-size: max(18px, min(1.3227513228vw, 2.0366598778svh)); */
   line-height: 1;
   font-weight: 500;
@@ -117,32 +122,33 @@ strong {
   font-weight: 600;
 }
 
-
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('https://cdn.prod.website-files.com/6756bf75aa4ecba10df0a4e9/6756bf75aa4ecba10df0a546_PPNeueMontreal-Regular.woff2') format('woff2');
+  font-family: "PP Neue Montreal";
+  src: url("https://cdn.prod.website-files.com/6756bf75aa4ecba10df0a4e9/6756bf75aa4ecba10df0a546_PPNeueMontreal-Regular.woff2")
+    format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('https://cdn.prod.website-files.com/6756bf75aa4ecba10df0a4e9/6756bf75aa4ecba10df0a54e_PPNeueMontreal-Medium.woff2') format('woff2');
+  font-family: "PP Neue Montreal";
+  src: url("https://cdn.prod.website-files.com/6756bf75aa4ecba10df0a4e9/6756bf75aa4ecba10df0a54e_PPNeueMontreal-Medium.woff2")
+    format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('https://cdn.prod.website-files.com/6756bf75aa4ecba10df0a4e9/6756bf75aa4ecba10df0a543_PPNeueMontreal-SemiBold.woff2') format('woff2');
+  font-family: "PP Neue Montreal";
+  src: url("https://cdn.prod.website-files.com/6756bf75aa4ecba10df0a4e9/6756bf75aa4ecba10df0a543_PPNeueMontreal-SemiBold.woff2")
+    format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 body {
   display: flex;
@@ -157,7 +163,6 @@ body {
 .swiper {
   height: 10%;
 }
-
 
 .swiper-slide {
   display: grid;

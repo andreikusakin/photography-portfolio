@@ -10,6 +10,7 @@ interface ImageProps {
     src: string;
     width: number;
     height: number;
+    priority?: boolean;
   }
   
   interface ColumnProps {
@@ -33,8 +34,8 @@ interface ImageProps {
   }
 
 const colOneImages: ImageProps[] = [
-  { src: "/wedding/veronicajoseph/17.jpg", width: 800, height: 1200 },
-  { src: "/wedding/valeriejoseph/17.jpg", width: 800, height: 1200 },
+  { src: "/wedding/veronicajoseph/17.jpg", width: 800, height: 1200, priority: true },
+  { src: "/wedding/valeriejoseph/17.jpg", width: 800, height: 1200, priority: true },
   { src: "/wedding/marissamichael/9.jpg", width: 1200, height: 800 },
   { src: "/wedding/marissamichael/10.jpg", width: 800, height: 1200 },
   { src: "/couples/alinabrandon/23.jpg", width: 800, height: 1200 },
@@ -44,8 +45,8 @@ const colOneImages: ImageProps[] = [
 ];
 
 const colTwoImages: ImageProps[] = [
-  { src: "/couples/alinabrandon/20.jpg", width: 1200, height: 800 },
-  { src: "/wedding/christiadam/22.jpg", width: 800, height: 1200 },
+  { src: "/couples/alinabrandon/20.jpg", width: 1200, height: 800, priority: true },
+  { src: "/wedding/christiadam/22.jpg", width: 800, height: 1200, priority: true },
   { src: "/wedding/veronicajoseph/24.jpg", width: 1200, height: 800 },
   { src: "/couples/roxanakonstantin/8.jpg", width: 800, height: 1200 },
   { src: "/wedding/veronicajoseph/15.jpg", width: 1200, height: 800 },
@@ -127,6 +128,7 @@ function Column({ images, animation }: ColumnProps) {
             width={image.width}
             height={image.height}
             quality={90}
+            priority={image.priority}
           />
         </motion.div>
       ))}
