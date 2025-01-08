@@ -53,7 +53,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   src={image.src}
                   alt={`Highlight ${index + 1}`}
                   className="embla__slide__img"
-                  quality={100}
+                  quality={90}
                   width={image.horizontal ? 900 : 600}
                   height={image.horizontal ? 600 : 900}
                 />
