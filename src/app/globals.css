@@ -75,6 +75,7 @@ h6 {
   margin: 0;
   padding: 0;
   line-height: 0.8;
+  font-weight: 600;
 }
 
 h1 {
@@ -87,6 +88,8 @@ h2 {
 
 h3 {
   font-size: 1.2em;
+  font-weight: 600;
+ 
 }
 
 a {
@@ -125,12 +128,13 @@ strong {
 
 
 
-body {
+main {
   display: flex;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
-  body {
+  main {
     flex-direction: column;
   }
 }
