@@ -108,10 +108,11 @@ button {
 
 body {
   color: #171717;
-  font-family: "PP Neue Montreal", Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-family: "neue-haas-grotesk-display", Arial, Helvetica Neue, Helvetica, sans-serif;
   /* font-size: max(18px, min(1.3227513228vw, 2.0366598778svh)); */
   line-height: 1;
   font-weight: 500;
+  
 }
 a {
   color: inherit;
@@ -122,33 +123,7 @@ strong {
   font-weight: 600;
 }
 
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: url("https://cdn.prod.website-files.com/6756bf75aa4ecba10df0a4e9/6756bf75aa4ecba10df0a546_PPNeueMontreal-Regular.woff2")
-    format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: url("https://cdn.prod.website-files.com/6756bf75aa4ecba10df0a4e9/6756bf75aa4ecba10df0a54e_PPNeueMontreal-Medium.woff2")
-    format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "PP Neue Montreal";
-  src: url("https://cdn.prod.website-files.com/6756bf75aa4ecba10df0a4e9/6756bf75aa4ecba10df0a543_PPNeueMontreal-SemiBold.woff2")
-    format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 body {
   display: flex;

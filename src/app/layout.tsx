@@ -4,7 +4,8 @@ import Sidebar from "./components/Sidebar/Sidebar";
 
 export const metadata: Metadata = {
   title: "Andrew Kusakin Photography - New England & Destination Photographer",
-  description: "Andrew Kusakin is a Boston-based photographer specializing in weddings, portraits, and events. Capturing authentic, timeless moments across New England and beyond.",
+  description:
+    "Andrew Kusakin is a Boston-based photographer specializing in weddings, portraits, and events. Capturing authentic, timeless moments across New England and beyond.",
   keywords: [
     "Andrew Kusakin Photography",
     "Boston Photographer",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     url: "https://www.kusakinphoto.com",
     images: [
       {
-        url: "https://www.kusakinphoto.com/card-image.jpg", 
+        url: "https://www.kusakinphoto.com/card-image.jpg",
         width: 1000,
         height: 1000,
         alt: "Andrew Kusakin Photography - Capturing Authentic Moments",
@@ -40,9 +41,8 @@ export const metadata: Metadata = {
     title: "Andrew Kusakin Photography",
     description:
       "Boston-based photographer specializing in weddings, portraits, and events. Available for travel across New England and beyond.",
-    images: ["https://www.kusakinphoto.com/twitter-card-image.jpg"], 
+    images: ["https://www.kusakinphoto.com/twitter-card-image.jpg"],
   },
-
 };
 
 export default function RootLayout({
@@ -52,12 +52,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/ygj5rom.css" />
+      </head>
       <body>
-        
-          <Sidebar />
+        <Sidebar />
 
-          {children}
-        
+        {children}
       </body>
     </html>
   );
