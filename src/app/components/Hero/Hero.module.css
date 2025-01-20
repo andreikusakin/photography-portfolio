@@ -1,9 +1,18 @@
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.2em;
+  padding-top: 2em;
+  padding-right: 2em;
+  width: 100%;
+  padding-bottom: 2em;
 }
 
+.image_grid {
+  columns: 4;
+  gap: 0.5em;
+}
+.image_grid > * {
+  margin-bottom: 0.5em;
+  break-inside: avoid;
+}
 .column {
   display: flex;
   flex-direction: column;
@@ -11,17 +20,38 @@
 }
 
 .imageContainer {
-  position: relative;
-  width: 100%;
 }
 
 .column img {
-  width: 100%;
-  height: auto;
+}
+
+@media screen and (max-width: 1440px) {
+  .image_grid {
+    columns: 3;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .image_grid {
+    columns: 2;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .container {
     padding-top: 4em;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .image_grid {
+    columns: 1;
+  }
+
+  .container {
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }

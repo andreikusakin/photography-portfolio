@@ -1,137 +1,81 @@
-"use client";
-
-import { motion } from "motion/react";
 import React from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
-
+import { MotionDiv } from "../MotionDiv/MotionDiv";
 
 interface ImageProps {
-    src: string;
-    width: number;
-    height: number;
-    priority?: boolean;
-  }
-  
-  interface ColumnProps {
-    images: ImageProps[];
-    animation: {
-      hidden: {
-        opacity: number;
-        y?: number;
-      };
-      show: {
-        opacity: number;
-        y?: number;
-        transition: {
-          delayChildren?: number;
-          staggerChildren?: number;
-          delay?: number;
-          duration?: number;
-        };
-      };
-    };
-  }
-
-const colOneImages: ImageProps[] = [
-  { src: "/wedding/veronicajoseph/17.jpg", width: 800, height: 1200, priority: true },
-  { src: "/wedding/valeriejoseph/17.jpg", width: 800, height: 1200, priority: true },
-  { src: "/wedding/marissamichael/9.jpg", width: 1200, height: 800 },
-  { src: "/wedding/marissamichael/10.jpg", width: 800, height: 1200 },
-  { src: "/couples/alinabrandon/23.jpg", width: 800, height: 1200 },
-  { src: "/wedding/christiadam/19.jpg", width: 1200, height: 800 },
-  { src: "/wedding/christiadam/46.jpg", width: 800, height: 1200 },
-  { src: "/couples/roxanakonstantin/13.jpg", width: 1200, height: 800 },
-];
-
-const colTwoImages: ImageProps[] = [
-  { src: "/couples/alinabrandon/20.jpg", width: 1200, height: 800, priority: true },
-  { src: "/wedding/christiadam/22.jpg", width: 800, height: 1200, priority: true },
-  { src: "/wedding/veronicajoseph/24.jpg", width: 1200, height: 800 },
-  { src: "/couples/roxanakonstantin/8.jpg", width: 800, height: 1200 },
-  { src: "/wedding/veronicajoseph/15.jpg", width: 1200, height: 800 },
-  { src: "/couples/roxanakonstantin/18.jpg", width: 1200, height: 800 },
-  { src: "/wedding/jessicageorge/18.jpg", width: 800, height: 1200 },
-  { src: "/wedding/christiadam/33.jpg", width: 1200, height: 800 },
-  { src: "/couples/alinabrandon/16.jpg", width: 800, height: 1200 },
-];
-
-const colOneVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.05,
-    },
-  },
-};
-const colTwoVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    show: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.05,
-        delay: 0.5,
-      },
-    },
-  };
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: -10,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 },
-  },
-};
-
-
-
-export default function Hero() {
-  return (
-    <div>
-      <div className={styles.container}>
-        <Column images={colOneImages} animation={colOneVariants} />
-        <Column images={colTwoImages} animation={colTwoVariants} />
-      </div>
-    </div>
-  );
+  src: string;
+  width: number;
+  height: number;
+  priority?: boolean;
 }
 
 
-
-function Column({ images, animation }: ColumnProps) {
+const gridImages: ImageProps[] = [
+  {
+    src: "/wedding/veronicajoseph/17.jpg",
+    width: 600,
+    height: 900,
+    priority: true,
+  },
+  
+  {
+    src: "/wedding/valeriejoseph/17.jpg",
+    width: 600,
+    height: 900,
+    priority: true,
+  },
+  { src: "/wedding/marissamichael/9.jpg", width: 900, height: 600 },
+  { src: "/wedding/marissamichael/10.jpg", width: 600, height: 900 },
+  { src: "/couples/alinabrandon/23.jpg", width: 600, height: 900 },
+  { src: "/wedding/christiadam/19.jpg", width: 900, height: 600 },
+  { src: "/wedding/christiadam/46.jpg", width: 600, height: 900 },
+  { src: "/couples/roxanakonstantin/13.jpg", width: 900, height: 600 },
+  {
+    src: "/couples/alinabrandon/20.jpg",
+    width: 900,
+    height: 600,
+    priority: true,
+  },
+  {
+    src: "/wedding/christiadam/22.jpg",
+    width: 600,
+    height: 900,
+    priority: true,
+  },
+  { src: "/wedding/veronicajoseph/24.jpg", width: 900, height: 600 },
+  { src: "/couples/roxanakonstantin/8.jpg", width: 600, height: 900 },
+  { src: "/wedding/veronicajoseph/15.jpg", width: 900, height: 600 },
+  { src: "/couples/roxanakonstantin/18.jpg", width: 900, height: 600 },
+  { src: "/wedding/jessicageorge/18.jpg", width: 600, height: 900 },
+  { src: "/wedding/christiadam/33.jpg", width: 900, height: 600 },
+  { src: "/couples/alinabrandon/16.jpg", width: 600, height: 900 },
+];
+export default function Hero() {
   return (
-    <motion.div
-      className={styles.column}
-      variants={animation}
-      initial="hidden"
-      animate="show"
+    <MotionDiv className={styles.container}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
     >
-      {images.map((image, index) => (
-        <motion.div
-          key={index}
-          className={styles.imageContainer}
-          variants={itemVariants}
-        >
-          <Image
-            src={image.src}
-            alt="wedding"
-            width={image.width}
-            height={image.height}
-            quality={90}
-            priority={image.priority}
-          />
-        </motion.div>
-      ))}
-    </motion.div>
+      <div className={styles.image_grid}>
+        {gridImages.map((image, index) => (
+          <div
+            key={index}
+            className={styles.imageContainer}
+            
+          >
+            <Image
+              src={image.src}
+              alt="wedding"
+              width={image.width}
+              height={image.height}
+              quality={65}
+              layout="responsive"
+            />
+          </div>
+        ))}
+      </div>
+    </MotionDiv>
   );
 }
