@@ -56,9 +56,10 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/ygj5rom.css" />
       </head>
       <body>
-        <Sidebar />
-
-        {children}
+        <main>
+          <Sidebar />
+          {children}
+        </main>
       </body>
     </html>
   );
