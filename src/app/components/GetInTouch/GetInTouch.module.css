@@ -1,20 +1,22 @@
 .contact {
-    font-size: max(1.2em, min(1.7227513228vw, 4.0366598778svh)); 
-    text-transform: uppercase;
-    padding-top: 1em;
-    padding-bottom: 2em;
+  font-size: max(1.2em, min(1.7227513228vw, 4.0366598778svh));
+  text-transform: uppercase;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
-.contact a {
-    text-decoration: underline;
+
+.contactForm_link {
+  text-decoration: none;
 }
 
 .socials {
-    display: flex;
-    flex-direction: column;
     padding-top: 1em;
+  display: flex;
+  flex-direction: column;
 }
 
-.contactItem a {
-    text-decoration: underline;
+.contactItem {
+    display: flex;
+    padding-bottom: 1em;
 }
