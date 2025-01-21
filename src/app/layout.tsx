@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 
@@ -61,6 +62,7 @@ export default function RootLayout({
           {children}
         </main>
       </body>
+      <GoogleAnalytics gaId="G-90SBL0XP3V" />
     </html>
   );
 }
