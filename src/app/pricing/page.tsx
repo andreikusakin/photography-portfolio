@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import PageContainer from "../components/PageContainer/PageContainer";
 import Link from "next/link";
-import { HOUR_RATE, WEDDING_COST } from "@/lib/data";
+import { ALL_INCLUSIVE_WEDDING_PACKAGE_PRICE, HOUR_RATE, STARTER_WEDDING_PACKAGE_PRICE,  } from "@/lib/data";
 
 const containerVariants = {
   hidden: {
@@ -78,7 +78,7 @@ export default function page() {
                     and download your high-resolution photos.
                   </li>
                 </ul>
-                <h4>Starting at $2000</h4>
+                <h4>Starting at ${STARTER_WEDDING_PACKAGE_PRICE}</h4>
                 <div>
                   Ideal for intimate and medium-sized celebrations. Let’s
                   discuss your wedding day vision and customize this package to
@@ -151,7 +151,7 @@ export default function page() {
                     album to preserve your memories.
                   </li>
                 </ul>
-                <h4>${WEDDING_COST}</h4>
+                <h4>${ALL_INCLUSIVE_WEDDING_PACKAGE_PRICE}</h4>
                 <div>
                   I believe in capturing every moment of your wedding without
                   compromise, which is why my package covers you from start to

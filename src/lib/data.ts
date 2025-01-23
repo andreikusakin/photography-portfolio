@@ -13,7 +13,9 @@ export type Highlight = {
   horizontal: boolean;
 };
 
-export const WEDDING_COST = 4000;
+export const ALL_INCLUSIVE_WEDDING_PACKAGE_PRICE = 4000;
+
+export const STARTER_WEDDING_PACKAGE_PRICE = 2500;
 
 export const HOUR_RATE = 350;
 

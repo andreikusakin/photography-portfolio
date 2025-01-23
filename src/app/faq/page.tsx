@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import PageContainer from "../components/PageContainer/PageContainer";
-import { HOUR_RATE, WEDDING_COST } from "@/lib/data";
+import { ALL_INCLUSIVE_WEDDING_PACKAGE_PRICE, HOUR_RATE, STARTER_WEDDING_PACKAGE_PRICE } from "@/lib/data";
 import Image from "next/image";
 
 const faqData = [
@@ -23,10 +23,10 @@ const faqData = [
     question: "What is your pricing?",
     answer: (
       <>
-        I offer a Starter Wedding Package starting at $2,000, which includes 6+
+        I offer a Starter Wedding Package starting at ${STARTER_WEDDING_PACKAGE_PRICE}, which includes 6+
         hours of coverage, a second photographer, an engagement session, and an
         online gallery. For comprehensive coverage, my All-Inclusive Wedding
-        Package is available for ${WEDDING_COST}, with no hourly limits and
+        Package is available for ${ALL_INCLUSIVE_WEDDING_PACKAGE_PRICE}, with no hourly limits and
         added features. For other types of sessions—such as portraits,
         engagements, or events—rates begin at ${HOUR_RATE} per hour. To learn
         more about what’s included or to discuss your specific needs, please
