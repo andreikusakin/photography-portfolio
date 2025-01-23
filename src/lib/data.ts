@@ -15,6 +15,8 @@ export type Highlight = {
 
 export const WEDDING_COST = 4000;
 
+export const HOUR_RATE = 350;
+
 export const weddingHighlights: Highlight[] = [
   {
     src: "/wedding/veronicajoseph/17.jpg",

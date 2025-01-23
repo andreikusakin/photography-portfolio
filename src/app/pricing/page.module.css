@@ -1,90 +1,87 @@
-
 .description {
-    padding-top: 1em;
-    padding-bottom: 2em;
-    display: flex;
-    gap: 2em;
-    width: 100%;
-   
+  padding-top: 1em;
+  padding-bottom: 2em;
+  display: flex;
+  gap: 2em;
+  width: 100%;
+}
+
+.weddingPackages {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  padding-top: 1em;
+  /* padding-bottom: 2em; */
+}
+
+.package {
+  width: 50%;
+  max-width: 15em;
 }
 
 .section {
-    display: flex;
-    gap: 2em;
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
-    padding-top: 1em;
-    padding-bottom: 4em;
-    margin-top: 1em
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  padding-top: 1em;
+  padding-bottom: 4em;
+  margin-top: 0.5em;
 }
 
 .section a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-
 .section ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  line-height: 1.2;
 }
 
 .section h4 {
-    line-height: 2;
+  line-height: 2;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
-
 .imageContainer {
-    position: relative;
-    width: 35%;
-    height: auto;
-   
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 
 .imageContainer img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-
-
-
+.contactItem {
+  display: flex;
+  margin-top: 2em;
+  text-transform: uppercase;
+}
 
 @media (max-width: 768px) {
-    .description {
-        flex-direction: column;
-        gap: 1em;
-    }
-
-    .imageContainer {
-  
-        width: 100%;
-    }
-    .imageContainer img {
-        aspect-ratio: 1/1;
-    }
-
-    .section {
-        flex-direction: column;
-    }
-
-    .column {
-        width: 100%;
-    }
+  .weddingPackages {
+    flex-direction: column;
+    gap: 2em;
+  }
+  .package {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 430px) {
-    .container {
-        padding-left: 1em;
-        padding-right: 1em;
-    }
+  .container {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }

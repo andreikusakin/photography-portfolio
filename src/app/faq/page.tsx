@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import PageContainer from "../components/PageContainer/PageContainer";
-import { WEDDING_COST } from "@/lib/data";
+import { HOUR_RATE, WEDDING_COST } from "@/lib/data";
 import Image from "next/image";
 
 const faqData = [
@@ -23,12 +23,14 @@ const faqData = [
     question: "What is your pricing?",
     answer: (
       <>
-        I offer one all-inclusive wedding package for ${WEDDING_COST}, which
-        covers full-day photography and provides a curated selection of edited
-        images. For other types of sessions—such as portraits, engagements, or
-        events—rates begin at $350 per hour. To learn more about what’s included
-        or to discuss your specific needs, please visit my{" "}
-        <Link href="/pricing">pricing page</Link> or{" "}
+        I offer a Starter Wedding Package starting at $2,000, which includes 6+
+        hours of coverage, a second photographer, an engagement session, and an
+        online gallery. For comprehensive coverage, my All-Inclusive Wedding
+        Package is available for ${WEDDING_COST}, with no hourly limits and
+        added features. For other types of sessions—such as portraits,
+        engagements, or events—rates begin at ${HOUR_RATE} per hour. To learn
+        more about what’s included or to discuss your specific needs, please
+        visit my <Link href="/pricing">pricing page</Link> or{" "}
         <a href="mailto:kusakinphoto@gmail.com">contact</a> me directly.
       </>
     ),
@@ -94,13 +96,20 @@ export default function page() {
       >
         Frequently Asked Questions
       </motion.h1>
-      <motion.div className={styles.imageContainer}
-         initial={{ opacity: 0, y: 5 }}
-         animate={{ opacity: 1, y: 0 }}
-         exit={{ opacity: 0, y: -5 }}
-         transition={{ duration: 0.5, ease: "easeInOut" }}
+      <motion.div
+        className={styles.imageContainer}
+        initial={{ opacity: 0, y: 5 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -5 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
       >
-        <Image src="/wedding/valeriejoseph/18.jpg" alt='faq image' width={1000} height={1500}quality={95}/>
+        <Image
+          src="/wedding/valeriejoseph/18.jpg"
+          alt="faq image"
+          width={1000}
+          height={1500}
+          quality={95}
+        />
       </motion.div>
       <motion.ul
         className={styles.faqList}
@@ -117,7 +126,6 @@ export default function page() {
           />
         ))}
       </motion.ul>
-      
     </PageContainer>
   );
 }
