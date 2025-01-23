@@ -28,7 +28,7 @@ export default function About() {
             alt="andrew kusakin photo"
             height={900}
             width={600}
-            quality={90}
+            quality={85}
           />
         </div>
         <div className={styles.text}>
