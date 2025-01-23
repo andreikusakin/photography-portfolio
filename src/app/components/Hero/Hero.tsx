@@ -321,7 +321,8 @@ const gridImages: ImageProps[] = [
 ];
 export default function Hero() {
   return (
-    <MotionDiv className={styles.container}
+    <MotionDiv 
+      className={styles.container}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
@@ -329,17 +330,17 @@ export default function Hero() {
       <div className={styles.image_grid}>
         {gridImages.map((image, index) => (
           <div
-            key={index}
+            key={image.src}
             className={styles.imageContainer}
-            
           >
             <Image
               src={image.src}
-              alt="wedding"
+              alt="Wedding photography"
               width={image.width}
               height={image.height}
-              quality={65}
-              layout="responsive"
+              quality={80}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,data:image/png;base64,z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
             />
           </div>
         ))}

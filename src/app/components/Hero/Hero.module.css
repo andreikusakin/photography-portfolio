@@ -6,48 +6,37 @@
 }
 
 .image_grid {
-  columns: 4;
-  gap: 0.5em;
-}
-.image_grid > * {
-  margin-bottom: 0.5em;
-  break-inside: avoid;
-}
-.column {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  column-count: 4;
+  column-gap: 1em;
 }
 
 .imageContainer {
+  margin-bottom: 1em;
+  break-inside: avoid;
+  display: block;
 }
 
-.column img {
+.imageContainer img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 1440px) {
   .image_grid {
-    columns: 3;
+    column-count: 3;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .image_grid {
-    columns: 2;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    padding-top: 4em;
-    padding-left: 2em;
-    padding-right: 2em;
+    column-count: 2;
   }
 }
 
 @media screen and (max-width: 430px) {
   .image_grid {
-    columns: 1;
+    column-count: 1;
   }
 
   .container {
