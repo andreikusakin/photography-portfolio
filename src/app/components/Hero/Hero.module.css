@@ -1,46 +1,140 @@
-.container {
-  padding-top: 2em;
-  padding-right: 2em;
+.hero_image {
   width: 100%;
-  padding-bottom: 2em;
+  height: 100%;
+  object-fit: cover;
 }
 
-.image_grid {
-  column-count: 4;
-  column-gap: 1em;
+.heroContainer {
+  position: relative;
+  overflow: hidden;
+  margin: 0 2em;
+  border-radius: 2em;
+  height: calc(100vh - var(--header-height) - 2em);
+  max-height: 75em;
+  background-color: #000;
 }
 
-.imageContainer {
-  margin-bottom: 1em;
-  break-inside: avoid;
-  display: block;
+.heroImage {
+  position: absolute;
+  inset: 0;
 }
 
-.imageContainer img {
-  display: block;
-  width: 100%;
-  height: auto;
+.coupleName {
+  position: absolute;
+  bottom: 2em;
+  left: 2em;
+  color: #fff;
+  font-size: 1.2em;
+  z-index: 2;
 }
 
-@media screen and (max-width: 1440px) {
-  .image_grid {
-    column-count: 3;
+.scroll {
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1em;
+  z-index: 2;
+  font-weight: 400;
+  border: 1px solid #ffffff99;
+  border-radius: 20em;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  width: 2em;
+  gap: 0.5em;
+}
+
+.hero_text :nth-child(1) {
+  position: absolute;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  top: 0.5em;
+  left: 0.5em;
+  font-size: 8em;
+  letter-spacing: -0.05em;
+}
+
+.hero_text :nth-child(2) {
+  position: absolute;
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.05em;
+  font-size: 8em;
+  top: 1.25em;
+  left: 1.15em;
+}
+
+.hero_text :nth-child(3) {
+  position: absolute;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  bottom: 1.25em;
+  right: 1.85em;
+  font-size: 8em;
+  letter-spacing: -0.05em;
+}
+
+.hero_text :nth-child(4) {
+  position: absolute;
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.05em;
+  font-size: 8em;
+  bottom: 0.5em;
+  right: 0.65em;
+}
+
+@media screen and (max-width: 991px) {
+  .hero_text :nth-child(1) {
+    font-size: 6em;
+  }
+
+  .hero_text :nth-child(2) {
+    font-size: 6em;
+  }
+
+  .hero_text :nth-child(3) {
+    font-size: 6em;
+  }
+
+  .hero_text :nth-child(4) {
+    font-size: 6em;
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .image_grid {
-    column-count: 2;
-  }
-}
-
-@media screen and (max-width: 430px) {
-  .image_grid {
-    column-count: 1;
+@media screen and (max-width: 767px) {
+  .hero_text :nth-child(1) {
+    font-size: 4em;
   }
 
-  .container {
-    padding-left: 1em;
-    padding-right: 1em;
+  .hero_text :nth-child(2) {
+    font-size: 4em;
   }
+
+  .hero_text :nth-child(3) {
+    font-size: 4em;
+  }
+
+  .hero_text :nth-child(4) {
+    font-size: 4em;
+  }
+
+  .heroContainer {
+    margin: 0 1em;
+  }
+
+  .coupleName {
+    font-size: 1rem;
+  }
+
+  /* .scroll {
+    display: none;
+  } */
 }

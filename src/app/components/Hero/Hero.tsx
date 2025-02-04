@@ -1,350 +1,64 @@
-import React from "react";
+'use client';
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
-import { MotionDiv } from "../MotionDiv/MotionDiv";
+import { GoArrowDown } from "react-icons/go";
+import { motion, useScroll } from "motion/react"
 
-interface ImageProps {
-  src: string;
-  width: number;
-  height: number;
-  priority?: boolean;
-}
-
-
-const gridImages: ImageProps[] = [
-  {
-    src: "/wedding/veronicajoseph/17.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/christiadam/22.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/christiadam/23.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/christiadam/46.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/jessicageorge/1.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/jessicageorge/2.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/jessicageorge/7.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/jessicageorge/18.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/jessicageorge/19.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/marissamichael/6.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/marissamichael/9.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/marissamichael/10.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/marissamichael/26.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/marissamichael/27.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/orbreybrett/1.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/orbreybrett/4.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/orbreybrett/8.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/orbreybrett/11.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/orbreybrett/18.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/2.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/5.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/6.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/7.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/13.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/15.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/17.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/18.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/23.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/36.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/valeriejoseph/39.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/8.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/11.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/13.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/14.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/15.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/24.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/32.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/47.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/53.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/59.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/wedding/veronicajoseph/66.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/couples/alinabrandon/16.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/couples/alinabrandon/4.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/couples/alinabrandon/7.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/couples/alinabrandon/14.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/couples/alinabrandon/19.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
+const images = [
   {
     src: "/couples/alinabrandon/20.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
-  },
-  {
-    src: "/couples/alinabrandon/21.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
-  {
-    src: "/couples/alinabrandon/24.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
+    alt: "Alina and Brandon",
+    name: "Alina + Brandon",
   },
   {
     src: "/couples/alinabrandon/30.jpg",
-    width: 900,
-    height: 600,
-    priority: true,
+    alt: "Alina and Brandon",
+    name: "Alina + Brandon 2",
   },
-  {
-    src: "/couples/roxanakonstantin/8.jpg",
-    width: 600,
-    height: 900,
-    priority: true,
-  },
+
 ];
+
 export default function Hero() {
+  const [currentImage, setCurrentImage] = useState(images[0]);
+
+  const { scrollYProgress } = useScroll();
+  
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const currentIndex = images.indexOf(currentImage);
+  //     const nextIndex = (currentIndex + 1) % images.length;
+  //     setCurrentImage(images[nextIndex]);
+  //   }, 3000);
+
+  //   return () => clearInterval(interval);
+  // }, [currentImage]);
+
   return (
-    <MotionDiv 
-      className={styles.container}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
-    >
-      <div className={styles.image_grid}>
-        {gridImages.map((image, index) => (
-          <div
-            key={image.src}
-            className={styles.imageContainer}
-          >
-            <Image
-              src={image.src}
-              alt="Wedding photography"
-              width={image.width}
-              height={image.height}
-              quality={80}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,data:image/png;base64,z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-            />
-          </div>
-        ))}
-      </div>
-    </MotionDiv>
+    <section className={styles.heroContainer}>
+      <motion.div  className={styles.heroImage}>
+        <Image
+          src={currentImage.src}
+          alt={currentImage.alt}
+          fill
+          quality={90}
+          style={{ objectFit: "cover" }}
+          placeholder="blur"
+          blurDataURL={currentImage.src}
+        />
+      </motion.div>
+
+      <motion.div className={styles.hero_text}>
+        <div>For</div>
+        <div>people</div>
+        <div>in</div>
+        <div>love</div>
+      </motion.div>
+
+      <div className={styles.coupleName}>{currentImage.name}</div>
+      {/* <div className={styles.scroll}><div><GoArrowDown /></div></div> */}
+    </section>
   );
 }

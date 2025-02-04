@@ -1,3 +1,8 @@
+@import url("https://use.typekit.net/xyp4arb.css");
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* ------------------------- Osmo [https://osmo.supply/] ------------------------- */
+/* ------------------------- Variables ------------------------------------------- */
 :root {
   --color-light: var(--color-neutral-200);
   --color-dark: var(--color-neutral-800);
@@ -14,30 +19,74 @@
   --color-white: var(--color-neutral-100);
   --color-black: var(--color-neutral-900);
   --color-error: var(--color-primary);
-  --color-success: #0ba954;
-  --color-background: #dfded2;
+  --color-success: #0ba954; 
   --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
   --duration-default: 0.735s;
   --animation-default: var(--duration-default) var(--cubic-default);
   --gap: 2em;
   --section-padding: calc(3.5em + (var(--gap) * 2));
   --container-padding: 2em;
-  --header-height: calc(1.5em + (var(--gap) * 2));
+  --header-height: calc(3.50em + (var(--gap) * 2));
   --footer-height: calc(2.785em + (var(--gap) * 2));
+}
+/* Tablet */
+@media screen and (max-width: 991px) {
+  :root {
+    --container-padding: 1.5em;
+  }
+}
+/* Mobile Landscape */
+@media screen and (max-width: 767px) {
+  :root {
+    --container-padding: 1em;
+    --section-padding: calc(var(--gap) * 2);
+  }
+}
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+  :root {}
+}
+/* ------------------------- Scaling System by Osmo [https://osmo.supply/] -------------------------  */
+/* Desktop */
+:root {
+  --size-unit: 16; /* body font-size in design - no px */
+  --size-container-ideal: 1920; /* screen-size in design - no px */
+  --size-container-min: 992px;
+  --size-container-max: 1920px;
+  --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+  --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+}
+/* Tablet */
+@media screen and (max-width: 991px) {
+  :root {
+    --size-container-ideal: 834; /* screen-size in design - no px */
+    --size-container-min: 768px;
+    --size-container-max: 991px;
+  }
+}
+/* Mobile Landscape */
+@media screen and (max-width: 767px) {
+  :root {
+    --size-container-ideal: 390; /* screen-size in design - no px */
+    --size-container-min: 480px;
+    --size-container-max: 767px;
+  }
+}
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+  :root {
+    --size-container-ideal: 440; /* screen-size in design - no px */
+    --size-container-min: 0px;
+    --size-container-max: 479px;
+  }
 }
 
 /* ------------------------- Hide Scrollbar -------------------------------------------------- */
 
 body ::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-} /* Chrome, Safari, Opera */
-body {
-  -ms-overflow-style: none;
-} /* IE & Edge */
-html {
-  scrollbar-width: none;
-} /* Firefox */
+body::-webkit-scrollbar {display: none;} /* Chrome, Safari, Opera */
+body {-ms-overflow-style: none;} /* IE & Edge */
+html {scrollbar-width: none;} /* Firefox */
 
 /* ------------------------- Reset -------------------------------------------------- */
 *,
@@ -55,9 +104,6 @@ html {
 html,
 body {
   -webkit-font-smoothing: antialiased;
-  margin: 0;
-  padding: 0;
-  background-color: var(--color-background);
 }
 
 svg {
@@ -66,88 +112,261 @@ svg {
   box-sizing: border-box;
   vertical-align: middle;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
-  line-height: 0.8;
-  font-weight: 600;
-}
 
-h1 {
-  font-size: max(2em, min(5.3227513228vw, 7.0366598778svh));
-}
-
-h2 {
-  font-size: max(1.2em, min(2.3227513228vw, 3.0366598778svh));
-}
-
-h3 {
-  font-size: 1.2em;
-  font-weight: 600;
- 
-}
-
-a {
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-body {
-  color: #171717;
-  font-family: "neue-haas-grotesk-display", Arial, Helvetica Neue, Helvetica, sans-serif;
-  /* font-size: max(18px, min(1.3227513228vw, 2.0366598778svh)); */
-  line-height: 1;
-  font-weight: 500;
-  
-}
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Selection */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  text-shadow: none;
+}
+
+body {
+  color: var(--color-white);
+  font-family: 'neue-haas-grotesk-text', Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: var(--size-font);
+  line-height: 1;
+  font-weight: 500;
+  background-color: var(--color-black);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 7.5em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 5em;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+h3 {
+
+  font-size: 2.5em;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+h4 {
+  font-size: 1.75em;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+h5 {
+  font-size: 1.25em;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+p {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
 strong {
   font-weight: 600;
 }
+/* unstyle button*/
+button {
+  
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-size: var(--size-font);
 
-
-
-main {
-  display: flex;
-  width: 100%;
 }
 
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
+.code-embed-css {
+  pointer-events: none;
+  font-size: var(--size-font);
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.code-embed-osmo, .code-embed-js {
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.osmo-ui {
+  z-index: 100;
+  pointer-events: none;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: stretch;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.nav-row {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.nav-logo-row {
+  pointer-events: auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 13em;
+  display: flex;
+}
+
+.nav-logo__wordmark {
+  width: 4em;
+}
+
+.nav-logo__icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.container {
+  z-index: 1;
+  max-width: var(--size-container);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.container.is--full {
+  max-width: 100%;
+}
+
+.container.is--medium {
+  max-width: calc(var(--size-container) * .85);
+}
+
+.container.is--small {
+  max-width: calc(var(--size-container) * .7);
+}
+
+.nav-row__right {
+  grid-column-gap: .625rem;
+  grid-row-gap: .625rem;
+  pointer-events: auto;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+}
+
+.header {
+  padding-top: var(--gap);
+  position: relative;
+}
+
+.website-link {
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+}
+
+.website-link.is--alt {
+  grid-column-gap: .25em;
+  grid-row-gap: .25em;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.5em;
+  display: flex;
+}
+
+.inline-link__p {
+  margin-bottom: 0;
+}
+
+.website-link__arrow-svg {
+  width: 1em;
+  margin-top: .2em;
+}
+
+.website-link__arrow-svg.is--duplicate {
+  position: absolute;
+  right: 100%;
+}
+
+.website-link__arrow {
+  position: relative;
+  overflow: hidden;
+}
+
+.cloneable {
+  padding: var(--section-padding) var(--container-padding);
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  display: flex;
+  position: relative;
+}
+
+.footer {
+  padding-bottom: var(--gap);
+  position: relative;
+}
+
+.footer-row {
+  justify-content: space-between;
+  align-items: flex-end;
+  display: flex;
+}
+
+
+@media screen and (max-width: 991px) {
+  .container.is--medium, .container.is--small {
+    max-width: calc(var(--size-container) * 1);
   }
 }
 
-.swiper {
-  height: 10%;
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 4em;
+  }
+
+  h2 {
+    font-size: 3.25em;
+  }
+
+
+
+
 }
 
-.swiper-slide {
-  display: grid;
-  place-items: center;
-  font-size: 50px;
-  width: 23.125%;
-  min-height: 500px;
-  border-radius: 10px;
-}
+

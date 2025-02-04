@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Header from "./components/Header/Header";
 
 export const metadata: Metadata = {
   title: "Andrew Kusakin Photography - New England & Destination Photographer",
@@ -58,7 +59,7 @@ export default function RootLayout({
       </head>
       <body>
         <main>
-          <Sidebar />
+          <Header />
           {children}
         </main>
       </body>
