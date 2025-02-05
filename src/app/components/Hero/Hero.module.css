@@ -6,18 +6,28 @@
 
 .heroContainer {
   position: relative;
-  overflow: hidden;
   margin: 0 2em;
-  border-radius: 2em;
   height: calc(100vh - var(--header-height) - 2em);
   max-height: 75em;
-  background-color: #000;
+  z-index: 5;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 2em;
+  overflow: hidden;
 }
 
 .heroImage {
   position: absolute;
   inset: 0;
+  top: -4vh;
+
+  /* height: 100vh; */
+
 }
+
 
 .coupleName {
   position: absolute;
@@ -47,91 +57,104 @@
   gap: 0.5em;
 }
 
-.hero_text :nth-child(1) {
+
+.word1 {
   position: absolute;
-  font-family: "neue-haas-grotesk-display", sans-serif;
-  font-weight: 500;
-  font-style: normal;
   top: 0.5em;
   left: 0.5em;
-  font-size: 8em;
-  letter-spacing: -0.05em;
-}
-
-.hero_text :nth-child(2) {
-  position: absolute;
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -0.05em;
-  font-size: 8em;
-  top: 1.25em;
-  left: 1.15em;
-}
-
-.hero_text :nth-child(3) {
-  position: absolute;
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 500;
   font-style: normal;
-  bottom: 1.25em;
-  right: 1.85em;
   font-size: 8em;
   letter-spacing: -0.05em;
 }
 
-.hero_text :nth-child(4) {
+.word2 {
   position: absolute;
+  top: 1.25em;
+  left: 1.15em;
   font-family: "Instrument Serif", serif;
   font-weight: 400;
   font-style: italic;
   letter-spacing: -0.05em;
   font-size: 8em;
-  bottom: 0.5em;
-  right: 0.65em;
 }
 
+.word3 {
+  position: absolute;
+  bottom: 1.25em;
+  right: 1.85em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 8em;
+  letter-spacing: -0.05em;
+}
+
+.word4 {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.65em;
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.05em;
+  font-size: 8em;
+}
+
+.word1 span,
+.word2 span,
+.word3 span,
+.word4 span {
+  display: inline-block; 
+}
+
+
 @media screen and (max-width: 991px) {
-  .hero_text :nth-child(1) {
+  .hero_text .word1 {
     font-size: 6em;
   }
 
-  .hero_text :nth-child(2) {
+  .hero_text .word2 {
     font-size: 6em;
   }
 
-  .hero_text :nth-child(3) {
+  .hero_text .word3 {
     font-size: 6em;
   }
 
-  .hero_text :nth-child(4) {
+  .hero_text .word4 {
     font-size: 6em;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .hero_text :nth-child(1) {
+  .hero_text .word1 {
     font-size: 4em;
   }
 
-  .hero_text :nth-child(2) {
+  .hero_text .word2 {
     font-size: 4em;
   }
 
-  .hero_text :nth-child(3) {
+  .hero_text .word3 {
     font-size: 4em;
   }
 
-  .hero_text :nth-child(4) {
+  .hero_text .word4 {
     font-size: 4em;
   }
 
   .heroContainer {
-    margin: 0 1em;
+    margin: 0 1em 1em;
   }
 
   .coupleName {
     font-size: 1rem;
+  }
+
+  .heroContainer {
+    height: calc(100vh - var(--header-height) - 1em);
   }
 
   /* .scroll {
