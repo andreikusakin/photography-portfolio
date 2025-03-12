@@ -29,6 +29,7 @@ export default function GetInTouch() {
             style={{
               objectFit: "cover",
             }}
+            quality={80}
           />
         </div>
         <div className={styles.contactDetails}>

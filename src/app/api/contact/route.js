@@ -54,9 +54,9 @@ export async function POST(request) {
         Partner's Name: ${partnerName || "Not provided"}
         Email: ${email}
         Phone: ${phone || "Not provided"}
-        Interested In: ${interestedIn}
-        Event Date: ${formattedDate}
-        Event Location: ${eventLocation}
+        Interested In: ${interestedIn || "Not provided"}
+        Event Date: ${formattedDate || "Not provided"}
+        Event Location: ${eventLocation || "Not provided"}
         Wedding Venue: ${weddingVenue || "Not provided"}
         Referral Source: ${referralSource}
         
@@ -69,11 +69,11 @@ export async function POST(request) {
         <p><strong>Partner's Name:</strong> ${partnerName || "Not provided"}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-        <p><strong>Interested In:</strong> ${interestedIn}</p>
-        <p><strong>Event Date:</strong> ${formattedDate}</p>
-        <p><strong>Event Location:</strong> ${eventLocation}</p>
+        <p><strong>Interested In:</strong> ${interestedIn || "Not provided"}</p>
+        <p><strong>Event Date:</strong> ${formattedDate || "Not provided"}</p>
+        <p><strong>Event Location:</strong> ${eventLocation || "Not provided"}</p>
         <p><strong>Wedding Venue:</strong> ${weddingVenue || "Not provided"}</p>
-        <p><strong>Referral Source:</strong> ${referralSource}</p>
+        <p><strong>Referral Source:</strong> ${referralSource || "Not provided"}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>")}</p>
       `,
