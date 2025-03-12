@@ -1,46 +1,65 @@
 import React from "react";
 import styles from "./GetInTouch.module.css";
+import ContactForm from "../ContactForm/ContactForm";
+import Image from "next/image";
+import Link from "next/link";
+import { socials } from "@/lib/data";
 
 export default function GetInTouch() {
   return (
-    <div>
-      <h1>Get In Touch</h1>
-      <div className={styles.contact}>
-        <div className={styles.contactItem}>
-          <a
-            href="https://andrewkusakinphotography57.pixieset.com/contact-form/cf_EfoWk4CFGPjPNv7Jk5AReGyJpZuE"
-            className={styles.contactForm_link}
-            target="_blank"
-          >
-            <div className={styles.contactItem}>
-              <h3>Contact Form</h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="1em"
-                height="1em"
-              >
-                <path
-                  fill="currentColor"
-                  d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"
-                ></path>
-              </svg>
-            </div>
-          </a>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <h2>Let's Connect</h2>
+        <div className={styles.getInTouch_container}>
+          <div className={styles.getInTouch}>
+            <h5>Get In Touch</h5>
+          </div>
+          <p>
+            Let's capture your vision together. Reach out today to discuss your
+            wedding, portrait, or event photography needs. Serving New England
+            and beyond—let’s create something unforgettable.
+          </p>
         </div>
 
-        <div>
-          <h3>Email</h3>
-          <a
-            href="mailto:
-      kusakinphoto@gmail.com"
-          >
-            kusakinphoto@gmail.com
-          </a>
+        <div className={styles.imageContainer}>
+          <Image
+            src="/couples/alinabrandon/20.jpg"
+            alt="Contact"
+            fill
+            style={{
+              objectFit: "cover",
+            }}
+          />
         </div>
-        <div className={styles.socials}>
-          <a href="https://www.instagram.com/kusakinphoto/">Instagram</a>
-          <a href="https://www.tiktok.com/kusakinphoto/">TikTok</a>
+        <div className={styles.contactDetails}>
+          <div className={styles.col1}> <h5>Contact details</h5></div>
+         
+          <div className={styles.details}>
+            <div>Andrew Kusakin Photography LLC.</div>
+            <div>
+              <div>
+                <span>Email: </span>
+                <a href="mailto:kusakinphoto@gmail.com">
+                  kusakinphoto@gmail.com
+                </a>
+              </div>
+              <div>
+                <span>Phone: </span>
+                <a href="tel:3473135300">3473135300</a>
+              </div>
+            </div>
+            <div>Based in Boston, Massachusetts</div>
+            <div className={styles.socials}>{socials.map((social) => (
+              <Link href={social.url} key={social.name}>
+                {social.name}
+              </Link>
+            ))}</div>
+            
+          </div>
+          <div
+            className={styles.contactForm}
+          ><ContactForm /></div>
+          
         </div>
       </div>
     </div>

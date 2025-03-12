@@ -4,6 +4,7 @@ import EmblaCarousel from "../Carousel/EmblaCarousel";
 import PageContainer from "../PageContainer/PageContainer";
 import { MotionDiv } from "../MotionDiv/MotionDiv";
 import { Gallery, Highlight } from "@/lib/data";
+import styles from "./PortfolioGallery.module.css"
 
 export default function PortfolioGallery({
   name,
@@ -20,8 +21,9 @@ export default function PortfolioGallery({
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
+        className={styles.title}
       >
-        <h1>{name} Highlights</h1>
+        <h2>{name} Highlights</h2>
       </MotionDiv>
       <MotionDiv
         initial={{ opacity: 0, y: 5 }}
@@ -34,8 +36,9 @@ export default function PortfolioGallery({
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1, ease: "easeInOut" }}
+        className={styles.title}
       >
-        <h1>Explore More</h1>
+        <h2>Galleries</h2>
       </MotionDiv>
       <MotionDiv
         initial={{ opacity: 0 }}

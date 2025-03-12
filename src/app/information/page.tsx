@@ -5,8 +5,13 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import PageContainer from "../components/PageContainer/PageContainer";
-import { ALL_INCLUSIVE_WEDDING_PACKAGE_PRICE, HOUR_RATE, STARTER_WEDDING_PACKAGE_PRICE } from "@/lib/data";
+import {
+  ALL_INCLUSIVE_WEDDING_PACKAGE_PRICE,
+  HOUR_RATE,
+  STARTER_WEDDING_PACKAGE_PRICE,
+} from "@/lib/data";
 import Image from "next/image";
+import informationImage from "./../../../public/couples/alinabrandon/4.jpg"
 
 const faqData = [
   {
@@ -23,10 +28,11 @@ const faqData = [
     question: "What is your pricing?",
     answer: (
       <>
-        I offer a Starter Wedding Package starting at ${STARTER_WEDDING_PACKAGE_PRICE}, which includes 6+
-        hours of coverage, a second photographer, an engagement session, and an
-        online gallery. For comprehensive coverage, my All-Inclusive Wedding
-        Package is available for ${ALL_INCLUSIVE_WEDDING_PACKAGE_PRICE}, with no hourly limits and
+        I offer a Starter Wedding Package starting at $
+        {STARTER_WEDDING_PACKAGE_PRICE}, which includes 6+ hours of coverage, a
+        second photographer, an engagement session, and an online gallery. For
+        comprehensive coverage, my All-Inclusive Wedding Package is available
+        for ${ALL_INCLUSIVE_WEDDING_PACKAGE_PRICE}, with no hourly limits and
         added features. For other types of sessions—such as portraits,
         engagements, or events—rates begin at ${HOUR_RATE} per hour. To learn
         more about what’s included or to discuss your specific needs, please
@@ -88,44 +94,51 @@ const itemVariants = {
 export default function page() {
   return (
     <PageContainer>
-      <motion.h1
-        initial={{ opacity: 0, y: 5 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -5 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-      >
-        Frequently Asked Questions
-      </motion.h1>
+      <div style={{ fontSize: "1.2em", fontWeight: 400}}>
+      <h2 className={styles.page_title}>Information</h2>
+      <span className={styles.line}></span>
       <motion.div
-        className={styles.imageContainer}
-        initial={{ opacity: 0, y: 5 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -5 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-      >
-        <Image
-          src="/wedding/valeriejoseph/18.jpg"
-          alt="faq image"
-          width={1000}
-          height={1500}
-          quality={95}
-        />
-      </motion.div>
-      <motion.ul
-        className={styles.faqList}
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-      >
-        {faqData.map((item, index) => (
-          <FAQItem
-            key={item.question}
-            index={index}
-            question={item.question}
-            answer={item.answer}
+          className={styles.imageContainer}
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -5 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          <Image
+            src={informationImage}
+            alt="faq image"
+           
+            quality={95}
+            fill
+            placeholder="blur"
           />
-        ))}
-      </motion.ul>
+        </motion.div>
+      <div className={styles.grid}>
+        <motion.h5
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -5 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          Frequently Asked Questions
+        </motion.h5>
+        
+        <motion.ul
+          className={styles.faqList}
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
+          {faqData.map((item, index) => (
+            <FAQItem
+              key={item.question}
+              index={index}
+              question={item.question}
+              answer={item.answer}
+            />
+          ))}
+        </motion.ul>
+      </div></div>
     </PageContainer>
   );
 }
@@ -148,14 +161,14 @@ const FAQItem = ({
   return (
     <motion.li className={styles.itemContainer} variants={itemVariants}>
       <div className={styles.question}>
-        <motion.h2
+        <motion.div
           onClick={toggleFAQ}
           whileHover={{ x: 10 }}
           whileTap={{ x: 15 }}
         >
           {`0${index + 1}. `}
           {question}
-        </motion.h2>
+        </motion.div>
         <div className={styles.underline}></div>
       </div>
 

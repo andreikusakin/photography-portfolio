@@ -45,6 +45,7 @@
 @media screen and (max-width: 991px) {
   .header {
     grid-template-columns: 1fr;
+    height: auto;
   }
   .description {
     display: none;

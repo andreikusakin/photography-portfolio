@@ -92,6 +92,38 @@ export const weddingHighlights: Highlight[] = [
     horizontal: false,
   },
 ];
+
+export const family: Gallery[] = [ 
+  {
+    id: "hancharou",
+    type: "family",
+    name: "Hancharou Family",
+    venue: "Four Seasons Hotel",
+    location: "Boston, MA",
+    cover: 14,
+    count: 32,
+  },
+]
+
+export const familyHighlights: Highlight[] = [
+  {
+    src: "/family/hancharou/12.jpg",
+    horizontal: true,
+  },
+  {
+    src: "/family/hancharou/21.jpg",
+    horizontal: true,
+  },
+  {
+    src: "/family/hancharou/25.jpg",
+    horizontal: false,
+  },
+  {
+    src: "/family/hancharou/29.jpg",
+    horizontal: true,
+  },
+]
+
 export const weddings: Gallery[] = [
   {
     id: "veronicajoseph",
@@ -186,3 +218,20 @@ export const couples: Gallery[] = [
     count: 23,
   },
 ];
+
+
+export const socials = [
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/kusakinphoto/",
+  },
+  {
+    name: "TikTok",
+    url: "https://www.tiktok.com/@kusakinphoto",
+  },
+  {
+    name: "Pinterest",
+    url: "https://www.pinterest.com/kusakinphoto/",
+  },
+];
+  

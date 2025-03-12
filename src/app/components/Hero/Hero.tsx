@@ -1,44 +1,79 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import styles from "./Hero.module.css";
+import AlinaBrandon from "./../../../../public/couples/alinabrandon/20.jpg";
+import RoxanaKanstantin from "./../../../../public/couples/roxanakonstantin/18.jpg";
+import ChristiAdam from "./../../../../public/wedding/christiadam/19.jpg";
+import MarissaMichael from "./../../../../public/wedding/marissamichael/27.jpg";
+import ValerieJoseph from "./../../../../public/wedding/valeriejoseph/7.jpg";
+import VeronicaJoseph from "./../../../../public/wedding/veronicajoseph/32.jpg";
+import OrbreyBrett from "./../../../../public/wedding/orbreybrett/23.jpg";
 
 const images = [
   {
-    src: "/couples/alinabrandon/20.jpg",
-    alt: "Alina and Brandon",
+    src: AlinaBrandon,
+    alt: "Alina and Brandon photograph in Massachusetts",
     name: "Alina + Brandon",
   },
   {
-    src: "/couples/alinabrandon/30.jpg",
-    alt: "Alina and Brandon 2",
-    name: "Alina + Brandon 2",
+    src: RoxanaKanstantin,
+    alt: "Roxana and Kanstantin photograph in Boston, Massachusetts",
+    name: "Roxana + Kanstantin",
+  },
+  {
+    src: ChristiAdam,
+    alt: "Christi and Adam photograph in Seaport, Boston, Massachusetts",
+    name: "Christi + Adam",
+  },
+  {
+    src: MarissaMichael,
+    alt: "Marissa and Michael photograph in Quincy, Massachusetts",
+    name: "Marissa + Michael",
+  },
+  {
+    src: ValerieJoseph,
+    alt: "Valerie and Joseph photograph in Boston, Massachusetts",
+    name: "Valerie + Joseph",
+  },
+  {
+    src: VeronicaJoseph,
+    alt: "Veronica and Joseph photograph in Boston, Massachusetts",
+    name: "Veronica + Joseph",
+  },
+  {
+    src: OrbreyBrett,
+    alt: "Orbrey and Brett photograph in Boston, Massachusetts",
+    name: "Orbrey + Brett",
   },
 ];
 
-// 1. The parent that staggers each word container
+// Animation variants unchanged...
 const heroTextVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.2, // delay between words
+      staggerChildren: 0.2,
     },
   },
 };
 
-// 2. Each word container (stagger letters)
 const wordContainerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1, // speed for each letter
+      staggerChildren: 0.1,
     },
   },
 };
 
-// 3. Each letter's animation
 const letterVariants = {
   hidden: {
     opacity: 0,
@@ -57,43 +92,60 @@ const letterVariants = {
 };
 
 export default function Hero() {
-  const [currentImage] = useState(images[0]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { scrollY } = useScroll();
   const imageY = useTransform(scrollY, [0, 1200], [0, 200]);
   const textY = useTransform(scrollY, [0, 1200], [0, -100]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentImage = images[currentImageIndex];
+
   return (
     <section className={styles.heroContainer}>
       {/* Background image */}
-      <motion.div className={styles.imageOverlay}
-      initial={{ opacity: 0, y: -5, scale: 0.99 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, delay: 0.5 }}>
-        <motion.div
-          className={styles.heroImage}
-          
-          style={{ y: imageY }}
-        >
-          <Image
-            src={currentImage.src}
-            alt={currentImage.alt}
-            fill
-            quality={90}
-            style={{ objectFit: "cover" }}
-            placeholder="blur"
-            blurDataURL={currentImage.src}
-          />
-        </motion.div>
+      <motion.div
+        className={styles.imageOverlay}
+        initial={{ opacity: 0, y: -5, scale: 0.99 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            className={styles.heroImage}
+            style={{ y: imageY }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <Image
+              src={currentImage.src}
+              alt={currentImage.alt}
+              fill
+              quality={82}
+              style={{ objectFit: "cover" }}
+              placeholder="blur"
+            />
+          </motion.div>
+        </AnimatePresence>
       </motion.div>
 
-      {/* The container for all words, with a top-level stagger for each word */}
+      {/* Text content */}
       <motion.div
         className={styles.hero_text}
         variants={heroTextVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* WORD 1: "For" */}
+        {/* Words content unchanged */}
         <motion.div
           variants={wordContainerVariants}
           className={styles.word1}
@@ -106,7 +158,6 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* WORD 2: "people" */}
         <motion.div
           variants={wordContainerVariants}
           className={styles.word2}
@@ -119,7 +170,6 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* WORD 3: "in" */}
         <motion.div
           variants={wordContainerVariants}
           className={styles.word3}
@@ -132,7 +182,6 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* WORD 4: "love" */}
         <motion.div
           variants={wordContainerVariants}
           className={styles.word4}
@@ -146,7 +195,18 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <motion.div className={styles.coupleName}>{currentImage.name}</motion.div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentImageIndex}
+          className={styles.coupleName}
+          initial={{ opacity: 0, y: -5 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {currentImage.name}
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 }

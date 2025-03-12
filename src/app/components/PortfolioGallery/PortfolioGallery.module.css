@@ -1,17 +1,6 @@
-.container { 
-    padding: 2em;
-   
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding-top: 5em;
-  }
-}
-
-@media (max-width: 430px) {
-  .container {
-    padding: 1em;
-    
-  }
+.title {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.05em;
 }

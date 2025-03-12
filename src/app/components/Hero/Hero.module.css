@@ -8,7 +8,7 @@
   position: relative;
   margin: 0 2em;
   height: calc(100vh - var(--header-height) - 2em);
-  max-height: 75em;
+
   z-index: 5;
 }
 

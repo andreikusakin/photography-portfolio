@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
-import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header";
+import Menu from "./components/Menu/Menu";
+import Footer from "./components/Footer/Footer";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 export const metadata: Metadata = {
   title: "Andrew Kusakin Photography - New England & Destination Photographer",
@@ -58,9 +60,13 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/ygj5rom.css" />
       </head>
       <body>
-        <main>
+        <main 
+          // style={{overflow: "hidden"}}
+        >
+          <Menu />
           <Header />
           {children}
+          <Footer />
         </main>
       </body>
       <GoogleAnalytics gaId="G-90SBL0XP3V" />
