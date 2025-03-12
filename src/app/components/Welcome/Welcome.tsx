@@ -14,8 +14,8 @@ export default function Welcome() {
 
   const welcomeOpacity = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.4, 0.5],
-    [0, 1, 1, 0]
+    [0, 0.1, 0.2, 0.4, 0.5],
+    [0, 0, 1, 1, 0]
   );
   const welcomeY = useTransform(scrollYProgress, [0, 0.25], [-800, 0]);
 
@@ -87,7 +87,7 @@ export default function Welcome() {
               <Image
                 src="/wedding/valeriejoseph/14.jpg"
                 style={{ objectFit: "cover" }}
-                quality={90}
+                quality={70}
                 alt="Welcome Image"
                 fill
               />
@@ -101,7 +101,7 @@ export default function Welcome() {
               <Image
                 src="/couples/roxanakonstantin/8.jpg"
                 style={{ objectFit: "cover" }}
-                quality={90}
+                quality={70}
                 alt="Welcome Image"
                 fill
               />
@@ -115,7 +115,7 @@ export default function Welcome() {
               <Image
                 src="/couples/alinabrandon/19.jpg"
                 style={{ objectFit: "cover" }}
-                quality={90}
+                quality={70}
                 alt="Welcome Image"
                 fill
               />
@@ -148,7 +148,7 @@ export default function Welcome() {
                   <Image
                     src={image.src}
                     fill
-                    quality={80}
+                    quality={70}
                     style={{ objectFit: "cover" }}
                     alt="Capture Image"
                   />

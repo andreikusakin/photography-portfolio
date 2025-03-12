@@ -63,7 +63,7 @@ export default function Footer() {
           src="/wedding/valeriejoseph/18.jpg"
           alt="wedding image"
           fill
-          quality={85}
+          quality={70}
         />
       </div>
     </div>

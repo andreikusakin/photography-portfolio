@@ -8,6 +8,10 @@
   z-index: 5;
 }
 
+.header h5 {
+  text-align: center;
+}
+
 .description {
   text-transform: uppercase;
   font-family: "neue-haas-grotesk-display", sans-serif;
