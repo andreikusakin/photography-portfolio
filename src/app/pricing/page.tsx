@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import styles from "./page.module.css";
 import Image from "next/image";
 import PageContainer from "../components/PageContainer/PageContainer";

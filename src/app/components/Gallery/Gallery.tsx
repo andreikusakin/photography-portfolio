@@ -6,6 +6,7 @@ import styles from "./Gallery.module.css";
 import { MotionDiv } from "../MotionDiv/MotionDiv";
 import PageContainer from "../PageContainer/PageContainer";
 import Image from "next/image";
+// @ts-expect-error ts-migrate(7016) FIXME: Untyped import
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 export default function Gallery({ gallery }: { gallery: Gallery }) {

@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import Footer from "./components/Footer/Footer";
-import ContactForm from "./components/ContactForm/ContactForm";
 
 export const metadata: Metadata = {
   title: "Andrew Kusakin Photography - New England & Destination Photographer",

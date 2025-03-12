@@ -39,21 +39,21 @@ export default function About() {
         <MotionDiv className={styles.description}>
           <div className={styles.text}>
             <div>
-              Hey there! I'm Andrew Kusakin, a photographer who discovered a
-              passion for capturing life's most genuine moments from an early
-              age. My journey started when I first picked up a camera and
+              Hey there! I&apos;m Andrew Kusakin, a photographer who discovered
+              a passion for capturing life&apos;s most genuine moments from an
+              early age. My journey started when I first picked up a camera and
               quickly fell in love with the art of photography and
-              cinematography. I'm especially drawn to candid moments—the
-              laughter, the tears, and everything authentic in between. When I'm
-              not behind the lens, you'll find me exploring New England and
-              beyond, visiting stunning national parks across the USA, always
-              seeking inspiration from nature's beauty. In my downtime, I enjoy
-              making music, hitting the hiking trails with my Shiba Inu, or
-              chasing fresh powder on my snowboard during winter.
+              cinematography. I&apos;m especially drawn to candid moments—the
+              laughter, the tears, and everything authentic in between. When
+              I&apos;m not behind the lens, you&apos;ll find me exploring New
+              England and beyond, visiting stunning national parks across the
+              USA, always seeking inspiration from nature&apos;s beauty. In my
+              downtime, I enjoy making music, hitting the hiking trails with my
+              Shiba Inu, or chasing fresh powder on my snowboard during winter.
             </div>
             <div>
               <strong>
-                I can't wait to connect with you and capture your story!
+                I can&apos;t wait to connect with you and capture your story!
               </strong>
             </div>
           </div>

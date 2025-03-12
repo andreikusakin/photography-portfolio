@@ -19,7 +19,7 @@ export async function POST(request) {
     } = await request.json();
 
     // Validate required fields
-    if (!fullName || !email || !interestedIn || !eventDate || !eventLocation || !referralSource || !message) {
+    if (!fullName || !email || !message) {
       return NextResponse.json(
         { message: "Missing required fields" },
         { status: 400 }

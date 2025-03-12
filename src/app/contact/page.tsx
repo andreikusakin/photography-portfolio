@@ -1,6 +1,5 @@
 import React from "react";
 import GetInTouch from "../components/GetInTouch/GetInTouch";
-import PageContainer from "../components/PageContainer/PageContainer";
 import { MotionDiv } from "../components/MotionDiv/MotionDiv";
 
 export default function page() {

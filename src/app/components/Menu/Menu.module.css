@@ -46,7 +46,7 @@
   height: 100vh;
   z-index: 9920;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .menu nav {

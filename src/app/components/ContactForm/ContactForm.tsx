@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function ContactForm() {
-    const [startDate, setStartDate] = useState(null);
+    const [startDate, setStartDate] = useState<Date | null>(null);
     const [formData, setFormData] = useState({
         fullName: "",
         partnerName: "",
@@ -27,7 +27,7 @@ export default function ContactForm() {
 
     // Clear message after timeout
     useEffect(() => {
-        let timeoutId;
+        let timeoutId: NodeJS.Timeout | undefined;
         if (showMessage) {
             timeoutId = setTimeout(() => {
                 setShowMessage(false);
@@ -42,7 +42,7 @@ export default function ContactForm() {
         };
     }, [showMessage]);
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
@@ -50,7 +50,7 @@ export default function ContactForm() {
         }));
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
 
@@ -84,6 +84,7 @@ export default function ContactForm() {
                 setSubmitStatus("error");
             }
         } catch (error) {
+            console.log("Error submitting form:", error);
             setSubmitMessage("An error occurred. Please try again later.");
             setSubmitStatus("error");
         } finally {
@@ -92,7 +93,7 @@ export default function ContactForm() {
         }
     };
 
-    const handleDateChange = (date) => {
+    const handleDateChange = (date: Date | null) => {
         setStartDate(date);
         // Format the date as YYYY-MM-DD for the form data
         if (date) {
@@ -210,7 +211,6 @@ export default function ContactForm() {
                             onChange={handleDateChange}
                             className={`${styles.input} ${styles.datePicker}`}
                             placeholderText="Wedding Date or Session Date"
-                            required
                             dateFormat="MMMM d, yyyy"
                         />
                     </div>
@@ -255,7 +255,6 @@ export default function ContactForm() {
                     <select
                         id="referralSource"
                         name="referralSource"
-                        required
                         className={styles.select}
                         value={formData.referralSource}
                         onChange={handleChange}
