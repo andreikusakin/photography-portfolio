@@ -11,7 +11,7 @@ import {
   STARTER_WEDDING_PACKAGE_PRICE,
 } from "@/lib/data";
 import Image from "next/image";
-import informationImage from "./../../../public/couples/alinabrandon/4.jpg"
+import informationImage from "./../../../public/wedding/marissamichael/9.jpg"
 
 const faqData = [
   {
@@ -107,9 +107,9 @@ export default function page() {
           <Image
             src={informationImage}
             alt="faq image"
-           
-            quality={95}
-            fill
+            width={1920}
+            height={810}
+            quality={90}
             placeholder="blur"
           />
         </motion.div>

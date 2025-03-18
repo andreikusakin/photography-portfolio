@@ -129,7 +129,8 @@ export default function Hero() {
             <Image
               src={currentImage.src}
               alt={currentImage.alt}
-              fill
+              width={1920}
+              height={1080}
               quality={80}
               style={{ objectFit: "cover" }}
               placeholder="blur"

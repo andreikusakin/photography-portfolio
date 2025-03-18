@@ -28,7 +28,8 @@ export default function About() {
           <Image
             src={meImage}
             alt="andrew kusakin photo"
-            fill
+            width={400}
+            height={500}
             quality={85}
             style={{
               objectFit: "cover",

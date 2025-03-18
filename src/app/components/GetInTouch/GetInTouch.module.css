@@ -48,13 +48,20 @@
 }
 
 .imageContainer {
-  height: 100%;
   width: 100%;
   aspect-ratio: 21/9;
-  position: relative;
-  border-radius: 30px;
+  border-radius: 1.5em;
   overflow: hidden;
+  position: relative;
 }
+
+.imageContainer img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21/9;
+  object-fit: cover;
+}
+
 
 .contactDetails {
   margin-top: 2em;

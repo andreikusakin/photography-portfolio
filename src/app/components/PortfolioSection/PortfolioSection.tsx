@@ -5,9 +5,9 @@ import styles from "./PortfolioSection.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";
-import WeddingPicture from '../../../../public/wedding/valeriejoseph/13.jpg'
-import CouplesPicture from '../../../../public/couples/alinabrandon/30.jpg'
-import FamilyPicture from '../../../../public/family/hancharou/12.jpg'
+import WeddingPicture from "../../../../public/wedding/valeriejoseph/13.jpg";
+import CouplesPicture from "../../../../public/couples/alinabrandon/30.jpg";
+import FamilyPicture from "../../../../public/family/hancharou/12.jpg";
 
 export default function PortfolioSection() {
   const sectionVariants = {
@@ -41,7 +41,10 @@ export default function PortfolioSection() {
     <div className={styles.wrapper}>
       <div ref={containerRef} className={styles.container}>
         <div className={styles.sticky}>
-          <div className={styles.description}>Searching for a wedding, portrait, or family photographer? You're in the right place—I’ve got you covered!</div>
+          <div className={styles.description}>
+            Searching for a wedding, portrait, or family photographer? You're in
+            the right place—I’ve got you covered!
+          </div>
           <motion.div style={{ x: horizontalScroll, display: "flex", gap: 20 }}>
             <motion.div
               className={styles.section}
@@ -55,9 +58,10 @@ export default function PortfolioSection() {
               <div className={styles.text}>
                 <h2>Weddings</h2>
                 <div>One of the most important days of your life</div>
-                <button>
-                  <Link href="/wedding">Explore More</Link>
-                </button>
+
+                <Link href="/wedding">
+                  <button>Explore More</button>
+                </Link>
               </div>
               <div className={styles.image_container}>
                 <Image
@@ -82,9 +86,10 @@ export default function PortfolioSection() {
               <div className={styles.text}>
                 <h2>Couples</h2>
                 <div>Love is in the air</div>
-                <button>
-                  <Link href="/couples">Explore More</Link>
-                </button>
+
+                <Link href="/couples">
+                  <button>Explore More</button>
+                </Link>
               </div>
               <div className={styles.image_container}>
                 <Image
@@ -109,9 +114,10 @@ export default function PortfolioSection() {
               <div className={styles.text}>
                 <h2>Family</h2>
                 <div>Family is everything</div>
-                <button>
-                  <Link href="/family">Explore More</Link>
-                </button>
+
+                <Link href="/family">
+                  <button>Explore More</button>
+                </Link>
               </div>
               <div className={styles.image_container}>
                 <Image

@@ -4,6 +4,7 @@ import ContactForm from "../ContactForm/ContactForm";
 import Image from "next/image";
 import Link from "next/link";
 import { socials } from "@/lib/data";
+import ContactImage from "./../../../../public/wedding/valeriejoseph/5.jpg";
 
 export default function GetInTouch() {
   return (
@@ -23,13 +24,12 @@ export default function GetInTouch() {
 
         <div className={styles.imageContainer}>
           <Image
-            src="/couples/alinabrandon/20.jpg"
-            alt="Contact"
-            fill
-            style={{
-              objectFit: "cover",
-            }}
-            quality={80}
+            src={ContactImage}
+            alt="Wedding couple at ceremony"
+            width={1920}
+            height={810}
+            quality={90}
+            placeholder="blur"
           />
         </div>
         <div className={styles.contactDetails}>

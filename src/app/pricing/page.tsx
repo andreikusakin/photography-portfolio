@@ -9,6 +9,8 @@ import {
   STARTER_WEDDING_PACKAGE_PRICE,
 } from "@/lib/data";
 import { LuArrowUpRight } from "react-icons/lu";
+import Package1Image from "./../../../public/wedding/veronicajoseph/17.jpg";
+import Package2Image from "./../../../public/wedding/valeriejoseph/17.jpg";
 
 export default function page() {
   return (
@@ -27,13 +29,15 @@ export default function page() {
             <h5>Starter Wedding Package</h5>
             <div className={styles.imageContainer}>
               <Image
-                src="/wedding/veronicajoseph/17.jpg"
+                src={Package1Image}
                 alt="wedding photo"
-                fill
+                width={400}
+                height={500}
                 style={{
                   objectFit: "cover",
                 }}
-                quality={90}
+                quality={80}
+                placeholder="blur"
               />
             </div>
           </div>
@@ -86,13 +90,15 @@ export default function page() {
             <h5>All-Inclusive Wedding Package</h5>
             <div className={styles.imageContainer}>
               <Image
-                src="/wedding/valeriejoseph/17.jpg"
+                src={Package2Image}
                 alt="wedding photo"
-                fill
+                placeholder="blur"
+                width={400}
+                height={500}
                 style={{
                   objectFit: "cover",
                 }}
-                quality={90}
+                quality={80}
               />
             </div>
           </div>
