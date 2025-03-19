@@ -1,7 +1,7 @@
 .wrapper {
     height: 100vh;
     margin-top: 4em;
-    background-color: #0d0d0d;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .content {

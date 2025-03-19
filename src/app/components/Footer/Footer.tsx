@@ -16,7 +16,7 @@ export default function Footer() {
         </div>
         <div className={styles.col2}>
           <div>Wedding | Portrait | Event Photography</div>
-          <div>Serving New England and beyond</div>
+          <div>Boston, Massachusetts</div>
         </div>
         <div className={styles.links}>
           <ul>

@@ -84,7 +84,7 @@ export default function Gallery({ gallery }: { gallery: Gallery }) {
                   {imagesData[index] ? (
                     <Image
                       src={`/${gallery.type}/${gallery.id}/${item}.jpg`}
-                      alt={`${gallery.name} image-${item}`}
+                      alt={`${gallery.name} at ${gallery.venue}, ${gallery.location}; ${gallery.type} photography image-${item}`}
                       quality={90}
                       width={imagesData[index].width}
                       height={imagesData[index].height}
