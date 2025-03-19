@@ -69,13 +69,14 @@ export default function page() {
 
             <div>
               For more details, be sure to check out my{" "}
-              <Link href="/faq">FAQ</Link> or{" "}
+              <Link href="/information">FAQ</Link> or{" "}
               <Link href="/contact">reach out</Link> to me directly.
             </div>
             <Link
               href="/contact"
               className={styles.contactForm_link}
               target="_blank"
+              style={{ textDecoration: "none" }}
             >
               <div className={styles.contactItem}>
                 <div>
@@ -135,13 +136,14 @@ export default function page() {
 
             <div>
               For more details, be sure to check out my{" "}
-              <Link href="/faq">FAQ</Link> or{" "}
+              <Link href="/information">FAQ</Link> or{" "}
               <Link href="/contact">reach out</Link> to me directly.
             </div>
             <Link
               href="/contact"
               className={styles.contactForm_link}
               target="_blank"
+              style={{ textDecoration: "none" }}
             >
               <div className={styles.contactItem}>
                 <div>

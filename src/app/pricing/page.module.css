@@ -97,9 +97,9 @@
   margin-top: 0.5em;
 }
 
-.section a {
+/* .section a {
   text-decoration: underline;
-}
+} */
 
 .section ul {
   display: flex;
@@ -117,6 +117,10 @@
   flex-direction: column;
   gap: 1em;
   font-weight: 400;
+}
+
+.column a {
+  text-decoration: underline;
 }
 
 .imageContainer {
@@ -177,6 +181,7 @@
   margin-top: 2em;
   text-transform: uppercase;
 }
+
 
 .contactItem div {
   position: relative;
