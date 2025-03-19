@@ -6,7 +6,7 @@ import Menu from "./components/Menu/Menu";
 import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Andrew Kusakin Photography - New England & Destination Photographer",
+  title: "Boston Photographer",
   description:
     "Andrew Kusakin is a Boston-based photographer specializing in weddings, portraits, and events. Capturing authentic, timeless moments across New England and beyond.",
   keywords: [
