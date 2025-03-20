@@ -12,14 +12,7 @@ import {
 } from "@/lib/data";
 import Image from "next/image";
 import informationImage from "./../../../public/wedding/marissamichael/9.jpg"
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Information | Boston Wedding Photographer",
-  alternates: {
-    canonical: '/information',
-  }
-};
 
 const faqData = [
   {

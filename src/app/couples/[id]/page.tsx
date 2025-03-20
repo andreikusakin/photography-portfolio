@@ -3,9 +3,15 @@ import { couples } from "@/lib/data";
 import Gallery from "@/app/components/Gallery/Gallery";
 import type { Metadata } from "next";
 
-type Params = { id: string };
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const couple = couples.find((couple) => couple.id === params.id);
+type Props = {
+  params: Promise<{ id: string }>;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+  const { id } = await params;
+  const couple = couples.find((couple) => couple.id === id);
   if (!couple) {
     return {
       title: "Couple Not Found | Boston Wedding Photographer",
@@ -16,7 +22,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     title: `${couple.name} Couple | Andrew Kusakin Photography`,
     description: `The beautiful images of ${couple.name} at ${couple.venue} in ${couple.location}.`,
     alternates: {
-      canonical: `/couples/${params.id}`,
+      canonical: `/couples/${id}`,
     },
     openGraph: {
       title: `${couple.name} Couple | Andrew Kusakin Photography`,
@@ -25,14 +31,15 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   };
 }
 
-export default async function CouplePage(props: {
-  params: Params
-}) {
-  const couple = couples.find((couple) => couple.id === props.params.id);
+export default async function Page({ params }: Props) {
+  const { id } = await params;
+  const couple = couples.find((couple) => couple.id === id);
   if (!couple) {
     return <div>Images not found</div>;
   }
-  return <div>
-    <Gallery gallery={couple}/>
-  </div>;
+  return (
+    <div>
+      <Gallery gallery={couple} />
+    </div>
+  );
 }

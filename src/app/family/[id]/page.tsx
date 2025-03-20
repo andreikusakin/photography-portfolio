@@ -3,10 +3,15 @@ import { families } from "@/lib/data";
 import Gallery from "@/app/components/Gallery/Gallery";
 import type { Metadata } from "next";
 
-type Params = { id: string };
+type Props = {
+  params: Promise<{ id: string }>;
+};
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const familyImages = families.find((family) => family.id === params.id);
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+  const { id } = await params;
+  const familyImages = families.find((family) => family.id === id);
   if (!familyImages) {
     return {
       title: "Family Session Not Found | Boston Family Photographer",
@@ -17,7 +22,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     title: `${familyImages.name} Family | Boston Family Photographer`,
     description: `The beautiful family session of ${familyImages.name} at ${familyImages.venue} in ${familyImages.location}.`,
     alternates: {
-      canonical: `/family/${params.id}`,
+      canonical: `/family/${id}`,
     },
     openGraph: {
       title: `${familyImages.name} Family | Andrew Kusakin Photography`,
@@ -26,11 +31,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   };
 }
 
-export default async function familyPage(props: {
-  params: Params
-}) {
- 
-  const familyImages = families.find((family) => family.id === props.params.id);
+export default async function Page({ params }: Props) {
+  const { id } = await params;
+  const familyImages = families.find((family) => family.id === id);
   if (!familyImages) {
     return <div>Images not found</div>;
   }
