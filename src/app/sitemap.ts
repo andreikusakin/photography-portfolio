@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Wedding gallery URLs
   const weddingUrls = weddings.map(wedding => ({
-    url: `https://www.kusakinphoto.com/weddings/${wedding.id}`,
+    url: `https://www.kusakinphoto.com/wedding/${wedding.id}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
