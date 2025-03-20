@@ -24,7 +24,7 @@ export async function generateMetadata(
     title: `${wedding.name} Wedding | Boston Wedding Photographer`,
     description: `The beautiful wedding of ${wedding.name} at ${wedding.venue} in ${wedding.location}.`,
     alternates: {
-      canonical: `/weddings/${id}`,
+      canonical: `/wedding/${id}`,
     },
     openGraph: {
       title: `${wedding.name} Wedding | Andrew Kusakin Photography`,
