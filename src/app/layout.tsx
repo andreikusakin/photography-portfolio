@@ -6,9 +6,9 @@ import Menu from "./components/Menu/Menu";
 import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Boston Photographer",
+  title: "Boston Wedding Photographer | Andrew Kusakin Photography",
   description:
-    "Andrew Kusakin is a Boston-based photographer specializing in weddings, portraits, and events. Capturing authentic, timeless moments across New England and beyond.",
+    "Andrew Kusakin is a Boston based photographer specializing in weddings, portraits, and events. Available for travel worldwide.",
   keywords: [
     "Andrew Kusakin Photography",
     "Boston Photographer",
@@ -80,6 +80,10 @@ export const metadata: Metadata = {
       "Boston-based photographer specializing in weddings, portraits, and events. Available for travel across New England and beyond.",
     images: ["https://www.kusakinphoto.com/twitter-card-image.jpg"],
   },
+  metadataBase: new URL('https://www.kusakinphoto.com/'),
+  alternates: {
+    canonical: '/',
+  }
 };
 
 export default function RootLayout({

@@ -12,7 +12,7 @@ export default function Header() {
       className={styles.header}
     >
       <Link href="/" className={styles.description}>
-        wedding & portrait photographer in boston, Massachusetts
+        <h1>wedding & family photographer in boston, Massachusetts</h1>
       </Link>
       <Link href="/">
         <h5 className={styles.name}>Andrew Kusakin</h5>

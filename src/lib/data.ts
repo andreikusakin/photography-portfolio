@@ -93,7 +93,7 @@ export const weddingHighlights: Highlight[] = [
   },
 ];
 
-export const family: Gallery[] = [ 
+export const families: Gallery[] = [ 
   {
     id: "hancharou",
     type: "family",

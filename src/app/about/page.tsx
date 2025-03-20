@@ -6,6 +6,14 @@ import { LuArrowUpRight } from "react-icons/lu";
 import Link from "next/link";
 import meImage from "./me.jpg";
 import PageContainer from "../components/PageContainer/PageContainer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Andrew Kusakin | Boston Wedding Photographer",
+  alternates: {
+    canonical: '/about',
+  }
+};
 
 export default function About() {
   return (

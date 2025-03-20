@@ -11,6 +11,14 @@ import {
 import { LuArrowUpRight } from "react-icons/lu";
 import Package1Image from "./../../../public/wedding/veronicajoseph/17.jpg";
 import Package2Image from "./../../../public/wedding/valeriejoseph/17.jpg";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pricing | Boston Wedding Photographer",
+  alternates: {
+    canonical: '/pricing',
+  }
+};
 
 export default function page() {
   return (
