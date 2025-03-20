@@ -88,7 +88,7 @@ export default function Welcome() {
                 src="/wedding/valeriejoseph/14.jpg"
                 style={{ objectFit: "cover" }}
                 quality={70}
-                alt="Welcome Image"
+                alt="Photograph of a wedding"
                 fill
               />
             </motion.div>
@@ -102,7 +102,7 @@ export default function Welcome() {
                 src="/couples/roxanakonstantin/8.jpg"
                 style={{ objectFit: "cover" }}
                 quality={70}
-                alt="Welcome Image"
+                alt="Photograph of a couple"
                 fill
               />
             </motion.div>
@@ -116,7 +116,7 @@ export default function Welcome() {
                 src="/couples/alinabrandon/19.jpg"
                 style={{ objectFit: "cover" }}
                 quality={70}
-                alt="Welcome Image"
+                alt="Photograph of a couple"
                 fill
               />
             </motion.div>
@@ -150,7 +150,7 @@ export default function Welcome() {
                     fill
                     quality={70}
                     style={{ objectFit: "cover" }}
-                    alt="Capture Image"
+                    alt="Wedding Photography, Boston, Massachusetts"
                   />
                 </motion.div>
               </motion.div>

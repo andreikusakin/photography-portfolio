@@ -20,42 +20,41 @@ import OrbreyBrett from "./../../../../public/wedding/orbreybrett/23.jpg";
 const images = [
   {
     src: AlinaBrandon,
-    alt: "Alina and Brandon photograph in Massachusetts",
+    alt: "Alina and Brandon's couple photography session at Borderland State Park in North Easton, Massachusetts",
     name: "Alina + Brandon",
   },
   {
     src: RoxanaKanstantin,
-    alt: "Roxana and Kanstantin photograph in Boston, Massachusetts",
+    alt: "Roxana and Kanstantin's couple photography session at Raffles Hotel in Boston, Massachusetts",
     name: "Roxana + Kanstantin",
   },
   {
     src: ChristiAdam,
-    alt: "Christi and Adam photograph in Seaport, Boston, Massachusetts",
+    alt: "Christi and Adam weddinng photograph at Seaport in Boston, Massachusetts",
     name: "Christi + Adam",
   },
   {
     src: MarissaMichael,
-    alt: "Marissa and Michael photograph in Quincy, Massachusetts",
+    alt: "Marissa and Michael wedding photography at Granite Links in Quincy, Massachusetts",
     name: "Marissa + Michael",
   },
   {
     src: ValerieJoseph,
-    alt: "Valerie and Joseph photograph in Boston, Massachusetts",
+    alt: "Valerie and Joseph wedding photography at The Bart At Gibblet Hill in Groton, Massachusetts",
     name: "Valerie + Joseph",
   },
   {
     src: VeronicaJoseph,
-    alt: "Veronica and Joseph photograph in Boston, Massachusetts",
+    alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
     name: "Veronica + Joseph",
   },
   {
     src: OrbreyBrett,
-    alt: "Orbrey and Brett photograph in Boston, Massachusetts",
+    alt: "Orbrey and Brett wedding photography at Shepherd's Run in South Kingston, Rhode Island",
     name: "Orbrey + Brett",
   },
 ];
 
-// Animation variants unchanged...
 const heroTextVariants = {
   hidden: {},
   visible: {
@@ -129,6 +128,7 @@ export default function Hero() {
             <Image
               src={currentImage.src}
               alt={currentImage.alt}
+              title={currentImage.name}
               width={1920}
               height={1080}
               quality={80}
