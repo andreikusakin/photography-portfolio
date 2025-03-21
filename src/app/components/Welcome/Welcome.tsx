@@ -4,6 +4,13 @@ import React, { useRef } from "react";
 import styles from "./Welcome.module.css";
 import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
+import image1 from "./../../../../public/wedding/christiadam/23.jpg";
+import image2 from "./../../../../public/wedding/valeriejoseph/17.jpg";
+import image3 from "./../../../../public/wedding/veronicajoseph/51.jpg";
+import image4 from "./../../../../public/wedding/orbreybrett/8.jpg";
+import image5 from "./../../../../public/couples/alinabrandon/24.jpg";
+import image6 from "./../../../../public/wedding/marissamichael/10.jpg";
+
 
 export default function Welcome() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,23 +21,29 @@ export default function Welcome() {
 
   const welcomeOpacity = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2, 0.4, 0.5],
-    [0, 0, 1, 1, 0]
+    [0, 0.2, 0.4, 0.5],
+    [0, 1, 1, 0]
   );
-  const welcomeY = useTransform(scrollYProgress, [0, 0.25], [-800, 0]);
+  // const welcomeY = useTransform(scrollYProgress, [0, 0.25], [-800, 0]);
 
   const captureOpacity = useTransform(
     scrollYProgress,
     [0.5, 0.6, 0.9, 1],
     [0, 1, 1, 0]
   );
-  const captureScale = useTransform(scrollYProgress, [0.4, 1], [1.5, 3]);
+  const captureScale = useTransform(scrollYProgress, [0.4, 1], [0.4, 1]);
 
-  const welcomeImagesParallax = [
-    useTransform(scrollYProgress, [0, 0.6], [60, -60]),
-    useTransform(scrollYProgress, [0, 0.8], [0, -100]),
-    useTransform(scrollYProgress, [0, 1], [0, -100]),
-  ];
+  // const welcomeImagesParallax = [
+  //   useTransform(scrollYProgress, [0, 0.6], [60, -60]),
+  //   useTransform(scrollYProgress, [0, 0.8], [0, -100]),
+  //   useTransform(scrollYProgress, [0, 1], [0, -100]),
+  // ];
+
+  const imageCarouselX = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.5],
+    [0, -100, -1000]
+  );
 
   const scale1 = useTransform(scrollYProgress, [0.4, 1], [1.5, 4.2]);
   const scale2 = useTransform(scrollYProgress, [0.4, 1], [1.5, 3.5]);
@@ -49,6 +62,16 @@ export default function Welcome() {
     { src: "/couples/alinabrandon/30.jpg", scale: scale6 },
   ];
 
+  const carouselImages = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+
+  ];
+
   return (
     <motion.section
       className={styles.container}
@@ -61,20 +84,54 @@ export default function Welcome() {
       <div className={styles.sticky}>
         {/* Welcome Animation */}
         <motion.div
-          style={{ opacity: welcomeOpacity, y: welcomeY }}
+          style={{ opacity: welcomeOpacity }}
           className={styles.welcome}
         >
-          <div className={styles.text}>
+          <div className={styles.grid}>
             <div style={{ opacity: 0.8 }}>Welcome, I'm Andrew Kusakin</div>
+            <div className={styles.text}>
+              <h5 style={{ fontSize: "2em" }}>Photographer & Story Teller</h5>
+              <div style={{ opacity: 0.8 }}>
+                Based in the vibrant heart of Boston, MA, I'm a passionate
+                photographer specializing in wedding, engagement, couples,
+                portrait, and family photography. My approach blends candid,
+                documentary-style imagery with flexibility to adapt seamlessly
+                to any genre or creative vision. Whether you're celebrating your
+                love, marking life's milestones, or cherishing everyday moments,
+                I'm dedicated to crafting images that genuinely reflect who you
+                are.
+              </div>
+            </div>
+          </div>
+          <motion.div
+            className={styles.imageCarousel}
+            style={{ x: imageCarouselX }}
+          >
+            {carouselImages.map((image, index) => {
+              return (
+                <Image
+                  key={index}
+                  src={image.src}
+                  quality={78}
+                  alt="Wedding Photography, Boston, Massachusetts"
+                  width={600}
+                  height={900}
+                />
+              );
+            })}
+          </motion.div>
+          {/* <div className={styles.text}>
+            
             <h5>Photographer & Story Teller</h5>
             <div style={{ opacity: 0.8, fontWeight: 400 }}>
-              I'm so glad you're here. I'm a
-              photographer specializing in weddings, portraits, and family
-              events based in Boston, serving New England and beyond. Capturing genuine emotions
-              and candid moments is what I do best. Whether you're celebrating
-              love, family, or life's special milestones, I'm here to turn those
-              moments into timeless memories. Take a look around, explore my
-              portfolio, and let's start creating something beautiful together!
+              Based in the vibrant heart of Boston, MA, I'm a passionate
+              photographer specializing in wedding, engagement, couples,
+              portrait, and family photography. My approach blends candid,
+              documentary-style imagery with flexibility to adapt seamlessly to
+              any genre or creative vision. Whether you're celebrating your
+              love, marking life's milestones, or cherishing everyday moments,
+              I'm dedicated to crafting images that genuinely reflect who you
+              are.
             </div>
           </div>
           <div className={styles.parallaxImages}>
@@ -120,7 +177,7 @@ export default function Welcome() {
                 fill
               />
             </motion.div>
-          </div>
+          </div> */}
         </motion.div>
 
         <motion.div
@@ -160,11 +217,11 @@ export default function Welcome() {
             className={styles.capture}
             style={{ scale: captureScale }}
           >
-            <div>I'm here</div>
-            <div>to capture</div>
-            <div>your</div>
-            <div>precious</div>
-            <div>moments</div>
+            <div>I'm Here</div>
+            <div>to Capture</div>
+            <div>Your Most</div>
+            <div>Precious</div>
+            <div>Moments</div>
           </motion.div>
         </motion.div>
       </div>
