@@ -11,7 +11,6 @@ import image4 from "./../../../../public/wedding/orbreybrett/8.jpg";
 import image5 from "./../../../../public/couples/alinabrandon/24.jpg";
 import image6 from "./../../../../public/wedding/marissamichael/10.jpg";
 
-
 export default function Welcome() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -62,15 +61,7 @@ export default function Welcome() {
     { src: "/couples/alinabrandon/30.jpg", scale: scale6 },
   ];
 
-  const carouselImages = [
-    image1,
-    image2,
-    image3,
-    image4,
-    image5,
-    image6,
-
-  ];
+  const carouselImages = [image1, image2, image3, image4, image5, image6];
 
   return (
     <motion.section
@@ -87,19 +78,26 @@ export default function Welcome() {
           style={{ opacity: welcomeOpacity }}
           className={styles.welcome}
         >
-          <div className={styles.grid}>
-            <div style={{ opacity: 0.8 }}>Welcome, I'm Andrew Kusakin</div>
-            <div className={styles.text}>
-              <h5 style={{ fontSize: "2em" }}>Photographer & Story Teller</h5>
-              <div style={{ opacity: 0.8 }}>
-                Based in the vibrant heart of Boston, MA, I'm a passionate
-                photographer specializing in wedding, engagement, couples,
-                portrait, and family photography. My approach blends candid,
-                documentary-style imagery with flexibility to adapt seamlessly
-                to any genre or creative vision. Whether you're celebrating your
-                love, marking life's milestones, or cherishing everyday moments,
-                I'm dedicated to crafting images that genuinely reflect who you
-                are.
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%"
+          }}>
+            <div className={styles.grid}>
+              <div style={{ opacity: 0.8 }}>Welcome, I'm Andrew Kusakin</div>
+              <div className={styles.text}>
+                <h5 style={{ fontSize: "2em" }}>Photographer & Story Teller</h5>
+                <div style={{ opacity: 0.8 }}>
+                  Based in the vibrant heart of Boston, MA, I'm a passionate
+                  photographer specializing in wedding, engagement, couples,
+                  portrait, and family photography. My approach blends candid,
+                  documentary-style imagery with flexibility to adapt seamlessly
+                  to any genre or creative vision. Whether you're celebrating
+                  your love, marking life's milestones, or cherishing everyday
+                  moments, I'm dedicated to crafting images that genuinely
+                  reflect who you are.
+                </div>
               </div>
             </div>
           </div>
