@@ -129,10 +129,9 @@ export default function Hero() {
               src={currentImage.src}
               alt={currentImage.alt}
               title={currentImage.name}
-              width={1920}
-              height={1080}
-              quality={80}
-              style={{ objectFit: "cover" }}
+              width={1500}
+              height={1000}
+              quality={80}             
               placeholder="blur"
             />
           </motion.div>
