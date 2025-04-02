@@ -38,7 +38,11 @@ const MasonryItem: React.FC<MasonryItemProps> = ({
   data: { src, alt, width, height },
 }) => {
   return (
-    <div>
+    <div 
+      style={{
+        backgroundColor: "#424242",
+      }}
+    >
       <Image
         src={src}
         alt={alt}
