@@ -21,7 +21,7 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
   return (
     <Masonry
       items={imagesData}
-      // @ts-ignore
+      // @ts-expect-error - Masonic's render prop type might not perfectly match MasonryItem
       render={MasonryItem}
       columnGutter={20}
       columnWidth={350}
