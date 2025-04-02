@@ -5,12 +5,18 @@ import PageContainer from "../PageContainer/PageContainer";
 import { imageSizeFromFile } from "image-size/fromFile";
 import { MotionDiv } from "../MotionDiv/MotionDiv";
 import MasonryComponent from "../MansoryComponent/MasonryComponent";
+import path from "path";
 
 async function getImagesData(gallery: Gallery) {
   const imagesData = await Promise.all(
     Array.from({ length: gallery.count }, async (_, i) => {
-      const imagePath = `public/${gallery.type}/${gallery.id}/${i + 1}.jpg`;
-
+      const imagePath = path.join(
+        process.cwd(),
+        "public",
+        gallery.type,
+        gallery.id,
+        (i + 1).toString() + ".jpg"
+      )
       const dimensions = await imageSizeFromFile(imagePath);
 
       return {
