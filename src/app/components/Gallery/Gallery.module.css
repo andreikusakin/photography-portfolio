@@ -15,8 +15,9 @@
 }
 
 .image_container {
-  margin-bottom: 0; /* Remove any margin that might affect layout */
-  width: 100%;
+  /* margin-bottom: 0;  */
+  /* width: 100%; */
+
 }
 
 .image_placeholder {

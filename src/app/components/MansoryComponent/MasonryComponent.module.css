@@ -1,0 +1,21 @@
+.myMasonryGrid {
+  display: flex;
+  margin-left: -1em;
+  width: auto;
+}
+
+.myMasonryGridColumn {
+  padding-left: 1em;
+  background-clip: padding-box;
+}
+
+.myMasonryGridColumn > div {
+  margin-bottom: 1em;
+  background: #383838;
+}
+
+.masonryItem img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
