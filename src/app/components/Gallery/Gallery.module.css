@@ -6,6 +6,9 @@
   grid-template-columns: repeat(12, 1fr);
 }
 
+.gallery {
+  min-height: 100vh;
+}
 .description h5 {
   grid-column: 1 / span 3;
 }

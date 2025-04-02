@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
-import { Masonry } from "masonic";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Masonry = dynamic(() => import('masonic').then((mod) => mod.Masonry), { ssr: false })
 
 interface ImageData {
   width: number;
@@ -19,6 +21,7 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
   return (
     <Masonry
       items={imagesData}
+      // @ts-ignore
       render={MasonryItem}
       columnGutter={20}
       columnWidth={350}
