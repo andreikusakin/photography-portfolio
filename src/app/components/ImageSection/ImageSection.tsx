@@ -7,7 +7,6 @@ import {
     motion,
     useScroll,
     useTransform,
-    AnimatePresence,
   } from "framer-motion";
 
 export default function ImageSection({ image }: { image: StaticImageData }) {

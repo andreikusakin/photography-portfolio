@@ -1,11 +1,10 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import {
   motion,
   useScroll,
   useTransform,
-  AnimatePresence,
 } from "framer-motion";
 import styles from "./AboutMe.module.css";
 import Image1 from "./../../../../public/wedding/veronicajoseph/11.jpg";
