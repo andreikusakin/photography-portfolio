@@ -1,28 +1,45 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
 import styles from "./Hero.module.css";
-import AlinaBrandon from "./../../../../public/couples/alinabrandon/20.jpg";
+import AlinaBrandon from "./../../../../public/couples/alinabrandon/17.jpg";
 import RoxanaKanstantin from "./../../../../public/couples/roxanakonstantin/18.jpg";
 import ChristiAdam from "./../../../../public/wedding/christiadam/19.jpg";
 import MarissaMichael from "./../../../../public/wedding/marissamichael/27.jpg";
-import ValerieJoseph from "./../../../../public/wedding/valeriejoseph/7.jpg";
-import VeronicaJoseph from "./../../../../public/wedding/veronicajoseph/32.jpg";
-import OrbreyBrett from "./../../../../public/wedding/orbreybrett/23.jpg";
+import ValerieJoseph from "./../../../../public/wedding/valeriejoseph/5.jpg"; // 18
+import VeronicaJoseph from "./../../../../public/wedding/veronicajoseph/52.jpg";
+import OrbreyBrett from "./../../../../public/wedding/orbreybrett/11.jpg";
+import JessicaGeorge from "./../../../../public/wedding/jessicageorge/18.jpg";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const images = [
+  {
+    src: JessicaGeorge,
+    alt: "Jessica and George wedding photography at Granite Links in Quincy, Massachusetts",
+    name: "Jessica + George",
+  },
+  {
+    src: VeronicaJoseph,
+    alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
+    name: "Veronica + Joseph",
+  },
+  {
+    src: OrbreyBrett,
+    alt: "Orbrey and Brett wedding photography at Shepherd's Run in South Kingston, Rhode Island",
+    name: "Orbrey + Brett",
+  },
   {
     src: AlinaBrandon,
     alt: "Alina and Brandon's couple photography session at Borderland State Park in North Easton, Massachusetts",
     name: "Alina + Brandon",
   },
+  {
+    src: ValerieJoseph,
+    alt: "Valerie and Joseph wedding photography at The Bart At Gibblet Hill in Groton, Massachusetts",
+    name: "Valerie + Joseph",
+  },
+
   {
     src: RoxanaKanstantin,
     alt: "Roxana and Kanstantin's couple photography session at Raffles Hotel in Boston, Massachusetts",
@@ -38,175 +55,114 @@ const images = [
     alt: "Marissa and Michael wedding photography at Granite Links in Quincy, Massachusetts",
     name: "Marissa + Michael",
   },
-  {
-    src: ValerieJoseph,
-    alt: "Valerie and Joseph wedding photography at The Bart At Gibblet Hill in Groton, Massachusetts",
-    name: "Valerie + Joseph",
-  },
-  {
-    src: VeronicaJoseph,
-    alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
-    name: "Veronica + Joseph",
-  },
-  {
-    src: OrbreyBrett,
-    alt: "Orbrey and Brett wedding photography at Shepherd's Run in South Kingston, Rhode Island",
-    name: "Orbrey + Brett",
-  },
 ];
 
-const heroTextVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const wordContainerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const letterVariants = {
-  hidden: {
-    opacity: 0,
-    x: 10,
-    filter: "blur(3px)",
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.3,
-      ease: "easeOut",
-    },
-  },
-};
-
 export default function Hero() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { scrollY } = useScroll();
-  const imageY = useTransform(scrollY, [0, 1200], [0, 200]);
-  const textY = useTransform(scrollY, [0, 1200], [0, -100]);
-
+  const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(intervalId);
   }, []);
 
-  const currentImage = images[currentImageIndex];
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const textEmY = useTransform(scrollYProgress, [0, 1], [0, -5]);
+  const imageEmY = useTransform(scrollYProgress, [0, 1], [-3, 10]);
+
+  const textY = useTransform(textEmY, (value) => `${value}em`);
+  const imageY = useTransform(imageEmY, (value) => `${value}em`);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <section className={styles.heroContainer}>
-      {/* Background image */}
-      <motion.div
-        className={styles.imageOverlay}
-        initial={{ opacity: 0, y: -5, scale: 0.99 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <AnimatePresence mode="wait">
+    <section className={styles.container} ref={containerRef}>
+      <motion.div className={styles.heroImagesWrapper}>
+        {images.map((image, index) => (
           <motion.div
-            key={currentImageIndex}
-            className={styles.heroImage}
+            key={index}
+            className={`${styles.heroImage} ${
+              index === currentIndex ? styles.active : ""
+            }`}
             style={{ y: imageY }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
           >
             <Image
-              src={currentImage.src}
-              alt={currentImage.alt}
-              title={currentImage.name}
+              src={image.src}
+              alt={image.alt}
+              title={image.name}
               width={1500}
               height={1000}
-              quality={80}             
+              style={{ objectFit: "cover", objectPosition: "top" }}
+              quality={90}
               placeholder="blur"
+              priority={index === 0 ? true : false}
             />
           </motion.div>
-        </AnimatePresence>
+        ))}
+        {/* <motion.div
+          className={styles.heroImage}
+          style={{ y: imageY }}
+          initial={{ opacity: 1 }}
+        >
+          <Image
+            src={JessicaGeorge}
+            alt={images[7].alt}
+            title={images[7].name}
+            fill
+            style={{ objectFit: "cover", objectPosition: "top" }}
+            quality={90}
+            placeholder="blur"
+            priority
+          />
+        </motion.div> */}
       </motion.div>
 
-      {/* Text content */}
       <motion.div
-        className={styles.hero_text}
-        variants={heroTextVariants}
-        initial="hidden"
-        animate="visible"
+        className={styles.heroTextWrapper}
+        style={{ y: textY }}
+        initial={{ opacity: 0, filter: "blur(0.5em)", y: "0.5rem" }}
+        whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        viewport={{ once: true }}
       >
-        {/* Words content unchanged */}
-        <motion.div
-          variants={wordContainerVariants}
-          className={styles.word1}
-          style={{ y: textY }}
-        >
-          {"For".split("").map((char, i) => (
-            <motion.span key={i} variants={letterVariants}>
-              {char}
-            </motion.span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          variants={wordContainerVariants}
-          className={styles.word2}
-          style={{ y: textY }}
-        >
-          {"people".split("").map((char, i) => (
-            <motion.span key={i} variants={letterVariants}>
-              {char}
-            </motion.span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          variants={wordContainerVariants}
-          className={styles.word3}
-          style={{ y: textY }}
-        >
-          {"in".split("").map((char, i) => (
-            <motion.span key={i} variants={letterVariants}>
-              {char}
-            </motion.span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          variants={wordContainerVariants}
-          className={styles.word4}
-          style={{ y: textY }}
-        >
-          {"love".split("").map((char, i) => (
-            <motion.span key={i} variants={letterVariants}>
-              {char}
-            </motion.span>
-          ))}
-        </motion.div>
+        <div className={styles.heroText}>
+          <h1>Capturing Your Day</h1>
+          <h1>As It Truly Happens</h1>
+          <h1>
+            Documentary Wedding Photography for Couples in Love – Boston &
+            Beyond
+          </h1>
+        </div>
       </motion.div>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentImageIndex}
-          className={styles.coupleName}
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          {currentImage.name}
-        </motion.div>
-      </AnimatePresence>
+      <motion.div className={styles.explore}>
+        {/* <div className={styles.exploreContent}>
+          Explore
+          <div className={styles.arrowContainer}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="36"
+              height="36"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={styles.arrowDown}
+            >
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </div>
+        </div> */}
+      </motion.div>
     </section>
   );
 }

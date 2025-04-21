@@ -1,5 +1,5 @@
 @import url("https://use.typekit.net/xyp4arb.css");
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 /* ------------------------- Osmo [https://osmo.supply/] ------------------------- */
 /* ------------------------- Variables ------------------------------------------- */
@@ -16,18 +16,20 @@
   --color-neutral-700: #1f1f1f;
   --color-neutral-800: #131313;
   --color-neutral-900: #000000;
-  --color-mocha: #A47864;
+  --color-mocha: #a47864;
+  --color-dark-mocha: #644637;
+  --color-light-mocha: #f4e9e1;
   --color-white: var(--color-neutral-100);
   --color-black: var(--color-neutral-900);
   --color-error: var(--color-primary);
-  --color-success: #0ba954; 
+  --color-success: #0ba954;
   --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
   --duration-default: 0.735s;
   --animation-default: var(--duration-default) var(--cubic-default);
   --gap: 2em;
   --section-padding: calc(3.5em + (var(--gap) * 2));
   --container-padding: 2em;
-  --header-height: calc(3.50em + (var(--gap) * 2));
+  --header-height: calc(3.5em + (var(--gap) * 2));
   --footer-height: calc(2.785em + (var(--gap) * 2));
 }
 /* Tablet */
@@ -45,17 +47,24 @@
 }
 /* Mobile Portrait */
 @media screen and (max-width: 479px) {
-  :root {}
+  :root {
+  }
 }
 /* ------------------------- Scaling System by Osmo [https://osmo.supply/] -------------------------  */
 /* Desktop */
 :root {
   --size-unit: 16; /* body font-size in design - no px */
-  --size-container-ideal: 1920; /* screen-size in design - no px */
+  --size-container-ideal: 1620; /* screen-size in design - no px */
   --size-container-min: 992px;
   --size-container-max: 1920px;
-  --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
-  --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+  --size-container: clamp(
+    var(--size-container-min),
+    100vw,
+    var(--size-container-max)
+  );
+  --size-font: calc(
+    var(--size-container) / (var(--size-container-ideal) / var(--size-unit))
+  );
 }
 /* Tablet */
 @media screen and (max-width: 991px) {
@@ -85,9 +94,15 @@
 /* ------------------------- Hide Scrollbar -------------------------------------------------- */
 
 body ::-webkit-scrollbar,
-body::-webkit-scrollbar {display: none;} /* Chrome, Safari, Opera */
-body {-ms-overflow-style: none;} /* IE & Edge */
-html {scrollbar-width: none;} /* Firefox */
+body::-webkit-scrollbar {
+  display: none;
+} /* Chrome, Safari, Opera */
+body {
+  -ms-overflow-style: none;
+} /* IE & Edge */
+html {
+  scrollbar-width: none;
+} /* Firefox */
 
 /* ------------------------- Reset -------------------------------------------------- */
 *,
@@ -125,6 +140,20 @@ ul {
   margin: 0;
 }
 
+button {
+  font-size: inherit;
+  border: none;
+  cursor: pointer;
+  padding: 1em 1.8em;
+  border-radius: 3em;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  font-weight: 400;
+  font-family: "neue-haas-grotesk-text", Arial, Helvetica Neue, Helvetica,
+    sans-serif;
+}
+
 /* Selection */
 ::selection {
   background-color: var(--color-primary);
@@ -140,18 +169,19 @@ ul {
 
 body {
   color: var(--color-white);
-  font-family: 'neue-haas-grotesk-text', Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-family: "neue-haas-grotesk-text", Arial, Helvetica Neue, Helvetica,
+    sans-serif;
   font-size: var(--size-font);
   background: linear-gradient(var(--color-black), var(--color-mocha));
   /* line-height: 1; */
-  font-weight: 500;
+  font-weight: 400;
   background-color: var(--color-black);
   margin: 0;
   padding: 0;
 }
 
 h1 {
-  font-size: 7.5em;
+  font-size: 5em;
   font-weight: 500;
   line-height: 1;
 }
@@ -163,7 +193,6 @@ h2 {
 }
 
 h3 {
-
   font-size: 2.5em;
   font-weight: 500;
   line-height: 1.1;
@@ -181,7 +210,11 @@ h5 {
   line-height: 1.2;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
 }
 
@@ -191,26 +224,15 @@ p {
   font-size: 1em;
   font-weight: 400;
   line-height: 1.4;
-  font-weight: 500;
 }
 
 strong {
   font-weight: 600;
 }
-/* unstyle button*/
-button {
-  
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-  border: none;
-  font-size: var(--size-font);
-}
-
 
 @media screen and (max-width: 991px) {
-  .container.is--medium, .container.is--small {
+  .container.is--medium,
+  .container.is--small {
     max-width: calc(var(--size-container) * 1);
   }
 }
@@ -223,10 +245,9 @@ button {
   h2 {
     font-size: 3.25em;
   }
-
-
-
-
 }
 
+.main {
+  overscroll-behavior: none;
+}
 

@@ -1,0 +1,26 @@
+.container {
+  height: 100svh;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+    font-family: "neue-haas-grotesk-text", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: -0.04em;
+    justify-self: center;
+    font-size: 1.8em;
+}
+
+.overlay {
+  width: max-content;  
+  overflow: hidden;
+}

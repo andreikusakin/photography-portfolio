@@ -189,7 +189,7 @@ export default function ContactForm() {
                         onChange={handleChange}
                         defaultValue="I'm interested in *"
                     >
-                        <option value=""  disabled selected>I'm interested in *</option>
+                        <option value=""  disabled>I'm interested in *</option>
                         <option value="Wedding">Wedding</option>
                         <option value="Engagement">Engagement</option>
                         <option value="Couples">Couples</option>

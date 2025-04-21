@@ -1,169 +1,105 @@
-.hero_image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.heroContainer {
-  position: relative;
-  margin: 0 2em;
-  height: calc(100vh - var(--header-height) - 2em);
-  /* min-height: 40em; */
-  z-index: 5;
-}
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  border-radius: 2em;
+.container {
+  height: 120svh;
   overflow: hidden;
+
+  position: relative;
 }
 
 .heroImage {
-  position: absolute;
-  inset: 0;
-  top: -4vh;
   width: 100%;
-  /* height: 100vh; */
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 0;
+}
 
+.heroImage.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 .heroImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* object-position: top; */
 }
 
-
-.coupleName {
+.heroTextWrapper {
   position: absolute;
-  bottom: 2em;
-  left: 2em;
-  color: #fff;
-  font-size: 1.2em;
-  z-index: 2;
+  bottom: 25vh;
+  padding-bottom: 2em;
+  width: 100%;
+  z-index: 5;
 }
 
-.scroll {
+.heroText {
+  text-align: center;
+}
+
+.heroText h1 {
+  line-height: 1.1;
+  font-family: "the-seasons", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.heroText h1:last-child {
+  font-size: 1em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 1em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.explore {
   position: absolute;
-  bottom: 2em;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1em;
-  z-index: 2;
+  padding: 1em 2em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 400;
-  border: 1px solid #ffffff99;
-  border-radius: 20em;
+  font-style: normal;
+}
+
+.exploreContent {
   display: flex;
-  text-align: center;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 2em;
-  width: 2em;
   gap: 0.5em;
+  color: white;
 }
 
-
-.word1 {
-  position: absolute;
-  top: 0.5em;
-  left: 0.5em;
-  font-family: "neue-haas-grotesk-display", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 8em;
-  letter-spacing: -0.05em;
+.arrowContainer {
+  display: flex;
+  justify-content: center;
 }
 
-.word2 {
-  position: absolute;
-  top: 1.25em;
-  left: 1.15em;
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -0.05em;
-  font-size: 8em;
+.arrowDown {
+  width: 2em;
+  height: 2em;
+  vertical-align: middle;
+  stroke-width: 1;
+  opacity: 0.6;
 }
 
-.word3 {
-  position: absolute;
-  bottom: 1.25em;
-  right: 1.85em;
-  font-family: "neue-haas-grotesk-display", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 8em;
-  letter-spacing: -0.05em;
+.heroImagesWrapper {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
 }
-
-.word4 {
-  position: absolute;
-  bottom: 0.5em;
-  right: 0.65em;
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -0.05em;
-  font-size: 8em;
-}
-
-.word1 span,
-.word2 span,
-.word3 span,
-.word4 span {
-  display: inline-block; 
-}
-
 
 @media screen and (max-width: 991px) {
-  .hero_text .word1 {
-    font-size: 6em;
-  }
-
-  .hero_text .word2 {
-    font-size: 6em;
-  }
-
-  .hero_text .word3 {
-    font-size: 6em;
-  }
-
-  .hero_text .word4 {
-    font-size: 6em;
-  }
 }
 
 @media screen and (max-width: 767px) {
-  .hero_text .word1 {
-    font-size: 4em;
+  .container {
+    font-size: 0.7em;
   }
-
-  .hero_text .word2 {
-    font-size: 4em;
-  }
-
-  .hero_text .word3 {
-    font-size: 4em;
-  }
-
-  .hero_text .word4 {
-    font-size: 4em;
-  }
-
-  .heroContainer {
-    margin: 0 1em 1em;
-  }
-
-  .coupleName {
-    font-size: 1rem;
-  }
-
-  .heroContainer {
-    height: calc(100vh - var(--header-height) - 1em);
-  }
-
-  /* .scroll {
-    display: none;
-  } */
 }

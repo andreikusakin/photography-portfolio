@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
@@ -54,9 +54,7 @@ export const metadata: Metadata = {
     "family photographer in Boston",
     "family photographer in New England",
     "family photographer in Massachusetts",
-    "family photographer"
-
-
+    "family photographer",
   ],
   authors: [{ name: "Andrew Kusakin" }],
   openGraph: {
@@ -80,10 +78,10 @@ export const metadata: Metadata = {
       "Boston-based photographer specializing in weddings, portraits, and events. Available for travel across New England and beyond.",
     images: ["https://www.kusakinphoto.com/twitter-card-image.jpg"],
   },
-  metadataBase: new URL('https://www.kusakinphoto.com/'),
+  metadataBase: new URL("https://www.kusakinphoto.com/"),
   alternates: {
-    canonical: '/',
-  }
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -97,12 +95,11 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/ygj5rom.css" />
       </head>
       <body>
-        <main 
-          // style={{overflow: "hidden"}}
-        >
+        <main className="main">
           <Menu />
           <Header />
           {children}
+
           <Footer />
         </main>
       </body>

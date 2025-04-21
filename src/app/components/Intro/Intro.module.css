@@ -1,0 +1,162 @@
+.wrapper {
+  /* background-color: rgb(37, 22, 18); */
+  /* color: var(--color-black); */
+  padding-top: 12em;
+  padding-bottom: 6em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --colums: 3;
+  --column-gap: 2em;
+  --column-width: calc(100% / var(--colums) - var(--column-gap));
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  columns: 3;
+  column-gap: 2em;
+  width: 100%;
+  /* justify-content: space-between; */
+}
+
+.col1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10em;
+  width: var(--column-width);
+}
+
+.col1 .row:first-child {
+  display: flex;
+  justify-content: flex-end;
+}
+.col1 .row:last-child {
+  display: flex;
+  justify-content: flex-start;
+}
+.col1 .row:first-child .image {
+  width: 14em;
+
+}
+.col1 .row:last-child .image {
+  width: 26em;
+}
+
+.col2 {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: var(--column-width);
+  gap: 2em;
+}
+
+.col2 h2 {
+  font-family: "the-seasons", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4.5em;
+  text-wrap: nowrap;
+}
+
+.col3 {
+  display: flex;
+  flex-direction: column;
+  gap: 10em;
+  width: var(--column-width);
+}
+
+.col3 .row:first-child {
+  display: flex;
+  justify-content: flex-end;
+}
+.col3 .row:last-child {
+  display: flex;
+  justify-content: flex-start;
+}
+.col3 .row:first-child .image {
+  width: 26em;
+
+
+}
+.col3 .row:last-child .image {
+  width: 14em;
+
+}
+
+.description {
+  font-weight: 400;
+  width: 29em;
+  font-size: 1.2em;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.image {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  
+}
+
+.button {
+  background-color: var(--color-mocha);
+}
+
+@media screen and (max-width: 991px) {
+  .wrapper {
+    --colums: 1;
+    --column-gap: 0;
+    --column-width: 100%;
+  }
+
+  .col1 {
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .col2 {
+    padding-top: 0;
+    padding-bottom: 10em;
+  }
+
+  .col3 {
+    flex-direction: row-reverse;
+    gap: 0;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .description {
+    width: 100%;
+    font-size: 1.1em;
+  }
+  .col2 h2 {
+    font-size: 2.6em;
+  }
+  .col1 .row:first-child .image {
+    width: 10em;
+  
+  }
+  .col1 .row:last-child .image {
+    width: 16em;
+    max-width: 50vw;
+  }
+  .col3 .row:first-child .image {
+    width: 10em;
+  
+  }
+  .col3 .row:last-child .image {
+    width: 16em;
+    max-width: 50vw;
+  }
+}

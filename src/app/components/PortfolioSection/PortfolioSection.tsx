@@ -1,138 +1,95 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import styles from "./PortfolioSection.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "motion/react";
-import WeddingPicture from "../../../../public/wedding/valeriejoseph/13.jpg";
-import CouplesPicture from "../../../../public/couples/alinabrandon/30.jpg";
-import FamilyPicture from "../../../../public/family/hancharou/12.jpg";
+import WeddingPicture from "../../../../public/wedding/valeriejoseph/17.jpg";
+import CouplesPicture from "../../../../public/couples/alinabrandon/19.jpg";
+import FamilyPicture from "../../../../public/family/hancharou/14.jpg";
+import * as motion from "motion/react-client";
 
 export default function PortfolioSection() {
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const [containerWidth, setContainerWidth] = useState(0);
-
-  useEffect(() => {
-    const updateWidth = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth);
-      }
-    };
-
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
-
-  const { scrollYProgress } = useScroll({ target: containerRef });
-  const horizontalScroll = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, -containerWidth * 2 - 40]
-  );
-
   return (
-    <div className={styles.wrapper}>
-      <div ref={containerRef} className={styles.container}>
-        <div className={styles.sticky}>
-          <div className={styles.description}>
-            Searching for a wedding, portrait, or family photographer? You're in
-            the right place—I’ve got you covered!
+    <motion.div
+      className={styles.wrapper}
+      initial={{ opacity: 0, filter: "blur(0.5em)" }}
+      whileInView={{ opacity: 1, filter: "blur(0em)" }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      viewport={{ once: true }}
+    >
+      <motion.h2
+        initial={{ y: "0.5rem" }}
+        whileInView={{ y: "0em" }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
+        Explore The Moments
+      </motion.h2>
+      <motion.div
+        className={styles.text}
+        initial={{ y: "0.5rem" }}
+        whileInView={{ y: "0em" }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+      >
+        Dive into galleries filled with genuine laughter, quiet connections, and
+        authentic celebrations. From the energy of a wedding day to the intimacy
+        of a couple's session or the warmth of family life, my focus is always
+        on capturing real moments, beautifully.
+      </motion.div>
+      <motion.div
+        className={styles.categories}
+        initial={{ y: "0.5rem", opacity: 0, filter: "blur(0.5em)" }}
+        whileInView={{ y: "0em", opacity: 1, filter: "blur(0em)" }}
+        transition={{ duration: 0.3, delay: 0.3 }}
+      >
+        <Link href="/wedding">
+          <div className={styles.category}>
+            <div className={styles.imageContainer}>
+              <Image
+                src={WeddingPicture}
+                alt="Wedding"
+                className={styles.image}
+                placeholder="blur"
+              />
+            </div>
+            <div className={styles.overlay}>
+              <div className={styles.name}>Weddings</div>
+              <button>Explore</button>
+            </div>
           </div>
-          <motion.div style={{ x: horizontalScroll, display: "flex", gap: 20 }}>
-            <motion.div
-              className={styles.section}
-              variants={sectionVariants}
-              initial="hidden"
-              animate="visible"
-              whileInView="visible"
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.text}>
-                <h2>Weddings</h2>
-                <div>One of the most important days of your life</div>
+        </Link>
+        <Link href="/couples">
+          <div className={styles.category}>
+            <div className={styles.imageContainer}>
+              <Image
+                src={CouplesPicture}
+                alt="Couples"
+                className={styles.image}
+                placeholder="blur"
+              />
+            </div>
+            <div className={styles.overlay}>
+              <div className={styles.name}>Couples</div>
+              <button>Explore</button>
+            </div>
+          </div>
+        </Link>
+        <Link href="/family">
+          <div className={styles.category}>
+            <div className={styles.imageContainer}>
+              <Image
+                src={FamilyPicture}
+                alt="Family"
+                className={styles.image}
+                placeholder="blur"
+              />
+            </div>
 
-                <Link href="/wedding">
-                  <button>Explore More</button>
-                </Link>
-              </div>
-              <div className={styles.image_container}>
-                <Image
-                  src={WeddingPicture}
-                  alt="wedding image"
-                  fill
-                  style={{ objectFit: "cover" }}
-                  quality={70}
-                  placeholder="blur"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              className={styles.section}
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 0.4, delay: 0.2 }}
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              <div className={styles.text}>
-                <h2>Couples</h2>
-                <div>Love is in the air</div>
-
-                <Link href="/couples">
-                  <button>Explore More</button>
-                </Link>
-              </div>
-              <div className={styles.image_container}>
-                <Image
-                  src={CouplesPicture}
-                  alt="couples image"
-                  fill
-                  style={{ objectFit: "cover" }}
-                  quality={70}
-                  placeholder="blur"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              className={styles.section}
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 0.4, delay: 0.4 }}
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              <div className={styles.text}>
-                <h2>Family</h2>
-                <div>Family is everything</div>
-
-                <Link href="/family">
-                  <button>Explore More</button>
-                </Link>
-              </div>
-              <div className={styles.image_container}>
-                <Image
-                  src={FamilyPicture}
-                  alt="family image"
-                  fill
-                  style={{ objectFit: "cover" }}
-                  quality={70}
-                  placeholder="blur"
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
-    </div>
+            <div className={styles.overlay}>
+              <div className={styles.name}>Family</div>
+              <button>Explore</button>
+            </div>
+          </div>
+        </Link>
+      </motion.div>
+    </motion.div>
   );
 }
