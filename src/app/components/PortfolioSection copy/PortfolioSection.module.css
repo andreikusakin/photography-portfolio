@@ -1,0 +1,117 @@
+.description {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 30em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10em;
+  font-size: 1.5em;
+}
+
+.container {
+  height: 300vh;
+  position: relative;
+}
+
+.sticky {
+  top: 0;
+  left: 0;
+  position: sticky;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  align-items: center;
+  justify-content:center;
+  width: 100vw;
+  padding-bottom: 2em;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 1em;
+  padding-left: 13%;
+  width: 50em;
+  font-size: 1.2em;
+}
+
+.text h2 {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.04em;
+}
+
+.text button {
+  padding: 1em 1.5em;
+  border-radius: 10em;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: var(--color-white);
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-weight: 500;
+  transition: border-color 0.5s ease;
+  width: fit-content;
+}
+
+.text button:hover {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.image_container {
+  width: 100%;
+  max-width: 60em;
+  aspect-ratio: 3/2;
+  position: relative;
+}
+
+@media screen and (max-width: 991px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .sticky {
+    align-items: flex-end;
+    padding-bottom: 20%;
+  }
+
+  .description {
+    font-size: 1.2em;
+    width: 80%;
+  }
+
+  .text {
+    font-size: 1rem;
+    width: 100%;
+    padding-left: 2em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+ .description {
+    font-size: 1rem;
+    top: 1em;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .text {
+    font-size: 1rem;
+    width: 100%;
+    padding-left: 1em;
+  }
+}

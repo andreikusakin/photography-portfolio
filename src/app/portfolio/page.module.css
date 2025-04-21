@@ -1,0 +1,82 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.container {
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container h2 {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.05em;
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 21/9;
+  border-radius: 1.5em;
+  overflow: hidden;
+  position: relative;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21/9;
+  object-fit: cover;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 1em;
+  width: 100%;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
+
+.grid p {
+  grid-column: 4 / span 4;
+  grid-row: 1;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 991px) {
+    .grid {
+      grid-template-columns: repeat(6, 1fr);
+      row-gap: 1em;
+    }
+  
+    .text {
+      grid-column: 1 / span 6;
+      grid-row: 1;
+    }
+    .grid p {
+      grid-column: 1 / span 6;
+      grid-row: 2;
+    }
+  
+  }
+  
+  @media screen and (max-width: 767px) {
+    .wrapper {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
+  
