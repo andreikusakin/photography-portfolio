@@ -112,8 +112,9 @@
 }
 
 .text h5 {
-  font-family: "Instrument Serif", serif;
+  font-family: "the-seasons", sans-serif;
   font-weight: 400;
+  font-style: normal;
   font-size: 4em;
 }
 
@@ -143,9 +144,9 @@
 }
 
 .capture :last-child {
-  font-family: "Instrument Serif", serif;
+  font-family: "the-seasons", sans-serif;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.4em;
   line-height: 0.8;
 }

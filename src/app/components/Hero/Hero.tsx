@@ -3,14 +3,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
-import AlinaBrandon from "./../../../../public/couples/alinabrandon/17.jpg";
+import AlinaBrandon from "./../../../../public/couples/alinabrandon/20.jpg";
 import RoxanaKanstantin from "./../../../../public/couples/roxanakonstantin/18.jpg";
-import ChristiAdam from "./../../../../public/wedding/christiadam/19.jpg";
+import ChristiAdam from "./../../../../public/wedding/christiadam/18.jpg";
 import MarissaMichael from "./../../../../public/wedding/marissamichael/27.jpg";
-import ValerieJoseph from "./../../../../public/wedding/valeriejoseph/5.jpg"; // 18
+import ValerieJoseph from "./../../../../public/wedding/valeriejoseph/13.jpg"; // 18
 import VeronicaJoseph from "./../../../../public/wedding/veronicajoseph/52.jpg";
+import VeronicaJoseph2 from "./../../../../public/wedding/veronicajoseph/15.jpg";
 import OrbreyBrett from "./../../../../public/wedding/orbreybrett/11.jpg";
-import JessicaGeorge from "./../../../../public/wedding/jessicageorge/18.jpg";
+import JessicaGeorge from "./../../../../public/hero1.jpg";
 import { motion, useScroll, useTransform } from "motion/react";
 
 const images = [
@@ -39,7 +40,11 @@ const images = [
     alt: "Valerie and Joseph wedding photography at The Bart At Gibblet Hill in Groton, Massachusetts",
     name: "Valerie + Joseph",
   },
-
+  {
+    src: VeronicaJoseph2,
+    alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
+    name: "Veronica + Joseph",
+  },
   {
     src: RoxanaKanstantin,
     alt: "Roxana and Kanstantin's couple photography session at Raffles Hotel in Boston, Massachusetts",
@@ -59,6 +64,7 @@ const images = [
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -73,14 +79,12 @@ export default function Hero() {
     target: containerRef,
     offset: ["start start", "end start"],
   });
-
+  const [currentIndex, setCurrentIndex] = useState(0);
   const textEmY = useTransform(scrollYProgress, [0, 1], [0, -5]);
-  const imageEmY = useTransform(scrollYProgress, [0, 1], [-3, 10]);
+  const imageEmY = useTransform(scrollYProgress, [0, 1], [-2, 10]);
 
   const textY = useTransform(textEmY, (value) => `${value}em`);
   const imageY = useTransform(imageEmY, (value) => `${value}em`);
-
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <section className={styles.container} ref={containerRef}>

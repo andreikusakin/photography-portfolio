@@ -3,8 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 2em;
-  height: var(--header-height);
-  z-index: 20;
+  /* height: var(--header-height); */
+  z-index: 5;
   width: 100%;
   overflow: hidden;
   background: linear-gradient(
@@ -12,13 +12,18 @@
     rgba(0, 0, 0, 0.2) 0%,
     rgba(0, 0, 0, 0) 100%
   );
-
+  /* position: fixed; */
   top: 0;
   left: 0;
 }
 
+.header a {
+  cursor: pointer;
+}
+
 .header h5 {
   text-align: center;
+  
 }
 
 .name {
@@ -27,6 +32,8 @@
   font-style: normal;
   letter-spacing: -0.04em;
   justify-self: center;
+  z-index: 100;
+  position: relative;
 }
 
 .header nav {
@@ -76,6 +83,7 @@
 .navLinkText_wrapper{
   position: relative;
   overflow: hidden;
+
 }
 
 .navLinkText {

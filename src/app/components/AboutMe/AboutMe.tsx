@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import styles from "./AboutMe.module.css";
-import Image1 from "./../../../../public/wedding/veronicajoseph/11.jpg";
+import Image1 from "./../../../../public/about/ak1.jpg";
 
 import Link from "next/link";
 
@@ -18,7 +18,7 @@ export default function AboutMe() {
     offset: ["start end", "end start"],
   });
 
-  const parallax = useTransform(scrollYProgress, [0, 1], [-5, 2]);
+  const parallax = useTransform(scrollYProgress, [0, 1], [-3, 2]);
   const y1 = useTransform(parallax, (value) => `${value}em`);
 
   return (
@@ -27,7 +27,7 @@ export default function AboutMe() {
         <div className={styles.col1}>
           <div className={styles.imageContainer}>
             <motion.div className={styles.imageWrapper} style={{ y: y1 }}>
-              <Image src={Image1} alt="About Me" height={900} width={600} />
+              <Image src={Image1} alt="About Me" height={900} width={600}   quality={90}/>
             </motion.div>
           </div>
         </div>

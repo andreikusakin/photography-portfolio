@@ -15,7 +15,7 @@ export default function ImageSection({ image }: { image: StaticImageData }) {
     target: containerRef,
     offset: ["start end", "end start"],
   });
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
   return (
     <div className={styles.container} ref={containerRef}>

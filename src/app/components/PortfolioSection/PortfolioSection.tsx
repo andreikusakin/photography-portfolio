@@ -20,6 +20,7 @@ export default function PortfolioSection() {
         initial={{ y: "0.5rem" }}
         whileInView={{ y: "0em" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
+        viewport={{ once: true }}
       >
         Explore The Moments
       </motion.h2>
@@ -28,6 +29,7 @@ export default function PortfolioSection() {
         initial={{ y: "0.5rem" }}
         whileInView={{ y: "0em" }}
         transition={{ duration: 0.3, delay: 0.2 }}
+        viewport={{ once: true }}
       >
         Dive into galleries filled with genuine laughter, quiet connections, and
         authentic celebrations. From the energy of a wedding day to the intimacy
@@ -39,6 +41,7 @@ export default function PortfolioSection() {
         initial={{ y: "0.5rem", opacity: 0, filter: "blur(0.5em)" }}
         whileInView={{ y: "0em", opacity: 1, filter: "blur(0em)" }}
         transition={{ duration: 0.3, delay: 0.3 }}
+        viewport={{ once: true }}
       >
         <Link href="/wedding">
           <div className={styles.category}>

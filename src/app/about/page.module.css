@@ -8,9 +8,9 @@
 }
 
 .title {
-  font-family: "Instrument Serif", serif;
+  font-family: "the-seasons", sans-serif;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: -0.05em;
   grid-column: 1 / span 12;
   grid-row: 1;

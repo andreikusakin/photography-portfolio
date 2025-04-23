@@ -9,13 +9,15 @@ import { socials } from "@/lib/data";
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 991);
+      if (window.innerWidth > 991) {
+        setIsOpen(false);
+      }
     };
 
     checkScreenSize();
@@ -24,23 +26,11 @@ export default function Menu() {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 120) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-        setIsOpen(false); 
-      }
-    };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className={styles.wrapper}>
-      {(isMobile || isVisible) && (
+      {(isMobile) && (
         <motion.div 
           className={`${styles.hamburger} ${isOpen ? styles.hamburgerOpen : ''}`} 
           onClick={() => setIsOpen(!isOpen)}
@@ -70,7 +60,7 @@ export default function Menu() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <div className={styles.name}>
-                  <Link href="/">Andrew Kusakin</Link>
+                  <Link href="/">Andrew Kusakin Photography</Link>
                 </div>
                 <ul>
                   <li onClick={() => setIsOpen(false)}>

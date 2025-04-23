@@ -4,7 +4,7 @@ import Image from "next/image";
 import { MotionDiv } from "../components/MotionDiv/MotionDiv";
 import { LuArrowUpRight } from "react-icons/lu";
 import Link from "next/link";
-import meImage from "./me.jpg";
+import meImage from "./../../../public/about/ak2.jpg";
 import PageContainer from "../components/PageContainer/PageContainer";
 import type { Metadata } from "next";
 

@@ -96,8 +96,9 @@ export default function RootLayout({
       </head>
       <body>
         <main className="main">
-          <Menu />
+          
           <Header />
+          <Menu />
           {children}
 
           <Footer />

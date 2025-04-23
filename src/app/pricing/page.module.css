@@ -6,10 +6,9 @@
 }
 
 .grid h2 {
-  font-family: "Instrument Serif", serif;
+  font-family: "the-seasons", sans-serif;
   font-weight: 400;
-  font-style: italic;
-  letter-spacing: -0.05em;
+  font-style: normal;
   grid-column: 1 / span 12;
   grid-row: 1;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
