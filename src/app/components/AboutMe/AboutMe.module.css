@@ -1,7 +1,5 @@
 .wrapper {
   background-color: var(--color-mocha);
-  /* background-color: var(--color-white);
-    color: var(--color-black); */
   padding-top: 6em;
   padding-bottom: 6em;
   width: 100%;
@@ -81,7 +79,7 @@
     gap: 2em;
   }
   .imageContainer {
-    width: 100%;
+    width: 100vw;
     height: 40em;
   }
   .imageWrapper {
