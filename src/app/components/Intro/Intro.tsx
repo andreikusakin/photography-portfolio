@@ -39,10 +39,11 @@ export default function Intro() {
           >
             <Image
               src={Image1}
-              alt=""
               className={styles.image}
               width={600}
               height={900}
+              alt="Wedding Photography Boston, Massachusetts"
+              title="Wedding Photo"
             />
           </motion.div>
           <motion.div
@@ -57,10 +58,12 @@ export default function Intro() {
           >
             <Image
               src={Image2}
-              alt=""
+              alt="Wedding Photography Boston, Massachusetts"
+              title="Wedding Photo"
               className={styles.image}
               width={600}
               height={900}
+
             />
           </motion.div>
         </div>
@@ -105,7 +108,8 @@ export default function Intro() {
           >
             <Image
               src={Image3}
-              alt=""
+              alt="Wedding Photography Boston, Massachusetts"
+              title="Wedding Photo"
               className={styles.image}
               width={600}
               height={900}
@@ -123,7 +127,8 @@ export default function Intro() {
           >
             <Image
               src={Image4}
-              alt=""
+              alt="Wedding Photography Boston, Massachusetts"
+              title="Wedding Photo"
               className={styles.image}
               width={600}
               height={900}

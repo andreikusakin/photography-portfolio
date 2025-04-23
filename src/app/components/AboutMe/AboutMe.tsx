@@ -1,11 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import Image from "next/image";
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./AboutMe.module.css";
 import Image1 from "./../../../../public/about/ak1.jpg";
 
@@ -27,7 +23,14 @@ export default function AboutMe() {
         <div className={styles.col1}>
           <div className={styles.imageContainer}>
             <motion.div className={styles.imageWrapper} style={{ y: y1 }}>
-              <Image src={Image1} alt="About Me" height={900} width={600}   quality={90}/>
+              <Image
+                src={Image1}
+                alt="Andrew Kusakin, Wedding Photographer Based In Boston, Massachusetts"
+                height={900}
+                width={600}
+                quality={90}
+                title="Andrew Kusakin Photography"
+              />
             </motion.div>
           </div>
         </div>

@@ -22,7 +22,8 @@ export default function ImageSection({ image }: { image: StaticImageData }) {
       <motion.div className={styles.imageContainer} style={{ scale }}>
         <Image
           src={image}
-          alt=""
+          alt="wedding photography"
+          title="wedding photography"
           className={styles.image}
           width={1500}
           height={1000}

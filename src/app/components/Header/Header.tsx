@@ -61,8 +61,8 @@ export default function Header() {
         boxShadow
       }}
     >
-      <Link href="/">
-        <h5 className={styles.name}>Andrew Kusakin Photography</h5>
+      <Link href="/" className={styles.name}>
+       Andrew Kusakin Photography
       </Link>
       <nav>
         <Link href="/portfolio" className={styles.navLink}>

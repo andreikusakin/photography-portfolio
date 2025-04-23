@@ -137,8 +137,8 @@ export default function Hero() {
         viewport={{ once: true }}
       >
         <div className={styles.heroText}>
-          <h1>Capturing Your Day</h1>
-          <h1>As It Truly Happens</h1>
+          <div>Capturing Your Day</div>
+          <div>As It Truly Happens</div>
           <h1>
             Documentary Wedding Photography for Couples in Love – Boston &
             Beyond

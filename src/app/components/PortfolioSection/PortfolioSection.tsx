@@ -54,7 +54,7 @@ export default function PortfolioSection() {
               />
             </div>
             <div className={styles.overlay}>
-              <div className={styles.name}>Weddings</div>
+              <h2 className={styles.name}>Weddings</h2>
               <button>Explore</button>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function PortfolioSection() {
               />
             </div>
             <div className={styles.overlay}>
-              <div className={styles.name}>Couples</div>
+              <h2 className={styles.name}>Couples</h2>
               <button>Explore</button>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function PortfolioSection() {
             </div>
 
             <div className={styles.overlay}>
-              <div className={styles.name}>Family</div>
+              <h2 className={styles.name}>Family</h2>
               <button>Explore</button>
             </div>
           </div>

@@ -19,6 +19,7 @@
 
 .header a {
   cursor: pointer;
+  text-align: center;
 }
 
 .header h5 {
@@ -34,6 +35,7 @@
   justify-self: center;
   z-index: 100;
   position: relative;
+  font-size: 1.25em;
 }
 
 .header nav {

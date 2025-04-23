@@ -40,7 +40,8 @@
   text-align: center;
 }
 
-.heroText h1 {
+.heroText div {
+  font-size: 5em;
   line-height: 1.1;
   font-family: "the-seasons", sans-serif;
   font-weight: 400;
@@ -100,6 +101,9 @@
 
 @media screen and (max-width: 767px) {
   .container {
-    font-size: 0.7em;
+    font-size: 0.8em;
+  }
+  .heroText div {
+    font-size: 3.7em;
   }
 }
