@@ -12,6 +12,7 @@ import VeronicaJoseph from "./../../../../public/wedding/veronicajoseph/52.jpg";
 import VeronicaJoseph2 from "./../../../../public/wedding/veronicajoseph/15.jpg";
 import OrbreyBrett from "./../../../../public/wedding/orbreybrett/11.jpg";
 import JessicaGeorge from "./../../../../public/hero1.jpg";
+import AlexandraAdam from "./../../../../public/wedding/alexandradam/42.jpg";
 import { motion, useScroll, useTransform } from "motion/react";
 
 const images = [
@@ -31,10 +32,21 @@ const images = [
     name: "Orbrey + Brett",
   },
   {
+    src: ChristiAdam,
+    alt: "Christi and Adam weddinng photography at Seaport in Boston, Massachusetts",
+    name: "Christi + Adam",
+  },
+  {
+    src: AlexandraAdam,
+    alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
+    name: "Alexandra + Adam",
+  },
+  {
     src: AlinaBrandon,
     alt: "Alina and Brandon's couple photography session at Borderland State Park in North Easton, Massachusetts",
     name: "Alina + Brandon",
   },
+
   {
     src: ValerieJoseph,
     alt: "Valerie and Joseph wedding photography at The Bart At Gibblet Hill in Groton, Massachusetts",
@@ -50,11 +62,7 @@ const images = [
     alt: "Roxana and Kanstantin's couple photography session at Raffles Hotel in Boston, Massachusetts",
     name: "Roxana + Kanstantin",
   },
-  {
-    src: ChristiAdam,
-    alt: "Christi and Adam weddinng photograph at Seaport in Boston, Massachusetts",
-    name: "Christi + Adam",
-  },
+
   {
     src: MarissaMichael,
     alt: "Marissa and Michael wedding photography at Granite Links in Quincy, Massachusetts",

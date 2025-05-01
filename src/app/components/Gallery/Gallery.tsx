@@ -6,6 +6,7 @@ import { MotionDiv } from "../MotionDiv/MotionDiv";
 import MasonryComponent from "../MasonryComponent/MasonryComponent";
 import fs from "fs/promises"; 
 import path from "path"; 
+import Image from "next/image";
 
 
 
@@ -55,9 +56,28 @@ export default async function Gallery({ gallery }: { gallery: GalleryType }) {
     );
   }
 
+  
+
   return (
     <PageContainer>
-      <MotionDiv
+      <div className={styles.hero}>
+        <div className={styles.hero_image}> <Image 
+          src={imagesData[gallery.hero - 1].src}
+          alt={`${gallery.name} at ${gallery.venue}, ${gallery.location}; ${gallery.type} photography`}
+          width={1500}
+          height={1500}
+          quality={85}
+          
+        /></div>
+       <div className={styles.text}>
+        <h1>{gallery.name}</h1>
+        <div>{gallery.venue}</div>
+        <div>{gallery.location}</div>
+        
+       </div>
+      </div>
+        
+      {/* <MotionDiv
         className={styles.description}
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
@@ -69,7 +89,7 @@ export default async function Gallery({ gallery }: { gallery: GalleryType }) {
           <div>{gallery.venue}</div>
           <div>{gallery.location}</div>
         </div>
-      </MotionDiv>
+      </MotionDiv> */}
 
       <MotionDiv
         className={styles.gallery}
