@@ -5,6 +5,7 @@ export type Gallery = {
   venue?: string;
   location: string;
   cover: number;
+  hero: number;
 };
 
 export type Highlight = {
@@ -100,7 +101,7 @@ export const families: Gallery[] = [
     venue: "Four Seasons Hotel",
     location: "Boston, MA",
     cover: 14,
-    
+    hero: 12,
   },
 ]
 
@@ -125,58 +126,67 @@ export const familyHighlights: Highlight[] = [
 
 export const weddings: Gallery[] = [
   {
+    id: "alexandradam",
+    type: "wedding",
+    name: "Alexandra + Adam",
+    venue: "Glen Island Harbour Club",
+    location: "New Rochelle, NY",
+    cover: 41,
+    hero: 42,
+  },
+  {
     id: "veronicajoseph",
     type: "wedding",
-    name: "Veronica & Joseph",
+    name: "Veronica + Joseph",
     venue: "Harborside Hotel",
     location: "Bar Harbor, ME",
     cover: 13,
-    
+    hero: 24,
   },
   {
     id: "orbreybrett",
     type: "wedding",
-    name: "Orbrey & Brett",
+    name: "Orbrey + Brett",
     venue: "Shepherd's Run",
     location: "South Kingston, RI",
     cover: 4,
-    
+    hero: 23,
   },
   {
     id: "valeriejoseph",
     type: "wedding",
-    name: "Valerie & Joseph",
+    name: "Valerie + Joseph",
     venue: "The Barn At Gibbet Hill",
     location: "Groton, MA",
     cover: 17,
-    
+    hero: 7
   },
   {
     id: "christiadam",
     type: "wedding",
-    name: "Christi & Adam",
+    name: "Christi + Adam",
     venue: "Oceanview Of Nahant",
     location: "Nahant, MA",
     cover: 23,
-    
+    hero: 18
   },
   {
     id: "jessicageorge",
     type: "wedding",
-    name: "Jessica & George",
+    name: "Jessica + George",
     venue: "Granite Links",
     location: "Quincy, MA",
     cover: 18,
-    
+    hero: 10
   },
   {
     id: "marissamichael",
     type: "wedding",
-    name: "Marissa & Michael",
+    name: "Marissa + Michael",
     venue: "Granite Links",
     location: "Quincy, MA",
     cover: 10,
-    
+    hero: 9,
   },
 ];
 
@@ -201,20 +211,20 @@ export const couples: Gallery[] = [
   {
     id: "alinabrandon",
     type: "couples",
-    name: "Alina & Brandon",
+    name: "Alina + Brandon",
     venue: "Borderland State Park",
     location: "North Easton, MA",
     cover: 15,
-    
+    hero: 30,
   },
   {
     id: "roxanakonstantin",
     type: "couples",
-    name: "Roxana & Konstantin",
+    name: "Roxana + Konstantin",
     venue: "Raffles Hotel",
     location: "Boston, MA",
     cover: 8,
-    
+    hero: 17,
   },
 ];
 
