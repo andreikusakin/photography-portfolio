@@ -70,7 +70,7 @@ export default function PortfolioSection() {
                   fill
                   style={{ objectFit: "cover" }}
                   quality={70}
-                  placeholder="blur"
+                 
                 />
               </div>
             </motion.div>
@@ -98,7 +98,7 @@ export default function PortfolioSection() {
                   fill
                   style={{ objectFit: "cover" }}
                   quality={70}
-                  placeholder="blur"
+                 
                 />
               </div>
             </motion.div>
@@ -126,7 +126,7 @@ export default function PortfolioSection() {
                   fill
                   style={{ objectFit: "cover" }}
                   quality={70}
-                  placeholder="blur"
+                  
                 />
               </div>
             </motion.div>

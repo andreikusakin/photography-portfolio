@@ -1,81 +1,66 @@
 .wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding-left: 2em;
-  padding-right: 2em;
 }
 
-.container {
-  font-size: 1.2em;
+.portfolioSection {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
 }
-
-.container h2 {
+.portfolioSection h2 {
   font-family: "the-seasons", sans-serif;
   font-weight: 400;
   font-style: normal;
-}
-
-.imageContainer {
-  width: 100%;
-  aspect-ratio: 21/9;
-  border-radius: 1.5em;
-  overflow: hidden;
-  position: relative;
-}
-
-.imageContainer img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 21/9;
-  object-fit: cover;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  column-gap: 1em;
-  width: 100%;
-  padding-bottom: 2em;
-  padding-top: 2em;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.text {
-  grid-column: 1 / span 3;
-  grid-row: 1;
-}
-
-.grid p {
-  grid-column: 4 / span 4;
-  grid-row: 1;
-  font-weight: 400;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
 }
 
 @media screen and (max-width: 991px) {
-    .grid {
-      grid-template-columns: repeat(6, 1fr);
-      row-gap: 1em;
-    }
-  
-    .text {
-      grid-column: 1 / span 6;
-      grid-row: 1;
-    }
-    .grid p {
-      grid-column: 1 / span 6;
-      grid-row: 2;
-    }
-  
-  }
-  
-  @media screen and (max-width: 767px) {
-    .wrapper {
-      padding-left: 1em;
-      padding-right: 1em;
-    }
-  }
-  
+}
+
+@media screen and (max-width: 767px) {
+}
+
+.section {
+  padding-top: 6em;
+}
+
+.travel {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4em 1em;
+
+}
+
+.travel h2 {
+    font-family: "the-seasons", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: -0.05em;
+    text-transform: capitalize;
+}
+
+.description {
+    text-align: center;
+    max-width: 40em;
+    padding: 2em 1em 4em 1em;
+    opacity: 0.8;
+}
+
+.images {
+    columns: 2;
+    max-width: 80em;
+    column-gap:1em;
+}
+
+.imageContainer {
+    break-inside: avoid-column;
+    margin-bottom: 1em;
+}
+
+.imageContainer img {
+    display: block;
+}

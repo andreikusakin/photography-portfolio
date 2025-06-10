@@ -3,71 +3,68 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
-import AlinaBrandon from "./../../../../public/couples/alinabrandon/20.jpg";
-import RoxanaKanstantin from "./../../../../public/couples/roxanakonstantin/18.jpg";
-import ChristiAdam from "./../../../../public/wedding/christiadam/18.jpg";
-import MarissaMichael from "./../../../../public/wedding/marissamichael/27.jpg";
-import ValerieJoseph from "./../../../../public/wedding/valeriejoseph/13.jpg"; // 18
-import VeronicaJoseph from "./../../../../public/wedding/veronicajoseph/52.jpg";
-import VeronicaJoseph2 from "./../../../../public/wedding/veronicajoseph/15.jpg";
-import OrbreyBrett from "./../../../../public/wedding/orbreybrett/11.jpg";
-import JessicaGeorge from "./../../../../public/hero1.jpg";
-import AlexandraAdam from "./../../../../public/wedding/alexandradam/42.jpg";
+
 import { motion, useScroll, useTransform } from "motion/react";
 
 const images = [
+  // {
+  //   src: JessicaGeorge,
+  //   alt: "Jessica and George wedding photography at Granite Links in Quincy, Massachusetts",
+  //   name: "Jessica + George",
+  // },
+
   {
-    src: JessicaGeorge,
-    alt: "Jessica and George wedding photography at Granite Links in Quincy, Massachusetts",
-    name: "Jessica + George",
-  },
-  {
-    src: VeronicaJoseph,
-    alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
-    name: "Veronica + Joseph",
-  },
-  {
-    src: OrbreyBrett,
-    alt: "Orbrey and Brett wedding photography at Shepherd's Run in South Kingston, Rhode Island",
-    name: "Orbrey + Brett",
-  },
-  {
-    src: ChristiAdam,
-    alt: "Christi and Adam weddinng photography at Seaport in Boston, Massachusetts",
-    name: "Christi + Adam",
-  },
-  {
-    src: AlexandraAdam,
+    src: "https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/alex-adam/000047-oT4y70wXf6lxowXskfVW3TdzZ0pmKU.jpg",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
   },
   {
-    src: AlinaBrandon,
-    alt: "Alina and Brandon's couple photography session at Borderland State Park in North Easton, Massachusetts",
-    name: "Alina + Brandon",
-  },
-
-  {
-    src: ValerieJoseph,
-    alt: "Valerie and Joseph wedding photography at The Bart At Gibblet Hill in Groton, Massachusetts",
-    name: "Valerie + Joseph",
+    src: "https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/maddy-alex/000086-SPM0Be5K4CyKOM1Tze2sPYSNnaqPGJ.jpg",
+    alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
+    name: "Alexandra + Adam",
   },
   {
-    src: VeronicaJoseph2,
+    src: "https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/christi-adam/000018.jpg",
+    alt: "Christi and Adam weddinng photography at Seaport in Boston, Massachusetts",
+    name: "Christi + Adam",
+  },
+  {
+    src: "https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/veronica-joseph/000052-GN2zUVB49TAHbD7tgTD5E6qIxRXQfm.jpg",
     alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
     name: "Veronica + Joseph",
   },
-  {
-    src: RoxanaKanstantin,
-    alt: "Roxana and Kanstantin's couple photography session at Raffles Hotel in Boston, Massachusetts",
-    name: "Roxana + Kanstantin",
-  },
+  //  {
+  //   src: OrbreyBrett,
+  //   alt: "Orbrey and Brett wedding photography at Shepherd's Run in South Kingston, Rhode Island",
+  //   name: "Orbrey + Brett",
+  // },
+  // {
+  //   src: AlinaBrandon,
+  //   alt: "Alina and Brandon's couple photography session at Borderland State Park in North Easton, Massachusetts",
+  //   name: "Alina + Brandon",
+  // },
 
-  {
-    src: MarissaMichael,
-    alt: "Marissa and Michael wedding photography at Granite Links in Quincy, Massachusetts",
-    name: "Marissa + Michael",
-  },
+  // {
+  //   src: ValerieJoseph,
+  //   alt: "Valerie and Joseph wedding photography at The Bart At Gibblet Hill in Groton, Massachusetts",
+  //   name: "Valerie + Joseph",
+  // },
+  // {
+  //   src: VeronicaJoseph2,
+  //   alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
+  //   name: "Veronica + Joseph",
+  // },
+  // {
+  //   src: RoxanaKanstantin,
+  //   alt: "Roxana and Kanstantin's couple photography session at Raffles Hotel in Boston, Massachusetts",
+  //   name: "Roxana + Kanstantin",
+  // },
+
+  // {
+  //   src: MarissaMichael,
+  //   alt: "Marissa and Michael wedding photography at Granite Links in Quincy, Massachusetts",
+  //   name: "Marissa + Michael",
+  // },
 ];
 
 export default function Hero() {
@@ -95,8 +92,20 @@ export default function Hero() {
   const imageY = useTransform(imageEmY, (value) => `${value}em`);
 
   return (
-    <section className={styles.container} ref={containerRef}>
-      <motion.div className={styles.heroImagesWrapper}>
+    <section
+      className={styles.container}
+      ref={containerRef}
+      style={{
+        backgroundColor: "#000",
+      }}
+    >
+      <motion.div
+        className={styles.heroImagesWrapper}
+        initial={{ opacity: 0, filter: "blur(0.5em)" }}
+        whileInView={{ opacity: 1, filter: "blur(0em)" }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        viewport={{ once: true }}
+      >
         {images.map((image, index) => (
           <motion.div
             key={index}
@@ -113,7 +122,6 @@ export default function Hero() {
               height={1000}
               style={{ objectFit: "cover", objectPosition: "top" }}
               quality={90}
-              placeholder="blur"
               priority={index === 0 ? true : false}
             />
           </motion.div>
@@ -145,8 +153,8 @@ export default function Hero() {
         viewport={{ once: true }}
       >
         <div className={styles.heroText}>
-          <div>Capturing Your Day</div>
-          <div>As It Truly Happens</div>
+          <h1>Capturing Your Day <br/>
+          As It Truly Happens</h1>
           <h1>
             Documentary Wedding Photography for Couples in Love – Boston &
             Beyond

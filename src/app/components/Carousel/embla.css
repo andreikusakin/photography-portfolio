@@ -2,9 +2,9 @@
     padding: 2em 0;
     max-width: 100%;
     /* margin: auto; */
-    --slide-height: 19rem;
-    --slide-spacing: 1rem;
-    --slide-size: 40vh;
+    --slide-height: 19em;
+    --slide-spacing: 1em;
+    --slide-size: 20em;
     --text-high-contrast: rgb(49, 49, 49);
     --brand-primary: rgb(47, 112, 193);
     --brand-secondary: rgb(116, 97, 195);
@@ -106,15 +106,16 @@
   .embla__controls {
     display: flex;
     justify-content: space-between;
-    gap: 1.2rem;
+    gap: 1.2em;
     /* margin-top: 1.8rem; */
     width: 100%;
-    padding-top: 1rem;
+    padding-top: 1em;
+    /* max-width: 40em; */
   }
   .embla__buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
+    gap: 0.6em;
     align-items: center;
   }
   .embla__button {
@@ -129,9 +130,9 @@
     border: 0;
     padding: 0;
     margin: 0;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-    width: max(2rem, min(2.7227513228vw, 3.0366598778svh));
-    height: max(2rem, min(2.7227513228vw, 3.0366598778svh));
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+    width: max(2em, min(2.7227513228vw, 3.0366598778svh));
+    height: max(2em, min(2.7227513228vw, 3.0366598778svh));
     z-index: 1;
     border-radius: 100%;
     color: var(--text-body);
@@ -146,7 +147,7 @@
   .embla__button__svg {
     width: 35%;
     height: 35%;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.6);
   }
   .embla__selected-snap-display {
     justify-self: flex-end;

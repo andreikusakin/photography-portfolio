@@ -14,8 +14,8 @@ export default function Menu() {
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 991);
-      if (window.innerWidth > 991) {
+      setIsMobile(window.innerWidth < 992);
+      if (window.innerWidth > 992) {
         setIsOpen(false);
       }
     };
@@ -26,18 +26,16 @@ export default function Menu() {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
-
-
   return (
     <div className={styles.wrapper}>
-      {(isMobile) && (
-        <motion.div 
-          className={`${styles.hamburger} ${isOpen ? styles.hamburgerOpen : ''}`} 
+      {isMobile && (
+        <motion.div
+          className={`${styles.hamburger} ${isOpen ? styles.hamburgerOpen : ""}`}
           onClick={() => setIsOpen(!isOpen)}
-          initial={{ opacity: 0}}
-          animate={{ opacity: 1}}
-          exit={{ opacity: 0}}
-          transition={{ duration: 0.2}}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
         >
           <div></div>
           <div></div>
@@ -47,10 +45,10 @@ export default function Menu() {
         {isOpen && (
           <motion.div
             className={styles.menu}
-                // initial={{ opacity: 0}}
-                // animate={{ opacity: 1}}
-                // exit={{ opacity: 0}}
-                // transition={{ duration: 0.2}}
+            // initial={{ opacity: 0}}
+            // animate={{ opacity: 1}}
+            // exit={{ opacity: 0}}
+            // transition={{ duration: 0.2}}
           >
             <div>
               <motion.nav
@@ -85,6 +83,16 @@ export default function Menu() {
                   </li>
                   <li onClick={() => setIsOpen(false)}>
                     <Link
+                      href="/experience"
+                      className={
+                        pathname === "/experience" ? styles.active : undefined
+                      }
+                    >
+                      Experience
+                    </Link>
+                  </li>
+                  <li onClick={() => setIsOpen(false)}>
+                    <Link
                       href="/pricing"
                       className={
                         pathname === "/pricing" ? styles.active : undefined
@@ -93,16 +101,7 @@ export default function Menu() {
                       Pricing
                     </Link>
                   </li>
-                  <li onClick={() => setIsOpen(false)}>
-                    <Link
-                      href="/information"
-                      className={
-                        pathname === "/information" ? styles.active : undefined
-                      }
-                    >
-                      Information
-                    </Link>
-                  </li>
+
                   <li onClick={() => setIsOpen(false)}>
                     <Link
                       href="/contact"
@@ -115,18 +114,16 @@ export default function Menu() {
                   </li>
                 </ul>
                 <div className={styles.socials}>
-                    {socials.map((social) => (
-                      <Link
-                        key={social.name}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {social.name}
-                      </Link>
-                    ))}
-                  
-
+                  {socials.map((social) => (
+                    <Link
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {social.name}
+                    </Link>
+                  ))}
                 </div>
               </motion.nav>
             </div>

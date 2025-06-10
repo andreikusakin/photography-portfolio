@@ -1,5 +1,4 @@
 .formContainer {
-    max-width: 40em;
     width: 100%;
 
 }
@@ -24,7 +23,7 @@
 }
 
 .formGroup input::placeholder {
-    color: rgb(255, 255, 255);
+    
 }
 
 .label {
@@ -47,10 +46,10 @@
 .textarea,
 .select {
     background-color: unset;
-    color: var(--color-white);
+    color: rgba(0, 0, 0, 0.8);
     padding: 0.8em 0;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     /* border-radius: 0.4em; */
     font-size: 1em;
     width: 100%;
@@ -62,7 +61,7 @@
 .textarea:focus,
 .select:focus {
     outline: none;
-    border-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.8);
 }
 
 .select {
@@ -83,7 +82,7 @@
 }
 
 .textarea::placeholder {
-    color: rgb(255, 255, 255);
+    
 }
 
 .submitButton {
@@ -161,19 +160,19 @@
 }
 
 .datepickerCalendar {
-    background-color: #333;
+    /* background-color: #333;
     border-color: #555;
-    color: white;
+    color: white; */
 }
 
 .datePicker::placeholder {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
   }
 
 /* Add this to your ContactForm.module.css */
 .datePickerWrapper :global(.react-datepicker) {
     background-color: #333;
-    color: white;
+    color: rgb(0, 0, 0);
     border: 1px solid #ffffff;
 }
 .datePickerWrapper :global(.react-datepicker-wrapper) {

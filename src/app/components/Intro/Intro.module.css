@@ -1,6 +1,7 @@
 .wrapper {
-  /* background-color: rgb(37, 22, 18); */
-  /* color: var(--color-black); */
+  /* color: rgb(24, 23, 22); */
+  color: var(--color-white);
+  background-color: rgb(44, 44, 44);
   padding-top: 12em;
   padding-bottom: 6em;
   width: 100%;
@@ -89,8 +90,8 @@
 
 .description {
   font-weight: 400;
-  width: 29em;
-  font-size: 1.2em;
+  width: 30em;
+  font-size: 1.3em;
   opacity: 0.8;
   line-height: 1.5;
 }
@@ -103,7 +104,7 @@
 }
 
 .button {
-  background-color: var(--color-mocha);
+  background: var(--color-button);
 }
 
 @media screen and (max-width: 991px) {

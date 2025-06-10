@@ -45,7 +45,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 key={index}
                 style={{
                   flex: image.horizontal
-                    ? "0 0 calc(var(--slide-size) + 48vh)"
+                    ? "0 0 calc(var(--slide-size) + 25em)"
                     : "0 0 var(--slide-size)",
                 }}
               >

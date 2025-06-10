@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { weddings, families, couples } from '@/lib/data' 
+import { weddings, couples } from '@/lib/data' 
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Base URLs
@@ -38,13 +38,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  // Family session URLs
-  const familyUrls = families.map(family => ({
-    url: `https://www.kusakinphoto.com/family/${family.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  // // Family session URLs
+  // const familyUrls = families.map(family => ({
+  //   url: `https://www.kusakinphoto.com/family/${family.id}`,
+  //   lastModified: new Date(),
+  //   changeFrequency: 'monthly' as const,
+  //   priority: 0.7,
+  // }))
 
   // Couples session URLs
   const couplesUrls = couples.map(couple => ({
@@ -55,5 +55,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Combine all URLs
-  return [...baseUrls, ...weddingUrls, ...familyUrls, ...couplesUrls] as MetadataRoute.Sitemap
+  return [...baseUrls, ...weddingUrls, ...couplesUrls] as MetadataRoute.Sitemap
 }

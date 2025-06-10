@@ -1,67 +1,47 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import styles from "./GetInTouch.module.css";
-import ContactForm from "../ContactForm/ContactForm";
-import Image from "next/image";
 import Link from "next/link";
-import { socials } from "@/lib/data";
-import ContactImage from "./../../../../public/wedding/valeriejoseph/5.jpg";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 export default function GetInTouch() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const parallax = useTransform(scrollYProgress, [0, 1], [-10, 10]);
+  const y1 = useTransform(parallax, (value) => `${value}em`);
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <h2>Let's Connect</h2>
-        <div className={styles.getInTouch_container}>
-          <div className={styles.getInTouch}>
-            <h5>Get In Touch</h5>
-          </div>
-          <p>
-            Let's capture your vision together. Reach out today to discuss your
-            wedding, portrait, or event photography needs. Serving New England
-            and beyond—let’s create something unforgettable.
-          </p>
-        </div>
-
-        <div className={styles.imageContainer}>
+      <div className={styles.background} ref={containerRef}>
+        <motion.div className={styles.imageContainer}
+          style={{
+            y: y1,
+          }}
+        >
           <Image
-            src={ContactImage}
-            alt="Wedding couple at ceremony"
-            width={1920}
-            height={810}
-            quality={90}
-            placeholder="blur"
+            src="/weddings/christi-adam/000049.jpg"
+            alt="contact"
+            width={1500}
+            height={1000}
           />
-        </div>
-        <div className={styles.contactDetails}>
-          <div className={styles.col1}> <h5>Contact details</h5></div>
-         
-          <div className={styles.details}>
-            <div>Andrew Kusakin Photography LLC.</div>
-            <div>
-              <div>
-                <span>Email: </span>
-                <a href="mailto:kusakinphoto@gmail.com">
-                  kusakinphoto@gmail.com
-                </a>
-              </div>
-              <div>
-                <span>Phone: </span>
-                <a href="tel:3473135300">3473135300</a>
-              </div>
-            </div>
-            <div>Based in Boston, Massachusetts</div>
-            <div className={styles.socials}>{socials.map((social) => (
-              <Link href={social.url} key={social.name}>
-                {social.name}
-              </Link>
-            ))}</div>
-            
-          </div>
-          <div
-            className={styles.contactForm}
-          ><ContactForm /></div>
-          
-        </div>
+        </motion.div>
+      </div>
+      <div className={styles.content}>
+        <h2>Ready to Tell Your Story?</h2>
+        <p>
+          If a relaxed, authentic, and completely documented wedding day sounds
+          like what you're dreaming of, I would be honored to be a part of it.
+          Let's start the conversation.
+        </p>
+        <Link href="/contact">
+          <button>Let's Connect</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,0 +1,119 @@
+.container {
+  height: 40em;
+  overflow: hidden;
+  min-height: 45em;
+  position: relative;
+  background-color: black;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.heroImage.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.heroImage img {
+  width: 100%;
+  height: 60em;
+  object-fit: cover;
+  object-position: center ;
+}
+
+.heroTextWrapper {
+  position: absolute;
+  display: flex;
+top: 0;
+  left: 0;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 2;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+}
+
+.heroText {
+  text-align: center;
+  font-size: 1em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 1em;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.heroText h1 {
+  font-size: 5em;
+  line-height: 1;
+  font-family: "the-seasons", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.heroText h1:last-child {
+  
+}
+
+.explore {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1em 2em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.exploreContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  color: white;
+}
+
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.arrowDown {
+  width: 2em;
+  height: 2em;
+  vertical-align: middle;
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.heroImagesWrapper {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 991px) {
+}
+
+@media screen and (max-width: 767px) {
+}

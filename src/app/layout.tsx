@@ -4,70 +4,29 @@ import "./globals.css";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import Footer from "./components/Footer/Footer";
+import LenisScroll from "./components/LenisScroll/LenisScroll";
+import JsonLd from "./components/JsonLd/JsonLd";
 
 export const metadata: Metadata = {
+
   title: "Boston Wedding Photographer | Andrew Kusakin Photography",
+
   description:
-    "Andrew Kusakin is a Boston based photographer specializing in weddings, portraits, and events. Available for travel worldwide.",
-  keywords: [
-    "Andrew Kusakin Photography",
-    "Boston Photographer",
-    "Wedding Photographer",
-    "Portrait Photographer",
-    "Event Photographer",
-    "New England Photography",
-    "Destination Photography",
-    "Candid Photography",
-    "Professional Photographer",
-    "Boston Wedding Photography",
-    "Boston Wedding Photographer",
-    "Massachusetts Photographer",
-    "New England Photographer",
-    "New England Wedding Photographer",
-    "New England Wedding Photography",
-    "Destination Wedding Photographer",
-    "Destination Wedding Photography",
-    "Destination Photographer",
-    "Boston Portrait Photographer",
-    "Boston Portrait Photography",
-    "Boston Event Photographer",
-    "Boston Event Photography",
-    "New England Portrait Photographer",
-    "New England Portrait Photography",
-    "Wedding photography in Boston",
-    "Wedding photography in New England",
-    "Wedding photography in Massachusetts",
-    "Wedding photography in Rhode Island",
-    "Wedding photography in Maine",
-    "Wedding photography in Vermont",
-    "Wedding photography in New Hampshire",
-    "Wedding photography in Connecticut",
-    "Wedding photography in Cape Cod",
-    "Wedding photography in North Shore",
-    "Wedding photographer in Boston",
-    "Wedding photographer in New England",
-    "Wedding photographer in Massachusetts",
-    "Wedding photographer in Rhode Island",
-    "photographer in Boston",
-    "photographer in New England",
-    "photographer in Massachusetts",
-    "family photographer in Boston",
-    "family photographer in New England",
-    "family photographer in Massachusetts",
-    "family photographer",
-  ],
+    "Boston-based wedding photographer Andrew Kusakin captures authentic, candid moments that tell your unique story. Specializing in emotional, documentary-style photography in New England and beyond.",
+
   authors: [{ name: "Andrew Kusakin" }],
   openGraph: {
     title: "Andrew Kusakin Photography - Capturing Authentic Moments",
+
     description:
-      "Andrew Kusakin in a wedding, portrait, event photographer in Boston, Masschusetts. Available for travel worldwide.",
+      "Andrew Kusakin is a wedding, portrait, and event photographer in Boston, Massachusetts. Available for travel worldwide.",
     url: "https://www.kusakinphoto.com",
     images: [
       {
-        url: "https://www.kusakinphoto.com/card-image.jpg",
+        url: "https://www.kusakinphoto.com/logo.png",
         width: 1000,
         height: 1000,
-        alt: "Andrew Kusakin Photography - Capturing Authentic Moments",
+        alt: "A candid photo from a wedding by Andrew Kusakin Photography",
       },
     ],
   },
@@ -76,12 +35,31 @@ export const metadata: Metadata = {
     title: "Andrew Kusakin Photography",
     description:
       "Boston-based photographer specializing in weddings, portraits, and events. Available for travel across New England and beyond.",
-    images: ["https://www.kusakinphoto.com/twitter-card-image.jpg"],
+    images: ["https://www.kusakinphoto.com/card-image.jpg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
   metadataBase: new URL("https://www.kusakinphoto.com/"),
   alternates: {
     canonical: "/",
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Andrew Kusakin Photography",
+  url: "https://www.kusakinphoto.com",
+
+  logo: "https://www.kusakinphoto.com/logo.png",
+  sameAs: [
+    "https://www.instagram.com/kusakinphoto",
+    "https://www.tiktok.com/kusakinphoto",
+
+  ],
 };
 
 export default function RootLayout({
@@ -93,16 +71,17 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/ygj5rom.css" />
+        <JsonLd data={organizationSchema} />
       </head>
       <body>
-        <main className="main">
-          
-          <Header />
-          <Menu />
-          {children}
-
-          <Footer />
-        </main>
+        <LenisScroll>
+          <main className="main">
+            <Header />
+            <Menu />
+            {children}
+            <Footer />
+          </main>
+        </LenisScroll>
       </body>
       <GoogleAnalytics gaId="G-90SBL0XP3V" />
     </html>

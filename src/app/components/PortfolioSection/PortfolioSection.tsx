@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./PortfolioSection.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import WeddingPicture from "../../../../public/wedding/valeriejoseph/17.jpg";
-import CouplesPicture from "../../../../public/couples/alinabrandon/19.jpg";
-import FamilyPicture from "../../../../public/family/hancharou/14.jpg";
+import WeddingPicture from "./weddings.jpg";
+import CouplesPicture from "./couples.jpg";
+import FamilyPicture from "./family.jpg";
 import * as motion from "motion/react-client";
 
 export default function PortfolioSection() {
@@ -50,7 +50,7 @@ export default function PortfolioSection() {
                 src={WeddingPicture}
                 alt="Wedding"
                 className={styles.image}
-                placeholder="blur"
+               
               />
             </div>
             <div className={styles.overlay}>
@@ -66,7 +66,7 @@ export default function PortfolioSection() {
                 src={CouplesPicture}
                 alt="Couples"
                 className={styles.image}
-                placeholder="blur"
+               
               />
             </div>
             <div className={styles.overlay}>
@@ -82,7 +82,7 @@ export default function PortfolioSection() {
                 src={FamilyPicture}
                 alt="Family"
                 className={styles.image}
-                placeholder="blur"
+               
               />
             </div>
 

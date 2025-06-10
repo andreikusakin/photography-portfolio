@@ -9,9 +9,12 @@ import {
   STARTER_WEDDING_PACKAGE_PRICE,
 } from "@/lib/data";
 import { LuArrowUpRight } from "react-icons/lu";
-import Package1Image from "./../../../public/wedding/veronicajoseph/17.jpg";
-import Package2Image from "./../../../public/wedding/valeriejoseph/17.jpg";
+import HeroImage from "./../../../public/weddings/amy-charlie/000081.jpg";
+import Package1Image from "./../../../public/weddings/alyssa-jonathan/000066.jpg";
+import Package2Image from "./../../../public/weddings/alex-adam/000050.jpg";
 import type { Metadata } from "next";
+import SmallHero from "../components/SmallHero/SmallHero";
+import GetInTouch from "../components/GetInTouch/GetInTouch";
 
 export const metadata: Metadata = {
   title: "Pricing | Boston Wedding Photographer",
@@ -22,13 +25,18 @@ export const metadata: Metadata = {
 
 export default function page() {
   return (
+    <div>
+      <SmallHero
+        title="Pricing"
+        subtitle="Boston Wedding Photographer"
+        image={HeroImage}
+      />
     <PageContainer>
       <div className={styles.grid}>
-        <h2>Pricing</h2>
         <h5>Packages</h5>
         <div className={styles.text}>
           I offer a range of photography services designed to fit your unique
-          needs—whether you’re looking for a wedding photographer, a portrait
+          needs—whether you're looking for a wedding photographer, a portrait
           photographer, or coverage for a special event.
         </div>
 
@@ -45,14 +53,14 @@ export default function page() {
                   objectFit: "cover",
                 }}
                 quality={80}
-                placeholder="blur"
+               
               />
             </div>
           </div>
 
           <div className={styles.column}>
             <div>
-              Ideal for intimate and medium-sized celebrations. Let’s discuss
+              Ideal for intimate and medium-sized celebrations. Let's discuss
               your wedding day vision and customize this package to fit your
               needs!
             </div>
@@ -101,7 +109,7 @@ export default function page() {
               <Image
                 src={Package2Image}
                 alt="wedding photo"
-                placeholder="blur"
+                
                 width={400}
                 height={500}
                 style={{
@@ -170,17 +178,8 @@ export default function page() {
           <strong>Starting at ${HOUR_RATE} per hour</strong> <div>Customizable based
           on the scope of your session.</div>
         </div>
-        <div className={styles.bottomSection}>
-          <h5>Ready to book or have more questions?</h5>
-
-          <div>
-            Head over to my <Link href="/information">Information page</Link> for
-            additional details, or feel free to{" "}
-            <Link href="/contact">get in touch</Link> so I can help you find the
-            perfect photography solution.
-          </div>
-        </div>
+        
       </div>
-    </PageContainer>
+    </PageContainer><GetInTouch /></div>
   );
 }

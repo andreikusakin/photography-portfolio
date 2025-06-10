@@ -3,10 +3,6 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import styles from "./Intro.module.css";
 import Link from "next/link";
-import Image1 from "./../../../../public/wedding/veronicajoseph/11.jpg";
-import Image2 from "./../../../../public/wedding/veronicajoseph/13.jpg";
-import Image3 from "./../../../../public/wedding/jessicageorge/11.jpg";
-import Image4 from "./../../../../public/wedding/marissamichael/26.jpg";
 
 import { motion, useScroll, useTransform } from "motion/react";
 
@@ -32,13 +28,13 @@ export default function Intro() {
             style={{
               y: y1,
             }}
-            initial={{ opacity: 0, filter: "blur(1em)", y: '0.5em'  }}
-            whileInView={{ opacity: 1, filter: "blur(0em)", y: '0em' }}
+            initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
+            whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
             transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
             <Image
-              src={Image1}
+              src="https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/veronica-joseph/000011-2wd8bFINIlalmyrxoMLKBgJtrChWma.jpg"
               className={styles.image}
               width={600}
               height={900}
@@ -51,47 +47,44 @@ export default function Intro() {
             style={{
               y: y2,
             }}
-            initial={{ opacity: 0, filter: "blur(1em)", y: '0.5em'  }}
-            whileInView={{ opacity: 1, filter: "blur(0em)", y: '0em' }}
+            initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
+            whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
             transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
             <Image
-              src={Image2}
+              src="https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/veronica-joseph/000013-fvJgebAm5t9cQmUK32CAXStjektsXY.jpg"
               alt="Wedding Photography Boston, Massachusetts"
               title="Wedding Photo"
               className={styles.image}
               width={600}
               height={900}
-
             />
           </motion.div>
         </div>
-        <motion.div className={styles.col2}
-          initial={{ opacity: 0, filter: "blur(1em)", y: '0.5em'  }}
-          whileInView={{ opacity: 1, filter: "blur(0em)", y: '0em' }}
+        <motion.div
+          className={styles.col2}
+          initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
+          whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
           transition={{ duration: 0.5 }}
         >
-          <div
-          >
-            <h2>Your Wedding Story,</h2>
-            <h2>Told Honestly</h2>
+          <div>
+            <h2>
+              Your Love Story, <br /> Told Honestly
+            </h2>
           </div>
 
-          <div 
-            className={styles.description}
-
-          >
-            Forget stiff poses. I document the genuine laughter, happy tears,
-            and quiet glances of your wedding day as they truly happen.
-            Authentic, emotional, unobtrusive photography for couples who want
-            to remember how it felt.
+          <div className={styles.description}>
+            I focus on real moments, documenting the genuine laughter, happy
+            tears, and quiet glances of your wedding day as they truly happen.
+            From the softest touch and intimate details to the big, joyful
+            moments and all the party fun, no detail is missed – everything is
+            captured with authenticity, just the way it felt.
           </div>
-          
-          <div
-          >
+
+          <div>
             <Link href="/portfolio">
-              <button className={styles.button}>Explore Portfolio</button>
+              <button className={styles.button}>Browse Portfolio</button>
             </Link>
           </div>
         </motion.div>
@@ -101,13 +94,13 @@ export default function Intro() {
             style={{
               y: y1,
             }}
-            initial={{ opacity: 0, filter: "blur(1em)", y: '0.5em'  }}
-            whileInView={{ opacity: 1, filter: "blur(0em)", y: '0em' }}
+            initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
+            whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
             transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
             <Image
-              src={Image3}
+              src="https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/alex-adam/000048-aXUQ0UFvCQULPrx2z48c5OsBtOHRim.jpg"
               alt="Wedding Photography Boston, Massachusetts"
               title="Wedding Photo"
               className={styles.image}
@@ -120,13 +113,13 @@ export default function Intro() {
             style={{
               y: y2,
             }}
-            initial={{ opacity: 0, filter: "blur(1em)", y: '0.5em'  }}
-            whileInView={{ opacity: 1, filter: "blur(0em)", y: '0em' }}
+            initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
+            whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
             transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
             <Image
-              src={Image4}
+              src="https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/alex-adam/000044-ean267F0hfGbYdcx97QjC5XIE6d4GN.jpg"
               alt="Wedding Photography Boston, Massachusetts"
               title="Wedding Photo"
               className={styles.image}

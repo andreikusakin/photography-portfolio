@@ -33,14 +33,14 @@
   bottom: 25vh;
   padding-bottom: 2em;
   width: 100%;
-  z-index: 5;
+  z-index: 2;
 }
 
 .heroText {
   text-align: center;
 }
 
-.heroText div {
+.heroText h1 {
   font-size: 5em;
   line-height: 1.1;
   font-family: "the-seasons", sans-serif;

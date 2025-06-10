@@ -20,7 +20,7 @@
   --color-dark-mocha: #644637;
   --color-light-mocha: #f4e9e1;
   --color-white: var(--color-neutral-100);
-  --color-black: var(--color-neutral-900);
+  --color-black: rgb(24, 23, 22);
   --color-error: var(--color-primary);
   --color-success: #0ba954;
   --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
@@ -31,6 +31,10 @@
   --container-padding: 2em;
   --header-height: calc(3.5em + (var(--gap) * 2));
   --footer-height: calc(2.785em + (var(--gap) * 2));
+  --color-accent: #DF8861;
+  --color-dark-accent: #AA5F3B;
+  --color-button: rgb(238, 229, 217);
+  --color-background: #f5f0eb;
 }
 /* Tablet */
 @media screen and (max-width: 991px) {
@@ -147,8 +151,7 @@ button {
   padding: 1em 1.8em;
   border-radius: 3em;
   margin: 0;
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--color-white);
+  /* color: var(--color-white); */
   font-weight: 400;
   font-family: "neue-haas-grotesk-text", Arial, Helvetica Neue, Helvetica,
     sans-serif;
@@ -168,14 +171,14 @@ button {
 }
 
 body {
-  color: var(--color-white);
+  color: var(--color-black);
   font-family: "neue-haas-grotesk-text", Arial, Helvetica Neue, Helvetica,
     sans-serif;
   font-size: var(--size-font);
-  background: linear-gradient(var(--color-black), var(--color-mocha));
+  /* background: linear-gradient(var(--color-black), var(--color-mocha)); */
   /* line-height: 1; */
   font-weight: 400;
-  background-color: var(--color-black);
+  background-color: var(--color-background);
   margin: 0;
   padding: 0;
 }

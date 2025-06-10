@@ -112,7 +112,7 @@ export default function ContactForm() {
 
     return (
         <div className={styles.formContainer}>
-            <div style={{paddingBottom: "2em", fontWeight: "400"}}>Or fill out the form below.</div>
+            
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formGroup}>
                     {/* <label htmlFor="fullName" className={styles.label}>
@@ -263,8 +263,10 @@ export default function ContactForm() {
                         <option value="Google">Google</option>
                         <option value="Instagram">Instagram</option>
                         <option value="Facebook">Facebook</option>
+                        <option value="Facebook">Reddit</option>
                         <option value="Vendor Referral">Vendor Referral</option>
                         <option value="Client Referral">Client Referral</option>
+                        <option value="Client Referral">Other</option>
                     </select>
                 </div>
 
@@ -301,6 +303,10 @@ export default function ContactForm() {
                     </button>
                 )}
             </form>
+            <div style={{paddingTop: "2em",
+            textAlign: "center",
+            color: "rgba(0, 0, 0, 0.8)"
+            }}>I will personally respond within 48 hours. If you don't hear from me by then, please be sure to check your spam or promotions folder.</div>
         </div>
     );
 }

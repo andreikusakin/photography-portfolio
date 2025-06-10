@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Footer.module.css";
-import Image from "next/image";
 import Link from "next/link";
 import { socials } from "@/lib/data";
 
@@ -21,7 +20,7 @@ export default function Footer() {
               <Link href="/pricing">Pricing</Link>
             </li>
             <li>
-              <Link href="/information">Information</Link>
+              <Link href="/experience">Experience</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
@@ -31,26 +30,15 @@ export default function Footer() {
         </div>
         
         <div className={styles.col2}>
-          <span>Portfolio</span>
-          <ul>
-            <li>
-              <Link href="/wedding">Weddings</Link>
-            </li>
-            <li>
-              <Link href="/couples">Couples</Link>
-            </li>
-            <li>
-              <Link href="/family">Family</Link>
-            </li>
-
-          </ul>
+        {/* © 2025 Andrew Kusakin Photography <br/>                              
+        Boston, MA | Documentary Wedding Photographer */}
         </div>
 
           <div className={styles.col3}>
             <span>Contact</span>
             <div>
-            <div>Wedding | Family | Event Photographer</div>
-            <div>Based in Boston, Massachusetts</div></div>
+            <div>Boston, MA | Documentary Wedding Photographer</div>
+</div>
             <div>
             <div>
               <span>Email: </span>
@@ -70,19 +58,19 @@ export default function Footer() {
               ))}
             </ul>
             <div className={styles.copyright}>
-              © 2025 Andrew Kusakin Photography LLC.
+              © 2025 Andrew Kusakin Photography LLC
             </div>
           </div>
         </div>
    
-      <div className={styles.image_container}>
+      {/* <div className={styles.image_container}>
         <Image
-          src="/wedding/valeriejoseph/18.jpg"
+          src={Image1}
           alt="wedding image"
           fill
           quality={85}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
