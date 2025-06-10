@@ -34,7 +34,7 @@ export default function Intro() {
             viewport={{ once: true }}
           >
             <Image
-              src="https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/veronica-joseph/000011-2wd8bFINIlalmyrxoMLKBgJtrChWma.jpg"
+              src="/weddings/veronica-joseph/000011.jpg"
               className={styles.image}
               width={600}
               height={900}
@@ -53,7 +53,7 @@ export default function Intro() {
             viewport={{ once: true }}
           >
             <Image
-              src="https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/veronica-joseph/000013-fvJgebAm5t9cQmUK32CAXStjektsXY.jpg"
+              src="/weddings/veronica-joseph/000013.jpg"
               alt="Wedding Photography Boston, Massachusetts"
               title="Wedding Photo"
               className={styles.image}
@@ -100,7 +100,7 @@ export default function Intro() {
             viewport={{ once: true }}
           >
             <Image
-              src="https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/alex-adam/000048-aXUQ0UFvCQULPrx2z48c5OsBtOHRim.jpg"
+              src="/weddings/alex-adam/000048.jpg"
               alt="Wedding Photography Boston, Massachusetts"
               title="Wedding Photo"
               className={styles.image}
@@ -119,7 +119,7 @@ export default function Intro() {
             viewport={{ once: true }}
           >
             <Image
-              src="https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/alex-adam/000044-ean267F0hfGbYdcx97QjC5XIE6d4GN.jpg"
+              src="/weddings/alex-adam/000044.jpg"
               alt="Wedding Photography Boston, Massachusetts"
               title="Wedding Photo"
               className={styles.image}

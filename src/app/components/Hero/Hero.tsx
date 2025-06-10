@@ -7,29 +7,24 @@ import styles from "./Hero.module.css";
 import { motion, useScroll, useTransform } from "motion/react";
 
 const images = [
-  // {
-  //   src: JessicaGeorge,
-  //   alt: "Jessica and George wedding photography at Granite Links in Quincy, Massachusetts",
-  //   name: "Jessica + George",
-  // },
 
   {
-    src: "https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/alex-adam/000047-oT4y70wXf6lxowXskfVW3TdzZ0pmKU.jpg",
+    src: "/weddings/alex-adam/000047.jpg",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
   },
   {
-    src: "https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/maddy-alex/000086-SPM0Be5K4CyKOM1Tze2sPYSNnaqPGJ.jpg",
+    src: "/weddings/maddy-alex/000086.jpg",
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
     name: "Alexandra + Adam",
   },
   {
-    src: "https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/christi-adam/000018.jpg",
+    src: "/weddings/christi-adam/000018.jpg",
     alt: "Christi and Adam weddinng photography at Seaport in Boston, Massachusetts",
     name: "Christi + Adam",
   },
   {
-    src: "https://fta1tprpvqpelfot.public.blob.vercel-storage.com/weddings/veronica-joseph/000052-GN2zUVB49TAHbD7tgTD5E6qIxRXQfm.jpg",
+    src: "/weddings/veronica-joseph/000052.jpg",
     alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
     name: "Veronica + Joseph",
   },
