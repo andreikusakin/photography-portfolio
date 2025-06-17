@@ -100,10 +100,17 @@
 }
 
 @media screen and (max-width: 767px) {
-  .container {
+  /* .container {
     font-size: 0.8em;
-  }
-  .heroText div {
-    font-size: 3.7em;
+  } */
+  .heroText h1 {
+    font-size: 2.6em;
   }
 }
+
+@media screen and (max-width: 479px) {
+  .heroText h1:last-child {
+    font-size: 1.1em;
+  }
+
+ }

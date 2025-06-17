@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import styles from "./page.module.css";
 import SmallHero from "../components/SmallHero/SmallHero";
 import HeroImage from "./../../../public/heroPortfolio.jpg";
-import { weddings, weddingHighlights, Gallery, Highlight } from "@/lib/data";
+import { weddings, weddingHighlights, Gallery, Highlight, travel } from "@/lib/data";
 import { couples, couplesHighlights } from "@/lib/data";
+
 // import { families, familyHighlights } from "@/lib/data";
 
 import PortfolioGallery from "../components/PortfolioGallery/PortfolioGallery";
@@ -105,8 +106,8 @@ async function TravelSection() {
       My love for storytelling extends to the incredible landscapes I encounter on my travels. This is a small, personal collection of work from adventures in national parks and beyond—moments of quiet awe in the face of nature's beauty. It’s a reminder of the amazing world we get to celebrate in.
       </div>
       <div className={styles.images}>
-        {travelImages &&
-          travelImages.map((image, index) => (
+        {travel &&
+          travel.map((image, index) => (
             <div className={styles.imageContainer} key={index}>
               <Image
                 key={index}
