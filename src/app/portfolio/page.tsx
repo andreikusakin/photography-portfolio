@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     canonical: "/portfolio",
   },
 };
-import { list } from "@vercel/blob";
 
 export default async function page() {
   // const { blobs } = await list({ prefix: "weddings/maddy-alex/"});
@@ -96,8 +95,6 @@ function PortfolioSection({
 }
 
 async function TravelSection() {
-  const { blobs } = await list({ prefix: "travel/" });
-  const travelImages = blobs.filter((blob) => blob.url.endsWith(".jpg")).map((blob) => blob.url);
 
   return (
     <div className={styles.travel}>
