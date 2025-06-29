@@ -65,7 +65,7 @@ export default function page() {
               needs!
             </div>
             <div>
-              <strong>6+ Hours of Coverage</strong> <br /> Tailored to fit your
+              <strong>6 Hours of Coverage</strong> <br /> Tailored to fit your
               wedding timeline and needs.
             </div>
             <div>
