@@ -1,298 +1,119 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  column-gap: 2em;
-  font-size: 1.2em;
-  padding-top: 4em;
-  padding-bottom: 4em;
+.container {
 
 }
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6em;
+  padding-bottom: 6em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.intro_text {
+  max-width: 50em;
+  text-align: center;
+  display: grid;
+  gap: 1.5em
+}
 
-.grid h2 {
+.intro_text h2 {
+    font-family: "the-seasons", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4.5em;
+}
+.intro_text p{ 
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+.package {
+  padding-top: 6em;
+  padding-bottom: 6em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6em;
+}
+
+.description {
+  max-width: 35em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.description h2 {
   font-family: "the-seasons", sans-serif;
   font-weight: 400;
   font-style: normal;
-  grid-column: 1 / span 12;
-  grid-row: 1;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
+  font-size: 4em;
 }
 
-.grid h5 {
-  grid-column: 1 / span 3;
-  grid-row: 2;
-  padding-bottom: 1em;
-}
-
-.text {
-  grid-column: 4 / span 4;
-  grid-row: 2;
-  font-weight: 400;
-  padding-bottom: 2em;
-}
-
-.weddingPackages {
-  display: flex;
-  flex-direction: row;
-  gap: 2em;
-  padding-top: 1em;
-  /* padding-bottom: 2em; */
-}
-
-.package1 {
-  grid-column: 1 / span 6;
-  grid-row: 3;
-  padding-top: 2em;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2em;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.package1 .col1 {
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-}
-
-.package1 h5 {
-  grid-column: 1 / span 2;
-  grid-row: 1;
-}
-
-.package2 {
-  grid-column: 7 / span 6;
-  grid-row: 3;
-  padding-top: 2em;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2em;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.package2 .col1 {
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-}
-
-.package2 h5 {
-  grid-column: 1 / span 2;
-  grid-row: 1;
-}
-
-.section {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding-top: 1em;
-  padding-bottom: 4em;
-  margin-top: 0.5em;
-}
-
-/* .section a {
-  text-decoration: underline;
-} */
-
-.section ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  line-height: 1.2;
-}
-
-.section h4 {
-  line-height: 2;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  font-weight: 400;
-}
-
-.column a {
-  text-decoration: underline;
-}
-
-.imageContainer {
-  /* position: relative; */
-  width: 100%;
-  /* height: 100%; */
-  border-radius: 1.5em;
-  overflow: hidden;
-}
-
-.line {
-  grid-column: 1 / span 12;
-  grid-row: 4;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 2em;
-}
-
-.other {
-  padding-top: 2em;
-  grid-column: 1 / span 3;
-  grid-row: 5;
-}
-
-.otherPrice {
-  padding-top: 2em;
-  grid-column: 4 / span 2;
-  grid-row: 5;
-  font-weight: 400;
-}
-
-.bottomSection {
-  grid-column: 5 / span 4;
-  grid-row: 6 / span 3;
-
-  height: 20em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 400;
-  gap: 1em;
-  font-size: 1.5rem;
-}
-
-.bottomSection a {
-  text-decoration: underline;
-}
-
-.imageContainer img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.contactItem {
-  display: flex;
-  margin-top: 2em;
+.description h5 {
+  opacity: 0.6;
+  font-size: 1em;
   text-transform: uppercase;
 }
-
-
-.contactItem div {
-  position: relative;
-  cursor: pointer;
-  /* right: 1em; */
+.description div {
+  opacity: 0.9;
 }
 
-.contactItem svg {
-  position: absolute;
-  top: 0;
-  right: -1em;
-  font-size: 1.2em;
+.description ul {
+  padding-top: 1em;
+  padding-bottom: 2em;
+  display: grid;
+  gap: 1em;
+  opacity: 0.9;
 }
 
-@media screen and (max-width: 991px) {
-  .grid {
-    grid-template-columns: repeat(12, 1fr);
-  }
-  .grid h5 {
-    grid-column: 1 / span 4;
-    grid-row: 2;
-  }
+.details_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(44, 44, 44);
+  color: white;
+}
 
-  .text {
-    grid-column: 5 / span 7;
-    grid-row: 2;
-    font-weight: 400;
-  }
-  .package1 {
-    display: flex;
-    flex-direction: column;
-  }
-  .package2 {
-    display: flex;
-    flex-direction: column;
-  }
-  .imageContainer {
-    aspect-ratio: 2/3;
-  }
+.details {
+  max-width: 35em;
+  display: grid;
+  gap: 1em;
+  padding-top: 6em;
+  padding-bottom: 6em;
+  padding-left: 1em;
+  padding-right: 1em;
+  
+}
 
-  .other {
-    padding-top: 2em;
-    grid-column: 1 / span 4;
-    grid-row: 5;
-  }
+.details h3 {
+  font-family: "the-seasons", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: 3.5em;
+}
 
-  .otherPrice {
-    padding-top: 2em;
-    grid-column: 5 / span 7;
-    grid-row: 5;
-    font-weight: 400;
-  }
-  .bottomSection {
-    grid-column: 3 / span 8;
-    grid-row: 6 / span 3;
-  }
+.details ul {
+  display: grid;
+  gap: 1em;
 }
 
 @media screen and (max-width: 767px) {
-  .grid {
-    grid-template-columns: repeat(6, 1fr);
-    /* column-gap: 1em; */
-  }
+.description {
+  padding: 1em;
+}
 
-  .grid h2 {
-    grid-column: 1 / span 6;
-  }
-  .grid h5 {
-    grid-column: 1 / span 6;
-    grid-row: 2;
-  }
-
-  .text {
-    grid-column: 1 / span 6;
-    grid-row: 3;
-  }
-  .package1 {
-    display: flex;
-    flex-direction: column;
-    grid-column: 1 / span 6;
-    grid-row: 4;
-  }
-  .package2 {
-    display: flex;
-    flex-direction: column;
-    grid-column: 1 / span 6;
-    grid-row: 5;
-  }
-
-  .line {
-    grid-column: 1 / span 6;
-    grid-row: 6;
-  }
-
-  .other {
-    padding-top: 2em;
-    grid-column: 1 / span 6;
-    grid-row: 7;
-  }
-
-  .otherPrice {
-    padding-top: 2em;
-    grid-column: 1 / span 6;
-    grid-row: 8;
-    font-weight: 400;
-  }
-  .bottomSection {
-    grid-column: 1 / span 6;
-    grid-row: 9 / span 1;
-    font-size: 1.2em;
-  }
+.grid {
+  gap: 2em;
+}
 }
