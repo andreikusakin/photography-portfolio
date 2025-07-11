@@ -1,0 +1,197 @@
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6em 1em;
+}
+
+.faq h4 {
+  font-family: "the-seasons", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding-bottom: 1em;
+}
+
+
+.faqList {
+  display: grid;
+  gap: 0.5em;
+  max-width: 40em;
+  background-color: var(--color-button);
+  padding: 1.5em;
+  border-radius: 1em;
+}
+
+.faq_item {
+  padding-bottom: 2em;
+  display: grid;
+  gap: 1em;
+  width: 100%;
+}
+
+.question {
+  cursor: pointer;
+  width: 100%;
+}
+
+.question h2 {
+  padding-bottom: 0.5em;
+  padding-top: 0.2em;
+}
+
+.underline {
+  padding-top: 0.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.answer {
+}
+
+.answer a {
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 21/9;
+  border-radius: 1.5em;
+  overflow: hidden;
+  position: relative;
+  margin-top: 1em;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21/9;
+  object-fit: cover;
+}
+
+.journeySection {
+  padding: 6em 2em;
+  
+}
+
+.journeyHeader {
+  text-align: center;
+  /* max-width: 45em; */
+  margin: 0 auto 4em auto;
+}
+
+.journeyHeader h2 {
+  font-family: "the-seasons", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.journeyHeader p {
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.journeySteps {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3em;
+}
+
+.journeyStep {
+  position: relative;
+  width: 20em;
+  /* Mobile: Stacked layout with a line between */
+  /* padding-bottom: 2em;
+  margin-bottom: 2em; */
+  /* border-bottom: 1px solid #e0e0e0; */
+
+}
+
+.journeySteps li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.stepNumber {
+  font-family: "the-seasons", sans-serif;
+  font-size: 4em;
+  font-weight: 400;
+  color: var(--color-button);
+  line-height: 1;
+  position: absolute;
+  z-index: 0;
+  top: -0.5em;
+}
+
+.stepContent {
+  position: relative;
+
+}
+
+.stepContent h3 {
+  font-family: "the-seasons", sans-serif;
+  font-size: 1.75em;
+  margin-bottom: 0.75em;
+}
+
+.stepContent p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 991px) {
+  .section_content {
+    flex-direction: column;
+    gap: 2em;
+    max-width: 40em;
+  }
+
+  .imagesContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagesContainer > *:not(:first-child) {
+    display: none;
+  }
+
+  .grid h5 {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+  }
+
+  .faqList {
+    grid-column: 4 / span 9;
+    grid-row: 1;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 1em;
+  }
+  .intro {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .grid h5 {
+    grid-column: 1 / span 11;
+    grid-row: 1;
+  }
+
+  .imageContainer img {
+    aspect-ratio: 16/9;
+  }
+  .faqList {
+    grid-column: 1 / span 11;
+    grid-row: 2;
+  }
+}
