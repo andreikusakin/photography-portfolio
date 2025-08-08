@@ -34,7 +34,7 @@ export default function Intro() {
             viewport={{ once: true }}
           >
             <Image
-              src="/weddings/veronica-joseph/000011.jpg"
+              src="/weddings/erin-kyle/000141.jpg"
               className={styles.image}
               width={600}
               height={900}
@@ -119,7 +119,7 @@ export default function Intro() {
             viewport={{ once: true }}
           >
             <Image
-              src="/weddings/alex-adam/000044.jpg"
+              src="/weddings/erica-mike/000078.jpg"
               alt="Wedding Photography Boston, Massachusetts"
               title="Wedding Photo"
               className={styles.image}

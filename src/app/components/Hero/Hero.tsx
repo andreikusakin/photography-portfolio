@@ -28,6 +28,11 @@ const images = [
     alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
     name: "Veronica + Joseph",
   },
+  {
+    src: "/weddings/amy-charlie/000058.jpg",
+    alt: "Amy and Charlie wedding photography at The Bart At The Evermore at Peirce Farm Estate in Topsfield, MA",
+    name: "Amy + Charlie",
+  },
   //  {
   //   src: OrbreyBrett,
   //   alt: "Orbrey and Brett wedding photography at Shepherd's Run in South Kingston, Rhode Island",

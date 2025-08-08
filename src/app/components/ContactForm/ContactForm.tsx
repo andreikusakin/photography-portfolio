@@ -263,7 +263,7 @@ export default function ContactForm() {
                         <option value="Google">Google</option>
                         <option value="Instagram">Instagram</option>
                         <option value="Facebook">Facebook</option>
-                        <option value="Facebook">Reddit</option>
+                        <option value="Reddit">Reddit</option>
                         <option value="Vendor Referral">Vendor Referral</option>
                         <option value="Client Referral">Client Referral</option>
                         <option value="Client Referral">Other</option>

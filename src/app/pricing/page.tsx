@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./page.module.css";
-import HeroImage from "./../../../public/weddings/amy-charlie/000081.jpg";
+import HeroImage from "./../../../public/weddings/erin-kyle/000067.jpg";
 import IntimateImage from "./../../../public/weddings/alyssa-jonathan/000066.jpg";
 import FullDayImage from "./../../../public/weddings/alex-adam/000045.jpg";
 import EngagementPhoto from "./../../../public/couples/alina-brandon/000017.jpg"
@@ -82,6 +82,7 @@ export default function page() {
                   </li>
                 </ul>
                 <h4>$4000</h4>
+                
               </div>
             </div>
           </div>
@@ -155,7 +156,8 @@ export default function page() {
                   The Complete Story package!)
                 </div>
 
-                <h4>Starting at $500</h4>
+                <h4>Starting at $400</h4>
+                
               </div>
             </div>
           </div>

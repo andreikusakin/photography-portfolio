@@ -25,25 +25,22 @@ export const weddingHighlights: Highlight[] = [
     src: "/weddings/highlights/01.jpg",
     horizontal: false,
   },
+    {
+    src: "/weddings/erica-mike/000062.jpg",
+    horizontal: true,
+  },
   {
     src: "/weddings/highlights/02.jpg",
     horizontal: false,
   },
-  {
-    src: "/weddings/highlights/03.jpg",
-    horizontal: true,
-  },
+
   {
     src: "/weddings/highlights/04.jpg",
     horizontal: false,
   },
-  {
-    src: "/weddings/highlights/05.jpg",
-    horizontal: false,
-  },
-  {
-    src: "/weddings/highlights/06.jpg",
-    horizontal: false,
+{
+    src: "/weddings/amy-charlie/000023.jpg",
+    horizontal: true,
   },
   {
     src: "/weddings/highlights/07.jpg",
@@ -61,14 +58,8 @@ export const weddingHighlights: Highlight[] = [
     src: "/weddings/highlights/010.jpg",
     horizontal: false,
   },
-  {
-    src: "/weddings/highlights/011.jpg",
-    horizontal: false,
-  },
-  {
-    src: "/weddings/highlights/012.jpg",
-    horizontal: false,
-  },
+
+
   {
     src: "/weddings/highlights/013.jpg",
     horizontal: false,
@@ -97,8 +88,17 @@ export const weddingHighlights: Highlight[] = [
     src: "/weddings/highlights/019.jpg",
     horizontal: true,
   },
+   
   {
     src: "/weddings/highlights/020.jpg",
+    horizontal: false,
+  },
+   {
+    src: "/weddings/amy-charlie/000005.jpg",
+    horizontal: false,
+  },
+  {
+    src: "/weddings/erin-kyle/000050.jpg",
     horizontal: false,
   },
 ];
@@ -868,7 +868,7 @@ export const weddings: Gallery[] = [
     name: "Erin + Kyle",
     venue: "Waverly Oaks Golf Club",
     location: "Plymouth, MA",
-    cover: "/weddings/erin-kyle/000141.jpg",
+    cover: "/weddings/erin-kyle/000070.jpg",
     hero: "/weddings/erin-kyle/000025.jpg",
     images: [
       "/weddings/erin-kyle/000001.jpg",

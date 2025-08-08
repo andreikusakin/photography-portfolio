@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./Experience.module.css";
-import Image1 from "./experience.jpg";
+import Image1 from "./../../../../public/weddings/erin-kyle/000050.jpg";
 
 import Link from "next/link";
 

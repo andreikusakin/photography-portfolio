@@ -53,7 +53,7 @@ export default function page() {
             height={"40em"}
           />
           <ParallaxImage
-            src="/weddings/alyssa-jonathan/000065.jpg"
+            src="/weddings/erin-kyle/000101.jpg"
             alt="wedding"
             width={"30em"}
             height={"40em"}
@@ -101,7 +101,7 @@ export default function page() {
                   background: "rgb(223, 204, 179)",
                 }}
               >
-                View Pricing
+                View Packages
               </button>
             </Link>
           </div>
