@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import HeroImage from "./../../../public/weddings/erin-kyle/000067.jpg";
 import IntimateImage from "./../../../public/weddings/alyssa-jonathan/000066.jpg";
 import FullDayImage from "./../../../public/weddings/alex-adam/000045.jpg";
-import EngagementPhoto from "./../../../public/couples/alina-brandon/000017.jpg"
+import EngagementPhoto from "./../../../public/couples/alina-brandon/000017.jpg";
 import type { Metadata } from "next";
 import SmallHero from "../components/SmallHero/SmallHero";
 import GetInTouch from "../components/GetInTouch/GetInTouch";
@@ -52,11 +52,11 @@ export default function page() {
                 <h5>The Complete Story</h5>
                 <h2>Full-Day Wedding</h2>
                 <div>
-                  For couples who want the full narrative of their day captured
-                  without having to watch the clock. This is my signature
-                  offering, designed to document every chapter of your
-                  celebration, from the quiet moments of getting ready to the
-                  wild energy of the last dance.
+                  Perfect for larger weddings (30+ guests) where you want the
+                  full narrative of your day captured without having to watch
+                  the clock. This is my signature offering, designed to document
+                  every chapter of your celebration, from the quiet moments of
+                  getting ready to the wild energy of the last dance.
                 </div>
                 <ul>
                   <li>
@@ -82,7 +82,6 @@ export default function page() {
                   </li>
                 </ul>
                 <h4>$4000</h4>
-                
               </div>
             </div>
           </div>
@@ -98,7 +97,7 @@ export default function page() {
                 <h2>Weddings & Elopements</h2>
                 <div>
                   Perfect for city hall ceremonies, adventurous elopements, or
-                  smaller celebrations with your closest loved ones. This
+                  smaller celebrations with your closest loved ones (up to 30 guests). This
                   package is designed to capture the heart of your intimate day
                   with the same candid, documentary style.
                 </div>
@@ -157,35 +156,33 @@ export default function page() {
                 </div>
 
                 <h4>Starting at $400</h4>
-                
               </div>
             </div>
           </div>
         </section>
         <section className={styles.details_wrapper}>
-          <div 
-            className={styles.details}
-          >
-          <h3>Travel & Other Details</h3>
-          <ul>
-            <li>
-              <strong>New England Travel:</strong> Planning your wedding anywhere in
-              Massachusetts, Rhode Island, Connecticut, Maine, New Hampshire, or
-              Vermont? Amazing! There are absolutely no travel fees for any
-              wedding within New England.
-            </li>
-            <li>
-              <strong>Beyond New England:</strong> I love to travel! For weddings outside of New
-              England, I provide a simple, all-inclusive custom travel quote so
-              there are no surprises.
-            </li>
-            <li>
-              <strong>Fine Art Albums:</strong> Your photos deserve to be held. I offer
-              beautiful, custom-designed fine art albums that turn your digital
-              gallery into a timeless family heirloom. Please inquire for album
-              pricing.
-            </li>
-          </ul></div>
+          <div className={styles.details}>
+            <h3>Travel & Other Details</h3>
+            <ul>
+              <li>
+                <strong>New England Travel:</strong> Planning your wedding
+                anywhere in Massachusetts, Rhode Island, Connecticut, Maine, New
+                Hampshire, or Vermont? Amazing! There are absolutely no travel
+                fees for any wedding within New England.
+              </li>
+              <li>
+                <strong>Beyond New England:</strong> I love to travel! For
+                weddings outside of New England, I provide a simple,
+                all-inclusive custom travel quote so there are no surprises.
+              </li>
+              <li>
+                <strong>Fine Art Albums:</strong> Your photos deserve to be
+                held. I offer beautiful, custom-designed fine art albums that
+                turn your digital gallery into a timeless family heirloom.
+                Please inquire for album pricing.
+              </li>
+            </ul>
+          </div>
         </section>
       </div>
       <GetInTouch />
