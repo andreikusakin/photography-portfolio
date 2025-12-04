@@ -11,7 +11,7 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
 
   const imagesData = gallery.images?.map((image) => ({
     alt: `${gallery.name} at ${gallery.venue}, ${gallery.location}; ${gallery.type} photography`,
-    src: image,
+    src: image.src,
   }));
 
   const { scrollYProgress } = useScroll({
@@ -30,7 +30,7 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
         <motion.div className={styles.hero_image} style={{ y: imageY }}>
           {" "}
           <Image
-            src={gallery.hero}
+            src={gallery.hero || ""}
             alt={`${gallery.name} at ${gallery.venue}, ${gallery.location}; ${gallery.type} photography`}
             width={1500}
             height={1500}

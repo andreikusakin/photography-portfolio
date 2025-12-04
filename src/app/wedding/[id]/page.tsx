@@ -3,12 +3,15 @@ import React from "react";
 import { weddings } from "@/lib/data";
 import Gallery from "@/app/components/Gallery/Gallery";
 import type { Metadata } from "next";
+import data from "@/lib/data.galleries.json";
+import { Gallery as GalleryType } from "@/lib/data";
 // import fs from "fs";
 // import path from "path";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
+
 
 export async function generateMetadata(
   { params }: Props,
@@ -37,14 +40,24 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: Props) {
+
+
   const { id } = await params;
-  const wedding = weddings.find((wedding) => wedding.id === id);
-  
-  if (!wedding) {
+    const allGalleries = [
+    ...data.weddings,
+    ...data.intimateWeddings,
+    ...data.couples,
+  ] as GalleryType[];
+
+  const gallery = allGalleries.find((g) => g.id === id);
+
+ 
+  if (!gallery) {
     return <div>Images not found</div>;
   }
 
   return <div>
-    <Gallery gallery={wedding}/>
+  
+    <Gallery gallery={gallery}/>
   </div>;
 }

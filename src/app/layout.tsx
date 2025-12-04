@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
@@ -50,10 +50,10 @@ export const metadata: Metadata = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "PhotographyBusiness",
   name: "Andrew Kusakin Photography",
   url: "https://www.kusakinphoto.com",
-
+  email: "andrew@kusakinphoto.com",
   logo: "https://www.kusakinphoto.com/logo.png",
   sameAs: [
     "https://www.instagram.com/kusakinphoto",
@@ -84,6 +84,7 @@ export default function RootLayout({
         </LenisScroll>
       </body>
       <GoogleAnalytics gaId="G-90SBL0XP3V" />
+      <GoogleTagManager gtmId="AW-11562135208" />
     </html>
   );
 }

@@ -10,10 +10,10 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 import "./embla.css";
 import Image from "next/image";
-import { Highlight } from "@/lib/data";
+import { GalleryImage } from "@/lib/data";
 
 type PropType = {
-  slides: Highlight[];
+  slides: GalleryImage[];
   options?: EmblaOptionsType;
 };
 
@@ -22,7 +22,6 @@ useEmblaCarousel.globalOptions = { loop: true };
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "center" });
-
   const {
     prevBtnDisabled,
     nextBtnDisabled,
@@ -44,7 +43,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 className="embla__slide"
                 key={index}
                 style={{
-                  flex: image.horizontal
+                  flex: image.width > image.height
                     ? "0 0 calc(var(--slide-size) + 25em)"
                     : "0 0 var(--slide-size)",
                 }}
@@ -54,8 +53,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   alt={`Highlight ${index + 1}`}
                   className="embla__slide__img"
                   quality={90}
-                  width={image.horizontal ? 900 : 600}
-                  height={image.horizontal ? 600 : 900}
+                  width={image.width / 2}
+                  height={image.height / 2}
                   priority
                 />
               </div>

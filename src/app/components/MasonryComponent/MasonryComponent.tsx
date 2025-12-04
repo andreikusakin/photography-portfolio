@@ -19,7 +19,6 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
     console.log("MasonryComponent: No imagesData to display.");
     return <div>No images found for this gallery.</div>; // Or some placeholder
   }
-  console.log("MasonryComponent: Rendering with imagesData:", imagesData);
 
   return (
     <Masonry

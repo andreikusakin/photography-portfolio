@@ -1,12 +1,13 @@
-// components/ContactForm.jsx
 "use client";
 
-import { useState, useEffect } from "react"; // Add useEffect
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./ContactForm.module.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function ContactForm() {
+    const router = useRouter();
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [formData, setFormData] = useState({
         fullName: "",
@@ -64,6 +65,7 @@ export default function ContactForm() {
             });
 
             if (response.ok) {
+                router.push("/thank-you");
                 setSubmitMessage("Thank you! Your message has been sent successfully!");
                 setSubmitStatus("success");
                 setFormData({

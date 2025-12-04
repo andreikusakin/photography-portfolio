@@ -1,7 +1,7 @@
 import React from "react";
 import GalleryList from "../GalleryList/GalleryList";
 import EmblaCarousel from "../Carousel/EmblaCarousel";
-import { Gallery, Highlight } from "@/lib/data";
+import { Gallery, GalleryImage } from "@/lib/data";
 import styles from "./PortfolioGallery.module.css";
 
 export default function PortfolioGallery({
@@ -10,7 +10,7 @@ export default function PortfolioGallery({
   highlights,
 }: {
   galleries: Gallery[];
-  highlights: Highlight[];
+  highlights: GalleryImage[];
 }) {
   return (
     <div style={{ overflow: "hidden" }}

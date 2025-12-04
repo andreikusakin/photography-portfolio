@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import SmallHero from "../components/SmallHero/SmallHero";
-import HeroImage from "./../../../public/weddings/valerie-joseph/000005.jpg";
+import HeroImage from "./000005.jpg";
 import styles from "./page.module.css";
 import ContactForm from "../components/ContactForm/ContactForm";
 import JsonLd from "../components/JsonLd/JsonLd"; 

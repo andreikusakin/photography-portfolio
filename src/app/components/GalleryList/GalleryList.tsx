@@ -16,7 +16,7 @@ export default function GalleryList({ gallery }: { gallery: Gallery[] }) {
           >
             <div className={styles.image}>
               <Image
-                src={gallery.cover}
+                src={gallery.cover?.src || ""}
                 alt={gallery.name}
                 className={styles.coverImage}
                 width={600}
