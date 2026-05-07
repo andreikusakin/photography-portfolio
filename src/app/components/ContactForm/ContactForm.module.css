@@ -1,6 +1,5 @@
 .formContainer {
     width: 100%;
-
 }
 
 .formTitle {
@@ -20,26 +19,26 @@
     display: flex;
     flex-direction: column;
     gap: 0.4em;
+    width: 100%;
 }
 
-.formGroupRow {
+.row {
     display: flex;
-    flex-direction: row;
     gap: 1.4em;
 }
 
-.formGroupRow .formGroup {
+.row .formGroup {
     flex: 1;
 }
 
 @media (max-width: 480px) {
-    .formGroupRow {
+    .row {
         flex-direction: column;
         gap: 1.4em;
     }
 }
 
-.formGroup input::placeholder,
+.input::placeholder,
 .textarea::placeholder {
     color: rgba(0, 0, 0, 0.4);
 }
@@ -51,18 +50,15 @@
 .label {
     font-weight: 500;
     font-size: 1em;
-    /* color: #444; */
 }
 
 .required {
-    /* color: #d32f2f; */
     margin-left: 0.2em;
 }
 
 .input {
     background-color: unset;
 }
-
 
 .input,
 .textarea,
@@ -72,10 +68,8 @@
     padding: 0.8em 0;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    /* border-radius: 0.4em; */
     font-size: 1em;
     width: 100%;
-    /* background-color: #fbfbfb; */
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -88,21 +82,19 @@
 
 .select {
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 1em;
 }
 
 .textarea {
-    resize: vertical;
+    resize: none;
     font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
     overflow-y: scroll;
     height: 10em;
-    resize: none;
 }
-
 
 .submitButton {
     padding: 1rem;
@@ -113,7 +105,6 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.1s;
-  
 }
 
 .submitButton:hover {
@@ -153,70 +144,16 @@
     padding: 1rem;
     border-radius: 10em;
     font-weight: 500;
-  }
-  
-  .success.buttonLike {
+}
+
+.success.buttonLike {
     background-color: #2e7d32;
     color: white;
     border: none;
-  }
-  
-  .error.buttonLike {
+}
+
+.error.buttonLike {
     background-color: #c62828;
     color: white;
     border: none;
-  }
-
-
-
-/* Add to your ContactForm.module.css */
-.datepickerWrapper {
-    width: 100%;
 }
-
-.react-datepicker-wrapper {
-    width: 100%;
-}
-
-.datepickerCalendar {
-    /* background-color: #333;
-    border-color: #555;
-    color: white; */
-}
-
-.datePicker::placeholder {
-    color: rgba(0, 0, 0, 0.8);
-  }
-
-/* Add this to your ContactForm.module.css */
-.datePickerWrapper :global(.react-datepicker) {
-    background-color: #333;
-    color: rgb(0, 0, 0);
-    border: 1px solid #ffffff;
-}
-.datePickerWrapper :global(.react-datepicker-wrapper) {
-    width: 100%;
- }
-
-
-.datePickerWrapper :global(.react-datepicker__header) {
-    background-color: #222;
-    border-bottom: 1px solid #555;
-}
-
-.datePickerWrapper :global(.react-datepicker__day-name),
-.datePickerWrapper :global(.react-datepicker__day),
-.datePickerWrapper :global(.react-datepicker__time-name) {
-    color: white;
-}
-.datePickerWrapper :global(.react-datepicker__current-month) {
-    color: var(--color-white);
-}
-.datePickerWrapper :global(.react-datepicker__day:hover) {
-    background-color: #444;
-}
-
-.datePickerWrapper :global(.react-datepicker__day--selected) {
-    background-color: #555;
-}
-

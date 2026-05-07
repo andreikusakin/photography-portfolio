@@ -1,8 +1,6 @@
-// app/api/contact/route.js (App Router) or pages/api/contact.js (Pages Router)
-import { NextResponse } from "next/server"; // Use for App Router
+import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// For App Router
 export async function POST(request) {
   try {
     const {
@@ -19,7 +17,6 @@ export async function POST(request) {
       message,
     } = await request.json();
 
-    // Validate required fields
     if (!fullName || !email || !message) {
       return NextResponse.json(
         { message: "Missing required fields" },
@@ -27,8 +24,6 @@ export async function POST(request) {
       );
     }
 
-
-    // Configure nodemailer transporter
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_SERVER,
       port: process.env.EMAIL_PORT,
@@ -39,7 +34,6 @@ export async function POST(request) {
       },
     });
 
-    // Send email
     await transporter.sendMail({
       from: `"Photography Contact Form" <${process.env.EMAIL_FROM}>`,
       to: process.env.EMAIL_TO,

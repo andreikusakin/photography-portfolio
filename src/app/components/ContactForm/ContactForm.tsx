@@ -22,9 +22,8 @@ export default function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState("");
     const [submitStatus, setSubmitStatus] = useState("");
-    const [showMessage, setShowMessage] = useState(false); // New state to control message display
+    const [showMessage, setShowMessage] = useState(false);
 
-    // Clear message after timeout
     useEffect(() => {
         let timeoutId: NodeJS.Timeout | undefined;
         if (showMessage) {
@@ -33,20 +32,14 @@ export default function ContactForm() {
                 setSubmitMessage("");
             }, 5000);
         }
-        
         return () => {
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
+            if (timeoutId) clearTimeout(timeoutId);
         };
     }, [showMessage]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
+        setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -56,9 +49,7 @@ export default function ContactForm() {
         try {
             const response = await fetch("/api/contact", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
 
@@ -89,18 +80,14 @@ export default function ContactForm() {
             setSubmitStatus("error");
         } finally {
             setIsSubmitting(false);
-            setShowMessage(true); // Show message after submission (success or error)
+            setShowMessage(true);
         }
     };
 
     return (
         <div className={styles.formContainer}>
-            
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="fullName" className={styles.label}>
-                        Your Full Name<span className={styles.required}>*</span>
-                    </label> */}
                     <input
                         type="text"
                         id="fullName"
@@ -114,9 +101,6 @@ export default function ContactForm() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="partnerName" className={styles.label}>
-                        Your Partner's Full Name
-                    </label> */}
                     <input
                         type="text"
                         id="partnerName"
@@ -128,7 +112,7 @@ export default function ContactForm() {
                     />
                 </div>
 
-                <div className={styles.formGroupRow}>
+                <div className={styles.row}>
                     <div className={styles.formGroup}>
                         <input
                             type="email"
@@ -155,9 +139,6 @@ export default function ContactForm() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="interestedIn" className={styles.label}>
-                        I'm Interested In<span className={styles.required}>*</span>
-                    </label> */}
                     <select
                         id="interestedIn"
                         name="interestedIn"
@@ -165,9 +146,8 @@ export default function ContactForm() {
                         className={`${styles.select} ${formData.interestedIn === "" ? styles.selectPlaceholder : ""}`}
                         value={formData.interestedIn}
                         onChange={handleChange}
-                        defaultValue="I'm interested in *"
                     >
-                        <option value=""  disabled>I'm interested in *</option>
+                        <option value="" disabled>I'm interested in *</option>
                         <option value="Wedding">Wedding</option>
                         <option value="Engagement">Engagement</option>
                         <option value="Couples">Couples</option>
@@ -204,14 +184,13 @@ export default function ContactForm() {
 
                 <div className={styles.formGroup}>
                     <input
-                        type="number"
+                        type="text"
                         id="guestCount"
                         name="guestCount"
                         className={styles.input}
                         value={formData.guestCount}
                         onChange={handleChange}
                         placeholder="Guest Count"
-                        min="0"
                     />
                 </div>
 
@@ -228,10 +207,6 @@ export default function ContactForm() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="referralSource" className={styles.label}>
-                        How Did You Learn About Me
-                        <span className={styles.required}>*</span>
-                    </label> */}
                     <select
                         id="referralSource"
                         name="referralSource"
@@ -239,21 +214,18 @@ export default function ContactForm() {
                         value={formData.referralSource}
                         onChange={handleChange}
                     >
-                        <option value="" disabled selected>How Did You Learn About Me</option>
+                        <option value="" disabled>How Did You Learn About Me</option>
                         <option value="Google">Google</option>
                         <option value="Instagram">Instagram</option>
                         <option value="Facebook">Facebook</option>
                         <option value="Reddit">Reddit</option>
                         <option value="Vendor Referral">Vendor Referral</option>
                         <option value="Client Referral">Client Referral</option>
-                        <option value="Client Referral">Other</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="message" className={styles.label}>
-                        Your Message<span className={styles.required}>*</span>
-                    </label> */}
                     <textarea
                         id="message"
                         name="message"
@@ -266,7 +238,7 @@ export default function ContactForm() {
                 </div>
 
                 {showMessage ? (
-                    <div 
+                    <div
                         className={`${styles.messageBox} ${styles.buttonLike} ${
                             submitStatus === "success" ? styles.success : styles.error
                         }`}
@@ -283,10 +255,9 @@ export default function ContactForm() {
                     </button>
                 )}
             </form>
-            <div style={{paddingTop: "2em",
-            textAlign: "center",
-            color: "rgba(0, 0, 0, 0.8)"
-            }}>I will personally respond within 48 hours. If you don't hear from me by then, please be sure to check your spam or promotions folder.</div>
+            <div style={{ paddingTop: "2em", textAlign: "center", color: "rgba(0, 0, 0, 0.8)" }}>
+                I will personally respond within 48 hours. If you don't hear from me by then, please be sure to check your spam or promotions folder.
+            </div>
         </div>
     );
 }
