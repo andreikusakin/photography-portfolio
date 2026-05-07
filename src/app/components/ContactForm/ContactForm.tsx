@@ -3,12 +3,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./ContactForm.module.css";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 export default function ContactForm() {
     const router = useRouter();
-    const [startDate, setStartDate] = useState<Date | null>(null);
     const [formData, setFormData] = useState({
         fullName: "",
         partnerName: "",
@@ -16,8 +13,10 @@ export default function ContactForm() {
         phone: "",
         interestedIn: "",
         eventDate: "",
-        eventLocation: "",
-        weddingVenue: "",
+        location: "",
+        guestCount: "",
+        instagram: "",
+        tiktok: "",
         referralSource: "",
         message: "",
     });
@@ -75,12 +74,13 @@ export default function ContactForm() {
                     phone: "",
                     interestedIn: "",
                     eventDate: "",
-                    eventLocation: "",
-                    weddingVenue: "",
+                    location: "",
+                    guestCount: "",
+                    instagram: "",
+                    tiktok: "",
                     referralSource: "",
                     message: "",
                 });
-                setStartDate(null); // Reset date picker
             } else {
                 setSubmitMessage("Failed to send message. Please try again.");
                 setSubmitStatus("error");
@@ -92,23 +92,6 @@ export default function ContactForm() {
         } finally {
             setIsSubmitting(false);
             setShowMessage(true); // Show message after submission (success or error)
-        }
-    };
-
-    const handleDateChange = (date: Date | null) => {
-        setStartDate(date);
-        // Format the date as YYYY-MM-DD for the form data
-        if (date) {
-            const formattedDate = date.toISOString().split('T')[0];
-            setFormData((prev) => ({
-                ...prev,
-                eventDate: formattedDate,
-            }));
-        } else {
-            setFormData((prev) => ({
-                ...prev,
-                eventDate: "",
-            }));
         }
     };
 
@@ -147,35 +130,30 @@ export default function ContactForm() {
                     />
                 </div>
 
-                <div className={styles.formGroup}>
-                    {/* <label htmlFor="email" className={styles.label}>
-                        Email<span className={styles.required}>*</span>
-                    </label> */}
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email *"
-                        required
-                        className={styles.input}
-                        value={formData.email}
-                        onChange={handleChange}
-                    />
-                </div>
-
-                <div className={styles.formGroup}>
-                    {/* <label htmlFor="phone" className={styles.label}>
-                        Phone Number
-                    </label> */}
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        className={styles.input}
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Phone Number"
-                    />
+                <div className={styles.formGroupRow}>
+                    <div className={styles.formGroup}>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Email *"
+                            required
+                            className={styles.input}
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            className={styles.input}
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="Phone Number"
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.formGroup}>
@@ -203,50 +181,65 @@ export default function ContactForm() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="eventDate" className={styles.label}>
-                        Wedding Date or Session Date<span className={styles.required}>*</span>
-                    </label> */}
-                    <div className={styles.datePickerWrapper}>
-                        <DatePicker
-                            id="eventDate"
-                            selected={startDate}
-                            onChange={handleDateChange}
-                            className={`${styles.input} ${styles.datePicker}`}
-                            placeholderText="Wedding Date or Session Date"
-                            dateFormat="MMMM d, yyyy"
+                    <input
+                        type="text"
+                        id="eventDate"
+                        name="eventDate"
+                        className={styles.input}
+                        value={formData.eventDate}
+                        onChange={handleChange}
+                        placeholder="Wedding Date or Session Date"
+                    />
+                </div>
+
+                <div className={styles.formGroup}>
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        className={styles.input}
+                        value={formData.location}
+                        onChange={handleChange}
+                        placeholder="Location"
+                    />
+                </div>
+
+                <div className={styles.formGroup}>
+                    <input
+                        type="number"
+                        id="guestCount"
+                        name="guestCount"
+                        className={styles.input}
+                        value={formData.guestCount}
+                        onChange={handleChange}
+                        placeholder="Guest Count"
+                        min="0"
+                    />
+                </div>
+
+                <div className={styles.formGroupRow}>
+                    <div className={styles.formGroup}>
+                        <input
+                            type="text"
+                            id="instagram"
+                            name="instagram"
+                            className={styles.input}
+                            value={formData.instagram}
+                            onChange={handleChange}
+                            placeholder="Instagram"
                         />
                     </div>
-                </div>
-
-                <div className={styles.formGroup}>
-                    {/* <label htmlFor="eventLocation" className={styles.label}>
-                        Wedding Location or Session Location
-                        <span className={styles.required}>*</span>
-                    </label> */}
-                    <input
-                        type="text"
-                        id="eventLocation"
-                        name="eventLocation"
-                        className={styles.input}
-                        value={formData.eventLocation}
-                        onChange={handleChange}
-                        placeholder="Wedding Location or Session Location"
-                    />
-                </div>
-
-                <div className={styles.formGroup}>
-                    {/* <label htmlFor="weddingVenue" className={styles.label}>
-                        Wedding Venue
-                    </label> */}
-                    <input
-                        type="text"
-                        id="weddingVenue"
-                        name="weddingVenue"
-                        placeholder="Wedding Venue"
-                        className={styles.input}
-                        value={formData.weddingVenue}
-                        onChange={handleChange}
-                    />
+                    <div className={styles.formGroup}>
+                        <input
+                            type="text"
+                            id="tiktok"
+                            name="tiktok"
+                            className={styles.input}
+                            value={formData.tiktok}
+                            onChange={handleChange}
+                            placeholder="TikTok"
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.formGroup}>
