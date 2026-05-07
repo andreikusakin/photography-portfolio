@@ -15,8 +15,7 @@ export default function ContactForm() {
         eventDate: "",
         location: "",
         guestCount: "",
-        instagram: "",
-        tiktok: "",
+        socialMedia: "",
         referralSource: "",
         message: "",
     });
@@ -67,8 +66,7 @@ export default function ContactForm() {
                     eventDate: "",
                     location: "",
                     guestCount: "",
-                    instagram: "",
-                    tiktok: "",
+                    socialMedia: "",
                     referralSource: "",
                     message: "",
                 });
@@ -145,7 +143,7 @@ export default function ContactForm() {
                         id="interestedIn"
                         name="interestedIn"
                         required
-                        className={styles.select}
+                        className={`${styles.select} ${formData.interestedIn === "" ? styles.selectPlaceholder : ""}`}
                         value={formData.interestedIn}
                         onChange={handleChange}
                     >
@@ -197,36 +195,23 @@ export default function ContactForm() {
                     />
                 </div>
 
-                <div className={styles.row}>
-                    <div className={styles.formGroup}>
-                        <input
-                            type="text"
-                            id="instagram"
-                            name="instagram"
-                            className={styles.input}
-                            value={formData.instagram}
-                            onChange={handleChange}
-                            placeholder="Instagram"
-                        />
-                    </div>
-                    <div className={styles.formGroup}>
-                        <input
-                            type="text"
-                            id="tiktok"
-                            name="tiktok"
-                            className={styles.input}
-                            value={formData.tiktok}
-                            onChange={handleChange}
-                            placeholder="TikTok"
-                        />
-                    </div>
+                <div className={styles.formGroup}>
+                    <input
+                        type="text"
+                        id="socialMedia"
+                        name="socialMedia"
+                        className={styles.input}
+                        value={formData.socialMedia}
+                        onChange={handleChange}
+                        placeholder="Social Media: I would love to connect with you! Please leave your Instagram or TikTok here"
+                    />
                 </div>
 
                 <div className={styles.formGroup}>
                     <select
                         id="referralSource"
                         name="referralSource"
-                        className={styles.select}
+                        className={`${styles.select} ${formData.referralSource === "" ? styles.selectPlaceholder : ""}`}
                         value={formData.referralSource}
                         onChange={handleChange}
                     >

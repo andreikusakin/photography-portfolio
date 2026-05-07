@@ -12,8 +12,7 @@ export async function POST(request) {
       eventDate,
       location,
       guestCount,
-      instagram,
-      tiktok,
+      socialMedia,
       referralSource,
       message,
     } = await request.json();
@@ -48,8 +47,7 @@ export async function POST(request) {
         Event Date: ${eventDate || "Not provided"}
         Location: ${location || "Not provided"}
         Guest Count: ${guestCount || "Not provided"}
-        Instagram: ${instagram || "Not provided"}
-        TikTok: ${tiktok || "Not provided"}
+        Social Media: ${socialMedia || "Not provided"}
         Referral Source: ${referralSource || "Not provided"}
 
         Message:
@@ -65,8 +63,7 @@ export async function POST(request) {
         <p><strong>Event Date:</strong> ${eventDate || "Not provided"}</p>
         <p><strong>Location:</strong> ${location || "Not provided"}</p>
         <p><strong>Guest Count:</strong> ${guestCount || "Not provided"}</p>
-        <p><strong>Instagram:</strong> ${instagram || "Not provided"}</p>
-        <p><strong>TikTok:</strong> ${tiktok || "Not provided"}</p>
+        <p><strong>Social Media:</strong> ${socialMedia || "Not provided"}</p>
         <p><strong>Referral Source:</strong> ${referralSource || "Not provided"}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>")}</p>
