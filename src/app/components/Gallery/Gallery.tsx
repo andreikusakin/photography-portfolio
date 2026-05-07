@@ -5,6 +5,7 @@ import styles from "./Gallery.module.css";
 import MasonryComponent from "../MasonryComponent/MasonryComponent";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
+import cloudinaryLoader from "@/lib/cloudinaryLoader";
 
 export default function Gallery({ gallery }: { gallery: GalleryType }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,6 +13,8 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
   const imagesData = gallery.images?.map((image) => ({
     alt: `${gallery.name} at ${gallery.venue}, ${gallery.location}; ${gallery.type} photography`,
     src: image.src,
+    width: image.width,
+    height: image.height,
   }));
 
   const { scrollYProgress } = useScroll({
@@ -30,11 +33,14 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
         <motion.div className={styles.hero_image} style={{ y: imageY }}>
           {" "}
           <Image
-            src={gallery.hero || ""}
+            loader={cloudinaryLoader}
+            src={gallery.hero?.src || ""}
             alt={`${gallery.name} at ${gallery.venue}, ${gallery.location}; ${gallery.type} photography`}
-            width={1500}
-            height={1500}
+            width={gallery.hero?.width || 1500}
+            height={gallery.hero?.height || 1000}
+            sizes="100vw"
             quality={85}
+            priority
           />
         </motion.div>
         <motion.div className={styles.text} style={{ y: textY }}>
