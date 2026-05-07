@@ -2,6 +2,7 @@ import React from "react";
 import SmallHero from "../components/SmallHero/SmallHero";
 import HeroImage from "./hero.jpg";
 import styles from "./page.module.css";
+import SubmissionSummary from "./SubmissionSummary";
 
 export const metadata = {
   title: "Thank You | Andrew Kusakin Photography",
@@ -27,6 +28,7 @@ export default function ThankYouPage() {
             an email or text from me shortly to schedule a quick chat.
           </p>
         </div>
+        <SubmissionSummary />
       </div>
     </div>
   );

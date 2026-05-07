@@ -54,6 +54,7 @@ export default function ContactForm() {
             });
 
             if (response.ok) {
+                sessionStorage.setItem("contactSubmission", JSON.stringify(formData));
                 router.push("/thank-you");
                 setSubmitMessage("Thank you! Your message has been sent successfully!");
                 setSubmitStatus("success");
