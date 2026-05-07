@@ -1,14 +1,17 @@
+"use client";
+
 import React from "react";
 import styles from "./GalleryList.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Gallery } from "@/lib/data";
+import cloudinaryLoader from "@/lib/cloudinaryLoader";
 
 export default function GalleryList({ gallery }: { gallery: Gallery[] }) {
   return (
     <div className={styles.container}>
       <div className={styles.grid}>
-        {gallery.map((gallery) => (
+        {gallery.map((gallery, index) => (
           <Link
             href={`/${gallery.type}/${gallery.id}`}
             className={styles.item}
@@ -16,11 +19,14 @@ export default function GalleryList({ gallery }: { gallery: Gallery[] }) {
           >
             <div className={styles.image}>
               <Image
+                loader={cloudinaryLoader}
                 src={gallery.cover?.src || ""}
                 alt={gallery.name}
                 className={styles.coverImage}
-                width={600}
-                height={900}
+                width={gallery.cover?.width || 600}
+                height={gallery.cover?.height || 900}
+                sizes="(max-width: 768px) 100vw, (max-width: 991px) 50vw, 33vw"
+                priority={index < 3}
               />
             </div>
             <div className={styles.description}>

@@ -5,7 +5,6 @@ import SmallHero from "../components/SmallHero/SmallHero";
 import HeroImage from "./../../../public/heroPortfolio.jpg";
 import { Gallery, GalleryImage, travel } from "@/lib/data";
 import data from "@/lib/data.galleries.json";
-import cloudinary from 'cloudinary';
 
 // import { families, familyHighlights } from "@/lib/data";
 
@@ -17,12 +16,6 @@ export const metadata: Metadata = {
     canonical: "/portfolio",
   },
 };
-
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
 export default async function page() {
   // const { blobs } = await list({ prefix: "weddings/maddy-alex/"});

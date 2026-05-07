@@ -11,6 +11,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import "./embla.css";
 import Image from "next/image";
 import { GalleryImage } from "@/lib/data";
+import cloudinaryLoader from "@/lib/cloudinaryLoader";
 
 type PropType = {
   slides: GalleryImage[];
@@ -49,13 +50,15 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 }}
               >
                 <Image
+                  loader={cloudinaryLoader}
                   src={image.src}
                   alt={`Highlight ${index + 1}`}
                   className="embla__slide__img"
                   quality={90}
-                  width={image.width / 2}
-                  height={image.height / 2}
-                  priority
+                  width={image.width}
+                  height={image.height}
+                  sizes="(max-width: 768px) 90vw, 60vw"
+                  priority={index < 2}
                 />
               </div>
             ))}

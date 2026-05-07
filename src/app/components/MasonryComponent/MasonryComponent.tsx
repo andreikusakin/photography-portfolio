@@ -2,11 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
-import { Masonry } from "react-plock"; // Direct import is fine
+import { Masonry } from "react-plock";
+import cloudinaryLoader from "@/lib/cloudinaryLoader";
 
 interface ImageData {
   alt: string;
   src: string;
+  width: number;
+  height: number;
 }
 
 interface MasonryComponentProps {
@@ -14,39 +17,33 @@ interface MasonryComponentProps {
 }
 
 const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
-  // It's good practice to handle the case where imagesData might be empty or undefined
   if (!imagesData || imagesData.length === 0) {
-    console.log("MasonryComponent: No imagesData to display.");
-    return <div>No images found for this gallery.</div>; // Or some placeholder
+    return <div>No images found for this gallery.</div>;
   }
 
   return (
     <Masonry
       items={imagesData}
-      
       config={{
         columns: [1, 2, 3],
-        gap: [10, 15, 20], 
-        media: [768, 991, 992], 
+        gap: [10, 15, 20],
+        media: [768, 991, 992],
       }}
       render={(item: ImageData, index: number) => (
-        <div
-          key={item.src || index} 
-
-        >
+        <div key={item.src || index}>
           <Image
+            loader={cloudinaryLoader}
             src={item.src}
             alt={item.alt}
-            width={1500} 
-            height={1500} 
+            width={item.width}
+            height={item.height}
             quality={85}
+            sizes="(max-width: 768px) 100vw, (max-width: 991px) 50vw, 33vw"
             style={{
-              width: "100%", 
-              height: "auto", 
+              width: "100%",
+              height: "auto",
               display: "block",
-          
             }}
-
           />
         </div>
       )}
