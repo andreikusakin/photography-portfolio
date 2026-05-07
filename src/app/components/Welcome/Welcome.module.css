@@ -139,7 +139,7 @@
 .capture {
   text-align: center;
   line-height: 1.1;
-  letter-spacing: -0.05em;
+  /* letter-spacing: -0.05em; */
   font-size: 3em;
 }
 

@@ -22,15 +22,15 @@ export default function Intro() {
   return (
     <section className={styles.wrapper} ref={containerRef}>
       <div className={styles.grid}>
+        
+        {/* Left Image Column */}
         <div className={styles.col1}>
           <motion.div
             className={styles.row}
-            style={{
-              y: y1,
-            }}
+            style={{ y: y1 }}
             initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
             whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
           >
             <Image
@@ -38,23 +38,21 @@ export default function Intro() {
               className={styles.image}
               width={600}
               height={900}
-              alt="Wedding Photography Boston, Massachusetts"
+              alt="Intimate wedding photography in Boston"
               title="Wedding Photo"
             />
           </motion.div>
           <motion.div
             className={styles.row}
-            style={{
-              y: y2,
-            }}
+            style={{ y: y2 }}
             initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
             whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             viewport={{ once: true }}
           >
             <Image
               src="/weddings/veronica-joseph/000013.jpg"
-              alt="Wedding Photography Boston, Massachusetts"
+              alt="Fine art wedding portrait"
               title="Wedding Photo"
               className={styles.image}
               width={600}
@@ -62,46 +60,49 @@ export default function Intro() {
             />
           </motion.div>
         </div>
+        
+        {/* Center Text Column (Updated Typography) */}
         <motion.div
           className={styles.col2}
-          initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
+          initial={{ opacity: 0, filter: "blur(1em)", y: "1em" }}
           whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
         >
-          <div>
-            <h2>
-              Your Love Story, <br /> Told Honestly
+          <div className={styles.textTop}>
+            <p className={styles.eyebrow}>THE APPROACH</p>
+            <h2 className={styles.heading}>
+              CINEMATIC <br />
+              STORYTELLING <br />
+              <span className={styles.italic}>with</span> TIMELESS <br />
+              GRACE
             </h2>
           </div>
 
-          <div className={styles.description}>
-            I focus on real moments, documenting the genuine laughter, happy
-            tears, and quiet glances of your wedding day as they truly happen.
-            From the softest touch and intimate details to the big, joyful
-            moments and all the party fun, no detail is missed – everything is
-            captured with authenticity, just the way it felt.
-          </div>
+          <p className={styles.bodyText}>
+            A thoughtful blend of documentary honesty and fine art aesthetics. Focused on the unscripted gravity of human connection, this approach preserves the true color, authentic mood, and intricate details of a celebration to create a timeless visual legacy.
+          </p>
 
           <div>
             <Link href="/portfolio">
-              <button className={styles.button}>Browse Portfolio</button>
+              <button className={styles.button}>DISCOVER THE APPROACH</button>
             </Link>
           </div>
         </motion.div>
+
+        {/* Right Image Column */}
         <div className={styles.col3}>
           <motion.div
             className={styles.row}
-            style={{
-              y: y1,
-            }}
+            style={{ y: y1 }}
             initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
             whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             viewport={{ once: true }}
           >
             <Image
               src="/weddings/alex-adam/000048.jpg"
-              alt="Wedding Photography Boston, Massachusetts"
+              alt="Candid wedding moments"
               title="Wedding Photo"
               className={styles.image}
               width={600}
@@ -110,17 +111,15 @@ export default function Intro() {
           </motion.div>
           <motion.div
             className={styles.row}
-            style={{
-              y: y2,
-            }}
+            style={{ y: y2 }}
             initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
             whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             viewport={{ once: true }}
           >
             <Image
               src="/weddings/erica-mike/000078.jpg"
-              alt="Wedding Photography Boston, Massachusetts"
+              alt="Cinematic documentary wedding photography"
               title="Wedding Photo"
               className={styles.image}
               width={600}

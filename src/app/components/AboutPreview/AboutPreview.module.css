@@ -1,0 +1,90 @@
+.wrapper {
+  background-color: rgb(44, 44, 44); /* Matches your Intro background */
+  padding: 10em 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 80em;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6em;
+  align-items: center;
+}
+
+.imageFrame {
+  position: relative;
+  overflow: hidden;
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-size: 0.8em;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 2em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.heading {
+  font-family: "the-seasons", serif;
+  font-size: 3.5em;
+  line-height: 1.2;
+  margin-bottom: 0.8em;
+  color: #ffffff;
+}
+
+.bodyText {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 3em;
+  max-width: 32em;
+}
+
+.button {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 1.2em 3em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-size: 0.8em;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.button:hover {
+  background: #ffffff;
+  color: rgb(44, 44, 44);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 4em;
+    text-align: center;
+  }
+  .textCol {
+    align-items: center;
+  }
+  .imageCol {
+    order: 2; /* Put text first on mobile, or keep image first depending on preference */
+  }
+}

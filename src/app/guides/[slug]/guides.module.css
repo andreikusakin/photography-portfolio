@@ -1,0 +1,30 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  font-family: 'Your Serif Font', serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Targeting standard Markdown output */
+.content p {
+  line-height: 1.8; /* Good readability for long guides */
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.content h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}

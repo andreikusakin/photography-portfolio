@@ -1,81 +1,71 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import styles from "./Hero.module.css";
-
-import { motion, useScroll, useTransform } from "motion/react";
+import { CldImage } from 'next-cloudinary';
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const images = [
-
   {
-    src: "/weddings/alex-adam/000047.jpg",
+    src: "000041-AndrewKusakinPhotography_twhdke",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
   },
   {
-    src: "/weddings/maddy-alex/000086.jpg",
+    src: "000021-AndrewKusakinPhotography_fyyfez",
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
+    name: "Maddy + Alex",
+  },
+  {
+    src: "000021-AndrewKusakinPhotography_fyyfez",
+    alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
+    name: "Maddy + Alex",
+  },
+  {
+    src: "000041-AndrewKusakinPhotography_twhdke",
+    alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
   },
-  {
-    src: "/weddings/christi-adam/000018.jpg",
-    alt: "Christi and Adam weddinng photography at Seaport in Boston, Massachusetts",
-    name: "Christi + Adam",
-  },
-  {
-    src: "/weddings/veronica-joseph/000052.jpg",
-    alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
-    name: "Veronica + Joseph",
-  },
-  {
-    src: "/weddings/amy-charlie/000058.jpg",
-    alt: "Amy and Charlie wedding photography at The Bart At The Evermore at Peirce Farm Estate in Topsfield, MA",
-    name: "Amy + Charlie",
-  },
-  //  {
-  //   src: OrbreyBrett,
-  //   alt: "Orbrey and Brett wedding photography at Shepherd's Run in South Kingston, Rhode Island",
-  //   name: "Orbrey + Brett",
-  // },
-  // {
-  //   src: AlinaBrandon,
-  //   alt: "Alina and Brandon's couple photography session at Borderland State Park in North Easton, Massachusetts",
-  //   name: "Alina + Brandon",
-  // },
-
-  // {
-  //   src: ValerieJoseph,
-  //   alt: "Valerie and Joseph wedding photography at The Bart At Gibblet Hill in Groton, Massachusetts",
-  //   name: "Valerie + Joseph",
-  // },
-  // {
-  //   src: VeronicaJoseph2,
-  //   alt: "Veronica and Joseph wedding photography at Harborside Hotel in Bar Harbor, Maine",
-  //   name: "Veronica + Joseph",
-  // },
-  // {
-  //   src: RoxanaKanstantin,
-  //   alt: "Roxana and Kanstantin's couple photography session at Raffles Hotel in Boston, Massachusetts",
-  //   name: "Roxana + Kanstantin",
-  // },
-
-  // {
-  //   src: MarissaMichael,
-  //   alt: "Marissa and Michael wedding photography at Granite Links in Quincy, Massachusetts",
-  //   name: "Marissa + Michael",
-  // },
 ];
+
+// Custom cinematic easing curve
+const customEase = [0.16, 1, 0.3, 1];
+
+// Parent container animation variants (controls the stagger)
+const textContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.4, // Waits briefly for the background blur to clear
+    },
+  },
+};
+
+// Individual text element animation variants
+const textItemVariants = {
+  hidden: { opacity: 0, y: "1.5em" },
+  visible: {
+    opacity: 1,
+    y: "0em",
+    transition: {
+      duration: 1.2,
+      ease: customEase,
+    },
+  },
+};
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        prevIndex + 2 >= images.length ? 0 : prevIndex + 2
       );
-    }, 3000);
+    }, 4000); // Slowed down for a more relaxed, luxurious pace
 
     return () => clearInterval(intervalId);
   }, []);
@@ -84,104 +74,95 @@ export default function Hero() {
     target: containerRef,
     offset: ["start start", "end start"],
   });
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const textEmY = useTransform(scrollYProgress, [0, 1], [0, -5]);
-  const imageEmY = useTransform(scrollYProgress, [0, 1], [-2, 10]);
 
-  const textY = useTransform(textEmY, (value) => `${value}em`);
+  // Subtle image parallax (drifts background down slightly)
+  const imageEmY = useTransform(scrollYProgress, [0, 1], [0, 4]);
   const imageY = useTransform(imageEmY, (value) => `${value}em`);
 
+  // Strong text parallax (pulls foreground down much faster)
+const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]); 
+  const textY = useTransform(textEmY, (value) => `${value}em`);
+
   return (
-    <section
-      className={styles.container}
-      ref={containerRef}
-      style={{
-        backgroundColor: "#000",
-      }}
-    >
+    <section className={styles.container} ref={containerRef}>
       <motion.div
         className={styles.heroImagesWrapper}
         initial={{ opacity: 0, filter: "blur(0.5em)" }}
         whileInView={{ opacity: 1, filter: "blur(0em)" }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        transition={{ duration: 1, ease: "easeInOut" }}
         viewport={{ once: true }}
       >
-        {images.map((image, index) => (
-          <motion.div
-            key={index}
-            className={`${styles.heroImage} ${
-              index === currentIndex ? styles.active : ""
-            }`}
-            style={{ y: imageY }}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              title={image.name}
-              width={1500}
-              height={1000}
-              style={{ objectFit: "cover", objectPosition: "top" }}
-              quality={90}
-              priority={index === 0 ? true : false}
-            />
-          </motion.div>
-        ))}
-        {/* <motion.div
-          className={styles.heroImage}
-          style={{ y: imageY }}
-          initial={{ opacity: 1 }}
-        >
-          <Image
-            src={JessicaGeorge}
-            alt={images[7].alt}
-            title={images[7].name}
-            fill
-            style={{ objectFit: "cover", objectPosition: "top" }}
-            quality={90}
-            placeholder="blur"
-            priority
-          />
-        </motion.div> */}
+        {images.map((image, index) => {
+          if (index % 2 !== 0) return null;
+
+          const isPairActive = index === currentIndex;
+          const nextImage = images[index + 1];
+
+          return (
+            <motion.div
+              key={index}
+              className={`${styles.heroImagePair} ${
+                isPairActive ? styles.active : ""
+              }`}
+              style={{ y: imageY }}
+            >
+              {/* Left Image (Desktop Only) */}
+              <div className={`${styles.imageWrapper} ${styles.desktopOnly}`}>
+                <CldImage
+                  src={image.src}
+                  alt={image.alt}
+                  title={image.name}
+                  width={1500}
+                  height={1000}
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+                  quality={90}
+                  priority={index === 0}
+                />
+              </div>
+
+              {/* Right Image (Visible on all devices) */}
+              {nextImage && (
+                <div className={`${styles.imageWrapper} ${styles.mobileVisible}`}>
+                  <CldImage
+                    src={nextImage.src}
+                    alt={nextImage.alt}
+                    title={nextImage.name}
+                    width={1500}
+                    height={1000}
+                    style={{ objectFit: "cover", objectPosition: "center" }}
+                    quality={90}
+                    priority={index === 0}
+                  />
+                </div>
+              )}
+              
+              {/* Overlay to ensure white text is always readable over bright images */}
+              <div className={styles.imageOverlay}></div>
+            </motion.div>
+          );
+        })}
       </motion.div>
 
+      {/* Cinematic Staggered Text Wrapper */}
       <motion.div
         className={styles.heroTextWrapper}
-        style={{ y: textY }}
-        initial={{ opacity: 0, filter: "blur(0.5em)", y: "0.5rem" }}
-        whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        variants={textContainerVariants}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className={styles.heroText}>
-          <h1>Capturing Your Day <br/>
-          As It Truly Happens</h1>
-          <h1>
-            Documentary Wedding Photography for Couples in Love – Boston &
-            Beyond
-          </h1>
-        </div>
-      </motion.div>
-      <motion.div className={styles.explore}>
-        {/* <div className={styles.exploreContent}>
-          Explore
-          <div className={styles.arrowContainer}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={styles.arrowDown}
-            >
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-          </div>
-        </div> */}
+        {/* Inner div that receives the strong parallax scroll effect */}
+        <motion.div className={styles.heroText} style={{ y: textY }}>
+          <motion.p className={styles.eyebrow} variants={textItemVariants}>
+            Commissioned Worldwide
+          </motion.p>
+          <motion.h1 className={styles.mainHeading} variants={textItemVariants}>
+            The Art of Honest Connection.
+          </motion.h1>
+          <motion.h2 className={styles.subHeading} variants={textItemVariants}>
+            Cinematic, fine art storytelling for weddings and elopements.
+          </motion.h2>
+        </motion.div>
       </motion.div>
     </section>
   );

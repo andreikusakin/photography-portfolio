@@ -10,7 +10,7 @@ export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const [isDesktop, setIsDesktop] = useState(true);
-  const [viewportHeight, setViewportHeight] = useState(0); 
+  const [viewportHeight, setViewportHeight] = useState(0);
 
   useEffect(() => {
     const checkIfDesktop = () => {
@@ -18,15 +18,14 @@ export default function Header() {
     };
 
     const updateViewportHeight = () => {
-      setViewportHeight(window.innerHeight); 
+      setViewportHeight(window.innerHeight);
     };
 
     checkIfDesktop();
-    updateViewportHeight(); 
+    updateViewportHeight();
 
     window.addEventListener("resize", checkIfDesktop);
-    window.addEventListener("resize", updateViewportHeight); 
-
+    window.addEventListener("resize", updateViewportHeight);
 
     return () => {
       window.removeEventListener("resize", checkIfDesktop);
@@ -36,7 +35,9 @@ export default function Header() {
 
   const { scrollY } = useScroll();
 
-  const colorChangeStart = isHomePage ? viewportHeight * 2.8 : viewportHeight * 0.4;
+  const colorChangeStart = isHomePage
+    ? viewportHeight * 2.8
+    : viewportHeight * 0.4;
   const colorChangeEnd = isHomePage ? viewportHeight * 3 : viewportHeight * 0.6;
 
   const filterBlur = useTransform(
@@ -53,7 +54,12 @@ export default function Header() {
     scrollY,
     [50, 150, colorChangeEnd * 0.9, colorChangeEnd],
     isDesktop
-      ? ["none", "0 1px 0 rgba(255, 255, 255, 0.17)"  , "0 1px 0 rgba(255, 255, 255, 0.17)", "0 1px 0 rgba(0, 0, 0, 0.1)"]
+      ? [
+          "none",
+          "0 1px 0 rgba(255, 255, 255, 0.17)",
+          "0 1px 0 rgba(255, 255, 255, 0.17)",
+          "0 1px 0 rgba(0, 0, 0, 0.1)",
+        ]
       : ["none", "none", "none", "none"],
     { clamp: true }
   );
@@ -61,7 +67,7 @@ export default function Header() {
   const headerColor = useTransform(
     scrollY,
     [colorChangeStart, colorChangeEnd],
-    ["#fff" , "#181716"],
+    ["#fff", "#181716"],
     { clamp: true }
   );
 
@@ -69,21 +75,18 @@ export default function Header() {
     scrollY,
     [colorChangeStart, colorChangeEnd],
     // Update the start and end colors here
-    [
-    "rgba(255, 255, 255, 0.2)",
-      "rgba(238, 229, 217, 1)",
-    ],
+    ["rgba(255, 255, 255, 0.2)", "rgba(24, 23, 22, 0.2)"],
     { clamp: true }
   );
 
   const headerBackground = useTransform(
     scrollY,
     [colorChangeStart, colorChangeEnd],
-   [
-          "linear-gradient(to bottom,rgba(0, 0, 0, 0.2) 0%,rgba(0, 0, 0, 0) 100%)",
-          "linear-gradient(to bottom,rgba(245, 240, 235, 0.8) 0%,rgba(245, 240, 235, 0.8) 100%)",
-        ],
-     
+    [
+      "linear-gradient(to bottom,rgba(0, 0, 0, 0.2) 0%,rgba(0, 0, 0, 0) 100%)",
+      "linear-gradient(to bottom,rgba(245, 240, 235, 0.8) 0%,rgba(245, 240, 235, 0.8) 100%)",
+    ],
+
     { clamp: true }
   );
 
@@ -101,14 +104,21 @@ export default function Header() {
         boxShadow, // Apply the corrected boxShadow transform
         color: headerColor, // Apply the transformed color
         // Conditionally apply background based on isDesktop
-        background: isDesktop ? headerBackground : 'none',
+        background: isDesktop ? headerBackground : "none",
       }}
     >
       <Link href="/" className={styles.name}>
-        Andrew Kusakin Photography
+        Andrew Kusakin
       </Link>
       <nav>
-
+        <Link href="/about" className={styles.navLink}>
+          <div className={styles.navLinkText_wrapper}>
+            <span className={styles.navLinkText}>About</span>
+            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
+              About
+            </span>
+          </div>
+        </Link>
         <Link href="/portfolio" className={styles.navLink}>
           <div className={styles.navLinkText_wrapper}>
             <span className={styles.navLinkText}>Portfolio</span>
@@ -125,14 +135,7 @@ export default function Header() {
             </span>
           </div>
         </Link>
-        <Link href="/about" className={styles.navLink}>
-          <div className={styles.navLinkText_wrapper}>
-            <span className={styles.navLinkText}>About</span>
-            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
-              About
-            </span>
-          </div>
-        </Link>
+
         <Link href="/pricing" className={styles.navLink}>
           <div className={styles.navLinkText_wrapper}>
             <span className={styles.navLinkText}>Pricing</span>
@@ -141,25 +144,33 @@ export default function Header() {
             </span>
           </div>
         </Link>
-
-        <Link href="/contact" className={styles.contact}>
-          <motion.button
-            className={styles.contactButton}
-            style={{
-              color: headerColor, // Keep text color consistent with header
-              background: buttonColor, // Apply the updated button background color
-            }}
-          >
-            <div className={styles.navLinkText_wrapper}>
-              <span className={styles.navLinkText}>Contact</span>
-              <span className={`${styles.navLinkText} ${styles.dublicate}`}>
-                Contact
-              </span>
-            </div>
-          </motion.button>
+        <Link href="/Journal" className={styles.navLink}>
+          <div className={styles.navLinkText_wrapper}>
+            <span className={styles.navLinkText}>Journal</span>
+            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
+              Journal
+            </span>
+          </div>
         </Link>
       </nav>
-
+      <Link href="/contact" className={styles.contact}>
+        <motion.button
+          className={styles.contactButton}
+          style={{
+            color: headerColor,
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderColor: buttonColor, // Framer Motion will animate this value directly
+          }}
+        >
+          <div className={styles.navLinkText_wrapper}>
+            <span className={styles.navLinkText}>Connect</span>
+            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
+              Connect
+            </span>
+          </div>
+        </motion.button>
+      </Link>
     </motion.header>
   );
 }

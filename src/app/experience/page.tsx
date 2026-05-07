@@ -10,7 +10,7 @@ import { motion } from "motion/react";
 //   STARTER_WEDDING_PACKAGE_PRICE,
 // } from "@/lib/data";
 
-import SmallHero from "./../components/SmallHero/SmallHero";
+import SmallHero from "../components/SmallHero/SmallHero";
 import HeroImage from "./../../../public/weddings/alex-adam/000033.jpg";
 import ParallaxImage from "../components/ParallaxImage/ParallaxImage";
 import GetInTouch from "../components/GetInTouch/GetInTouch";
