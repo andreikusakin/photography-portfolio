@@ -184,14 +184,13 @@ export default function ContactForm() {
 
                 <div className={styles.formGroup}>
                     <input
-                        type="number"
+                        type="text"
                         id="guestCount"
                         name="guestCount"
                         className={styles.input}
                         value={formData.guestCount}
                         onChange={handleChange}
                         placeholder="Guest Count"
-                        min="0"
                     />
                 </div>
 
