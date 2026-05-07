@@ -8,6 +8,8 @@ import JsonLd from "../components/JsonLd/JsonLd";
 
 export const metadata: Metadata = {
   title: "Contact | Boston Wedding Photographer | Andrew Kusakin Photography",
+  description:
+    "Get in touch with Andrew Kusakin Photography. Boston-based wedding, engagement, and portrait photographer serving New England — including Cape Cod, Providence, Newport, and beyond.",
   alternates: {
     canonical: "/contact",
   },
@@ -43,13 +45,13 @@ const businessInfo = {
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Photographer",
+  "@type": ["LocalBusiness", "Photographer"],
   name: businessInfo.name,
-  image: businessInfo.website + "/path/to/your/professional/headshot.jpg",
+  description:
+    "Boston-based wedding, engagement, and portrait photographer serving New England including Cape Cod, Providence, Newport, and beyond.",
   telephone: businessInfo.phone,
   email: businessInfo.email,
   url: businessInfo.website,
-
   address: {
     "@type": "PostalAddress",
     addressLocality: businessInfo.address.city,
@@ -65,6 +67,13 @@ const schema = {
     "@type": "Place",
     name: area,
   })),
+  serviceType: [
+    "Wedding Photography",
+    "Engagement Photography",
+    "Portrait Photography",
+    "Family Photography",
+    "Event Photography",
+  ],
 };
 
 export default function ContactPage() {
@@ -111,18 +120,6 @@ export default function ContactPage() {
                 <li key={area}>{area}</li>
               ))}
             </ul>
-            <div className={styles.mapContainer}>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94358.3310110482!2d-71.13348204249843!3d42.35543494187203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3652d0d3d311b%3A0x787cbf240162e8a0!2sBoston%2C%20MA!5e0!3m2!1sen!2sus!4v1678886666666!5m2!1sen!2sus"
-                width="200"
-                height="150"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Google Map of Boston, MA"
-              ></iframe>
-            </div>
           </div>
         </div>
       </div>
