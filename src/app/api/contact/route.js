@@ -1,8 +1,6 @@
-// app/api/contact/route.js (App Router) or pages/api/contact.js (Pages Router)
-import { NextResponse } from "next/server"; // Use for App Router
+import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// For App Router
 export async function POST(request) {
   try {
     const {
@@ -12,13 +10,14 @@ export async function POST(request) {
       phone,
       interestedIn,
       eventDate,
-      eventLocation,
-      weddingVenue,
+      location,
+      guestCount,
+      instagram,
+      tiktok,
       referralSource,
       message,
     } = await request.json();
 
-    // Validate required fields
     if (!fullName || !email || !message) {
       return NextResponse.json(
         { message: "Missing required fields" },
@@ -26,14 +25,6 @@ export async function POST(request) {
       );
     }
 
-    // Format the date for display
-    const formattedDate = new Date(eventDate).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-
-    // Configure nodemailer transporter
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_SERVER,
       port: process.env.EMAIL_PORT,
@@ -44,7 +35,6 @@ export async function POST(request) {
       },
     });
 
-    // Send email
     await transporter.sendMail({
       from: `"Photography Contact Form" <${process.env.EMAIL_FROM}>`,
       to: process.env.EMAIL_TO,
@@ -55,11 +45,13 @@ export async function POST(request) {
         Email: ${email}
         Phone: ${phone || "Not provided"}
         Interested In: ${interestedIn || "Not provided"}
-        Event Date: ${formattedDate || "Not provided"}
-        Event Location: ${eventLocation || "Not provided"}
-        Wedding Venue: ${weddingVenue || "Not provided"}
-        Referral Source: ${referralSource}
-        
+        Event Date: ${eventDate || "Not provided"}
+        Location: ${location || "Not provided"}
+        Guest Count: ${guestCount || "Not provided"}
+        Instagram: ${instagram || "Not provided"}
+        TikTok: ${tiktok || "Not provided"}
+        Referral Source: ${referralSource || "Not provided"}
+
         Message:
         ${message}
       `,
@@ -70,9 +62,11 @@ export async function POST(request) {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
         <p><strong>Interested In:</strong> ${interestedIn || "Not provided"}</p>
-        <p><strong>Event Date:</strong> ${formattedDate || "Not provided"}</p>
-        <p><strong>Event Location:</strong> ${eventLocation || "Not provided"}</p>
-        <p><strong>Wedding Venue:</strong> ${weddingVenue || "Not provided"}</p>
+        <p><strong>Event Date:</strong> ${eventDate || "Not provided"}</p>
+        <p><strong>Location:</strong> ${location || "Not provided"}</p>
+        <p><strong>Guest Count:</strong> ${guestCount || "Not provided"}</p>
+        <p><strong>Instagram:</strong> ${instagram || "Not provided"}</p>
+        <p><strong>TikTok:</strong> ${tiktok || "Not provided"}</p>
         <p><strong>Referral Source:</strong> ${referralSource || "Not provided"}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>")}</p>

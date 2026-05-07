@@ -3,12 +3,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./ContactForm.module.css";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 export default function ContactForm() {
     const router = useRouter();
-    const [startDate, setStartDate] = useState<Date | null>(null);
     const [formData, setFormData] = useState({
         fullName: "",
         partnerName: "",
@@ -16,17 +13,18 @@ export default function ContactForm() {
         phone: "",
         interestedIn: "",
         eventDate: "",
-        eventLocation: "",
-        weddingVenue: "",
+        location: "",
+        guestCount: "",
+        instagram: "",
+        tiktok: "",
         referralSource: "",
         message: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState("");
     const [submitStatus, setSubmitStatus] = useState("");
-    const [showMessage, setShowMessage] = useState(false); // New state to control message display
+    const [showMessage, setShowMessage] = useState(false);
 
-    // Clear message after timeout
     useEffect(() => {
         let timeoutId: NodeJS.Timeout | undefined;
         if (showMessage) {
@@ -35,20 +33,14 @@ export default function ContactForm() {
                 setSubmitMessage("");
             }, 5000);
         }
-        
         return () => {
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
+            if (timeoutId) clearTimeout(timeoutId);
         };
     }, [showMessage]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
+        setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -58,9 +50,7 @@ export default function ContactForm() {
         try {
             const response = await fetch("/api/contact", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
 
@@ -75,12 +65,13 @@ export default function ContactForm() {
                     phone: "",
                     interestedIn: "",
                     eventDate: "",
-                    eventLocation: "",
-                    weddingVenue: "",
+                    location: "",
+                    guestCount: "",
+                    instagram: "",
+                    tiktok: "",
                     referralSource: "",
                     message: "",
                 });
-                setStartDate(null); // Reset date picker
             } else {
                 setSubmitMessage("Failed to send message. Please try again.");
                 setSubmitStatus("error");
@@ -91,35 +82,14 @@ export default function ContactForm() {
             setSubmitStatus("error");
         } finally {
             setIsSubmitting(false);
-            setShowMessage(true); // Show message after submission (success or error)
-        }
-    };
-
-    const handleDateChange = (date: Date | null) => {
-        setStartDate(date);
-        // Format the date as YYYY-MM-DD for the form data
-        if (date) {
-            const formattedDate = date.toISOString().split('T')[0];
-            setFormData((prev) => ({
-                ...prev,
-                eventDate: formattedDate,
-            }));
-        } else {
-            setFormData((prev) => ({
-                ...prev,
-                eventDate: "",
-            }));
+            setShowMessage(true);
         }
     };
 
     return (
         <div className={styles.formContainer}>
-            
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="fullName" className={styles.label}>
-                        Your Full Name<span className={styles.required}>*</span>
-                    </label> */}
                     <input
                         type="text"
                         id="fullName"
@@ -133,9 +103,6 @@ export default function ContactForm() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="partnerName" className={styles.label}>
-                        Your Partner's Full Name
-                    </label> */}
                     <input
                         type="text"
                         id="partnerName"
@@ -147,41 +114,33 @@ export default function ContactForm() {
                     />
                 </div>
 
-                <div className={styles.formGroup}>
-                    {/* <label htmlFor="email" className={styles.label}>
-                        Email<span className={styles.required}>*</span>
-                    </label> */}
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email *"
-                        required
-                        className={styles.input}
-                        value={formData.email}
-                        onChange={handleChange}
-                    />
+                <div className={styles.row}>
+                    <div className={styles.formGroup}>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Email *"
+                            required
+                            className={styles.input}
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            className={styles.input}
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="Phone Number"
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="phone" className={styles.label}>
-                        Phone Number
-                    </label> */}
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        className={styles.input}
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Phone Number"
-                    />
-                </div>
-
-                <div className={styles.formGroup}>
-                    {/* <label htmlFor="interestedIn" className={styles.label}>
-                        I'm Interested In<span className={styles.required}>*</span>
-                    </label> */}
                     <select
                         id="interestedIn"
                         name="interestedIn"
@@ -189,9 +148,8 @@ export default function ContactForm() {
                         className={styles.select}
                         value={formData.interestedIn}
                         onChange={handleChange}
-                        defaultValue="I'm interested in *"
                     >
-                        <option value=""  disabled>I'm interested in *</option>
+                        <option value="" disabled>I'm interested in *</option>
                         <option value="Wedding">Wedding</option>
                         <option value="Engagement">Engagement</option>
                         <option value="Couples">Couples</option>
@@ -203,57 +161,68 @@ export default function ContactForm() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="eventDate" className={styles.label}>
-                        Wedding Date or Session Date<span className={styles.required}>*</span>
-                    </label> */}
-                    <div className={styles.datePickerWrapper}>
-                        <DatePicker
-                            id="eventDate"
-                            selected={startDate}
-                            onChange={handleDateChange}
-                            className={`${styles.input} ${styles.datePicker}`}
-                            placeholderText="Wedding Date or Session Date"
-                            dateFormat="MMMM d, yyyy"
+                    <input
+                        type="text"
+                        id="eventDate"
+                        name="eventDate"
+                        className={styles.input}
+                        value={formData.eventDate}
+                        onChange={handleChange}
+                        placeholder="Wedding Date or Session Date"
+                    />
+                </div>
+
+                <div className={styles.formGroup}>
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        className={styles.input}
+                        value={formData.location}
+                        onChange={handleChange}
+                        placeholder="Location"
+                    />
+                </div>
+
+                <div className={styles.formGroup}>
+                    <input
+                        type="number"
+                        id="guestCount"
+                        name="guestCount"
+                        className={styles.input}
+                        value={formData.guestCount}
+                        onChange={handleChange}
+                        placeholder="Guest Count"
+                        min="0"
+                    />
+                </div>
+
+                <div className={styles.row}>
+                    <div className={styles.formGroup}>
+                        <input
+                            type="text"
+                            id="instagram"
+                            name="instagram"
+                            className={styles.input}
+                            value={formData.instagram}
+                            onChange={handleChange}
+                            placeholder="Instagram"
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <input
+                            type="text"
+                            id="tiktok"
+                            name="tiktok"
+                            className={styles.input}
+                            value={formData.tiktok}
+                            onChange={handleChange}
+                            placeholder="TikTok"
                         />
                     </div>
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="eventLocation" className={styles.label}>
-                        Wedding Location or Session Location
-                        <span className={styles.required}>*</span>
-                    </label> */}
-                    <input
-                        type="text"
-                        id="eventLocation"
-                        name="eventLocation"
-                        className={styles.input}
-                        value={formData.eventLocation}
-                        onChange={handleChange}
-                        placeholder="Wedding Location or Session Location"
-                    />
-                </div>
-
-                <div className={styles.formGroup}>
-                    {/* <label htmlFor="weddingVenue" className={styles.label}>
-                        Wedding Venue
-                    </label> */}
-                    <input
-                        type="text"
-                        id="weddingVenue"
-                        name="weddingVenue"
-                        placeholder="Wedding Venue"
-                        className={styles.input}
-                        value={formData.weddingVenue}
-                        onChange={handleChange}
-                    />
-                </div>
-
-                <div className={styles.formGroup}>
-                    {/* <label htmlFor="referralSource" className={styles.label}>
-                        How Did You Learn About Me
-                        <span className={styles.required}>*</span>
-                    </label> */}
                     <select
                         id="referralSource"
                         name="referralSource"
@@ -261,21 +230,18 @@ export default function ContactForm() {
                         value={formData.referralSource}
                         onChange={handleChange}
                     >
-                        <option value="" disabled selected>How Did You Learn About Me</option>
+                        <option value="" disabled>How Did You Learn About Me</option>
                         <option value="Google">Google</option>
                         <option value="Instagram">Instagram</option>
                         <option value="Facebook">Facebook</option>
                         <option value="Reddit">Reddit</option>
                         <option value="Vendor Referral">Vendor Referral</option>
                         <option value="Client Referral">Client Referral</option>
-                        <option value="Client Referral">Other</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div className={styles.formGroup}>
-                    {/* <label htmlFor="message" className={styles.label}>
-                        Your Message<span className={styles.required}>*</span>
-                    </label> */}
                     <textarea
                         id="message"
                         name="message"
@@ -288,7 +254,7 @@ export default function ContactForm() {
                 </div>
 
                 {showMessage ? (
-                    <div 
+                    <div
                         className={`${styles.messageBox} ${styles.buttonLike} ${
                             submitStatus === "success" ? styles.success : styles.error
                         }`}
@@ -305,10 +271,9 @@ export default function ContactForm() {
                     </button>
                 )}
             </form>
-            <div style={{paddingTop: "2em",
-            textAlign: "center",
-            color: "rgba(0, 0, 0, 0.8)"
-            }}>I will personally respond within 48 hours. If you don't hear from me by then, please be sure to check your spam or promotions folder.</div>
+            <div style={{ paddingTop: "2em", textAlign: "center", color: "rgba(0, 0, 0, 0.8)" }}>
+                I will personally respond within 48 hours. If you don't hear from me by then, please be sure to check your spam or promotions folder.
+            </div>
         </div>
     );
 }

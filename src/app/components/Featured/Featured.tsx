@@ -100,9 +100,9 @@ function GalleryItem({ gallery }: { gallery: Gallery }) {
               className={styles.image}
               width={1500}
               height={900}
-    
               quality={80}
-             
+              sizes="(max-width: 768px) 100vw, 70vw"
+              priority
             />
           </motion.div>
           <motion.div className={styles.title} variants={title}>
@@ -121,6 +121,7 @@ function GalleryItem({ gallery }: { gallery: Gallery }) {
             className={styles.smallImage}
             width={600}
             height={900}
+            sizes="(max-width: 768px) 50vw, 30vw"
           />
         </div>
       </Link>
