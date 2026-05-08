@@ -47,9 +47,17 @@
   font-size: 4.5em;
   line-height: 1.05;
   text-transform: uppercase;
-  text-wrap: nowrap;
   text-align: right;
   margin: 0;
+}
+
+.headingLine {
+  display: block;
+  white-space: nowrap;
+}
+
+.headingWord {
+  display: inline-block;
 }
 
 .italic {
@@ -75,23 +83,17 @@
 
 .portraitCol {
   position: absolute;
-  top: -10em;
-  left: 60%;
-  width: 28em;
-  height: 42em;
+  top: 2em;
+  left: 55%;
+  width: 34em;
+  height: 51em;
   pointer-events: none;
 }
 
 .portraitWrapper {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
   overflow: hidden;
-}
-
-.portraitWrapper.portraitActive {
-  opacity: 1;
 }
 
 .portraitImage {
