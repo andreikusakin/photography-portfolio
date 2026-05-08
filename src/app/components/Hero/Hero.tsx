@@ -153,15 +153,16 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
       >
         {/* Inner div that receives the strong parallax scroll effect */}
         <motion.div className={styles.heroText} style={{ y: textY }}>
-          <motion.p className={styles.eyebrow} variants={textItemVariants}>
-            Commissioned Worldwide
-          </motion.p>
+
           <motion.h1 className={styles.mainHeading} variants={textItemVariants}>
-            The Art of Honest Connection.
+            The Art of Honest Connection
           </motion.h1>
-          <motion.h2 className={styles.subHeading} variants={textItemVariants}>
+                    <motion.p className={styles.eyebrow} variants={textItemVariants}>
+            Boston Wedding Photographer
+          </motion.p>
+          {/* <motion.h2 className={styles.subHeading} variants={textItemVariants}>
             Cinematic, fine art storytelling for weddings and elopements.
-          </motion.h2>
+          </motion.h2> */}
         </motion.div>
       </motion.div>
     </section>
