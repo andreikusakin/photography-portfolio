@@ -25,48 +25,48 @@ export default function Intro() {
         
         {/* Left Image Column */}
         <div className={styles.col1}>
-          <motion.div
-            className={styles.row}
-            style={{ y: y1 }}
-            initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
-            whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true }}
-          >
-            <Image
-              src="/weddings/erin-kyle/000141.jpg"
-              className={styles.image}
-              width={600}
-              height={900}
-              alt="Intimate wedding photography in Boston"
-              title="Wedding Photo"
-            />
+          <motion.div className={styles.row} style={{ y: y1 }}>
+            <motion.div
+              initial={{ opacity: 0, y: "3em" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              viewport={{ once: true }}
+            >
+              <Image
+                src="/weddings/erin-kyle/000141.jpg"
+                className={styles.image}
+                width={600}
+                height={900}
+                alt="Intimate wedding photography in Boston"
+                title="Wedding Photo"
+              />
+            </motion.div>
           </motion.div>
-          <motion.div
-            className={styles.row}
-            style={{ y: y2 }}
-            initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
-            whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <Image
-              src="/weddings/veronica-joseph/000013.jpg"
-              alt="Fine art wedding portrait"
-              title="Wedding Photo"
-              className={styles.image}
-              width={600}
-              height={900}
-            />
+          <motion.div className={styles.row} style={{ y: y2 }}>
+            <motion.div
+              initial={{ opacity: 0, y: "3em" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Image
+                src="/weddings/veronica-joseph/000013.jpg"
+                alt="Fine art wedding portrait"
+                title="Wedding Photo"
+                className={styles.image}
+                width={600}
+                height={900}
+              />
+            </motion.div>
           </motion.div>
         </div>
         
         {/* Center Text Column (Updated Typography) */}
         <motion.div
           className={styles.col2}
-          initial={{ opacity: 0, filter: "blur(1em)", y: "1em" }}
-          whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: "2em" }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
         >
           <div className={styles.textTop}>
@@ -92,39 +92,39 @@ export default function Intro() {
 
         {/* Right Image Column */}
         <div className={styles.col3}>
-          <motion.div
-            className={styles.row}
-            style={{ y: y1 }}
-            initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
-            whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <Image
-              src="/weddings/alex-adam/000048.jpg"
-              alt="Candid wedding moments"
-              title="Wedding Photo"
-              className={styles.image}
-              width={600}
-              height={900}
-            />
+          <motion.div className={styles.row} style={{ y: y1 }}>
+            <motion.div
+              initial={{ opacity: 0, y: "3em" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Image
+                src="/weddings/alex-adam/000048.jpg"
+                alt="Candid wedding moments"
+                title="Wedding Photo"
+                className={styles.image}
+                width={600}
+                height={900}
+              />
+            </motion.div>
           </motion.div>
-          <motion.div
-            className={styles.row}
-            style={{ y: y2 }}
-            initial={{ opacity: 0, filter: "blur(1em)", y: "0.5em" }}
-            whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <Image
-              src="/weddings/erica-mike/000078.jpg"
-              alt="Cinematic documentary wedding photography"
-              title="Wedding Photo"
-              className={styles.image}
-              width={600}
-              height={900}
-            />
+          <motion.div className={styles.row} style={{ y: y2 }}>
+            <motion.div
+              initial={{ opacity: 0, y: "3em" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Image
+                src="/weddings/erica-mike/000078.jpg"
+                alt="Cinematic documentary wedding photography"
+                title="Wedding Photo"
+                className={styles.image}
+                width={600}
+                height={900}
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>
