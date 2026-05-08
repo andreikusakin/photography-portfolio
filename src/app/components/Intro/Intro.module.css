@@ -2,61 +2,34 @@
   color: var(--color-white);
   background-color: rgb(44, 44, 44);
   padding-top: 12em;
-  padding-bottom: 6em;
+  padding-bottom: 8em;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  --columns: 3;
-  --column-gap: 2em;
-  --column-width: calc(100% / var(--columns) - var(--column-gap));
+  position: relative;
 }
 
 .grid {
   display: flex;
-  flex-wrap: wrap;
-  columns: 3;
-  column-gap: 2em;
+  align-items: flex-start;
+  padding: 0 20%;
   width: 100%;
+  box-sizing: border-box;
 }
 
-.col1 {
+.textCol {
   display: flex;
   flex-direction: column;
-  gap: 10em;
-  width: var(--column-width);
-}
-
-.col1 .row:first-child {
-  display: flex;
-  justify-content: flex-end;
-}
-.col1 .row:last-child {
-  display: flex;
-  justify-content: flex-start;
-}
-.col1 .row:first-child .image {
-  width: 14em;
-}
-.col1 .row:last-child .image {
-  width: 26em;
-}
-
-/* Center Column Updates */
-.col2 {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  width: var(--column-width);
-  gap: 3em; /* Creates breathing room between header, body, and button */
+  align-items: flex-start;
+  text-align: left;
+  gap: 3em;
+  flex: 0 1 auto;
+  max-width: 38em;
 }
 
 .textTop {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  width: 100%;
 }
 
 .eyebrow {
@@ -64,17 +37,18 @@
   font-size: 0.8em;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  margin-bottom: 2.5em;
+  margin: 0 0 2.5em 0;
   color: rgba(255, 255, 255, 0.75);
 }
 
 .heading {
   font-family: "the-seasons", serif;
   font-weight: 400;
-  font-size: 5em; /* Scaled slightly so the long words fit within the center column */
+  font-size: 4.5em;
   line-height: 1.05;
   text-transform: uppercase;
   text-wrap: nowrap;
+  text-align: right;
   margin: 0;
 }
 
@@ -96,34 +70,34 @@
   font-size: 1.4em;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
+  margin: 0;
 }
 
-.col3 {
-  display: flex;
-  flex-direction: column;
-  gap: 10em;
-  width: var(--column-width);
+.portraitCol {
+  position: absolute;
+  top: -10em;
+  left: 60%;
+  width: 28em;
+  height: 42em;
+  pointer-events: none;
 }
 
-.col3 .row:first-child {
-  display: flex;
-  justify-content: flex-end;
-}
-.col3 .row:last-child {
-  display: flex;
-  justify-content: flex-start;
-}
-.col3 .row:first-child .image {
-  width: 26em;
-}
-.col3 .row:last-child .image {
-  width: 14em;
+.portraitWrapper {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  overflow: hidden;
 }
 
-.image {
-  object-fit: contain;
+.portraitWrapper.portraitActive {
+  opacity: 1;
+}
+
+.portraitImage {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .button {
@@ -144,60 +118,60 @@
   color: rgb(44, 44, 44);
 }
 
-/* Responsive Scaling */
 @media screen and (max-width: 991px) {
   .wrapper {
-    --columns: 1;
-    --column-gap: 0;
-    --column-width: 100%;
+    padding-top: 6em;
+    padding-bottom: 6em;
   }
 
-  .col1 {
-    flex-direction: row;
-    gap: 0;
-    justify-content: space-between;
+  .grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4em;
   }
 
-  .col2 {
-    padding-top: 4em;
-    padding-bottom: 8em;
+  .textCol {
+    max-width: 100%;
   }
-  
+
   .heading {
-    font-size: 4.5em; /* Can get larger on tablet because the column spans full width */
+    font-size: 4em;
   }
 
-  .col3 {
-    flex-direction: row-reverse;
-    gap: 0;
-    justify-content: space-between;
+  .portraitCol {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 70%;
+    max-width: 28em;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    align-self: center;
+    margin-top: 2em;
+    transform: none !important;
   }
 }
 
 @media screen and (max-width: 767px) {
   .wrapper {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-top: 5em;
+    padding-bottom: 5em;
   }
+
+  .grid {
+    padding: 0 1.5em;
+  }
+
   .bodyText {
-    width: 100%;
     font-size: 1.05em;
   }
+
   .heading {
     font-size: 2.8em;
   }
-  .col1 .row:first-child .image {
-    width: 10em;
-  }
-  .col1 .row:last-child .image {
-    width: 16em;
-    max-width: 50vw;
-  }
-  .col3 .row:first-child .image {
-    width: 10em;
-  }
-  .col3 .row:last-child .image {
-    width: 16em;
-    max-width: 50vw;
+
+  .portraitCol {
+    width: 100%;
+    max-width: none;
   }
 }

@@ -16,16 +16,6 @@ const images = [
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
     name: "Maddy + Alex",
   },
-  {
-    src: "000021-AndrewKusakinPhotography_fyyfez",
-    alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
-    name: "Maddy + Alex",
-  },
-  {
-    src: "000041-AndrewKusakinPhotography_twhdke",
-    alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
-    name: "Alexandra + Adam",
-  },
 ];
 
 // Custom cinematic easing curve
@@ -63,9 +53,9 @@ export default function Hero() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex + 2 >= images.length ? 0 : prevIndex + 2
+        prevIndex + 1 >= images.length ? 0 : prevIndex + 1
       );
-    }, 4000); // Slowed down for a more relaxed, luxurious pace
+    }, 4000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -92,55 +82,30 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
         transition={{ duration: 1, ease: "easeInOut" }}
         viewport={{ once: true }}
       >
-        {images.map((image, index) => {
-          if (index % 2 !== 0) return null;
+        {images.map((image, index) => (
+          <motion.div
+            key={index}
+            className={`${styles.heroImagePair} ${
+              index === currentIndex ? styles.active : ""
+            }`}
+            style={{ y: imageY }}
+          >
+            <div className={styles.imageWrapper}>
+              <CldImage
+                src={image.src}
+                alt={image.alt}
+                title={image.name}
+                width={1500}
+                height={1000}
+                style={{ objectFit: "cover", objectPosition: "center" }}
+                quality={90}
+                priority={index === 0}
+              />
+            </div>
 
-          const isPairActive = index === currentIndex;
-          const nextImage = images[index + 1];
-
-          return (
-            <motion.div
-              key={index}
-              className={`${styles.heroImagePair} ${
-                isPairActive ? styles.active : ""
-              }`}
-              style={{ y: imageY }}
-            >
-              {/* Left Image (Desktop Only) */}
-              <div className={`${styles.imageWrapper} ${styles.desktopOnly}`}>
-                <CldImage
-                  src={image.src}
-                  alt={image.alt}
-                  title={image.name}
-                  width={1500}
-                  height={1000}
-                  style={{ objectFit: "cover", objectPosition: "center" }}
-                  quality={90}
-                  priority={index === 0}
-                />
-              </div>
-
-              {/* Right Image (Visible on all devices) */}
-              {nextImage && (
-                <div className={`${styles.imageWrapper} ${styles.mobileVisible}`}>
-                  <CldImage
-                    src={nextImage.src}
-                    alt={nextImage.alt}
-                    title={nextImage.name}
-                    width={1500}
-                    height={1000}
-                    style={{ objectFit: "cover", objectPosition: "center" }}
-                    quality={90}
-                    priority={index === 0}
-                  />
-                </div>
-              )}
-              
-              {/* Overlay to ensure white text is always readable over bright images */}
-              <div className={styles.imageOverlay}></div>
-            </motion.div>
-          );
-        })}
+            <div className={styles.imageOverlay}></div>
+          </motion.div>
+        ))}
       </motion.div>
 
       {/* Cinematic Staggered Text Wrapper */}

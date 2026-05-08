@@ -32,7 +32,7 @@
 
 .imageWrapper {
   position: relative;
-  width: 50%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
 }
@@ -58,17 +58,15 @@
 
 .heroTextWrapper {
   position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 80em; /* Prevents text from stretching too wide on massive screens */
+  bottom: 3em;
+  left: 3em;
+  max-width: 32em;
   z-index: 2;
   pointer-events: none;
 }
 
 .heroText {
-  text-align: center;
+  text-align: left;
   color: #ffffff;
 }
 
@@ -115,18 +113,17 @@
     aspect-ratio: 5 / 8;
   }
 
-  .desktopOnly {
-    display: none;
-  }
-
-  .imageWrapper {
-    width: 100%;
+  .heroTextWrapper {
+    bottom: 2em;
+    left: 1.5em;
+    right: 1.5em;
+    max-width: none;
   }
 
   .mainHeading {
     font-size: 3.2em;
   }
-  
+
   .subHeading {
     font-size: 1.1em;
   }
