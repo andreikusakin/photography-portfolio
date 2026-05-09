@@ -21,8 +21,8 @@ const businessInfo = {
     city: "Boston",
     state: "MA",
   },
-  phone: "(347) 313-5300",
-  email: "kusakinphoto@gmail.com",
+  phone: "347.313.5300",
+  email: "andrew@kusakinphoto.com",
   website: "https://www.kusakinphoto.com",
   areaServed: [
     "Boston, MA",
@@ -82,13 +82,13 @@ export default function ContactPage() {
       <JsonLd data={schema} />
 
       <SmallHero
-        title="Let's Tell Your Story"
+        title="GET IN TOUCH"
         image={HeroImage}
-        subtitle="Ready to start your next special day? Get in touch to discuss your wedding details and start planning your dream day."
+        subtitle=""
       />
 
       <div className={styles.container}>
-        <div className={styles.intro}>
+        {/* <div className={styles.intro}>
           <p>
             I would be honored to hear about your plans. Whether you're looking
             for a <strong>documentary wedding photographer in Boston</strong>,
@@ -98,29 +98,21 @@ export default function ContactPage() {
             below with a few details, and I'll get back to you within 48 hours
             to schedule a chat. Let's create something timeless together.
           </p>
+        </div> */}
+
+        <div className={styles.contactInfo}>
+          <div className={styles.contactCol}>
+            <span>{businessInfo.name}</span>
+            <span>{businessInfo.address.city}, {businessInfo.address.state}</span>
+          </div>
+          <div className={styles.contactCol}>
+            <a href={`tel:${businessInfo.phone}`}>{businessInfo.phone}</a>
+            <a href={`mailto:${businessInfo.email}`}>{businessInfo.email}</a>
+          </div>
         </div>
 
-        <div className={styles.contactGrid}>
+        <div className={styles.formWrapper}>
           <ContactForm />
-
-          <div className={styles.contactInfo}>
-            <h3>Contact Details</h3>
-            <p>
-              <strong>{businessInfo.name}</strong>
-              <br />
-              {businessInfo.address.city}, {businessInfo.address.state} <br />
-              <a href={`tel:${businessInfo.phone}`}>{businessInfo.phone}</a>
-              <br />
-              <a href={`mailto:${businessInfo.email}`}>{businessInfo.email}</a>
-            </p>
-
-            <h3>Service Areas</h3>
-            <ul>
-              {businessInfo.areaServed.map((area) => (
-                <li key={area}>{area}</li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
     </div>

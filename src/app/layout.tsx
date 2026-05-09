@@ -71,6 +71,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/ygj5rom.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/xyp4arb.css" />
         <JsonLd data={organizationSchema} />
       </head>
       <body>

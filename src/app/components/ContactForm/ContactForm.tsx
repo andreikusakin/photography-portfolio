@@ -88,29 +88,30 @@ export default function ContactForm() {
     return (
         <div className={styles.formContainer}>
             <form onSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.formGroup}>
-                    <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        required
-                        className={styles.input}
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        placeholder="Full Name *"
-                    />
-                </div>
-
-                <div className={styles.formGroup}>
-                    <input
-                        type="text"
-                        id="partnerName"
-                        name="partnerName"
-                        placeholder="Partner's Full Name"
-                        className={styles.input}
-                        value={formData.partnerName}
-                        onChange={handleChange}
-                    />
+                <div className={styles.row}>
+                    <div className={styles.formGroup}>
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            required
+                            className={styles.input}
+                            value={formData.fullName}
+                            onChange={handleChange}
+                            placeholder="Full Name *"
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <input
+                            type="text"
+                            id="partnerName"
+                            name="partnerName"
+                            placeholder="Partner's Full Name"
+                            className={styles.input}
+                            value={formData.partnerName}
+                            onChange={handleChange}
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.row}>
@@ -196,6 +197,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className={styles.formGroup}>
+                    {/* <span className={styles.fieldHint}>I would love to connect with you! Please leave your Instagram or TikTok here</span> */}
                     <input
                         type="text"
                         id="socialMedia"
@@ -203,7 +205,7 @@ export default function ContactForm() {
                         className={styles.input}
                         value={formData.socialMedia}
                         onChange={handleChange}
-                        placeholder="Social Media: I would love to connect with you! Please leave your Instagram or TikTok here"
+                        placeholder="Instagram or TikTok: I would love to connect!"
                     />
                 </div>
 
@@ -256,7 +258,7 @@ export default function ContactForm() {
                     </button>
                 )}
             </form>
-            <div style={{ paddingTop: "2em", textAlign: "center", color: "rgba(0, 0, 0, 0.8)" }}>
+            <div className={styles.respond}>
                 I will personally respond within 48 hours. If you don't hear from me by then, please be sure to check your spam or promotions folder.
             </div>
         </div>

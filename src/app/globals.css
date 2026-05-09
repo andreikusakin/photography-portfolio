@@ -174,8 +174,7 @@ button {
   margin: 0;
   color: var(--color-black);
   font-weight: 400;
-  font-family: "neue-haas-grotesk-text", Arial, Helvetica Neue, Helvetica,
-    sans-serif;
+  font-family: "elza-text", sans-serif;
 }
 
 /* Selection */
@@ -193,8 +192,7 @@ button {
 
 body {
   color: var(--color-black);
-  font-family: "neue-haas-grotesk-text", Arial, Helvetica Neue, Helvetica,
-    sans-serif;
+  font-family: "elza-text", sans-serif;
   font-size: var(--size-font);
   /* background: linear-gradient(var(--color-black), var(--color-mocha)); */
   /* line-height: 1; */
