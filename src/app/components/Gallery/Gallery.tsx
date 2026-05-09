@@ -39,7 +39,6 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
             width={gallery.hero?.width || 1500}
             height={gallery.hero?.height || 1000}
             sizes="100vw"
-            quality={85}
             priority
           />
         </motion.div>

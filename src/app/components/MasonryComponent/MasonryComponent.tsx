@@ -37,7 +37,6 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
             alt={item.alt}
             width={item.width}
             height={item.height}
-            quality={85}
             sizes="(max-width: 768px) 100vw, (max-width: 991px) 50vw, 33vw"
             style={{
               width: "100%",
