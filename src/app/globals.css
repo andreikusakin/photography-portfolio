@@ -29,26 +29,43 @@
   --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
   --duration-default: 0.735s;
   --animation-default: var(--duration-default) var(--cubic-default);
-  --gap: 2em;
+  --gap: var(--space-xl);
   --section-padding: calc(3.5em + (var(--gap) * 2));
-  --container-padding: 2em;
+  --container-padding: var(--space-xl);
   --header-height: calc(3.5em + (var(--gap) * 2));
   --footer-height: calc(2.785em + (var(--gap) * 2));
   --color-accent: #DF8861;
   --color-dark-accent: #AA5F3B;
   --color-button: rgb(238, 229, 217);
   --color-background: #f5f0eb;
+  /* Golden ratio scale (Fibonacci ÷ 8: …3,5,8,13,21,34,55,89,144…) */
+  --space-xs:  0.375em;   /* φ⁻² */
+  --space-sm:  0.625em;   /* φ⁻¹ */
+  --space-md:  1em;        /* φ⁰  */
+  --space-lg:  1.625em;   /* φ¹  */
+  --space-xl:  2.625em;   /* φ²  */
+  --space-2xl: 4.25em;    /* φ³  */
+  --space-3xl: 6.875em;   /* φ⁴  */
+  --space-4xl: 11.125em;  /* φ⁵  */
+  --space-5xl: 18em;      /* φ⁶  */
+  --text-sm:   0.625em;   /* φ⁻¹ */
+  --text-base: 1em;        /* φ⁰  */
+  --text-md:   1.625em;   /* φ¹  */
+  --text-lg:   2.625em;   /* φ²  */
+  --text-xl:   4.25em;    /* φ³  */
+  --text-2xl:  6.875em;   /* φ⁴  */
+  --text-3xl:  11.125em;  /* φ⁵  */
 }
 /* Tablet */
 @media screen and (max-width: 991px) {
   :root {
-    --container-padding: 1.5em;
+    --container-padding: var(--space-lg);
   }
 }
 /* Mobile Landscape */
 @media screen and (max-width: 767px) {
   :root {
-    --container-padding: 1em;
+    --container-padding: var(--space-md);
     --section-padding: calc(var(--gap) * 2);
   }
 }
@@ -188,31 +205,31 @@ body {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: var(--text-2xl); /* 6.854em, φ⁴ */
   font-weight: 500;
   line-height: 1;
 }
 
 h2 {
-  font-size: 5em;
+  font-size: var(--text-xl); /* 4.236em, φ³ */
   font-weight: 500;
   line-height: 1.05;
 }
 
 h3 {
-  font-size: 2.5em;
+  font-size: var(--text-lg); /* 2.618em, φ² */
   font-weight: 500;
   line-height: 1.1;
 }
 
 h4 {
-  font-size: 1.75em;
+  font-size: var(--text-md); /* 1.618em, φ¹ */
   font-weight: 500;
   line-height: 1.15;
 }
 
 h5 {
-  font-size: 1.25em;
+  font-size: var(--text-base); /* 1em, φ⁰ */
   font-weight: 500;
   line-height: 1.2;
 }
@@ -246,11 +263,11 @@ strong {
 
 @media screen and (max-width: 767px) {
   h1 {
-    font-size: 4em;
+    font-size: var(--text-xl); /* 4.236em, φ³ */
   }
 
   h2 {
-    font-size: 3.25em;
+    font-size: var(--text-lg); /* 2.618em, φ² */
   }
 }
 
