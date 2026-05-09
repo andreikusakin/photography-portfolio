@@ -258,9 +258,6 @@ export default function ContactForm() {
                     </button>
                 )}
             </form>
-            <div className={styles.respond}>
-                I will personally respond within 48 hours. If you don't hear from me by then, please be sure to check your spam or promotions folder.
-            </div>
         </div>
     );
 }

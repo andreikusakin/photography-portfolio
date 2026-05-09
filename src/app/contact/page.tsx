@@ -4,7 +4,8 @@ import SmallHero from "../components/SmallHero/SmallHero";
 import HeroImage from "./000005.jpg";
 import styles from "./page.module.css";
 import ContactForm from "../components/ContactForm/ContactForm";
-import JsonLd from "../components/JsonLd/JsonLd"; 
+import JsonLd from "../components/JsonLd/JsonLd";
+import OverlapImage from "./OverlapImage";
 
 export const metadata: Metadata = {
   title: "Contact | Boston Wedding Photographer | Andrew Kusakin Photography",
@@ -88,31 +89,24 @@ export default function ContactPage() {
       />
 
       <div className={styles.container}>
-        {/* <div className={styles.intro}>
-          <p>
-            I would be honored to hear about your plans. Whether you're looking
-            for a <strong>documentary wedding photographer in Boston</strong>,
-            planning an <strong>engagement session on Cape Cod</strong>, or want
-            to capture your family's story anywhere in{" "}
-            <strong>New England</strong>, please reach out. Fill out the form
-            below with a few details, and I'll get back to you within 48 hours
-            to schedule a chat. Let's create something timeless together.
-          </p>
-        </div> */}
-
-        <div className={styles.contactInfo}>
-          <div className={styles.contactCol}>
-            <span>{businessInfo.name}</span>
-            <span>{businessInfo.address.city}, {businessInfo.address.state}</span>
+        <div className={styles.layout}>
+          <div className={styles.imageColumn}>
+            <div className={styles.overlapImage}>
+              <OverlapImage
+                src="https://res.cloudinary.com/dkmeqvprr/image/upload/000077_ilqmmh"
+                alt="Andrew Kusakin Photography"
+              />
+            </div>
+            <p className={styles.imageCaption}>
+              Thanks for getting in touch! I&apos;ll personally respond within 48 hours.
+              You may also reach out directly via{" "}
+              <a href={`mailto:${businessInfo.email}`}>{businessInfo.email}</a>
+            </p>
           </div>
-          <div className={styles.contactCol}>
-            <a href={`tel:${businessInfo.phone}`}>{businessInfo.phone}</a>
-            <a href={`mailto:${businessInfo.email}`}>{businessInfo.email}</a>
-          </div>
-        </div>
 
-        <div className={styles.formWrapper}>
-          <ContactForm />
+          <div className={styles.formColumn}>
+            <ContactForm />
+          </div>
         </div>
       </div>
     </div>
