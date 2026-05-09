@@ -66,7 +66,7 @@ export default function SmallHero({
       >
         <div className={styles.heroText}>
           <h1>{title}</h1>
-          <div>{subtitle}</div>
+          <div className={styles.subtitle}>{subtitle}</div>
         </div>
       </motion.div>
 
