@@ -1,11 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
 import SmallHero from "../components/SmallHero/SmallHero";
-import HeroImage from "./000005.jpg";
+import HeroImage from "./outdoor-wedding-ceremony.jpg";
+import OverlapImageSrc from "./smith-farm-gardens-wedding-ceremony.jpg";
 import styles from "./page.module.css";
+import Image from "next/image";
 import ContactForm from "../components/ContactForm/ContactForm";
 import JsonLd from "../components/JsonLd/JsonLd";
-import OverlapImage from "./OverlapImage";
 
 export const metadata: Metadata = {
   title: "Contact | Boston Wedding Photographer | Andrew Kusakin Photography",
@@ -13,6 +14,30 @@ export const metadata: Metadata = {
     "Get in touch with Andrew Kusakin Photography. Boston-based wedding, engagement, and portrait photographer serving New England — including Cape Cod, Providence, Newport, and beyond.",
   alternates: {
     canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact | Boston Wedding Photographer | Andrew Kusakin Photography",
+    description:
+      "Get in touch with Andrew Kusakin Photography. Boston-based wedding, engagement, and portrait photographer serving New England — including Cape Cod, Providence, Newport, and beyond.",
+    url: "https://www.kusakinphoto.com/contact",
+    siteName: "Andrew Kusakin Photography",
+    images: [
+      {
+        url: "https://www.kusakinphoto.com/contact/outdoor-wedding-ceremony.jpg",
+        width: 1500,
+        height: 1000,
+        alt: "Outdoor wedding ceremony photographed by Andrew Kusakin",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact | Boston Wedding Photographer | Andrew Kusakin Photography",
+    description:
+      "Get in touch with Andrew Kusakin Photography. Boston-based wedding, engagement, and portrait photographer serving New England.",
+    images: ["https://www.kusakinphoto.com/contact/outdoor-wedding-ceremony.jpg"],
   },
 };
 
@@ -75,6 +100,18 @@ const schema = {
     "Family Photography",
     "Event Photography",
   ],
+  sameAs: [
+    "https://www.instagram.com/kusakinphoto/",
+    "https://www.tiktok.com/@kusakinphoto",
+    "https://www.pinterest.com/kusakinphoto/",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-347-313-5300",
+    contactType: "customer service",
+    email: "andrew@kusakinphoto.com",
+    availableLanguage: "English",
+  },
 };
 
 export default function ContactPage() {
@@ -83,7 +120,7 @@ export default function ContactPage() {
       <JsonLd data={schema} />
 
       <SmallHero
-        title="GET IN TOUCH"
+        title="Let's Tell Your Story"
         image={HeroImage}
         subtitle=""
       />
@@ -92,15 +129,27 @@ export default function ContactPage() {
         <div className={styles.layout}>
           <div className={styles.imageColumn}>
             <div className={styles.overlapImage}>
-              <OverlapImage
-                src="https://res.cloudinary.com/dkmeqvprr/image/upload/000077_ilqmmh"
-                alt="Andrew Kusakin Photography"
+              <Image
+                src={OverlapImageSrc}
+                alt="Wedding ceremony at Smith Farm Gardens photographed by Andrew Kusakin, Boston wedding photographer"
+                sizes="(max-width: 767px) 100vw, 40vw"
+                quality={85}
+                priority
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
             <p className={styles.imageCaption}>
               Thanks for getting in touch! I&apos;ll personally respond within 48 hours.
+              <br />
+              If you don't hear from me by then, please be sure to check your spam or promotions folder.
+             
               You may also reach out directly via{" "}
+              
               <a href={`mailto:${businessInfo.email}`}>{businessInfo.email}</a>
+              {" "}or call{" "}
+              <a href={`tel:+13473135300`}>{businessInfo.phone}</a>.
+              <br />
+              Based in Boston, MA.
             </p>
           </div>
 

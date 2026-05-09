@@ -18,7 +18,7 @@
 .imageColumn {
   display: flex;
   flex-direction: column;
-  margin-top: -12em;
+  margin-top: -6em;
   position: relative;
   z-index: 2;
 }
@@ -39,13 +39,10 @@
 .imageCaption {
   font-family: "Instrument Serif", serif;
   font-weight: 400;
-  font-size: var(--text-md);
+  font-size: 1.55em;
   line-height: 1.4;
   color: var(--color-black);
-  padding: var(--space-lg) var(--space-md) 0;
-  max-width: 22em;
-  align-self: center;
-  text-align: center;
+  padding-top: var(--space-lg);
 }
 
 .imageCaption a {
@@ -59,7 +56,7 @@
 }
 
 .formColumn {
-  padding-top: var(--space-2xl);
+  padding-top: var(--space-3xl);
   width: 100%;
 }
 

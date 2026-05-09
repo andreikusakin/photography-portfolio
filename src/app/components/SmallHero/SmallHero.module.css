@@ -61,7 +61,7 @@ top: 0;
 }
 
 .heroText h1 {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   line-height: 1;
   font-family: "the-seasons", sans-serif;
   font-weight: 400;
