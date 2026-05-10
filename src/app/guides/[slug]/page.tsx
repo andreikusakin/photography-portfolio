@@ -55,6 +55,9 @@ function formatDate(date: string) {
 }
 
 function cloudinaryOgUrl(publicId: string): string {
+  if (publicId.startsWith("/")) {
+    return `${SITE_URL}${publicId}`;
+  }
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   return `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/${publicId}`;
 }

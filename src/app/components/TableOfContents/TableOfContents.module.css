@@ -1,10 +1,17 @@
 .toc {
   position: sticky;
-  top: var(--space-2xl);
+  top: var(--space-3xl);
   width: 100%;
   max-width: 13em;
+  max-height: calc(100vh - var(--space-3xl) - var(--space-lg));
+  overflow-y: auto;
   font-size: var(--text-base);
   line-height: 1.5;
+  scrollbar-width: none;
+}
+
+.toc::-webkit-scrollbar {
+  display: none;
 }
 
 .label {
