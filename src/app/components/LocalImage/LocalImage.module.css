@@ -1,0 +1,14 @@
+.imageContainer {
+  display: block;
+  margin: var(--space-lg) 0;
+  width: 100%;
+}
+
+.caption {
+  margin-top: var(--space-sm);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: #666;
+  font-style: italic;
+  font-family: serif;
+}

@@ -6,6 +6,7 @@ import { getPostBySlug, getAllPosts } from "@/lib/mdx";
 import CloudinaryImage from "@/app/components/CloudinaryImage/CloudinaryImage";
 import ImageGrid from "@/app/components/ImageGrid/ImageGrid";
 import JournalCover from "@/app/components/JournalCover/JournalCover";
+import LocalImage from "@/app/components/LocalImage/LocalImage";
 import GetInTouch from "@/app/components/GetInTouch/GetInTouch";
 import JsonLd from "@/app/components/JsonLd/JsonLd";
 import styles from "./post.module.css";
@@ -13,7 +14,7 @@ import styles from "./post.module.css";
 const SITE_URL = "https://www.kusakinphoto.com";
 const DEFAULT_AUTHOR = "Andrew Kusakin";
 
-const components = { CloudinaryImage, ImageGrid };
+const components = { CloudinaryImage, ImageGrid, LocalImage };
 
 interface Props {
   params: Promise<{ slug: string }>;

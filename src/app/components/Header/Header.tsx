@@ -10,7 +10,8 @@ export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const isMinimalHero =
-    pathname.startsWith("/journal/") && pathname !== "/journal";
+    (pathname.startsWith("/journal/") && pathname !== "/journal") ||
+    (pathname.startsWith("/guides/") && pathname !== "/guides");
   const [isDesktop, setIsDesktop] = useState(true);
   const [viewportHeight, setViewportHeight] = useState(0);
 

@@ -35,6 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    {
+      url: 'https://www.kusakinphoto.com/guides',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
   ]
 
   // Wedding gallery URLs
@@ -69,6 +75,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
+  // Guide URLs
+  const guideUrls = getAllPosts('guides').map(post => ({
+    url: `https://www.kusakinphoto.com/guides/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
   // Combine all URLs
-  return [...baseUrls, ...weddingUrls, ...couplesUrls, ...journalUrls] as MetadataRoute.Sitemap
+  return [...baseUrls, ...weddingUrls, ...couplesUrls, ...journalUrls, ...guideUrls] as MetadataRoute.Sitemap
 }

@@ -4,7 +4,7 @@ import SmallHero from "../components/SmallHero/SmallHero";
 import GetInTouch from "../components/GetInTouch/GetInTouch";
 import JournalCover from "../components/JournalCover/JournalCover";
 import { getAllPosts } from "@/lib/mdx";
-import HeroImage from "./../../../public/about/ak4.jpg";
+import HeroImage from "./wedding_venue.jpg";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {

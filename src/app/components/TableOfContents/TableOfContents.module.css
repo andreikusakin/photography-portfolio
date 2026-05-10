@@ -1,0 +1,77 @@
+.toc {
+  position: sticky;
+  top: var(--space-2xl);
+  width: 100%;
+  max-width: 13em;
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+.label {
+  font-family: "the-seasons", sans-serif;
+  font-weight: 400;
+  font-size: var(--text-sm);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-neutral-400);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.item {
+  position: relative;
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.nested {
+  padding-left: var(--space-md);
+}
+
+.link {
+  display: block;
+  padding: var(--space-xs) 0;
+  opacity: 0.55;
+  transition:
+    opacity 0.2s var(--cubic-default),
+    color 0.2s var(--cubic-default),
+    transform 0.2s var(--cubic-default);
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.active .link {
+  opacity: 1;
+  color: var(--color-mocha);
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--space-sm) * -1);
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--space-xs);
+  height: 1px;
+  background-color: var(--color-mocha);
+}
+
+.nested.active::before {
+  left: calc(var(--space-md) - var(--space-sm));
+}
+
+@media screen and (max-width: 1199px) {
+  .toc {
+    display: none;
+  }
+}
