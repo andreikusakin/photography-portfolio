@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
-import { weddings, couples } from '@/lib/data' 
+import { weddings, couples } from '@/lib/data'
+import { getAllPosts } from '@/lib/mdx'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Base URLs
@@ -28,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: 'https://www.kusakinphoto.com/journal',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
   ]
 
   // Wedding gallery URLs
@@ -54,6 +61,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  // Journal post URLs
+  const journalUrls = getAllPosts('blog').map(post => ({
+    url: `https://www.kusakinphoto.com/journal/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
   // Combine all URLs
-  return [...baseUrls, ...weddingUrls, ...couplesUrls] as MetadataRoute.Sitemap
+  return [...baseUrls, ...weddingUrls, ...couplesUrls, ...journalUrls] as MetadataRoute.Sitemap
 }

@@ -9,6 +9,8 @@ export interface PostMetadata {
   excerpt: string;
   slug: string;
   coverImage?: string;
+  author?: string;
+  tags?: string[];
 }
 
 const root = process.cwd();

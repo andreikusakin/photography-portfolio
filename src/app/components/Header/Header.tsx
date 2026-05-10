@@ -9,6 +9,8 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isMinimalHero =
+    pathname.startsWith("/journal/") && pathname !== "/journal";
   const [isDesktop, setIsDesktop] = useState(true);
   const [viewportHeight, setViewportHeight] = useState(0);
 
@@ -50,15 +52,21 @@ export default function Header() {
     [50, 150],
     isDesktop ? ["7em", "5em"] : ["5em", "5em"]
   );
+  const settledShadow = "0 1px 0 rgba(0, 0, 0, 0.1)";
+  const settledBg =
+    "linear-gradient(to bottom,rgba(245, 240, 235, 0.8) 0%,rgba(245, 240, 235, 0.8) 100%)";
+
   const boxShadow = useTransform(
     scrollY,
     [50, 150, colorChangeEnd * 0.9, colorChangeEnd],
-    isDesktop
+    isMinimalHero
+      ? [settledShadow, settledShadow, settledShadow, settledShadow]
+      : isDesktop
       ? [
           "none",
           "0 1px 0 rgba(255, 255, 255, 0.17)",
           "0 1px 0 rgba(255, 255, 255, 0.17)",
-          "0 1px 0 rgba(0, 0, 0, 0.1)",
+          settledShadow,
         ]
       : ["none", "none", "none", "none"],
     { clamp: true }
@@ -67,26 +75,28 @@ export default function Header() {
   const headerColor = useTransform(
     scrollY,
     [colorChangeStart, colorChangeEnd],
-    ["#fff", "#181716"],
+    isMinimalHero ? ["#181716", "#181716"] : ["#fff", "#181716"],
     { clamp: true }
   );
 
   const buttonColor = useTransform(
     scrollY,
     [colorChangeStart, colorChangeEnd],
-    // Update the start and end colors here
-    ["rgba(255, 255, 255, 0.2)", "rgba(24, 23, 22, 0.2)"],
+    isMinimalHero
+      ? ["rgba(24, 23, 22, 0.2)", "rgba(24, 23, 22, 0.2)"]
+      : ["rgba(255, 255, 255, 0.2)", "rgba(24, 23, 22, 0.2)"],
     { clamp: true }
   );
 
   const headerBackground = useTransform(
     scrollY,
     [colorChangeStart, colorChangeEnd],
-    [
-      "linear-gradient(to bottom,rgba(0, 0, 0, 0.2) 0%,rgba(0, 0, 0, 0) 100%)",
-      "linear-gradient(to bottom,rgba(245, 240, 235, 0.8) 0%,rgba(245, 240, 235, 0.8) 100%)",
-    ],
-
+    isMinimalHero
+      ? [settledBg, settledBg]
+      : [
+          "linear-gradient(to bottom,rgba(0, 0, 0, 0.2) 0%,rgba(0, 0, 0, 0) 100%)",
+          settledBg,
+        ],
     { clamp: true }
   );
 
@@ -144,7 +154,7 @@ export default function Header() {
             </span>
           </div>
         </Link>
-        <Link href="/Journal" className={styles.navLink}>
+        <Link href="/journal" className={styles.navLink}>
           <div className={styles.navLinkText_wrapper}>
             <span className={styles.navLinkText}>Journal</span>
             <span className={`${styles.navLinkText} ${styles.dublicate}`}>

@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+  width: 100%;
+}
+
+.grid > figure {
+  margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
