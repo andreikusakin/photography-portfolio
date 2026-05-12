@@ -95,18 +95,26 @@
 .content :global(h2) {
   font-family: "the-seasons", sans-serif;
   font-weight: 400;
-  font-size: var(--text-md);
+  font-size: var(--text-lg);
   margin-top: var(--space-xl);
-  margin-bottom: var(--space-sm);
-  line-height: 1.15;
+  margin-bottom: var(--space-md);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-neutral-400);
+  line-height: 1.1;
   scroll-margin-top: var(--space-3xl);
+}
+
+.content :global(h2:first-of-type) {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .content :global(h3) {
   font-family: "the-seasons", sans-serif;
   font-weight: 400;
   font-size: var(--text-md);
-  margin-top: var(--space-lg);
+  margin-top: var(--space-xl);
   margin-bottom: var(--space-sm);
   line-height: 1.2;
   scroll-margin-top: var(--space-3xl);

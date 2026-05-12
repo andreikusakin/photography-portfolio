@@ -155,7 +155,7 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
         <motion.div className={styles.heroText} style={{ y: textY }}>
 
           <motion.h1 className={styles.mainHeading} variants={textItemVariants}>
-            The Art of Honest Connection
+            Spontaneity, composed.  <br/> The moment, held still.
           </motion.h1>
                     <motion.p className={styles.eyebrow} variants={textItemVariants}>
             Boston Wedding Photographer
