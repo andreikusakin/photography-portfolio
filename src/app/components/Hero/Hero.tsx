@@ -2,27 +2,27 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./Hero.module.css";
-import { CldImage } from 'next-cloudinary';
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const images = [
   {
-    src: "000041-AndrewKusakinPhotography_twhdke",
+    src: "/hero1.jpg",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
   },
   {
-    src: "000021-AndrewKusakinPhotography_fyyfez",
+    src: "/heroPortfolio.jpg",
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
     name: "Maddy + Alex",
   },
   {
-    src: "000021-AndrewKusakinPhotography_fyyfez",
+    src: "/heroPortfolio.jpg",
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
     name: "Maddy + Alex",
   },
   {
-    src: "000041-AndrewKusakinPhotography_twhdke",
+    src: "/hero1.jpg",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
   },
@@ -108,7 +108,7 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
             >
               {/* Left Image (Desktop Only) */}
               <div className={`${styles.imageWrapper} ${styles.desktopOnly}`}>
-                <CldImage
+                <Image
                   src={image.src}
                   alt={image.alt}
                   title={image.name}
@@ -123,7 +123,7 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
               {/* Right Image (Visible on all devices) */}
               {nextImage && (
                 <div className={`${styles.imageWrapper} ${styles.mobileVisible}`}>
-                  <CldImage
+                  <Image
                     src={nextImage.src}
                     alt={nextImage.alt}
                     title={nextImage.name}
@@ -155,7 +155,7 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
         <motion.div className={styles.heroText} style={{ y: textY }}>
 
           <motion.h1 className={styles.mainHeading} variants={textItemVariants}>
-            Spontaneity, composed.  <br/> The moment, held still.
+            Capturing your day  <br/> as it truly happens
           </motion.h1>
                     <motion.p className={styles.eyebrow} variants={textItemVariants}>
             Boston Wedding Photographer
