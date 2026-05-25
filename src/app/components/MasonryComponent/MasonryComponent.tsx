@@ -16,7 +16,7 @@ interface MasonryComponentProps {
 }
 
 const COLUMNS = [1, 2, 3];
-const GAPS = [10, 15, 20];
+const GAPS = ["var(--space-sm)", "var(--space-md)", "var(--space-2xl)"];
 const BREAKPOINTS = [768, 991, 992];
 
 function distributeColumns<T extends { width: number; height: number }>(
@@ -37,7 +37,7 @@ function distributeColumns<T extends { width: number; height: number }>(
 }
 
 function useResponsiveConfig() {
-  const [config, setConfig] = useState<{ columns: number; gap: number } | null>(
+  const [config, setConfig] = useState<{ columns: number; gap: string } | null>(
     null
   );
 

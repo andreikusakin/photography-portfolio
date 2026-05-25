@@ -14,15 +14,15 @@
 
 .heroImagePair {
   position: absolute;
-  top: -4em; /* Reduced from -12em */
+  top: calc(-1 * var(--space-2xl));
   left: 0;
   width: 100%;
-  height: calc(100% + 4em); /* Reduced from 24em */
+  height: calc(100% + var(--space-2xl));
   opacity: 0;
-  transition: opacity 1.5s ease-in-out; 
+  transition: opacity 2.5s ease-in-out;
   display: flex;
   padding: 0;
-  gap: 0; 
+  gap: 0;
 }
 
 .heroImagePair.active {
@@ -62,7 +62,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  max-width: 80em; /* Prevents text from stretching too wide on massive screens */
+  max-width: 80em;
   z-index: 2;
   pointer-events: none;
 }
@@ -75,38 +75,38 @@
 /* Typography Hierarchy */
 .eyebrow {
   font-family: "neue-haas-grotesk-display", sans-serif;
-  font-size: 0.9em;
+  font-size: var(--text-base);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  margin-top: 1em;
+  margin-top: var(--space-md);
   color: rgba(255, 255, 255, 0.85);
 }
 
 .mainHeading {
-  font-family: "the-seasons", serif; /* Assuming this is your elegant serif */
-  text-transform: uppercase;
-  font-size: 3.5em;
+  font-family: "the-seasons", serif;
+  text-transform: capitalize;
+  font-size: var(--text-xl);
   line-height: 1.1;
   font-weight: 400;
-  margin: 0 0 0.3em 0;
+  margin: 0 0 var(--space-xs) 0;
   text-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .subHeading {
   font-family: "neue-haas-grotesk-display", sans-serif;
-  font-size: 1.25em;
+  font-size: var(--text-md);
   font-weight: 400;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.9);
   max-width: 30em;
-  margin: 0 auto; /* Centers the subhead block under the main title */
+  margin: 0 auto;
 }
 
 /* Responsive Scaling */
 @media screen and (max-width: 991px) {
   .mainHeading {
-    font-size: 4em;
+    font-size: var(--text-xl);
   }
 }
 
@@ -124,25 +124,25 @@
   }
 
   .mainHeading {
-    font-size: 3.2em;
+    font-size: var(--text-lg);
   }
-  
+
   .subHeading {
-    font-size: 1.1em;
+    font-size: var(--text-base);
   }
 }
 
 @media screen and (max-width: 479px) {
   .eyebrow {
-    font-size: 0.75em;
-    margin-bottom: 1.5em;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-lg);
   }
 
   .mainHeading {
-    font-size: 2.8em;
+    font-size: var(--text-lg);
   }
-  
+
   .subHeading {
-    font-size: 1em;
+    font-size: var(--text-base);
   }
 }

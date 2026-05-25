@@ -37,8 +37,8 @@ const textContainerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.4, // Waits briefly for the background blur to clear
+      staggerChildren: 0.22,
+      delayChildren: 0.7, // Waits briefly for the background blur to clear
     },
   },
 };
@@ -50,7 +50,7 @@ const textItemVariants = {
     opacity: 1,
     y: "0em",
     transition: {
-      duration: 1.2,
+      duration: 1.8,
       ease: customEase,
     },
   },
@@ -89,7 +89,7 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
         className={styles.heroImagesWrapper}
         initial={{ opacity: 0, filter: "blur(0.5em)" }}
         whileInView={{ opacity: 1, filter: "blur(0em)" }}
-        transition={{ duration: 1, ease: "easeInOut" }}
+        transition={{ duration: 1.8, ease: "easeInOut" }}
         viewport={{ once: true }}
       >
         {images.map((image, index) => {
@@ -155,7 +155,7 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
         <motion.div className={styles.heroText} style={{ y: textY }}>
 
           <motion.h1 className={styles.mainHeading} variants={textItemVariants}>
-            Capturing your day  <br/> as it truly happens
+            The permanence of the fleeting
           </motion.h1>
                     <motion.p className={styles.eyebrow} variants={textItemVariants}>
             Boston Wedding Photographer

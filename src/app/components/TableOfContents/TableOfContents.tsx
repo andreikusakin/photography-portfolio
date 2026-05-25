@@ -44,7 +44,7 @@ export default function TableOfContents({ headings }: Props) {
   return (
     <nav className={styles.toc} aria-label="Table of contents">
       <p className={styles.label}>Contents</p>
-      <ul className={styles.list}>
+      <ul className={styles.list} data-lenis-prevent>
         {headings.map((heading) => {
           const classes = [
             styles.item,

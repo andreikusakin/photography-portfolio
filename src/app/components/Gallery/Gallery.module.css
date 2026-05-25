@@ -7,7 +7,7 @@
 }
 
 .gallery {
-  padding: 2em 2em;
+  padding: var(--space-3xl);
 }
 .description h5 {
   grid-column: 1 / span 3;
