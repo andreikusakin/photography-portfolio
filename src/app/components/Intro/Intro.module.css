@@ -1,14 +1,14 @@
 .wrapper {
   color: var(--color-white);
   background-color: rgb(44, 44, 44);
-  padding-top: 12em;
-  padding-bottom: 6em;
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-3xl);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   --columns: 3;
-  --column-gap: 2em;
+  --column-gap: var(--space-lg);
   --column-width: calc(100% / var(--columns) - var(--column-gap));
 }
 
@@ -16,14 +16,14 @@
   display: flex;
   flex-wrap: wrap;
   columns: 3;
-  column-gap: 2em;
+  column-gap: var(--space-lg);
   width: 100%;
 }
 
 .col1 {
   display: flex;
   flex-direction: column;
-  gap: 10em;
+  gap: var(--space-4xl);
   width: var(--column-width);
 }
 
@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: column;
   width: var(--column-width);
-  gap: 3em; /* Creates breathing room between header, body, and button */
+  gap: var(--space-xl); /* Creates breathing room between header, body, and button */
 }
 
 .textTop {
@@ -61,17 +61,17 @@
 
 .eyebrow {
   font-family: "neue-haas-grotesk-display", sans-serif;
-  font-size: 0.8em;
+  font-size: var(--text-base);
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  margin-bottom: 2.5em;
+  margin-bottom: var(--space-xl);
   color: rgba(255, 255, 255, 0.75);
 }
 
 .heading {
   font-family: "the-seasons", serif;
   font-weight: 400;
-  font-size: 5em; /* Scaled slightly so the long words fit within the center column */
+  font-size: var(--text-xl); /* Scaled slightly so the long words fit within the center column */
   line-height: 1.05;
   text-transform: uppercase;
   text-wrap: nowrap;
@@ -92,7 +92,7 @@
   font-style: normal;
   width: 100%;
   max-width: 32em;
-  font-size: 1.4em;
+  font-size: var(--text-md);
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
 }
@@ -100,7 +100,7 @@
 .col3 {
   display: flex;
   flex-direction: column;
-  gap: 10em;
+  gap: var(--space-4xl);
   width: var(--column-width);
 }
 
@@ -129,9 +129,9 @@
   background: transparent;
   color: var(--color-white);
   border: 1px solid var(--color-white);
-  padding: 1em 2.5em;
+  padding: var(--space-md) var(--space-xl);
   font-family: "neue-haas-grotesk-display", sans-serif;
-  font-size: 0.85em;
+  font-size: var(--text-base);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   cursor: pointer;
@@ -158,12 +158,12 @@
   }
 
   .col2 {
-    padding-top: 4em;
-    padding-bottom: 8em;
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-3xl);
   }
-  
+
   .heading {
-    font-size: 4.5em; /* Can get larger on tablet because the column spans full width */
+    font-size: var(--text-xl); /* Can get larger on tablet because the column spans full width */
   }
 
   .col3 {
@@ -175,15 +175,15 @@
 
 @media screen and (max-width: 767px) {
   .wrapper {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
   }
   .bodyText {
     width: 100%;
-    font-size: 1.05em;
+    font-size: var(--text-base);
   }
   .heading {
-    font-size: 2.8em;
+    font-size: var(--text-lg);
   }
   .col1 .row:first-child .image {
     width: 10em;

@@ -29,7 +29,7 @@ export default function Intro() {
             <motion.div
               initial={{ opacity: 0, y: "3em" }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
             >
               <Image
@@ -46,7 +46,7 @@ export default function Intro() {
             <motion.div
               initial={{ opacity: 0, y: "3em" }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
+              transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
               viewport={{ once: true }}
             >
               <Image
@@ -66,7 +66,7 @@ export default function Intro() {
           className={styles.col2}
           initial={{ opacity: 0, y: "2em" }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
         >
           <div className={styles.textTop}>
@@ -96,7 +96,7 @@ export default function Intro() {
             <motion.div
               initial={{ opacity: 0, y: "3em" }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
+              transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.6 }}
               viewport={{ once: true }}
             >
               <Image
@@ -113,7 +113,7 @@ export default function Intro() {
             <motion.div
               initial={{ opacity: 0, y: "3em" }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.6 }}
+              transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.9 }}
               viewport={{ once: true }}
             >
               <Image
