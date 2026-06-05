@@ -7,12 +7,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const images = [
   {
-    src: "/hero1.jpg",
+    src: "/hero/1.jpg",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
   },
   {
-    src: "/heroPortfolio.jpg",
+    src: "/hero/2.jpg",
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
     name: "Maddy + Alex",
   },
@@ -155,10 +155,10 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
         <motion.div className={styles.heroText} style={{ y: textY }}>
 
           <motion.h1 className={styles.mainHeading} variants={textItemVariants}>
-            The permanence of the fleeting
+            Capturing Your Day <br/> As It Truly Happens
           </motion.h1>
                     <motion.p className={styles.eyebrow} variants={textItemVariants}>
-            Boston Wedding Photographer
+            Documentary Wedding Photography – Boston & Beyond
           </motion.p>
           {/* <motion.h2 className={styles.subHeading} variants={textItemVariants}>
             Cinematic, fine art storytelling for weddings and elopements.
