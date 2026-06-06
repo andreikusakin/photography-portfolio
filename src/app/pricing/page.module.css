@@ -5,32 +5,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 6em;
-  padding-bottom: 6em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
 }
 .intro_text {
   max-width: 50em;
   text-align: center;
   display: grid;
-  gap: 1.5em
+  gap: var(--space-lg);
 }
 
 .intro_text h2 {
     font-family: "the-seasons", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 4.5em;
+  font-size: var(--text-xl);
 }
-.intro_text p{ 
-  font-size: 1.2em;
+.intro_text p{
+  font-size: var(--text-base);
   opacity: 0.9;
 }
 
 .package {
-  padding-top: 6em;
-  padding-bottom: 6em;
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
   width: 100%;
   display: flex;
   align-items: center;
@@ -42,26 +42,26 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 6em;
+  gap: var(--space-3xl);
 }
 
 .description {
   max-width: 35em;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: var(--space-md);
 }
 
 .description h2 {
   font-family: "the-seasons", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 4em;
+  font-size: var(--text-xl);
 }
 
 .description h5 {
   opacity: 0.6;
-  font-size: 1em;
+  font-size: var(--text-base);
   text-transform: uppercase;
 }
 .description div {
@@ -69,10 +69,10 @@
 }
 
 .description ul {
-  padding-top: 1em;
-  padding-bottom: 2em;
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-lg);
   display: grid;
-  gap: 1em;
+  gap: var(--space-md);
   opacity: 0.9;
 }
 
@@ -80,7 +80,17 @@
   font-family: "the-seasons", sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 3em;
+  font-size: var(--text-lg);
+}
+
+.priceNote {
+  max-width: 40em;
+  margin: 0 auto;
+  padding: 0 var(--space-md) var(--space-xl);
+  text-align: center;
+  /* font-size: var(--text-sm); */
+  font-style: italic;
+  opacity: 0.6;
 }
 
 .details_wrapper {
@@ -94,12 +104,12 @@
 .details {
   max-width: 35em;
   display: grid;
-  gap: 1em;
-  padding-top: 6em;
-  padding-bottom: 6em;
-  padding-left: 1em;
-  padding-right: 1em;
-  
+  gap: var(--space-md);
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+
 }
 
 .details h3 {
@@ -107,20 +117,20 @@
   font-weight: 400;
   font-style: normal;
   text-align: center;
-  font-size: 3.5em;
+  font-size: var(--text-xl);
 }
 
 .details ul {
   display: grid;
-  gap: 1em;
+  gap: var(--space-md);
 }
 
 @media screen and (max-width: 767px) {
 .description {
-  padding: 1em;
+  padding: var(--space-md);
 }
 
 .grid {
-  gap: 2em;
+  gap: var(--space-lg);
 }
 }

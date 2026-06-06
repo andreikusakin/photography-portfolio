@@ -77,4 +77,13 @@
 }
 
 @media screen and (max-width: 767px) {
+  .intro {
+    padding-top: var(--space-2xl);
+  }
+
+  .meImage {
+    position: static;
+    transform: none;
+    width: 14em;
+  }
 }

@@ -155,14 +155,14 @@ export default function Header() {
             </span>
           </div>
         </Link>
-        <Link href="/journal" className={styles.navLink}>
+        {/* <Link href="/journal" className={styles.navLink}>
           <div className={styles.navLinkText_wrapper}>
             <span className={styles.navLinkText}>Journal</span>
             <span className={`${styles.navLinkText} ${styles.dublicate}`}>
               Journal
             </span>
           </div>
-        </Link>
+        </Link> */}
       </nav>
       <Link href="/contact" className={styles.contact}>
         <motion.button

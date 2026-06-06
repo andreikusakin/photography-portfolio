@@ -130,4 +130,14 @@ top: 0;
     aspect-ratio: unset;
     height: 50vh;
   }
+
+  .heroText h1 {
+    font-size: var(--text-xl);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .heroText h1 {
+    font-size: var(--text-lg);
+  }
 }

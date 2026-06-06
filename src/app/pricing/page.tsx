@@ -38,6 +38,10 @@ export default function page() {
             </p>
           </div>
         </section>
+         <p className={styles.priceNote}>
+          The prices below are for 2026 and 2027 weddings. For 2028 dates,
+          please inquire.
+        </p>
         <section className={styles.packages}>
           <div className={styles.package}>
             <div className={styles.grid}>
@@ -160,6 +164,7 @@ export default function page() {
             </div>
           </div>
         </section>
+       
         <section className={styles.details_wrapper}>
           <div className={styles.details}>
             <h3>Travel & Other Details</h3>
