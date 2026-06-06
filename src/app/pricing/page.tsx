@@ -81,7 +81,7 @@ export default function page() {
                     to be downloaded, shared, and printed.
                   </li>
                 </ul>
-                <h4>$4000</h4>
+                <h4>$5000</h4>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function page() {
                     high-resolution online gallery of edited images.
                   </li>
                 </ul>
-                <h4>$1600</h4>
+                <h4>$2000</h4>
               </div>
               <ParallaxImage
                 src={IntimateImage}
@@ -165,10 +165,14 @@ export default function page() {
             <h3>Travel & Other Details</h3>
             <ul>
               <li>
-                <strong>New England Travel:</strong> Planning your wedding
-                anywhere in Massachusetts, Rhode Island, Connecticut, Maine, New
-                Hampshire, or Vermont? Amazing! There are absolutely no travel
-                fees for any wedding within New England.
+                <strong>Massachusetts & Rhode Island:</strong> No travel fees,
+                period. If you're getting married anywhere in Massachusetts or
+                Rhode Island, I'm there — no extra cost.
+              </li>
+              <li>
+                <strong>Rest of New England:</strong> For weddings in
+                Connecticut, Maine, New Hampshire, or Vermont, there are no
+                travel fees for venues within 100 miles of Boston.
               </li>
               <li>
                 <strong>Beyond New England:</strong> I love to travel! For

@@ -17,12 +17,22 @@ const images = [
     name: "Maddy + Alex",
   },
   {
-    src: "/heroPortfolio.jpg",
+    src: "/hero/3.jpg",
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
     name: "Maddy + Alex",
   },
   {
-    src: "/hero1.jpg",
+    src: "/hero/4.jpg",
+    alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
+    name: "Alexandra + Adam",
+  },
+  {
+    src: "/hero/5.jpg",
+    alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
+    name: "Maddy + Alex",
+  },
+  {
+    src: "/hero/6.jpg",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
   },
@@ -59,16 +69,30 @@ const textItemVariants = {
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Track the mobile breakpoint so the slideshow can step through every image
+  // one at a time, instead of two-at-a-time like the desktop pairs.
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mediaQuery.matches);
+    update();
+    mediaQuery.addEventListener("change", update);
+    return () => mediaQuery.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
+    // Desktop advances by a pair (step 2); mobile advances one image at a time.
+    const step = isMobile ? 1 : 2;
+    setCurrentIndex(0); // reset so the index stays valid for the new step size
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex + 2 >= images.length ? 0 : prevIndex + 2
+        prevIndex + step >= images.length ? 0 : prevIndex + step
       );
     }, 4000); // Slowed down for a more relaxed, luxurious pace
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [isMobile]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -92,41 +116,21 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
         transition={{ duration: 1.8, ease: "easeInOut" }}
         viewport={{ once: true }}
       >
-        {images.map((image, index) => {
-          if (index % 2 !== 0) return null;
-
-          const isPairActive = index === currentIndex;
-          const nextImage = images[index + 1];
-
-          return (
-            <motion.div
-              key={index}
-              className={`${styles.heroImagePair} ${
-                isPairActive ? styles.active : ""
-              }`}
-              style={{ y: imageY }}
-            >
-              {/* Left Image (Desktop Only) */}
-              <div className={`${styles.imageWrapper} ${styles.desktopOnly}`}>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  title={image.name}
-                  width={1500}
-                  height={1000}
-                  style={{ objectFit: "cover", objectPosition: "center" }}
-                  quality={90}
-                  priority={index === 0}
-                />
-              </div>
-
-              {/* Right Image (Visible on all devices) */}
-              {nextImage && (
-                <div className={`${styles.imageWrapper} ${styles.mobileVisible}`}>
+        {isMobile
+          ? // Mobile: one full-width image per slide, cycling through them all
+            images.map((image, index) => (
+              <motion.div
+                key={index}
+                className={`${styles.heroImagePair} ${
+                  index === currentIndex ? styles.active : ""
+                }`}
+                style={{ y: imageY }}
+              >
+                <div className={styles.imageWrapper}>
                   <Image
-                    src={nextImage.src}
-                    alt={nextImage.alt}
-                    title={nextImage.name}
+                    src={image.src}
+                    alt={image.alt}
+                    title={image.name}
                     width={1500}
                     height={1000}
                     style={{ objectFit: "cover", objectPosition: "center" }}
@@ -134,13 +138,61 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
                     priority={index === 0}
                   />
                 </div>
-              )}
-              
-              {/* Overlay to ensure white text is always readable over bright images */}
-              <div className={styles.imageOverlay}></div>
-            </motion.div>
-          );
-        })}
+
+                {/* Overlay to ensure white text is always readable over bright images */}
+                <div className={styles.imageOverlay}></div>
+              </motion.div>
+            ))
+          : // Desktop: two images side by side per slide
+            images.map((image, index) => {
+              if (index % 2 !== 0) return null;
+
+              const isPairActive = index === currentIndex;
+              const nextImage = images[index + 1];
+
+              return (
+                <motion.div
+                  key={index}
+                  className={`${styles.heroImagePair} ${
+                    isPairActive ? styles.active : ""
+                  }`}
+                  style={{ y: imageY }}
+                >
+                  {/* Left Image (Desktop Only) */}
+                  <div className={`${styles.imageWrapper} ${styles.desktopOnly}`}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      title={image.name}
+                      width={1500}
+                      height={1000}
+                      style={{ objectFit: "cover", objectPosition: "center" }}
+                      quality={90}
+                      priority={index === 0}
+                    />
+                  </div>
+
+                  {/* Right Image (Visible on all devices) */}
+                  {nextImage && (
+                    <div className={`${styles.imageWrapper} ${styles.mobileVisible}`}>
+                      <Image
+                        src={nextImage.src}
+                        alt={nextImage.alt}
+                        title={nextImage.name}
+                        width={1500}
+                        height={1000}
+                        style={{ objectFit: "cover", objectPosition: "center" }}
+                        quality={90}
+                        priority={index === 0}
+                      />
+                    </div>
+                  )}
+
+                  {/* Overlay to ensure white text is always readable over bright images */}
+                  <div className={styles.imageOverlay}></div>
+                </motion.div>
+              );
+            })}
       </motion.div>
 
       {/* Cinematic Staggered Text Wrapper */}

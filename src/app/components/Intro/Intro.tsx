@@ -85,7 +85,7 @@ export default function Intro() {
 
           <div>
             <Link href="/portfolio">
-              <button className={styles.button}>DISCOVER THE APPROACH</button>
+              <button className={styles.button}>Browse Portfolio</button>
             </Link>
           </div>
         </motion.div>
