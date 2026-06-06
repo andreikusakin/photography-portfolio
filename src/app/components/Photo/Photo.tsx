@@ -27,6 +27,7 @@ export default function Photo({
   const srcSet = WIDTHS.map((w) => `${BASE}/${src}-${w}.webp ${w}w`).join(", ");
 
   return (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={`${BASE}/${src}-1200.webp`}
       srcSet={srcSet}
