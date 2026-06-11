@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import cloudinaryLoader from "@/lib/cloudinaryLoader";
+import Photo from "../Photo/Photo";
 
 interface ImageData {
   alt: string;
@@ -94,18 +93,13 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
         >
           {col.map((item, i) => (
             <div key={item.src || i}>
-              <Image
-                loader={cloudinaryLoader}
+              <Photo
                 src={item.src}
                 alt={item.alt}
                 width={item.width}
                 height={item.height}
                 sizes="(max-width: 768px) 100vw, (max-width: 991px) 50vw, 33vw"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  display: "block",
-                }}
+                style={{ display: "block" }}
               />
             </div>
           ))}

@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { weddings, couples } from '@/lib/data'
+import { weddings, intimateWeddings, couples } from '@/lib/galleries'
 import { getAllPosts } from '@/lib/mdx'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -43,8 +43,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Wedding gallery URLs
-  const weddingUrls = weddings.map(wedding => ({
+  // Wedding gallery URLs (weddings + intimate weddings/elopements both route to /wedding)
+  const weddingUrls = [...weddings, ...intimateWeddings].map(wedding => ({
     url: `https://www.kusakinphoto.com/wedding/${wedding.id}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
@@ -61,7 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Couples session URLs
   const couplesUrls = couples.map(couple => ({
-    url: `https://www.kusakinphoto.com/couples/${couple.id}`,
+    url: `https://www.kusakinphoto.com/couple/${couple.id}`,
     lastModified: new Date(),
     changeFrequency:'monthly' as const,
     priority: 0.7,

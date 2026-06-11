@@ -1,24 +1,23 @@
 
 import React from "react";
-import { weddings } from "@/lib/data";
 import Gallery from "@/app/components/Gallery/Gallery";
 import type { Metadata } from "next";
-import data from "@/lib/data.galleries.json";
-import { Gallery as GalleryType } from "@/lib/data";
-// import fs from "fs";
-// import path from "path";
+import { getGallery, weddings, intimateWeddings } from "@/lib/galleries";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
+export function generateStaticParams() {
+  return [...weddings, ...intimateWeddings].map((g) => ({ id: g.id }));
+}
 
 export async function generateMetadata(
   { params }: Props,
 ): Promise<Metadata> {
   const { id } = await params;
-  const wedding = weddings.find((wedding) => wedding.id === id);
-  
+  const wedding = getGallery(id);
+
   if (!wedding) {
     return {
       title: "Wedding Not Found | Boston Wedding Photographer",
@@ -43,15 +42,8 @@ export default async function Page({ params }: Props) {
 
 
   const { id } = await params;
-    const allGalleries = [
-    ...data.weddings,
-    ...data.intimateWeddings,
-    ...data.couples,
-  ] as GalleryType[];
+  const gallery = getGallery(id);
 
-  const gallery = allGalleries.find((g) => g.id === id);
-
- 
   if (!gallery) {
     return <div>Images not found</div>;
   }

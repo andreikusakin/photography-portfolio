@@ -2,10 +2,9 @@
 
 import React from "react";
 import styles from "./GalleryList.module.css";
-import Image from "next/image";
+import Photo from "../Photo/Photo";
 import Link from "next/link";
 import { Gallery } from "@/lib/data";
-import cloudinaryLoader from "@/lib/cloudinaryLoader";
 
 export default function GalleryList({ gallery }: { gallery: Gallery[] }) {
   return (
@@ -18,8 +17,7 @@ export default function GalleryList({ gallery }: { gallery: Gallery[] }) {
             key={gallery.id}
           >
             <div className={styles.image}>
-              <Image
-                loader={cloudinaryLoader}
+              <Photo
                 src={gallery.cover?.src || ""}
                 alt={gallery.name}
                 className={styles.coverImage}
@@ -28,6 +26,23 @@ export default function GalleryList({ gallery }: { gallery: Gallery[] }) {
                 sizes="(max-width: 768px) 100vw, (max-width: 991px) 50vw, 33vw"
                 priority={index < 3}
               />
+              {gallery.coverHover && (
+                <Photo
+                  src={gallery.coverHover.src}
+                  alt=""
+                  aria-hidden
+                  className={styles.coverHover}
+                  width={gallery.coverHover.width}
+                  height={gallery.coverHover.height}
+                  sizes="(max-width: 768px) 100vw, (max-width: 991px) 50vw, 33vw"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              )}
             </div>
             <div className={styles.description}>
               <span>{gallery.name}</span>

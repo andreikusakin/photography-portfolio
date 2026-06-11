@@ -3,9 +3,8 @@ import React, { useRef } from "react";
 import type { Gallery as GalleryType } from "@/lib/data";
 import styles from "./Gallery.module.css";
 import MasonryComponent from "../MasonryComponent/MasonryComponent";
-import Image from "next/image";
+import Photo from "../Photo/Photo";
 import { motion, useScroll, useTransform } from "motion/react";
-import cloudinaryLoader from "@/lib/cloudinaryLoader";
 
 export default function Gallery({ gallery }: { gallery: GalleryType }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -32,8 +31,7 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
       <div className={styles.hero} ref={containerRef}>
         <motion.div className={styles.hero_image} style={{ y: imageY }}>
           {" "}
-          <Image
-            loader={cloudinaryLoader}
+          <Photo
             src={gallery.hero?.src || ""}
             alt={`${gallery.name} at ${gallery.venue}, ${gallery.location}; ${gallery.type} photography`}
             width={gallery.hero?.width || 1500}

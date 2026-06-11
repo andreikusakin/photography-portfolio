@@ -22,6 +22,7 @@ export default function Photo({
   alt,
   className,
   priority = false,
+  style,
   ...rest
 }: Props) {
   const srcSet = WIDTHS.map((w) => `${BASE}/${src}-${w}.webp ${w}w`).join(", ");
@@ -37,8 +38,9 @@ export default function Photo({
       alt={alt}
       className={className}
       loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : undefined}
       decoding="async"
-      style={{ width: "100%", height: "auto" }}
+      style={{ width: "100%", height: "auto", ...style }}
       {...rest}
     />
   );

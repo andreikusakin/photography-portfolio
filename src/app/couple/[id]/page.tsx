@@ -1,17 +1,19 @@
 import React from "react";
-import { couples } from "@/lib/data";
 import Gallery from "@/app/components/Gallery/Gallery";
-import { Gallery as GalleryType } from "@/lib/data";
 import type { Metadata } from "next";
-import data from "@/lib/data.galleries.json";
+import { getGallery, couples } from "@/lib/galleries";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
+export function generateStaticParams() {
+  return couples.map((g) => ({ id: g.id }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const couple = couples.find((couple) => couple.id === id);
+  const couple = getGallery(id);
   if (!couple) {
     return {
       title: "Couple Not Found | Boston Wedding Photographer",
@@ -22,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${couple.name} Couple | Andrew Kusakin Photography`,
     description: `The beautiful images of ${couple.name} at ${couple.venue} in ${couple.location}.`,
     alternates: {
-      canonical: `/couples/${id}`,
+      canonical: `/couple/${id}`,
     },
     openGraph: {
       title: `${couple.name} Couple | Andrew Kusakin Photography`,
@@ -35,15 +37,8 @@ export default async function Page({ params }: Props) {
 
 
   const { id } = await params;
-    const allGalleries = [
-    ...data.weddings,
-    ...data.intimateWeddings,
-    ...data.couples,
-  ] as GalleryType[];
+  const gallery = getGallery(id);
 
-  const gallery = allGalleries.find((g) => g.id === id);
-
- 
   if (!gallery) {
     return <div>Images not found</div>;
   }

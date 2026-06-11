@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import styles from "./page.module.css";
 import SmallHero from "../components/SmallHero/SmallHero";
 import HeroImage from "./../../../public/heroPortfolio.jpg";
-import { Gallery, GalleryImage, travel } from "@/lib/data";
-import data from "@/lib/data.galleries.json";
+import { Gallery, travel } from "@/lib/data";
+import { weddings, intimateWeddings, couples } from "@/lib/galleries";
 
 // import { families, familyHighlights } from "@/lib/data";
 
@@ -18,14 +18,6 @@ export const metadata: Metadata = {
 };
 
 export default async function page() {
-  // const { blobs } = await list({ prefix: "weddings/maddy-alex/"});
-  const weddings = data.weddings as Gallery[];
-  const intimateWeddings = data.intimateWeddings as Gallery[];
-  const couples = data.couples as Gallery[];
-  const weddingsHighlights = data.highlights.weddings as GalleryImage[];
-  const intimateWeddingsHighlights = data.highlights.intimateWeddings as GalleryImage[];
-  const couplesHighlights = data.highlights.couples as GalleryImage[];
-  
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -39,21 +31,18 @@ export default async function page() {
         title="weddings"
         subtitle=""
         description="Your wedding isn’t just a series of events; it’s one continuous story filled with emotion. My documentary approach means I’m there for it all—from the quiet anticipation of getting ready to the wild energy of the dance floor. I focus on capturing the unscripted moments and genuine interactions that truly define your day, creating a timeless gallery you'll cherish forever."
-        highlights={weddingsHighlights}
         galleries={weddings}
       />
             <PortfolioSection
         title="Intimate Weddings & Elopements"
         subtitle=""
         description="There is something incredibly powerful about stripping away the excess to focus entirely on your connection. Whether it’s a private vow exchange in nature or a cozy dinner with your absolute closest circle, these celebrations allow for a slower pace and deeper intimacy. I am there to honor that closeness, documenting the raw emotion and the quiet beauty of a day that is intentionally yours."
-        highlights={intimateWeddingsHighlights}
         galleries={intimateWeddings}
       />
       <PortfolioSection
         title="couples"
         subtitle=""
         description="Whether it’s for your engagement, an anniversary, or just because, these sessions are all about the two of you. Forget stiff, awkward poses. We’ll find a beautiful spot, put on some music, and create a relaxed space where you can simply be yourselves. The result is a set of photos that genuinely reflects your unique bond and the fun you have together."
-        highlights={couplesHighlights}
         galleries={couples}
       />
       {/* <PortfolioSection
@@ -72,14 +61,12 @@ function PortfolioSection({
   title,
   subtitle,
   description,
-  highlights,
   galleries,
 }:
   {
     title: string;
     subtitle: string;
     description: string;
-    highlights: GalleryImage[];
     galleries: Gallery[];
   }
 ) {
@@ -98,10 +85,7 @@ function PortfolioSection({
         <div>{subtitle}</div>
         <div className={styles.description}>{description}</div>
       </div>
-      <PortfolioGallery
-        galleries={galleries}
-        highlights={highlights}
-      />
+      <PortfolioGallery galleries={galleries} />
     </div>
   );
 }

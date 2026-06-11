@@ -9,9 +9,8 @@ import {
 } from "./SelectedSnapDisplay";
 import useEmblaCarousel from "embla-carousel-react";
 import "./embla.css";
-import Image from "next/image";
+import Photo from "../Photo/Photo";
 import { GalleryImage } from "@/lib/data";
-import cloudinaryLoader from "@/lib/cloudinaryLoader";
 
 type PropType = {
   slides: GalleryImage[];
@@ -49,12 +48,10 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                     : "0 0 var(--slide-size)",
                 }}
               >
-                <Image
-                  loader={cloudinaryLoader}
+                <Photo
                   src={image.src}
                   alt={`Highlight ${index + 1}`}
                   className="embla__slide__img"
-                  quality={90}
                   width={image.width}
                   height={image.height}
                   sizes="(max-width: 768px) 90vw, 60vw"

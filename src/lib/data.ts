@@ -13,6 +13,7 @@ export interface Gallery {
   venue: string;
   location: string;
   cover?: GalleryImage;
+  coverHover?: GalleryImage;
   hero?: GalleryImage;
   images?: GalleryImage[];
 }

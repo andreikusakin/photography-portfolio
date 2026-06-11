@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "fetch:galleries": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' ./src/scripts/fetchCloudinaryGalleries.ts",
+    "upload:bunny": "node ./src/scripts/uploadBunny.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

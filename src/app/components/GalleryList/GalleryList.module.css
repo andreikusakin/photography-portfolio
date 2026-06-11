@@ -29,9 +29,10 @@
 
 .item:hover {
   opacity: 0.95;
-  .coverImage {
-    scale: 1.05;
-  }
+}
+
+.item:hover .coverHover {
+  opacity: 1;
 }
 
 .image {
@@ -49,6 +50,12 @@
   transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
   width: 100%;
   height: 100%;
+}
+
+.coverHover {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
 }
 
 .description {
