@@ -3,6 +3,10 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import styles from "./Intro.module.css";
 import Link from "next/link";
+import Image1 from "./wedding-photography-private-wovs.jpg"
+import Image2 from "./wedding-first-look.jpg"
+import Image3 from "./wedding-couple.jpg"
+import Image4 from "./bride-father-first-look.jpg"
 
 import { motion, useScroll, useTransform } from "motion/react";
 
@@ -33,10 +37,10 @@ export default function Intro() {
               viewport={{ once: true }}
             >
               <Image
-                src="/weddings/erin-kyle/000141.jpg"
+                src={Image1}
                 className={styles.image}
-                width={600}
-                height={900}
+                width={900}
+                height={600}
                 alt="Intimate wedding photography in Boston"
                 title="Wedding Photo"
               />
@@ -50,7 +54,7 @@ export default function Intro() {
               viewport={{ once: true }}
             >
               <Image
-                src="/weddings/veronica-joseph/000013.jpg"
+                src={Image2}
                 alt="Fine art wedding portrait"
                 title="Wedding Photo"
                 className={styles.image}
@@ -73,14 +77,13 @@ export default function Intro() {
             <p className={styles.eyebrow}>THE APPROACH</p>
             <h2 className={styles.heading}>
               CINEMATIC <br />
-              STORYTELLING <br />
-              <span className={styles.italic}>with</span> TIMELESS <br />
-              GRACE
+              <span className={styles.italic}>and</span> DEEPLY <br />
+              HUMAN
             </h2>
           </div>
 
           <p className={styles.bodyText}>
-            A thoughtful blend of documentary honesty and fine art aesthetics. Focused on the unscripted gravity of human connection, this approach preserves the true color, authentic mood, and intricate details of a celebration to create a timeless visual legacy.
+            A wedding day is the people in it, and the photographs that last are the ones that knew this from the start. Each image is shaped by the connection between two people and the company gathered around them, the affection and the quiet truths that pass through a long day together.
           </p>
 
           <div>
@@ -100,7 +103,7 @@ export default function Intro() {
               viewport={{ once: true }}
             >
               <Image
-                src="/weddings/alex-adam/000048.jpg"
+                src={Image3}
                 alt="Candid wedding moments"
                 title="Wedding Photo"
                 className={styles.image}
@@ -117,12 +120,12 @@ export default function Intro() {
               viewport={{ once: true }}
             >
               <Image
-                src="/weddings/erica-mike/000078.jpg"
+                src={Image4}
                 alt="Cinematic documentary wedding photography"
                 title="Wedding Photo"
                 className={styles.image}
-                width={600}
-                height={900}
+                width={900}
+                height={600}
               />
             </motion.div>
           </motion.div>
