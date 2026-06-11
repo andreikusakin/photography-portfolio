@@ -29,7 +29,13 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
   return (
     <div>
       <div className={styles.hero} ref={containerRef}>
-        <motion.div className={styles.hero_image} style={{ y: imageY }}>
+        <motion.div
+          className={styles.hero_image}
+          style={{ y: imageY }}
+          initial={{ opacity: 0, filter: "blur(0.5em)" }}
+          animate={{ opacity: 1, filter: "blur(0em)" }}
+          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
+        >
           {" "}
           <Photo
             src={gallery.hero?.src || ""}
@@ -38,9 +44,17 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
             height={gallery.hero?.height || 1000}
             sizes="100vw"
             priority
+            style={{ height: "100%", objectFit: "cover" }}
           />
         </motion.div>
-        <motion.div className={styles.text} style={{ y: textY }}>
+        <motion.div
+          className={styles.text}
+          style={{ y: textY }}
+          initial={{ opacity: 0, filter: "blur(0.5em)", y: "0.5rem" }}
+          whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          viewport={{ once: true }}
+        >
           <h1>{gallery.name}</h1>
           <div>{gallery.venue}</div>
           <div>{gallery.location}</div>

@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { AnimatePresence } from "motion/react";
 import Photo from "../Photo/Photo";
+import Lightbox from "../Lightbox/Lightbox";
 
 interface ImageData {
   alt: string;
@@ -64,6 +66,7 @@ function useResponsiveConfig() {
 
 const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
   const config = useResponsiveConfig();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (!imagesData || imagesData.length === 0) {
     return <div>No images found for this gallery.</div>;
@@ -71,7 +74,12 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
 
   if (!config) return null;
 
-  const columns = distributeColumns(imagesData, config.columns);
+  // carry the original gallery order so lightbox prev/next follows it,
+  // regardless of which masonry column an image lands in
+  const columns = distributeColumns(
+    imagesData.map((image, index) => ({ ...image, index })),
+    config.columns
+  );
 
   return (
     <div
@@ -92,7 +100,19 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
           }}
         >
           {col.map((item, i) => (
-            <div key={item.src || i}>
+            <button
+              type="button"
+              key={item.src || i}
+              onClick={() => setLightboxIndex(item.index)}
+              style={{
+                display: "block",
+                width: "100%",
+                padding: 0,
+                border: "none",
+                background: "none",
+                cursor: "pointer",
+              }}
+            >
               <Photo
                 src={item.src}
                 alt={item.alt}
@@ -101,10 +121,20 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
                 sizes="(max-width: 768px) 100vw, (max-width: 991px) 50vw, 33vw"
                 style={{ display: "block" }}
               />
-            </div>
+            </button>
           ))}
         </div>
       ))}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <Lightbox
+            images={imagesData}
+            index={lightboxIndex}
+            onClose={() => setLightboxIndex(null)}
+            onNavigate={setLightboxIndex}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

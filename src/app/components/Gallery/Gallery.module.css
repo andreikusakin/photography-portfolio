@@ -33,28 +33,30 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-
+  background-color: black;
 }
 .hero_image {
   width: 100%;
   height: 80svh;
+  /* keeps narrow viewports from stretching the hero into a tall sliver */
+  max-height: 80em;
   position: relative;
-  
 }
 
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .text {
   position: absolute;
   color: #fff;
-  bottom: 4em;
+  bottom: var(--space-2xl);
   left: 0;
   width: 100%;
-  padding: 4em 0;
+  padding: var(--space-2xl) 0;
   text-align: center;
   text-wrap: nowrap;
 }
