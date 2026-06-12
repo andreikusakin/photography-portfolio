@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./Experience.module.css";
 import Image1 from "./../../../../public/weddings/erin-kyle/000050.jpg";
+import Reveal from "../Reveal/Reveal";
 
 import Link from "next/link";
 
@@ -20,11 +21,9 @@ export default function Experience() {
   return (
     <div className={styles.wrapper} ref={containerRef}>
       <div className={styles.grid}>
-        <div className={styles.col1}>
-          <div>
-            <span>THE</span>
-            <h3>Experience</h3>
-          </div>
+        <Reveal className={styles.col1}>
+          <p className={styles.eyebrow}>What to Expect</p>
+          <h3>The Experience</h3>
 
           <p className={styles.text}>
             My goal is for you to be fully present and enjoy every moment of
@@ -37,7 +36,7 @@ export default function Experience() {
           <Link href="/experience" className={styles.buttonWrapper}>
             <button>Read More</button>
           </Link>
-        </div>
+        </Reveal>
         <div className={styles.col2}>
           <div className={styles.imageContainer}>
             <motion.div className={styles.imageWrapper} style={{ y: y1 }}>

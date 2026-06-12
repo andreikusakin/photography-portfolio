@@ -5,25 +5,21 @@
   width: 100%;
 }
 
+/* ── Intro ── */
+
 .intro {
   display: flex;
   flex-direction: column;
   text-align: center;
   max-width: 40em;
-  padding: 18em 1em 6em 1em;
-  gap: 1.5em;
+  padding: var(--space-5xl) var(--space-md) var(--space-3xl);
   position: relative;
 }
 
-.intro h2 {
-  font-family: "the-seasons", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 3em;
-}
-
-.intro p {
-  opacity: 0.8;
+.introText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
 .meImage {
@@ -35,55 +31,112 @@
   transform: translateX(-50%);
 }
 
-.philosophy {
+.intro h2 {
+  font-family: "the-seasons", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--text-xl);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.intro p {
+  opacity: 0.8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Shared eyebrow ── */
+
+.eyebrow {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0.6;
+}
+
+/* ── Two-column sections ── */
+
+.philosophyWrapper {
+  background-color: var(--color-button);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.perspectiveWrapper {
+  background-color: var(--color-background);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.twoCol {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   max-width: 80em;
-  gap: 2em;
-  padding: 6em 1em;
+  gap: var(--space-2xl);
+  padding: var(--space-3xl) var(--space-md);
+}
+
+.twoColReverse {
+  flex-direction: row-reverse;
 }
 
 .col {
   max-width: 30em;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: var(--space-md);
 }
 
 .col h2 {
   font-family: "the-seasons", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 2.5em;
+  font-size: var(--text-lg);
+  line-height: 1.15;
+  margin: 0;
 }
 
 .col p {
-  line-height: normal;
   opacity: 0.8;
+  line-height: 1.7;
+  margin: 0;
 }
 
-.col ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.col ul li {
-  opacity: 0.8;
-}
-
-@media screen and (max-width: 991px) {
-}
+/* ── Responsive ── */
 
 @media screen and (max-width: 767px) {
   .intro {
     padding-top: var(--space-2xl);
   }
 
+  .intro h2 {
+    font-size: var(--text-lg);
+  }
+
   .meImage {
     position: static;
     transform: none;
     width: 14em;
+  }
+
+  .twoCol,
+  .twoColReverse {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .col {
+    max-width: 100%;
+    padding: 0 var(--space-md);
   }
 }

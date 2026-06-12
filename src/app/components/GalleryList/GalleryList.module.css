@@ -23,9 +23,12 @@
   flex: 0 1
     calc((100% - (var(--columns) - 1) * var(--grid-gap)) / var(--columns));
   position: relative;
-  transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
   overflow: hidden;
   padding-bottom: var(--space-lg);
+}
+
+.link {
+  display: block;
 }
 
 @media screen and (max-width: 991px) {
@@ -42,34 +45,34 @@
 
 
 
-.item:hover {
-  opacity: 0.95;
-}
-
 .item:hover .coverHover {
   opacity: 1;
 }
 
+/* Slow editorial zoom on hover; the wrapper clips the scaled image. */
+.item:hover .coverImage,
+.item:hover .coverHover {
+  transform: scale(1.04);
+}
+
 .image {
-  
   overflow: hidden;
   box-sizing: border-box;
   display: block;
   position: relative;
   line-height: 0;
   font-size: 0;
-  transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
-
 }
 .coverImage {
-  transition: cubic-bezier(0.4, 0, 0.2, 1) 1s;
   width: 100%;
   height: 100%;
+  transition: transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .coverHover {
   opacity: 0;
-  transition: opacity 0.45s ease;
+  transition: opacity 0.45s ease,
+    transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
 }
 
@@ -78,6 +81,12 @@
   flex-direction: column;
   line-height: 1.2em;
   padding-top: var(--space-md);
+}
+
+.description > *:first-child {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: var(--space-xs);
 }
 
 .description > *:not(:first-child) {

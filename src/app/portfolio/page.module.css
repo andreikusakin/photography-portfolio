@@ -5,6 +5,19 @@
 
 .highlightSection {
   padding-top: var(--space-3xl);
+  position: relative;
+}
+
+.highlightSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(70em, calc(100% - 2 * var(--container-padding)));
+  height: 1px;
+  background: currentColor;
+  opacity: 0.12;
 }
 
 .highlightText {
@@ -67,7 +80,7 @@
 }
 
 .section {
-  padding-top: 6em;
+  padding-top: var(--space-3xl);
 }
 
 .travel {
@@ -77,8 +90,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 4em 0;
-
+    padding: var(--space-2xl) 0;
 }
 
 .travel h2 {
@@ -99,12 +111,12 @@
 .images {
     columns: 2;
     max-width: 80em;
-    column-gap:1em;
+    column-gap: var(--space-lg);
 }
 
 .imageContainer {
     break-inside: avoid-column;
-    margin-bottom: 1em;
+    margin-bottom: var(--space-lg);
 }
 
 .imageContainer img {

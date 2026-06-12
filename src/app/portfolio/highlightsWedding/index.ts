@@ -1,15 +1,19 @@
 import type { StaticImageData } from "next/image";
 
-// Local highlight images, optimized on delivery by next/image (Vercel).
-// Orientation is interleaved (landscape / portrait) for a livelier filmstrip.
-import img1 from "./6W1A4414.jpg";
-import img2 from "./6W1A5854.jpg";
-import img3 from "./6W1A5815.jpg";
-import img4 from "./6W1A6465.jpg";
-import img5 from "./6W1A6517.jpg";
-import img6 from "./6W1A9157.jpg";
-import img7 from "./6W1A9289.jpg";
-import img8 from "./6W1A9576.jpg";
+import img1 from "./Andrew-Kusakin-Wedding-Photography-1.jpg";
+import img2 from "./Andrew-Kusakin-Wedding-Photography-2.jpg";
+import img3 from "./Andrew-Kusakin-Wedding-Photography-3.jpg";
+import img4 from "./Andrew-Kusakin-Wedding-Photography-4.jpg";
+import img5 from "./Andrew-Kusakin-Wedding-Photography-5.jpg";
+import img6 from "./Andrew-Kusakin-Wedding-Photography-6.jpg";
+import img7 from "./Andrew-Kusakin-Wedding-Photography-7.jpg";
+import img8 from "./Andrew-Kusakin-Wedding-Photography-8.jpg";
+import img9 from "./Andrew-Kusakin-Wedding-Photography-9.jpg";
+import img10 from "./Andrew-Kusakin-Wedding-Photography-10.jpg";
+import img11 from "./Andrew-Kusakin-Wedding-Photography-11.jpg";
+import img12 from "./Andrew-Kusakin-Wedding-Photography-12.jpg";
+import img13 from "./Andrew-Kusakin-Wedding-Photography-13.jpg";
+import img14 from "./Andrew-Kusakin-Wedding-Photography-14.jpg";
 
 export const weddingHighlights: StaticImageData[] = [
   img1,
@@ -20,4 +24,10 @@ export const weddingHighlights: StaticImageData[] = [
   img6,
   img7,
   img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
 ];

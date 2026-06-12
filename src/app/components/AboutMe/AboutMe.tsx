@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./AboutMe.module.css";
 import Image1 from "./../../../../public/about/ak1.jpg";
+import Reveal from "../Reveal/Reveal";
 
 import Link from "next/link";
 
@@ -34,26 +35,19 @@ export default function AboutMe() {
             </motion.div>
           </div>
         </div>
-        <div className={styles.col2}>
-          <span>MEET YOUR PHOTOGRAPHER</span>
-          <div>
-            <h3>Storyteller & Friend</h3>
-            <h3>Behind the Lens</h3>
-          </div>
+        <Reveal className={styles.col2}>
+          <p className={styles.eyebrow}>Behind the Camera</p>
+          <h3>Hi, I'm Andrew.</h3>
 
           <p className={styles.text}>
-            I'm Andrew Kusakin, a wedding photographer located in Boston and
-            serving all of New England (and always up for an adventure beyond!).
-            My approach is rooted in documentary and candid photography. I
-            prioritize getting to know you, fostering a connection that helps
-            you feel at ease in front of the camera. This allows me to focus on
-            documenting the genuine interactions and emotions, telling your
-            unique love story authentically.
+            After more than a hundred weddings, I've learned where to stand, when to step back, and how to let a day tell its own story. The way I see that story owes as much to cinematography, classical art, and architecture as it does to photography. Some frames I compose with care; most I simply watch for and catch as they happen.
+What draws me in is human connection, not only between two people but between them and the families and closest friends who came for them. I love photographing couples who are openly affectionate, the kind who reach and lean and hold on through a long day and never need to be told to look at each other.
+I'm based in Boston, and glad to travel through New England and wherever the day leads.
           </p>
           <Link href="/about" className={styles.buttonWrapper}>
             <button>Read More</button>
           </Link>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

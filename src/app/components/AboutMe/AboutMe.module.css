@@ -1,14 +1,10 @@
 .wrapper {
-  /* background-color: rgb(44, 44, 44);
-  color: var(--color-white); */
-  padding-top: 6em;
-  padding-bottom: 6em;
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* border-top: 1px solid rgba(0, 0, 0, 0.12); */
 }
 
 .grid {
@@ -17,8 +13,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 6em;
-  /* max-width: 80em; */
+  gap: var(--space-3xl);
 }
 
 .col1 {
@@ -49,37 +44,55 @@
   width: 35em;
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  align-items: flex-start;
+  gap: var(--space-lg);
 }
 
-.col2 span{
+.eyebrow {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   opacity: 0.6;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  font-size: 0.8em;
+  margin: 0;
 }
 
 .col2 h3 {
   font-family: "the-seasons", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 3.5em;
-  text-wrap: nowrap;
+  font-size: var(--text-xl);
+  line-height: 1.1;
+  margin: 0;
 }
 
 .col2 p {
   opacity: 0.8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.col2 .eyebrow {
+  opacity: 0.6;
 }
 
 .buttonWrapper button {
-  background: var(--color-button);
- 
+  background: transparent;
+  border: 1px solid currentColor;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: var(--space-md) var(--space-xl);
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.buttonWrapper button:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
 }
 
 @media screen and (max-width: 767px) {
   .grid {
     flex-direction: column;
-    gap: 2em;
+    gap: var(--space-xl);
   }
   .imageContainer {
     width: 100vw;
@@ -92,9 +105,9 @@
 
   .col2 {
     width: 100%;
-    padding: 1em;
+    padding: var(--space-md);
   }
   .col2 h3 {
-    font-size: 2.2em;
+    font-size: var(--text-lg);
   }
 }

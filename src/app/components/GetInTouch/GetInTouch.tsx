@@ -33,14 +33,13 @@ export default function GetInTouch() {
         </motion.div>
       </div>
       <div className={styles.content}>
+        <p className={styles.eyebrow}>Let's Connect</p>
         <h2>Ready to Tell Your Story?</h2>
         <p>
-          If a relaxed, authentic, and completely documented wedding day sounds
-          like what you're dreaming of, I would be honored to be a part of it.
-          Let's start the conversation.
+          If what you've seen here resonates, let's talk about the day you're planning: the place, the people, and what you're hoping to remember.
         </p>
         <Link href="/contact">
-          <button>Let's Connect</button>
+          <button>Inquire</button>
         </Link>
       </div>
     </div>

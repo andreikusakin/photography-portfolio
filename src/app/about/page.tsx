@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
-import { TbPoint } from "react-icons/tb";
 import type { Metadata } from "next";
 import SmallHero from "../components/SmallHero/SmallHero";
 import ParallaxImage from "../components/ParallaxImage/ParallaxImage";
 import GetInTouch from "../components/GetInTouch/GetInTouch";
+import Reveal from "../components/Reveal/Reveal";
 import Image2 from "./../../../public/about/ak2.jpg";
 import Image3 from "./../../../public/about/ak3.jpg";
+import Image4 from "./../../../public/about/ak4.jpg";
 import Image5 from "./../../../public/about/ak5.jpg";
 
 export const metadata: Metadata = {
@@ -26,89 +27,73 @@ export default function About() {
         image={Image2}
       />
       <div className={styles.container}>
+
+        {/* — Intro — */}
         <div className={styles.intro}>
-          <Image
-            src={Image3}
-            alt="Andrew Kusakin"
-            className={styles.meImage}
-          />
-          <h2>
-            Hey, I'm Andrew. <br /> Your Storyteller in Boston.
-          </h2>
-          <p>
-            I'm a wedding photographer based in Boston—a city I'm proud to call
-            home and explore every day. More importantly, I'm a storyteller who
-            believes your wedding day should be felt, not just seen. My passion
-            is capturing the real, unscripted moments that tell the unique story
-            of who you are as a couple. I'm here to be a calming presence, a
-            helpful guide, and a friend who blends into the background, allowing
-            you to be fully present with the people you love most.
-          </p>
-        </div>
-        <div
-          style={{
-            backgroundColor: "var(--color-button)",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-          }}
-        >
-        <div className={styles.philosophy}>
-          <ParallaxImage
-            src={Image5}
-            alt="Andrew Kusakin"
-            width={"30em"}
-            height={"40em"}
-          />
-          <div className={styles.col}>
-            <h2>So, Why All the Focus on Connection?</h2>
+          <Image src={Image3} alt="Andrew Kusakin" className={styles.meImage} />
+          <Reveal className={styles.introText}>
+            <p className={styles.eyebrow}>Nice to Meet You</p>
+            <h2>Hi, I'm Andrew.</h2>
             <p>
-              Simple. When you're comfortable with me, you forget the camera is
-              there. That's when the magic happens. That's when your guard comes
-              down and your true personalities shine through. Building a genuine
-              connection is the key to creating authentic photographs.</p> <p>I want to
-              hear about how you met, what you love doing on a lazy Sunday, and
-              what you're most excited about for your wedding day. The more I
-              know you, the better I can tell your story.</p><p> So, in the spirit of
-              getting to know each other, here are a few things that make me,
-              me:
+              I am Andrew Kusakin, a photographer based in Boston. Having
+              documented over a hundred weddings, I choose to focus on full-day
+              coverage that honors the scale and arc of the day. My perspective
+              balances fine art with a documentary eye, guided by clean
+              composition and natural light.
             </p>
-            <ul>
-              <li>
-                <TbPoint color="rgb(223, 204, 179)" size="1.2em" />
-                When I'm not behind the camera, you can usually find me
-                exploring the trails and towns of New England with my partner
-                and our dog.
-              </li>
-              <li>
-                <TbPoint color="rgb(223, 204, 179)" size="1.2em" />
-                In the winter, my happy place is on a snowboard, chasing fresh
-                powder anywhere I can find it.
-              </li>
-              <li>
-                <TbPoint color="rgb(223, 204, 179)" size="1.2em" />
-                I'm constantly planning the next road trip to a national park.
-                The grander the landscape, the better.
-              </li>
-              <li>
-                <TbPoint color="rgb(223, 204, 179)" size="1.2em" />
-                My go-to playlist for editing or a long drive is usually filled
-                with artists from Iceland (think Ólafur Arnalds or Sigur Rós).
-              </li>
-              <li>
-                <TbPoint color="rgb(223, 204, 179)" size="1.2em" />
-                My day usually starts with a perfectly whisked matcha latte.
-              </li>
-              <li>
-                <TbPoint color="rgb(223, 204, 179)" size="1.2em" />
-                Nothing beats a quiet evening with a good documentary or
-                re-watching a favorite comfort show.
-              </li>
-            </ul>
+            <p>
+              I view a wedding as a complete narrative rather than a collection
+              of separate moments. By staying present from early morning until
+              the final departures, I follow both the prominent milestones and
+              the quieter interactions that pass in between.
+            </p>
+          </Reveal>
+        </div>
+
+        {/* — Philosophy — */}
+        <div className={styles.philosophyWrapper}>
+          <div className={styles.twoCol}>
+            <ParallaxImage src={Image5} alt="Andrew Kusakin" width="30em" height="40em" />
+            <Reveal className={styles.col}>
+              <p className={styles.eyebrow}>Philosophy</p>
+              <h2>Cinema, art and classical form</h2>
+              <p>
+                My visual language is shaped by cinema, classical painting, and
+                architecture. The lines of an old building, the deliberate light
+                in an old master's canvas, the way a film holds a face in
+                frame: these inform how I see a room and how I compose within
+                it.
+              </p>
+              <p>
+                The natural world has always been a teacher of light and
+                patience. Time in open landscapes and unfamiliar places sharpens
+                the eye for the fleeting, for the moment just before something
+                shifts, which is exactly where the most honest photographs tend
+                to live.
+              </p>
+            </Reveal>
           </div>
-        </div></div>
+        </div>
+
+        {/* — Perspective — */}
+        <div className={styles.perspectiveWrapper}>
+          <div className={`${styles.twoCol} ${styles.twoColReverse}`}>
+            <Reveal className={styles.col}>
+              <p className={styles.eyebrow}>Perspective</p>
+              <h2>At the heart of every wedding</h2>
+              <p>
+                What draws me to this is people: the way two people are with
+                each other, and the way that closeness ripples outward to the
+                families and friends gathered around them. I am drawn to couples
+                who show affection without hesitation, and to the quiet
+                exchanges that pass between parents, siblings, and old friends
+                across a long day. These are the moments a wedding is really
+                made of.
+              </p>
+            </Reveal>
+            <ParallaxImage src={Image4} alt="Andrew Kusakin" width="30em" height="40em" />
+          </div>
+        </div>
 
       </div>
       <GetInTouch />
