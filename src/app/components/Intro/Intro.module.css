@@ -3,20 +3,22 @@
   background-color: rgb(44, 44, 44);
   padding-top: var(--space-4xl);
   padding-bottom: var(--space-3xl);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   --columns: 3;
   --column-gap: var(--space-lg);
-  --column-width: calc(100% / var(--columns) - var(--column-gap));
+  /* 3 columns, 2 gaps — subtract both before dividing */
+  --column-width: calc((100% - 2 * var(--column-gap)) / var(--columns));
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
-  columns: 3;
-  column-gap: var(--space-lg);
+  gap: var(--column-gap);
   width: 100%;
 }
 
@@ -42,7 +44,7 @@
   width: 26em;
 }
 
-/* Center Column Updates */
+/* Center Column */
 .col2 {
   align-items: center;
   justify-content: center;
@@ -50,7 +52,7 @@
   display: flex;
   flex-direction: column;
   width: var(--column-width);
-  gap: var(--space-xl); /* Creates breathing room between header, body, and button */
+  gap: var(--space-xl);
 }
 
 .textTop {
@@ -71,7 +73,7 @@
 .heading {
   font-family: "the-seasons", serif;
   font-weight: 400;
-  font-size: var(--text-xl); /* Scaled slightly so the long words fit within the center column */
+  font-size: var(--text-xl);
   line-height: 1.05;
   text-transform: uppercase;
   text-wrap: nowrap;
@@ -91,17 +93,18 @@
   font-weight: 400;
   font-style: normal;
   width: 100%;
-  max-width: 32em;
-  /* font-size: var(--text-); */
+  max-width: 30em;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
 }
 
+/* Right column offset downward for an asymmetric, layered composition */
 .col3 {
   display: flex;
   flex-direction: column;
   gap: var(--space-4xl);
   width: var(--column-width);
+  padding-top: var(--space-3xl);
 }
 
 .col3 .row:first-child {
@@ -120,12 +123,13 @@
 }
 
 .image {
-  object-fit: contain;
   width: 100%;
   height: auto;
 }
 
 .button {
+  display: inline-block;
+  text-decoration: none;
   background: transparent;
   color: var(--color-white);
   border: 1px solid var(--color-white);
@@ -143,7 +147,7 @@
   color: rgb(44, 44, 44);
 }
 
-/* Responsive Scaling */
+/* Tablet + mobile: collapse the 3-column grid into a single stacked column */
 @media screen and (max-width: 991px) {
   .wrapper {
     --columns: 1;
@@ -151,28 +155,61 @@
     --column-width: 100%;
   }
 
-  .col1 {
-    flex-direction: row;
-    gap: 0;
-    justify-content: space-between;
-  }
-
   .col2 {
     padding-top: var(--space-2xl);
     padding-bottom: var(--space-3xl);
   }
 
-  .heading {
-    font-size: var(--text-xl); /* Can get larger on tablet because the column spans full width */
+  .col3 {
+    padding-top: 0;
   }
 
-  .col3 {
-    flex-direction: row-reverse;
-    gap: 0;
-    justify-content: space-between;
+  .heading {
+    font-size: var(--text-xl);
   }
 }
 
+/* Tablet: the two images in each column sit side by side with a gap between */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .col1 {
+    flex-direction: row;
+    gap: var(--space-lg);
+    align-items: flex-start;
+  }
+  .col3 {
+    flex-direction: row-reverse;
+    gap: var(--space-lg);
+    align-items: flex-start;
+  }
+
+  /* Size each half by its image's aspect ratio (landscape 3:2 vs portrait 2:3)
+     so the pair shares one height; flex-basis 0 makes the two halves fill the
+     row exactly — the gap stays between them and nothing overflows. */
+  .col1 .row:first-child,
+  .col3 .row:last-child {
+    flex: 1.5 1 0; /* landscape */
+    min-width: 0;
+  }
+  .col1 .row:last-child,
+  .col3 .row:first-child {
+    flex: 0.667 1 0; /* portrait */
+    min-width: 0;
+  }
+
+  /* The motion wrapper and image fill the width they're allotted */
+  .col1 .row > div,
+  .col3 .row > div {
+    width: 100%;
+  }
+  .col1 .row:first-child .image,
+  .col1 .row:last-child .image,
+  .col3 .row:first-child .image,
+  .col3 .row:last-child .image {
+    width: 100%;
+  }
+}
+
+/* Mobile */
 @media screen and (max-width: 767px) {
   .wrapper {
     padding-left: var(--space-lg);
@@ -185,7 +222,7 @@
   .heading {
     font-size: var(--text-lg);
   }
-  /* stack the images with alternating alignment for a staggered editorial look */
+  /* stack images with alternating alignment for a staggered editorial look */
   .col1,
   .col3 {
     flex-direction: column;

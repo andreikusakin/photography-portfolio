@@ -1,5 +1,11 @@
 .container {
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  /* Cap the shape at 4:3 (two 2:3 images side by side). On wide screens
+     max-height wins and it fills the viewport edge-to-edge; once the viewport
+     gets narrower than 4:3, the 4:3 ratio wins so each half stays a 2:3 slot
+     and the photos aren't squeezed/over-cropped. */
+  aspect-ratio: 4 / 3;
+  max-height: 100vh;
   overflow: hidden;
   position: relative;
   background-color: #000;
@@ -112,7 +118,9 @@
 
 @media screen and (max-width: 767px) {
   .container {
-    aspect-ratio: 5 / 8;
+    height: auto;
+    width: 100%;
+    aspect-ratio: 2 / 3;
   }
 
   .desktopOnly {

@@ -26,14 +26,14 @@ export default function Intro() {
   return (
     <section className={styles.wrapper} ref={containerRef}>
       <div className={styles.grid}>
-        
+
         {/* Left Image Column */}
         <div className={styles.col1}>
           <motion.div className={styles.row} style={{ y: y1 }}>
             <motion.div
               initial={{ opacity: 0, y: "3em" }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
             >
               <Image
@@ -42,7 +42,7 @@ export default function Intro() {
                 width={900}
                 height={600}
                 alt="Intimate wedding photography in Boston"
-                title="Wedding Photo"
+                placeholder="blur"
               />
             </motion.div>
           </motion.div>
@@ -50,27 +50,27 @@ export default function Intro() {
             <motion.div
               initial={{ opacity: 0, y: "3em" }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
+              transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
               viewport={{ once: true }}
             >
               <Image
                 src={Image2}
                 alt="Fine art wedding portrait"
-                title="Wedding Photo"
                 className={styles.image}
                 width={600}
                 height={900}
+                placeholder="blur"
               />
             </motion.div>
           </motion.div>
         </div>
-        
-        {/* Center Text Column (Updated Typography) */}
+
+        {/* Center Text Column */}
         <motion.div
           className={styles.col2}
           initial={{ opacity: 0, y: "2em" }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.15 }}
           viewport={{ once: true }}
         >
           <div className={styles.textTop}>
@@ -86,46 +86,42 @@ export default function Intro() {
             A wedding day is the people in it, and the photographs that last are the ones that knew this from the start. Each image is shaped by the connection between two people and the company gathered around them, the affection and the quiet truths that pass through a long day together.
           </p>
 
-          <div>
-            <Link href="/portfolio">
-              <button className={styles.button}>Browse Portfolio</button>
-            </Link>
-          </div>
+          <Link href="/portfolio" className={styles.button}>Browse Portfolio</Link>
         </motion.div>
 
-        {/* Right Image Column */}
+        {/* Right Image Column — parallax speeds swapped so sides drift against each other */}
         <div className={styles.col3}>
-          <motion.div className={styles.row} style={{ y: y1 }}>
+          <motion.div className={styles.row} style={{ y: y2 }}>
             <motion.div
               initial={{ opacity: 0, y: "3em" }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.6 }}
+              transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
               viewport={{ once: true }}
             >
               <Image
                 src={Image3}
                 alt="Candid wedding moments"
-                title="Wedding Photo"
                 className={styles.image}
                 width={600}
                 height={900}
+                placeholder="blur"
               />
             </motion.div>
           </motion.div>
-          <motion.div className={styles.row} style={{ y: y2 }}>
+          <motion.div className={styles.row} style={{ y: y1 }}>
             <motion.div
               initial={{ opacity: 0, y: "3em" }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.9 }}
+              transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.6 }}
               viewport={{ once: true }}
             >
               <Image
                 src={Image4}
                 alt="Cinematic documentary wedding photography"
-                title="Wedding Photo"
                 className={styles.image}
                 width={900}
                 height={600}
+                placeholder="blur"
               />
             </motion.div>
           </motion.div>
