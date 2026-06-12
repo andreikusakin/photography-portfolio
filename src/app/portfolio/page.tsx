@@ -5,10 +5,13 @@ import SmallHero from "../components/SmallHero/SmallHero";
 import HeroImage from "./../../../public/heroPortfolio.jpg";
 import { Gallery, travel } from "@/lib/data";
 import { weddings, intimateWeddings, couples } from "@/lib/galleries";
+import { weddingHighlights } from "./highlightsWedding";
+import type { StaticImageData } from "next/image";
 
 // import { families, familyHighlights } from "@/lib/data";
 
 import PortfolioGallery from "../components/PortfolioGallery/PortfolioGallery";
+import Highlights from "../components/Highlights/Highlights";
 import Image from "next/image";
 export const metadata: Metadata = {
   title: "Portfolio Andrew Kusakin | Boston Wedding Photographer",
@@ -27,10 +30,16 @@ export default async function page() {
           subtitle="A Collection of Real Moments"
         />
       </div>
+      <HighlightSection
+        eyebrow="Highlights"
+        heading="Wedding & Engagement"
+        images={weddingHighlights}
+        alt="Wedding highlight"
+      />
       <PortfolioSection
         title="weddings"
         subtitle=""
-        description="Your wedding isn’t just a series of events; it’s one continuous story filled with emotion. My documentary approach means I’m there for it all—from the quiet anticipation of getting ready to the wild energy of the dance floor. I focus on capturing the unscripted moments and genuine interactions that truly define your day, creating a timeless gallery you'll cherish forever."
+        description="Your wedding isn’t just a series of events; it’s one continuous story filled with emotion. My documentary approach means I’m there for it all—from the quiet anticipation of getting ready to the wild energy of the dance floor. I focus on capturing the unscripted moments and genuine interactions that truly define your day, creating a timeless gallery you’ll cherish forever."
         galleries={weddings}
       />
             <PortfolioSection
@@ -57,19 +66,39 @@ export default async function page() {
   );
 }
 
+function HighlightSection({
+  eyebrow,
+  heading,
+  images,
+  alt,
+}: {
+  eyebrow: string;
+  heading: string;
+  images: StaticImageData[];
+  alt: string;
+}) {
+  return (
+    <div className={styles.highlightSection}>
+      <div className={styles.highlightText}>
+        <p className={styles.eyebrow}>{eyebrow}</p>
+        <h2 className={styles.highlightHeading}>{heading}</h2>
+      </div>
+      <Highlights images={images} alt={alt} />
+    </div>
+  );
+}
+
 function PortfolioSection({
   title,
   subtitle,
   description,
   galleries,
-}:
-  {
-    title: string;
-    subtitle: string;
-    description: string;
-    galleries: Gallery[];
-  }
-) {
+}: {
+  title: string;
+  subtitle: string;
+  description: string;
+  galleries: Gallery[];
+}) {
   return (
     <div
       style={{

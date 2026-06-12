@@ -1,6 +1,52 @@
 .wrapper {
 }
 
+/* ---- Highlight section: eyebrow + big heading overlapping a full-bleed carousel ---- */
+
+.highlightSection {
+  padding-top: var(--space-3xl);
+}
+
+.highlightText {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: calc(-1 * var(--space-lg));
+  padding-bottom: var(--space-lg);
+  pointer-events: none; /* let clicks pass through to carousel below */
+}
+
+.eyebrow {
+  /* font-size: var(--text-sm); */
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-sm);
+  opacity: 0.6;
+}
+
+.highlightHeading {
+  font-family: "the-seasons", sans-serif;
+  font-weight: 300;
+  font-size: var(--text-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin: 0;
+  margin-bottom: var(--space-sm);
+}
+
+@media screen and (max-width: 991px) {
+  .highlightHeading {
+    font-size: var(--text-xl);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .highlightHeading {
+    font-size: var(--text-lg);
+  }
+}
+
 .portfolioSection {
   display: flex;
   flex-direction: column;

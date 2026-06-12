@@ -9,7 +9,7 @@ export default function PortfolioGallery({
   galleries: Gallery[];
 }) {
   return (
-    <div style={{ overflow: "hidden" }} className={styles.container}>
+    <div className={styles.container}>
       <GalleryList gallery={galleries} />
     </div>
   );

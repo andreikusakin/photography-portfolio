@@ -1,0 +1,91 @@
+.highlights {
+  width: 100%;
+  --slide-height: 30em;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  height: var(--slide-height);
+  gap: var(--space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.slide {
+  flex: 0 0 auto;
+  height: var(--slide-height);
+  scroll-snap-align: center;
+  overflow: hidden;
+  /* Inactive slides appear smaller so the active one stands out without
+     physically growing — no layout change, no overlap, no cropping. */
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+}
+
+.slide.active {
+  transform: scale(1);
+  z-index: 1;
+}
+
+.image {
+  height: 100%;
+  width: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: var(--space-xl);
+  margin-top: var(--space-md);
+}
+
+.arrow {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  opacity: 0.45;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+}
+.arrow:hover {
+  opacity: 1;
+}
+.arrow svg {
+  width: var(--space-xl);
+  height: var(--space-xl);
+  stroke-width: 1;
+}
+
+@media screen and (max-width: 991px) {
+  .highlights {
+    --slide-height: 24em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .highlights {
+    --slide-height: 16em;
+  }
+  .controls {
+    display: none;
+  }
+}
