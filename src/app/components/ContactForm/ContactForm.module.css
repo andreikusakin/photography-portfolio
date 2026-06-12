@@ -124,15 +124,16 @@
     font-family: var(--font-sans);
     font-weight: 500;
     font-size: var(--text-base);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: var(--animation-default);
+    transition: background 0.4s ease, color 0.4s ease;
     align-self: flex-start;
 }
 
 .submitButton:hover {
-    color: rgba(0, 0, 0, 0.5);
+    background: var(--color-black);
+    color: var(--color-white);
 }
 
 .submitButton:active {
@@ -146,39 +147,28 @@
 
 .messageBox {
     padding: var(--space-md);
-    border-radius: var(--space-xs);
     margin-bottom: var(--space-lg);
     font-size: var(--text-base);
-}
-
-.success {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid #a5d6a7;
-}
-
-.error {
-    background-color: #ffebee;
-    color: #c62828;
-    border: 1px solid #ef9a9a;
 }
 
 .buttonLike {
     text-align: center;
     padding: var(--space-md);
-    border-radius: var(--space-5xl);
+    font-family: var(--font-sans);
     font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .success.buttonLike {
-    background-color: #2e7d32;
-    color: white;
-    border: none;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: 1px solid var(--color-black);
 }
 
 .error.buttonLike {
-    background-color: #c62828;
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: var(--color-dark-accent);
+    border: 1px solid var(--color-dark-accent);
 }
 

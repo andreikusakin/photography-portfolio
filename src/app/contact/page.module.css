@@ -15,6 +15,8 @@
   align-items: start;
 }
 
+/* ── Image column: the photo hangs over the hero's bottom edge ── */
+
 .imageColumn {
   display: flex;
   flex-direction: column;
@@ -36,29 +38,104 @@
   object-fit: cover;
 }
 
-.imageCaption {
+.lede {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: 1.55em;
+  font-size: var(--text-md);
   line-height: 1.4;
   color: var(--color-black);
-  padding-top: var(--space-lg);
+  padding-top: var(--space-xl);
 }
 
-.imageCaption a {
-  color: inherit;
-  text-decoration: none;
+.lede em {
+  font-style: italic;
+}
+
+/* ── Contact details ── */
+
+.details {
+  display: flex;
+  flex-direction: column;
+  margin: var(--space-xl) 0 0;
+  border-top: 1px solid rgba(24, 23, 22, 0.12);
+}
+
+.detailRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid rgba(24, 23, 22, 0.12);
+}
+
+.detailRow dt {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.45;
+  flex: 0 0 6em;
+}
+
+.detailRow dd {
+  margin: 0;
+}
+
+.detailRow a {
   border-bottom: 1px solid currentColor;
+  transition: opacity 0.3s ease;
 }
 
-.imageCaption a:hover {
+.detailRow a:hover {
   opacity: 0.6;
 }
+
+.note {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  opacity: 0.55;
+  padding-top: var(--space-lg);
+  max-width: 28em;
+}
+
+/* ── Form column ── */
 
 .formColumn {
   padding-top: var(--space-3xl);
   width: 100%;
 }
+
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0.55;
+}
+
+.formHeading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-lg);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.formHeading em {
+  font-style: italic;
+}
+
+/* ── Responsive ── */
 
 @media (max-width: 991px) {
   .layout {

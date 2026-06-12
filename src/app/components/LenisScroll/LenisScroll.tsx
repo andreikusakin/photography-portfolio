@@ -11,7 +11,9 @@ export default function LenisScroll({ children }: React.PropsWithChildren) {
   useEffect(() => {
     // Initialize Lenis only on the client side
     if (typeof window !== 'undefined') {
+      // anchors: smooth-scrolls same-page #links; offset clears the fixed header
       const lenis = new Lenis();
+      // const lenis = new Lenis({ anchors: { offset: -96 } });
       lenisRef.current = lenis; // Store the instance in the ref
 
       function raf(time: number) {

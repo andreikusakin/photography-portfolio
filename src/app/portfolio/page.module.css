@@ -1,23 +1,61 @@
 .wrapper {
 }
 
+/* ---- In-page index nav ---- */
+
+.indexNav {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--container-padding);
+  border-bottom: 1px solid rgba(24, 23, 22, 0.08);
+}
+
+.indexLink {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.6;
+  position: relative;
+  padding-bottom: var(--space-xs);
+  transition: opacity 0.4s ease;
+}
+
+.indexLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--cubic-default);
+}
+
+.indexLink:hover {
+  opacity: 1;
+}
+
+.indexLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.indexDot {
+  opacity: 0.3;
+}
+
 /* ---- Highlight section: eyebrow + big heading overlapping a full-bleed carousel ---- */
 
 .highlightSection {
   padding-top: var(--space-3xl);
   position: relative;
-}
-
-.highlightSection::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(70em, calc(100% - 2 * var(--container-padding)));
-  height: 1px;
-  background: currentColor;
-  opacity: 0.12;
 }
 
 .highlightText {
@@ -30,11 +68,13 @@
 }
 
 .eyebrow {
-  /* font-size: var(--text-sm); */
-  letter-spacing: 0.2em;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  margin: 0 0 var(--space-sm);
-  opacity: 0.6;
+  margin: 0 0 var(--space-md);
+  opacity: 0.55;
 }
 
 .highlightHeading {
@@ -46,6 +86,12 @@
   line-height: 1;
   margin: 0;
   margin-bottom: var(--space-sm);
+}
+
+.highlightHeading em,
+.sectionHeading em {
+  font-style: italic;
+  text-transform: none;
 }
 
 @media screen and (max-width: 991px) {
@@ -60,65 +106,98 @@
   }
 }
 
+/* ---- Collection sections ---- */
+
+.section {
+  padding-top: var(--space-3xl);
+  /* Fallback offset for native anchor jumps (Lenis adds its own) */
+  scroll-margin-top: var(--space-2xl);
+}
+
+.sectionWarm {
+  background-color: var(--color-button);
+  padding-bottom: var(--space-xl);
+  margin-top: var(--space-3xl);
+}
+
 .portfolioSection {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 var(--container-padding);
 }
-.portfolioSection h2 {
+
+.sectionHeading {
   font-family: var(--font-serif);
   font-weight: 400;
   font-style: normal;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   text-transform: capitalize;
-}
-
-@media screen and (max-width: 991px) {
-}
-
-@media screen and (max-width: 767px) {
-}
-
-.section {
-  padding-top: var(--space-3xl);
-}
-
-.travel {
-    background-color: rgb(44, 44, 44);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-2xl) 0;
-}
-
-.travel h2 {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: -0.05em;
-    text-transform: capitalize;
+  text-align: center;
+  line-height: 1.1;
+  margin: 0;
 }
 
 .description {
-    text-align: center;
-    max-width: 40em;
-    padding: 2em 1em 4em 1em;
-    opacity: 0.8;
+  text-align: center;
+  max-width: 40em;
+  padding: var(--space-lg) var(--space-md) var(--space-xl);
+  opacity: 0.8;
+  line-height: 1.7;
+}
+
+/* ---- Travel ---- */
+
+.travel {
+  background-color: rgb(44, 44, 44);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) var(--container-padding);
+  margin-top: var(--space-3xl);
+  scroll-margin-top: var(--space-2xl);
+}
+
+.travelHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.travel .eyebrow {
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 1;
+}
+
+.travel .description {
+  opacity: 0.75;
 }
 
 .images {
-    columns: 2;
-    max-width: 80em;
-    column-gap: var(--space-lg);
+  columns: 2;
+  max-width: 80em;
+  column-gap: var(--space-lg);
 }
 
 .imageContainer {
-    break-inside: avoid-column;
-    margin-bottom: var(--space-lg);
+  break-inside: avoid-column;
+  margin-bottom: var(--space-lg);
 }
 
 .imageContainer img {
-    display: block;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .indexNav {
+    gap: var(--space-sm);
+  }
+
+  .images {
+    columns: 1;
+  }
 }

@@ -122,7 +122,7 @@ export default function ContactPage() {
       <SmallHero
         title="Let's Tell Your Story"
         image={HeroImage}
-        subtitle=""
+        subtitle="Tell Me About the Day You're Planning"
       />
 
       <div className={styles.container}>
@@ -138,22 +138,47 @@ export default function ContactPage() {
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
-            <p className={styles.imageCaption}>
-              Thanks for getting in touch! I&apos;ll personally respond within 48 hours.
-              <br />
-              If you don't hear from me by then, please be sure to check your spam or promotions folder.
-             
-              You may also reach out directly via{" "}
-              
-              <a href={`mailto:${businessInfo.email}`}>{businessInfo.email}</a>
-              {" "}or call{" "}
-              <a href={`tel:+13473135300`}>{businessInfo.phone}</a>.
-              <br />
-              Based in Boston, MA.
+
+            <p className={styles.lede}>
+              Thank you for being here. Share a little about the two of you and
+              the day you&apos;re planning — I&apos;ll personally respond
+              within <em>48 hours</em>.
+            </p>
+
+            <dl className={styles.details}>
+              <div className={styles.detailRow}>
+                <dt>Email</dt>
+                <dd>
+                  <a href={`mailto:${businessInfo.email}`}>
+                    {businessInfo.email}
+                  </a>
+                </dd>
+              </div>
+              <div className={styles.detailRow}>
+                <dt>Phone</dt>
+                <dd>
+                  <a href="tel:+13473135300">+1 (347) 313-5300</a>
+                </dd>
+              </div>
+              <div className={styles.detailRow}>
+                <dt>Based in</dt>
+                <dd>Boston, MA — traveling anywhere the story leads</dd>
+              </div>
+            </dl>
+
+            <p className={styles.note}>
+              If you don&apos;t hear back within two days, please peek into
+              your spam or promotions folder — sometimes my reply hides there.
             </p>
           </div>
 
           <div className={styles.formColumn}>
+            <div className={styles.formHeader}>
+              <p className={styles.eyebrow}>Inquire</p>
+              <h2 className={styles.formHeading}>
+                Begin <em>your</em> story
+              </h2>
+            </div>
             <ContactForm />
           </div>
         </div>
