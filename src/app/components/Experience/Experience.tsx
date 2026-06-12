@@ -23,15 +23,18 @@ export default function Experience() {
       <div className={styles.grid}>
         <Reveal className={styles.col1}>
           <p className={styles.eyebrow}>What to Expect</p>
-          <h3>The Experience</h3>
+          <h3>
+            The <em>Experience</em>
+          </h3>
 
           <p className={styles.text}>
             My goal is for you to be fully present and enjoy every moment of
-            your wedding celebration. I work unobtrusively, blending into the
-            background to capture the day's true emotions and events as they
-            unfold naturally. This documentary approach means less time posing
-            and more time creating memories, resulting in a gallery of authentic
-            photos that feel like you.
+            your wedding celebration. I guide each story with a calming
+            presence, creating an environment where you and the people you love
+            feel at ease and open — because that is when images reveal true
+            emotion. This documentary approach means less time posing and more
+            time inside the day itself, and a gallery of honest photographs
+            that feel unmistakably like you.
           </p>
           <Link href="/experience" className={styles.buttonWrapper}>
             <button>Read More</button>

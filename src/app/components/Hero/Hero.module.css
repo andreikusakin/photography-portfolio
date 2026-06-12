@@ -57,14 +57,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.4) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.4) 100%);
   pointer-events: none;
   z-index: 1;
 }
 
 .heroTextWrapper {
   position: absolute;
-  top: 70%;
+  top: 62%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
@@ -80,33 +80,139 @@
 
 /* Typography Hierarchy */
 .eyebrow {
-  font-family: "neue-haas-grotesk-display", sans-serif;
-  font-size: var(--text-base);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-top: var(--space-md);
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-lg);
   color: rgba(255, 255, 255, 0.85);
 }
 
 .mainHeading {
-  font-family: "the-seasons", serif;
-  text-transform: capitalize;
+  font-family: var(--font-serif);
   font-size: var(--text-xl);
-  line-height: 1.1;
+  line-height: 1.12;
   font-weight: 400;
-  margin: 0 0 var(--space-xs) 0;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin: 0;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.subHeading {
-  font-family: "neue-haas-grotesk-display", sans-serif;
-  font-size: var(--text-md);
+/* Each heading line lives inside an overflow mask so it can rise into view */
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0.12em; /* room for ascenders/descenders inside the mask */
+}
+
+.line {
+  display: block;
+  will-change: transform;
+}
+
+.lineItalic {
+  font-style: italic;
+  text-transform: lowercase;
+}
+
+.subline {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
   font-weight: 400;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 30em;
-  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-top: var(--space-lg);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ---- Bottom rail: caption · scroll cue · counter ---- */
+.bottomRail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 var(--container-padding) var(--space-lg);
+  color: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+}
+
+.caption,
+.counter {
+  flex: 1 1 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.captionText {
+  display: inline-block;
+}
+
+.counter {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.counterDivider {
+  opacity: 0.5;
+}
+
+.counterTotal {
+  opacity: 0.5;
+}
+
+.scrollCue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.scrollLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  opacity: 0.7;
+}
+
+.scrollLine {
+  width: 1px;
+  height: var(--space-xl);
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollLine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: #fff;
+  animation: scrollPulse 2.2s var(--cubic-default) infinite;
+}
+
+@keyframes scrollPulse {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(260%);
+  }
 }
 
 /* Responsive Scaling */
@@ -135,22 +241,27 @@
     font-size: var(--text-lg);
   }
 
-  .subHeading {
-    font-size: var(--text-base);
+  .heroTextWrapper {
+    top: 56%;
+  }
+
+  /* Keep the rail minimal on small screens — cue only */
+  .caption,
+  .counter {
+    display: none;
+  }
+
+  .bottomRail {
+    justify-content: center;
   }
 }
 
 @media screen and (max-width: 479px) {
   .eyebrow {
     font-size: var(--text-sm);
-    margin-bottom: var(--space-lg);
   }
 
   .mainHeading {
     font-size: var(--text-lg);
-  }
-
-  .subHeading {
-    font-size: var(--text-base);
   }
 }

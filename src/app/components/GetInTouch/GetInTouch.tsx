@@ -33,10 +33,14 @@ export default function GetInTouch() {
         </motion.div>
       </div>
       <div className={styles.content}>
-        <p className={styles.eyebrow}>Let's Connect</p>
-        <h2>Ready to Tell Your Story?</h2>
+        <p className={styles.eyebrow}>Let&apos;s Connect</p>
+        <h2>
+          Ready to tell <em>your</em> story?
+        </h2>
         <p>
-          If what you've seen here resonates, let's talk about the day you're planning: the place, the people, and what you're hoping to remember.
+          If what you&apos;ve seen here resonates, let&apos;s talk about the day
+          you&apos;re planning: the place, the people, and what you&apos;re
+          hoping to remember.
         </p>
         <Link href="/contact">
           <button>Inquire</button>

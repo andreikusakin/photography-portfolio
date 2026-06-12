@@ -56,17 +56,38 @@ export default function SmallHero({
         
       </motion.div>
       <div className={styles.overlay}></div>
-      <motion.div
-        className={styles.heroTextWrapper}
-        style={{ y: textY }}
-        initial={{ opacity: 0, filter: "blur(0.5em)", y: "0.5rem" }}
-        whileInView={{ opacity: 1, filter: "blur(0em)", y: "0em" }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        viewport={{ once: true }}
-      >
+      <motion.div className={styles.heroTextWrapper} style={{ y: textY }}>
         <div className={styles.heroText}>
-          <h1>{title}</h1>
-          <div className={styles.subtitle}>{subtitle}</div>
+          <h1>
+            <span className={styles.lineMask}>
+              <motion.span
+                className={styles.line}
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{
+                  duration: 1.4,
+                  ease: [0.16, 1, 0.3, 1],
+                  delay: 0.3,
+                }}
+              >
+                {title}
+              </motion.span>
+            </span>
+          </h1>
+          {subtitle && (
+            <motion.div
+              className={styles.subtitle}
+              initial={{ opacity: 0, y: "0.8em" }}
+              animate={{ opacity: 1, y: "0em" }}
+              transition={{
+                duration: 1.2,
+                ease: [0.16, 1, 0.3, 1],
+                delay: 0.6,
+              }}
+            >
+              {subtitle}
+            </motion.div>
+          )}
         </div>
       </motion.div>
 

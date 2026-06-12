@@ -3,66 +3,76 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./Hero.module.css";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 
 const images = [
   {
     src: "/hero/1.jpg",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
+    location: "New York",
   },
   {
     src: "/hero/2.jpg",
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
     name: "Maddy + Alex",
+    location: "Connecticut",
   },
   {
     src: "/hero/3.jpg",
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
     name: "Maddy + Alex",
+    location: "Connecticut",
   },
   {
     src: "/hero/4.jpg",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
+    location: "New York",
   },
   {
     src: "/hero/5.jpg",
     alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
     name: "Maddy + Alex",
+    location: "Connecticut",
   },
   {
     src: "/hero/6.jpg",
     alt: "Alexandra and Adam wedding photography at Glen Island Harbour Club in New Rochelle, New York",
     name: "Alexandra + Adam",
+    location: "New York",
   },
 ];
 
 // Custom cinematic easing curve
-const customEase = [0.16, 1, 0.3, 1];
+const customEase = [0.16, 1, 0.3, 1] as const;
 
 // Parent container animation variants (controls the stagger)
 const textContainerVariants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
-      staggerChildren: 0.22,
-      delayChildren: 0.7, // Waits briefly for the background blur to clear
+      staggerChildren: 0.18,
+      delayChildren: 0.6, // Waits briefly for the background blur to clear
     },
   },
 };
 
-// Individual text element animation variants
-const textItemVariants = {
-  hidden: { opacity: 0, y: "1.5em" },
+// Each heading line rises out of an overflow-hidden mask
+const lineVariants = {
+  hidden: { y: "110%" },
+  visible: {
+    y: "0%",
+    transition: { duration: 1.6, ease: customEase },
+  },
+};
+
+const fadeVariants = {
+  hidden: { opacity: 0, y: "1em" },
   visible: {
     opacity: 1,
     y: "0em",
-    transition: {
-      duration: 1.8,
-      ease: customEase,
-    },
+    transition: { duration: 1.6, ease: customEase },
   },
 };
 
@@ -89,7 +99,7 @@ export default function Hero() {
       setCurrentIndex((prevIndex) =>
         prevIndex + step >= images.length ? 0 : prevIndex + step
       );
-    }, 4000); // Slowed down for a more relaxed, luxurious pace
+    }, 5200); // Slowed down for a relaxed, luxurious pace
 
     return () => clearInterval(intervalId);
   }, [isMobile]);
@@ -104,8 +114,16 @@ export default function Hero() {
   const imageY = useTransform(imageEmY, (value) => `${value}em`);
 
   // Strong text parallax (pulls foreground down much faster)
-const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]); 
+  const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
   const textY = useTransform(textEmY, (value) => `${value}em`);
+
+  // The scroll cue and captions dissolve as soon as the page starts moving
+  const cueOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+
+  const step = isMobile ? 1 : 2;
+  const slideNumber = Math.floor(currentIndex / step) + 1;
+  const slideCount = Math.ceil(images.length / step);
+  const activeImage = images[currentIndex];
 
   return (
     <section className={styles.container} ref={containerRef}>
@@ -205,17 +223,67 @@ const textEmY = useTransform(scrollYProgress, [0, 1], [0, -10]);
       >
         {/* Inner div that receives the strong parallax scroll effect */}
         <motion.div className={styles.heroText} style={{ y: textY }}>
-
-          <motion.h1 className={styles.mainHeading} variants={textItemVariants}>
-            Capturing Your Day <br/> As It Truly Happens
-          </motion.h1>
-                    <motion.p className={styles.eyebrow} variants={textItemVariants}>
-            Documentary Wedding Photography – Boston & Beyond
+          <motion.p className={styles.eyebrow} variants={fadeVariants}>
+            Fine Art Documentary Wedding Photography
           </motion.p>
-          {/* <motion.h2 className={styles.subHeading} variants={textItemVariants}>
-            Cinematic, fine art storytelling for weddings and elopements.
-          </motion.h2> */}
+
+          <h1 className={styles.mainHeading}>
+            <span className={styles.lineMask}>
+              <motion.span className={styles.line} variants={lineVariants}>
+                Capturing your day
+              </motion.span>
+            </span>
+            <span className={styles.lineMask}>
+              <motion.span
+                className={`${styles.line} ${styles.lineItalic}`}
+                variants={lineVariants}
+              >
+                as it truly happens
+              </motion.span>
+            </span>
+          </h1>
+
+          <motion.p className={styles.subline} variants={fadeVariants}>
+            Boston · New England · Beyond
+          </motion.p>
         </motion.div>
+      </motion.div>
+
+      {/* Bottom rail — couple caption, scroll cue, slide counter */}
+      <motion.div
+        className={styles.bottomRail}
+        style={{ opacity: cueOpacity }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.4, delay: 2 }}
+      >
+        <div className={styles.caption}>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={activeImage.name + currentIndex}
+              initial={{ opacity: 0, y: "0.6em" }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: "-0.6em" }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className={styles.captionText}
+            >
+              {activeImage.name} — {activeImage.location}
+            </motion.span>
+          </AnimatePresence>
+        </div>
+
+        <div className={styles.scrollCue} aria-hidden="true">
+          <span className={styles.scrollLabel}>Scroll</span>
+          <span className={styles.scrollLine}></span>
+        </div>
+
+        <div className={styles.counter}>
+          <span>{String(slideNumber).padStart(2, "0")}</span>
+          <span className={styles.counterDivider}>/</span>
+          <span className={styles.counterTotal}>
+            {String(slideCount).padStart(2, "0")}
+          </span>
+        </div>
       </motion.div>
     </section>
   );

@@ -1,8 +1,4 @@
 @import url("https://use.typekit.net/xyp4arb.css");
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* ------------------------- Osmo [https://osmo.supply/] ------------------------- */
 /* ------------------------- Variables ------------------------------------------- */
@@ -38,6 +34,12 @@
   --color-dark-accent: #AA5F3B;
   --color-button: rgb(238, 229, 217);
   --color-background: #f5f0eb;
+  /* Type system — three faces only: display serif, grotesque, text serif */
+  --font-serif: "the-seasons", serif;
+  --font-sans: "neue-haas-grotesk-display", sans-serif;
+  --font-text: "elza-text", sans-serif;
+  /* Shared letterforms for eyebrows / labels */
+  --tracking-wide: 0.22em;
   /* Golden ratio scale (Fibonacci ÷ 8: …3,5,8,13,21,34,55,89,144…) */
   --space-xs:  0.375em;   /* φ⁻² */
   --space-sm:  0.625em;   /* φ⁻¹ */
@@ -174,7 +176,7 @@ button {
   margin: 0;
   color: var(--color-black);
   font-weight: 400;
-  font-family: "elza-text", sans-serif;
+  font-family: var(--font-text);
 }
 
 /* Selection */
@@ -192,7 +194,7 @@ button {
 
 body {
   color: var(--color-black);
-  font-family: "elza-text", sans-serif;
+  font-family: var(--font-text);
   font-size: var(--size-font);
   /* background: linear-gradient(var(--color-black), var(--color-mocha)); */
   /* line-height: 1; */

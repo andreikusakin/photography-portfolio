@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import styles from "./Featured.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import Reveal from "../Reveal/Reveal";
 
 interface Gallery {
   title: string;
@@ -34,124 +35,88 @@ const galleries: Gallery[] = [
     heroImage: "/weddings/amy-charlie/000079.jpg",
     smallImage: "/weddings/amy-charlie/000099.jpg",
     link: "/wedding/amy-charlie",
-    location: "he Evermore at Peirce Farm Estate, Massachusetts",
+    location: "The Evermore at Peirce Farm Estate, Massachusetts",
   },
-  // {
-  //   title: "Veronica + Joseph",
-  //   heroImage: VeronicaJoseph1,
-  //   smallImage: VeronicaJoseph2,
-  //   link: "/wedding/veronicajoseph",
-  //   location: "Harborside Hotel, Maine",
-  // },
-  // {
-  //   title: "Valerie + Joseph",
-  //   heroImage: ValerieJoseph1,
-  //   smallImage: ValerieJoseph2,
-  //   link: "/wedding/valeriejoseph",
-  //   location: "The Barn At Gibbet Hill, Massachusetts",
-  // },
-  // {
-  //   title: "Orbrey + Brett",
-  //   heroImage: OrbreyBrett1,
-  //   smallImage: OrbreyBrett2,
-  //   link: "/wedding/orbreybrett",
-  //   location: "Shepherd's Run, Rhode Island",
-  // },
-
 ];
 
-const container = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 1 } },
-  exit: { opacity: 0, transition: { duration: 1 } },
-};
+const customEase = [0.16, 1, 0.3, 1] as const;
 
-const title = {
-  initial: { x: 50, opacity: 0 }, // starts right, invisible
-  animate: { x: 0, opacity: 1, transition: { duration: 1, delay: 0.5 } },
-  exit: { x: -50, opacity: 0, transition: { duration: 1 } }, // exits left
-};
-
-function GalleryItem({ gallery }: { gallery: Gallery }) {
+function Story({ gallery, index }: { gallery: Gallery; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  // Image drifts slowly inside its frame as the story scrolls past
+  const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
+  const reverse = index % 2 === 1;
 
   return (
-    <motion.div
-      className={styles.gallery}
-      variants={container}
-      initial="initial"
-      animate="animate"
-      exit="exit"
+    <div
+      className={`${styles.story} ${reverse ? styles.storyReverse : ""}`}
       ref={ref}
     >
-      <Link href={gallery.link} className={styles.link}>
-        {/* IMAGE (parallax y already defined) */}
-        <div className={styles.overlay}>
-          <motion.div className={styles.imageWrapper} style={{ y }}>
+      <Link href={gallery.link} className={styles.storyLink}>
+        {/* Main image — unmasked by a rising clip as it enters the viewport */}
+        <motion.div
+          className={styles.imageFrame}
+          initial={{ clipPath: "inset(8% 4% 8% 4%)" }}
+          whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+          transition={{ duration: 1.4, ease: customEase }}
+          viewport={{ once: true, margin: "-15%" }}
+        >
+          <motion.div className={styles.imageInner} style={{ y }}>
             <Image
               src={gallery.heroImage}
-              alt={gallery.title}
+              alt={`${gallery.title} — ${gallery.location}`}
               className={styles.image}
               width={1500}
-              height={900}
-              quality={80}
-              sizes="(max-width: 768px) 100vw, 70vw"
-              priority
+              height={1000}
+              quality={85}
+              sizes="(max-width: 767px) 100vw, 62vw"
             />
           </motion.div>
-          <motion.div className={styles.title} variants={title}>
-            <h2>{gallery.title}</h2>
-            <div className={styles.location}>{gallery.location}</div>
-          </motion.div>
-        </div>
+        </motion.div>
 
-        {/* TITLE & LOCATION */}
-
-        {/* SMALL IMAGE – unchanged */}
-        <div className={styles.smallImageWrapper}>
-          <Image
-            src={gallery.smallImage}
-            alt={gallery.title}
-            className={styles.smallImage}
-            width={600}
-            height={900}
-            sizes="(max-width: 768px) 50vw, 30vw"
-          />
-        </div>
+        {/* Editorial caption block */}
+        <Reveal className={styles.meta} delay={0.15}>
+          <span className={styles.index}>
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <h3 className={styles.title}>{gallery.title}</h3>
+          <p className={styles.location}>{gallery.location}</p>
+          <span className={styles.cta}>
+            View Story
+            <span className={styles.ctaLine} aria-hidden="true"></span>
+          </span>
+        </Reveal>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
 export default function Featured() {
-  const [index, setIndex] = useState(0);
-
-  // ⏱ cycle every 5 s
-  useEffect(() => {
-    const id = setInterval(
-      () => setIndex((i) => (i + 1) % galleries.length),
-      5000
-    );
-    return () => clearInterval(id);
-  }, []);
-
-  const activeGallery = galleries[index];
-
   return (
-    <div className={styles.wrapper}>
-        
-      <h4 className={styles.heading}>Featured Galleries</h4>
+    <section className={styles.wrapper}>
+      <Reveal className={styles.header}>
+        <p className={styles.eyebrow}>Selected Work</p>
+        <h2 className={styles.heading}>
+          Featured <em>stories</em>
+        </h2>
+      </Reveal>
 
-      {/* only one gallery in the DOM at a time */}
-      <AnimatePresence mode="sync">
-        <GalleryItem key={activeGallery.title} gallery={activeGallery} />
-      </AnimatePresence>
-    </div>
+      <div className={styles.stories}>
+        {galleries.map((gallery, index) => (
+          <Story key={gallery.title} gallery={gallery} index={index} />
+        ))}
+      </div>
+
+      <Reveal className={styles.footerLink}>
+        <Link href="/portfolio" className={styles.allLink}>
+          Browse the Full Portfolio
+        </Link>
+      </Reveal>
+    </section>
   );
 }

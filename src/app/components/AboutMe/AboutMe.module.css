@@ -49,14 +49,50 @@
 }
 
 .eyebrow {
-  letter-spacing: 0.2em;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   opacity: 0.6;
   margin: 0;
 }
 
+.col2 h3 em {
+  font-style: italic;
+}
+
+.stats {
+  display: flex;
+  width: 100%;
+  gap: var(--space-xl);
+  margin: 0;
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(24, 23, 22, 0.12);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-xs);
+}
+
+.stat dd {
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  margin: 0;
+}
+
+.stat dt {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.5;
+}
+
 .col2 h3 {
-  font-family: "the-seasons", sans-serif;
+  font-family: var(--font-serif);
   font-weight: 400;
   font-style: normal;
   font-size: var(--text-xl);

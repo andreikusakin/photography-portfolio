@@ -65,14 +65,14 @@
   flex-direction: column;
   gap: 0.3em;
   font-size: 3em;
-  font-family: "the-seasons", sans-serif;
+  font-family: var(--font-serif);
   font-weight: 400;
   font-style: normal;
   
 }
 
 .socials {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
   font-style: normal;
   font-size: 2em;
@@ -81,7 +81,7 @@
 }
 
 .name {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: var(--font-sans);
   font-weight: 500;
   font-style: normal;
   justify-self: center;

@@ -58,7 +58,7 @@
 }
 
 .title {
-  font-family: "the-seasons", sans-serif;
+  font-family: var(--font-serif);
   font-weight: 400;
   font-size: var(--text-md);
   line-height: 1.15;

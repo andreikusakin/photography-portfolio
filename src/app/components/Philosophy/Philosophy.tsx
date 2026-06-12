@@ -1,65 +1,57 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import styles from "./Philosophy.module.css";
+import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 
-export default function Philosophy() {
+const statement =
+  "Each image is created with a deep reverence for storytelling and truth — honoring the quiet strength of human connection and the relationships that shape a celebration.";
+
+const words = statement.split(" ");
+
+function Word({
+  children,
+  progress,
+  range,
+}: {
+  children: string;
+  progress: MotionValue<number>;
+  range: [number, number];
+}) {
+  const opacity = useTransform(progress, range, [0.12, 1]);
   return (
-    <section className={styles.container}>
-      {/* Top Text Section */}
-      <motion.div 
-        className={styles.textTop}
-        initial={{ opacity: 0, y: "2em" }}
-        whileInView={{ opacity: 1, y: "0em" }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        viewport={{ once: true }}
-      >
-        <p className={styles.eyebrow}>THE APPROACH</p>
-        <h2 className={styles.heading}>
-          CINEMATIC <br />
-          STORYTELLING <br />
-          <span className={styles.italic}>with</span> TIMELESS <br />
-          GRACE
-        </h2>
-      </motion.div>
+    <span className={styles.wordMask}>
+      <motion.span className={styles.word} style={{ opacity }}>
+        {children}
+      </motion.span>{" "}
+    </span>
+  );
+}
 
-      {/* Center Image Section */}
-      <motion.div 
-        className={styles.imageWrapper}
-        initial={{ opacity: 0, filter: "blur(0.5em)" }}
-        whileInView={{ opacity: 1, filter: "blur(0em)" }}
-        transition={{ duration: 1.2, ease: "easeInOut", delay: 0.2 }}
-        viewport={{ once: true }}
-      >
-        <Image
-          src="/weddings/erin-kyle/000141.jpg" // Replace with a strong, detail or portrait shot
-          alt="Fine art wedding photography details"
-          width={800}
-          height={1000}
-          className={styles.image}
-        />
-      </motion.div>
+/** The photographer's statement, revealed word by word as the reader scrolls
+ *  through the section — the text "develops" like a print in the tray. */
+export default function Philosophy() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.85", "end 0.45"],
+  });
 
-      {/* Bottom Text Section */}
-      <motion.div 
-        className={styles.textBottom}
-        initial={{ opacity: 0, y: "1.5em" }}
-        whileInView={{ opacity: 1, y: "0em" }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-        viewport={{ once: true }}
-      >
-        <p className={styles.bodyText}>
-          A unique, cinematic approach to fine art documentary wedding photography. 
-          Honoring the quiet strength of human connection and preserving the genuine 
-          atmosphere of your day, crafted with care down to the smallest detail.
-        </p>
-        <Link href="/portfolio">
-          <button className={styles.button}>BROWSE PORTFOLIO</button>
-        </Link>
-      </motion.div>
+  return (
+    <section className={styles.wrapper} ref={containerRef}>
+      <p className={styles.eyebrow}>Philosophy</p>
+      <p className={styles.quote}>
+        {words.map((word, i) => {
+          const start = i / words.length;
+          const end = (i + 1) / words.length;
+          return (
+            <Word key={i} progress={scrollYProgress} range={[start, end]}>
+              {word}
+            </Word>
+          );
+        })}
+      </p>
+      <span className={styles.rule} aria-hidden="true"></span>
     </section>
   );
 }

@@ -1,120 +1,207 @@
 .wrapper {
-    position: relative;
-    color: var(--color-white);
-    padding-bottom: 16em;
-    height: 68em;
+  padding: var(--space-4xl) var(--container-padding);
+  max-width: var(--size-container-max);
+  margin: 0 auto;
 }
 
-.overlay {
-    max-height: 50em;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--space-3xl);
 }
 
-.imageWrapper {
-    /* scale: 1.5; */
-    height: 100%;
-    /* position: relative; */
-    
-    width: 100%;
-    background-color: rgb(0, 0, 0);
-    
-    
-}
-.image {
-    filter: grayscale(1);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-    
-
-}
-
-.gallery {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
-.link {
-    position: relative;
-    height: 50em;
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  opacity: 0.5;
+  margin-bottom: var(--space-lg);
 }
 
 .heading {
-    position: absolute;
-    top: 4em;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 2;
-    font-family: "the-seasons", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.2em;
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  line-height: 1.05;
+}
 
+.heading em {
+  font-style: italic;
+}
+
+.stories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4xl);
+}
+
+.story {
+  width: 100%;
+}
+
+.storyLink {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2xl);
+}
+
+.storyReverse .storyLink {
+  flex-direction: row-reverse;
+}
+
+.imageFrame {
+  width: 62%;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-neutral-300);
+}
+
+.imageInner {
+  /* Oversized so the parallax drift never exposes the frame edges */
+  margin: -7% 0;
+  will-change: transform;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 1.2s var(--cubic-default);
+}
+
+.storyLink:hover .image {
+  transform: scale(1.04);
+}
+
+/* ---- Caption block ---- */
+.meta {
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: var(--space-lg);
+}
+
+.storyReverse .meta {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.index {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: 0.16em;
+  opacity: 0.45;
+  margin-bottom: var(--space-lg);
 }
 
 .title {
-
-    text-align: center;
-    position: absolute;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-}
-.title h2 {
-    font-family: "the-seasons", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
 }
 
 .location {
-    font-size: 1em;
-    font-family: "neue-haas-grotesk-display", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    margin-top: 1em;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.55;
+  margin-bottom: var(--space-xl);
 }
 
-.smallImageWrapper {
+.cta {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  position: relative;
+  padding-bottom: var(--space-xs);
+}
 
-    top: 100%;
-  
+.ctaLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform 0.6s var(--cubic-default);
+}
 
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-  
+.storyLink:hover .ctaLine {
+  transform: scaleX(0.35);
+}
 
-    transform: translateY(-50%);
+/* ---- Bottom link ---- */
+.footerLink {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-3xl);
+}
 
-  
-    width: 20em;
-    height: auto;
-  }
-  .smallImageWrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.allLink {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  border: 1px solid currentColor;
+  padding: var(--space-md) var(--space-xl);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.allLink:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
 
 @media screen and (max-width: 991px) {
-    .overlay {
-        height: 50em;
-    }
-    .imageWrapper {
-        scale: 1.5; }
- }
+  .storyLink,
+  .storyReverse .storyLink {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  .imageFrame {
+    width: 100%;
+  }
+
+  .meta,
+  .storyReverse .meta {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+    padding-bottom: 0;
+  }
+
+  .stories {
+    gap: var(--space-3xl);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .heading {
+    font-size: var(--text-lg);
+  }
+
+  .title {
+    font-size: var(--text-md);
+  }
+
+  .index {
+    margin-bottom: var(--space-sm);
+  }
+}

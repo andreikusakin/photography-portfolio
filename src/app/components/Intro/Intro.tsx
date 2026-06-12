@@ -83,7 +83,7 @@ export default function Intro() {
           </div>
 
           <p className={styles.bodyText}>
-            A wedding day is the people in it, and the photographs that last are the ones that knew this from the start. Each image is shaped by the connection between two people and the company gathered around them, the affection and the quiet truths that pass through a long day together.
+            A unique, cinematic approach to fine art documentary wedding photography, crafted with care down to the smallest detail. A wedding day is the people in it — each image is shaped by the connection between two people and the company gathered around them, the affection and the quiet truths that pass through a long day together.
           </p>
 
           <Link href="/portfolio" className={styles.button}>Browse Portfolio</Link>

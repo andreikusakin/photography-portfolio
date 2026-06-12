@@ -50,9 +50,16 @@
 }
 
 .eyebrow {
-  letter-spacing: 0.2em;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   margin: 0;
+}
+
+.col1 h3 em {
+  font-style: italic;
 }
 
 .col1 .eyebrow {
@@ -60,7 +67,7 @@
 }
 
 .col1 h3 {
-  font-family: "the-seasons", sans-serif;
+  font-family: var(--font-serif);
   font-weight: 400;
   font-style: normal;
   font-size: var(--text-xl);

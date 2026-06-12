@@ -33,16 +33,18 @@ export default function page() {
             Be Present. <br /> I'll Capture <br /> Everything.
           </h1>
           <p>
-            Your wedding day is a celebration, not a photoshoot. You've spent
-            months planning this incredible day, and my role is to ensure you
-            can experience it to the fullest. My entire approach is built on a
-            documentary philosophy that prioritizes your experience above all
-            else. By observing the day as it naturally unfolds, I allow you to
-            live in the moment, celebrate without interruption, and trust that
-            your story is being told with care and artistry. The result is a
-            collection of beautiful, honest images filled with the real
-            laughter, happy tears, and quiet glances that made your day unique—a
-            gallery that lets you remember exactly how it felt.
+            Your wedding day is a celebration, not a photoshoot. You&apos;ve
+            spent months planning this incredible day, and my role is to ensure
+            you can experience it to the fullest. My entire approach is built on
+            a documentary philosophy that prioritizes your experience above all
+            else. I guide each story with a calming presence, creating an
+            environment where you feel at ease and open — so the images can
+            reveal true emotion. By observing the day as it naturally unfolds,
+            I allow you to live in the moment, celebrate without interruption,
+            and trust that your story is being told with care and artistry. The
+            result is a collection of beautiful, honest images filled with the
+            real laughter, happy tears, and quiet glances that made your day
+            unique — a gallery that lets you remember exactly how it felt.
           </p>
         </div>
         <div className={styles.imagesContainer}>
