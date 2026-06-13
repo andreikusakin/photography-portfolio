@@ -1,64 +1,59 @@
 .wrapper {
   color: var(--color-white);
-  background-color: rgb(44, 44, 44);
-  padding-top: var(--space-4xl);
-  padding-bottom: var(--space-3xl);
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
+  background-color: var(--color-neutral-600);
+  padding: var(--space-4xl) var(--container-padding) var(--space-3xl);
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  --columns: 3;
-  --column-gap: var(--space-lg);
-  /* 3 columns, 2 gaps — subtract both before dividing */
-  --column-width: calc((100% - 2 * var(--column-gap)) / var(--columns));
 }
 
+/* Asymmetric three-part composition: dominant portrait / text / counterweights */
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--column-gap);
+  display: grid;
+  grid-template-columns: 5fr 4fr 3fr;
+  gap: var(--space-2xl);
+  align-items: center;
   width: 100%;
+  max-width: 90em;
 }
 
-.col1 {
+/* ---- Image frames (clip-reveal idiom shared with Featured) ---- */
+
+.mainFrame {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  position: relative;
+}
+
+.sideFrame {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Oversized inner so the parallax drift never exposes the frame edges */
+.frameInner {
+  position: absolute;
+  inset: -7% 0;
+  will-change: transform;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---- Text block ---- */
+
+.text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4xl);
-  width: var(--column-width);
-}
-
-.col1 .row:first-child {
-  display: flex;
-  justify-content: flex-end;
-}
-.col1 .row:last-child {
-  display: flex;
-  justify-content: flex-start;
-}
-.col1 .row:first-child .image {
-  width: 26em;
-}
-.col1 .row:last-child .image {
-  width: 26em;
-}
-
-/* Center Column */
-.col2 {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  width: var(--column-width);
-  gap: var(--space-xl);
-}
-
-.textTop {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
+  gap: var(--space-lg);
+  padding: 0 var(--space-lg);
 }
 
 .eyebrow {
@@ -67,183 +62,127 @@
   font-weight: 500;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  margin-bottom: var(--space-xl);
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
 }
 
 .heading {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: var(--text-xl);
-  line-height: 1.05;
+  font-size: var(--text-lg);
+  line-height: 1.1;
   text-transform: uppercase;
-  text-wrap: nowrap;
   margin: 0;
 }
 
-.italic {
-  font-family: var(--font-serif);
+.heading em {
   font-style: italic;
   text-transform: lowercase;
-  font-size: 0.9em;
-  margin: 0 0.15em;
   color: rgba(255, 255, 255, 0.9);
 }
 
+.lede {
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+}
+
 .bodyText {
-  font-weight: 400;
-  font-style: normal;
-  width: 100%;
-  max-width: 30em;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-}
-
-/* Right column offset downward for an asymmetric, layered composition */
-.col3 {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4xl);
-  width: var(--column-width);
-  padding-top: var(--space-3xl);
-}
-
-.col3 .row:first-child {
-  display: flex;
-  justify-content: flex-end;
-}
-.col3 .row:last-child {
-  display: flex;
-  justify-content: flex-start;
-}
-.col3 .row:first-child .image {
-  width: 26em;
-}
-.col3 .row:last-child .image {
-  width: 26em;
-}
-
-.image {
-  width: 100%;
-  height: auto;
+  max-width: 28em;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
 }
 
 .button {
   display: inline-block;
-  text-decoration: none;
+  margin-top: var(--space-md);
   background: transparent;
   color: var(--color-white);
   border: 1px solid var(--color-white);
   padding: var(--space-md) var(--space-xl);
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 .button:hover {
   background: var(--color-white);
-  color: rgb(44, 44, 44);
+  color: var(--color-neutral-600);
 }
 
-/* Tablet + mobile: collapse the 3-column grid into a single stacked column */
+/* ---- Counterweight column ---- */
+
+.sideCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  /* Pushed down so the column sits off the main portrait's axis */
+  padding-top: var(--space-3xl);
+}
+
+.sidePortrait {
+  width: 85%;
+  aspect-ratio: 2 / 3;
+  align-self: flex-start;
+}
+
+.sideLandscape {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  align-self: flex-end;
+}
+
+/* ---- Responsive ---- */
+
 @media screen and (max-width: 991px) {
-  .wrapper {
-    --columns: 1;
-    --column-gap: 0;
-    --column-width: 100%;
-  }
-
-  .col2 {
-    padding-top: var(--space-2xl);
-    padding-bottom: var(--space-3xl);
-  }
-
-  .col3 {
-    padding-top: 0;
-  }
-
-  .heading {
-    font-size: var(--text-xl);
-  }
-}
-
-/* Tablet: the two images in each column sit side by side with a gap between */
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  .col1 {
-    flex-direction: row;
-    gap: var(--space-lg);
-    align-items: flex-start;
-  }
-  .col3 {
-    flex-direction: row-reverse;
-    gap: var(--space-lg);
-    align-items: flex-start;
-  }
-
-  /* Size each half by its image's aspect ratio (landscape 3:2 vs portrait 2:3)
-     so the pair shares one height; flex-basis 0 makes the two halves fill the
-     row exactly — the gap stays between them and nothing overflows. */
-  .col1 .row:first-child,
-  .col3 .row:last-child {
-    flex: 1.5 1 0; /* landscape */
-    min-width: 0;
-  }
-  .col1 .row:last-child,
-  .col3 .row:first-child {
-    flex: 0.667 1 0; /* portrait */
-    min-width: 0;
-  }
-
-  /* The motion wrapper and image fill the width they're allotted */
-  .col1 .row > div,
-  .col3 .row > div {
-    width: 100%;
-  }
-  .col1 .row:first-child .image,
-  .col1 .row:last-child .image,
-  .col3 .row:first-child .image,
-  .col3 .row:last-child .image {
-    width: 100%;
-  }
-}
-
-/* Mobile */
-@media screen and (max-width: 767px) {
-  .wrapper {
-    padding-left: var(--space-lg);
-    padding-right: var(--space-lg);
-  }
-  .bodyText {
-    width: 100%;
-    font-size: var(--text-base);
-  }
-  .heading {
-    font-size: var(--text-lg);
-  }
-  /* stack images with alternating alignment for a staggered editorial look */
-  .col1,
-  .col3 {
-    flex-direction: column;
+  .grid {
+    grid-template-columns: 1fr;
     gap: var(--space-2xl);
   }
 
-  .col1 .row:first-child .image {
-    width: 18em;
-    max-width: 75vw;
+  .mainFrame {
+    max-width: 28em;
+    justify-self: center;
   }
-  .col1 .row:last-child .image {
-    width: 16em;
-    max-width: 65vw;
+
+  .text {
+    padding: 0;
+    max-width: 32em;
+    justify-self: center;
   }
-  .col3 .row:first-child .image {
-    width: 16em;
-    max-width: 65vw;
+
+  /* The two counterweights sit side by side below the text */
+  .sideCol {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding-top: 0;
   }
-  .col3 .row:last-child .image {
-    width: 18em;
-    max-width: 75vw;
+
+  .sidePortrait {
+    width: 40%;
+  }
+
+  .sideLandscape {
+    width: 60%;
+    margin-top: var(--space-2xl);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: var(--space-3xl) var(--container-padding);
+  }
+
+  .heading {
+    font-size: var(--text-md);
+  }
+
+  .lede {
+    font-size: var(--text-base);
   }
 }

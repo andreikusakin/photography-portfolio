@@ -5,109 +5,140 @@
   z-index: 10;
 }
 
-.hamburger {
+/* ---- Menu toggle (small-caps text) ---- */
+
+.toggle {
   position: absolute;
-  top: 2em;
+  top: 1em;
   right: 2em;
-  height: 3.4em;
-  width: 3.4em;
+  padding: var(--space-sm) var(--space-lg);
   background-color: var(--color-button);
-  backdrop-filter: blur(0.5em);
-  border-radius: 50%;
+  border: 1px solid rgba(24, 23, 22, 0.18);
+  border-radius: 5em;
+  color: var(--color-black);
+  cursor: pointer;
+  z-index: 12;
+  transition: background 0.4s var(--cubic-default),
+    color 0.4s var(--cubic-default), transform 0.4s var(--cubic-default);
+}
+
+.toggle:hover {
+  background: var(--color-black);
+  color: var(--color-button);
+  border-color: var(--color-black);
+}
+
+.toggle:active {
+  transform: scale(0.95);
+}
+
+/* Type sizing lives here so the mask height and word height share one em */
+.toggleMask {
+  display: block;
+  overflow: hidden;
+  height: 1em;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1;
+}
+
+.toggleWords {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 10;
+  transition: transform 0.5s var(--cubic-default);
 }
 
-.hamburger div {
-  width: 48%;
-  height: 1px;
-  background-color: var(--color-black);
-  margin: 0.2em 0;
-  transition: all 0.3s ease;
+.toggleWords span {
+  display: block;
+  height: 1em;
+  line-height: 1;
 }
 
-.hamburgerOpen div:first-child {
-  transform: rotate(45deg) translate(0.17em, 0.17em);
+/* Slide the stack up by one word to reveal "Close" */
+.toggleOpen .toggleWords {
+  transform: translateY(-1em);
 }
 
-.hamburgerOpen div:last-child {
-  transform: rotate(-45deg) translate(0.17em, -0.17em);
-}
+/* ---- Panel ---- */
 
 .menu {
-  position: absolute;
-  top: 0;
-  width: 100%;
+  position: fixed;
+  inset: 0;
   height: 100vh;
-  z-index: 5;
+  height: 100dvh;
+  z-index: 11;
   display: flex;
   justify-content: flex-end;
-  
 }
 
 .menu nav {
   background-color: var(--color-background);
-  width: 40vw;
-  height: 100vh;
-  padding: 15vh 7.5vw 10vh 7.5vw;
+  width: min(30em, 100vw);
+  height: 100%;
+  padding: var(--space-2xl) var(--space-xl) var(--space-xl);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: var(--space-xl);
+  overflow-y: auto;
   position: relative;
-  
-}
-.menu ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3em;
-  font-size: 3em;
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-style: normal;
-  
 }
 
-.socials {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-style: normal;
-  font-size: 2em;
-  display: flex;
-  gap: 1em;
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .name {
   font-family: var(--font-sans);
+  font-size: var(--text-sm);
   font-weight: 500;
-  font-style: normal;
-  justify-self: center;
-  position: absolute;
-  top: 3.4em;
-  width: 100%;
-  right: 0;
-  text-align: center;
-  
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  opacity: 0.6;
 }
 
-.overlay {
-  background: linear-gradient(
-    to right,
-    hsla(0, 0%, 0%, 0.3) 40%,
-    rgba(0, 0, 0, 0.9) 80%
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
+/* ---- Links ---- */
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.linkMask {
+  display: block;
+  overflow: hidden;
+  padding: 0.08em 0;
+}
+
+.linkRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  will-change: transform;
+}
+
+.linkIndex {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: 0.16em;
+  opacity: 0.4;
+}
+
+.linkRow a {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-lg);
+  line-height: 1.15;
 }
 
 .active {
+  font-style: italic;
   position: relative;
 }
 
@@ -121,35 +152,58 @@
   height: 1px;
 }
 
-@media screen and (max-width: 991px) {
-  .hamburger {
-    top: 1em;
-    right: 2em;
-  }
+/* ---- Footer of the panel ---- */
 
-  .name {
-    top: 2em;
+.menuFooter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  border-top: 1px solid rgba(24, 23, 22, 0.12);
+  padding-top: var(--space-lg);
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.socials a {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.socials a:hover {
+  opacity: 1;
+}
+
+.email {
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  width: fit-content;
+  border-bottom: 1px solid rgba(24, 23, 22, 0.3);
+}
+
+/* ---- Responsive ---- */
+
+@media screen and (max-width: 767px) {
+  .toggle {
+    right: 1em;
+  }
+}
+
+@media (max-height: 600px) {
+  /* Short landscape viewports: tighten so all six rows stay reachable */
+  .linkRow a {
+    font-size: var(--text-md);
   }
 
   .menu nav {
-    width: 100vw;
+    padding-top: var(--space-xl);
   }
 }
-
-@media screen and (max-width: 767px) {
-  .hamburger {
-    top: 1em;
-    right: 1em;
-  }
-}
-
-@media (max-width: 430px) {
-  .hamburger {
-    top: 1em;
-    right: 1em;
-  }
-  .socials {
-    font-size: 1.5em;
-  }
-}
-

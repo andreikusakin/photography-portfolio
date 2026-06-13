@@ -3,12 +3,14 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import styles from "./Intro.module.css";
 import Link from "next/link";
-import Image1 from "./wedding-photography-private-wovs.jpg"
-import Image2 from "./wedding-first-look.jpg"
-import Image3 from "./wedding-couple.jpg"
-import Image4 from "./bride-father-first-look.jpg"
+import Reveal from "../Reveal/Reveal";
+import Image1 from "./wedding-photography-private-wovs.jpg";
+import Image2 from "./wedding-first-look.jpg";
+import Image3 from "./wedding-couple.jpg";
 
 import { motion, useScroll, useTransform } from "motion/react";
+
+const customEase = [0.16, 1, 0.3, 1] as const;
 
 export default function Intro() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,114 +19,92 @@ export default function Intro() {
     offset: ["start end", "end start"],
   });
 
-  const parallax1 = useTransform(scrollYProgress, [0, 1], [-5, 2]);
-  const parallax2 = useTransform(scrollYProgress, [0, 1], [-10, 2]);
-
-  const y1 = useTransform(parallax1, (value) => `${value}em`);
-  const y2 = useTransform(parallax2, (value) => `${value}em`);
+  // The dominant portrait drifts slowly; the side images counter it faster
+  const ySlow = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
+  const yFast = useTransform(scrollYProgress, [0, 1], ["6%", "-6%"]);
 
   return (
     <section className={styles.wrapper} ref={containerRef}>
       <div className={styles.grid}>
-
-        {/* Left Image Column */}
-        <div className={styles.col1}>
-          <motion.div className={styles.row} style={{ y: y1 }}>
-            <motion.div
-              initial={{ opacity: 0, y: "3em" }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              viewport={{ once: true }}
-            >
-              <Image
-                src={Image1}
-                className={styles.image}
-                width={900}
-                height={600}
-                alt="Intimate wedding photography in Boston"
-                placeholder="blur"
-              />
-            </motion.div>
-          </motion.div>
-          <motion.div className={styles.row} style={{ y: y2 }}>
-            <motion.div
-              initial={{ opacity: 0, y: "3em" }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <Image
-                src={Image2}
-                alt="Fine art wedding portrait"
-                className={styles.image}
-                width={600}
-                height={900}
-                placeholder="blur"
-              />
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Center Text Column */}
+        {/* Dominant portrait — anchors the composition on the left */}
         <motion.div
-          className={styles.col2}
-          initial={{ opacity: 0, y: "2em" }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.15 }}
-          viewport={{ once: true }}
+          className={styles.mainFrame}
+          initial={{ clipPath: "inset(8% 4% 8% 4%)" }}
+          whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+          transition={{ duration: 1.4, ease: customEase }}
+          viewport={{ once: true, margin: "-15%" }}
         >
-          <div className={styles.textTop}>
-            <p className={styles.eyebrow}>THE APPROACH</p>
-            <h2 className={styles.heading}>
-              CINEMATIC <br />
-              <span className={styles.italic}>and</span> DEEPLY <br />
-              HUMAN
-            </h2>
-          </div>
-
-          <p className={styles.bodyText}>
-            A unique, cinematic approach to fine art documentary wedding photography, crafted with care down to the smallest detail. A wedding day is the people in it — each image is shaped by the connection between two people and the company gathered around them, the affection and the quiet truths that pass through a long day together.
-          </p>
-
-          <Link href="/portfolio" className={styles.button}>Browse Portfolio</Link>
+          <motion.div className={styles.frameInner} style={{ y: ySlow }}>
+            <Image
+              src={Image2}
+              alt="Fine art wedding portrait at a first look"
+              className={styles.image}
+              placeholder="blur"
+              sizes="(max-width: 991px) 100vw, 40vw"
+            />
+          </motion.div>
         </motion.div>
 
-        {/* Right Image Column — parallax speeds swapped so sides drift against each other */}
-        <div className={styles.col3}>
-          <motion.div className={styles.row} style={{ y: y2 }}>
+        {/* Editorial text block — left-aligned against the centered page */}
+        <Reveal className={styles.text} delay={0.15}>
+          <p className={styles.eyebrow}>The Approach</p>
+          <h2 className={styles.heading}>
+            Cinematic <em>and</em> deeply human
+          </h2>
+          <p className={styles.lede}>
+            A unique, cinematic approach to fine art documentary wedding
+            photography — crafted with care down to the smallest detail.
+          </p>
+          <p className={styles.bodyText}>
+            A wedding day is the people in it. Each image is shaped by the
+            connection between two people and the company gathered around
+            them, the affection and the quiet truths that pass through a long
+            day together.
+          </p>
+          <Link href="/portfolio" className={styles.button}>
+            Browse Portfolio
+          </Link>
+        </Reveal>
+
+        {/* Counterweights — two smaller frames at different scales */}
+        <div className={styles.sideCol}>
+          {[
+            {
+              src: Image3,
+              alt: "Candid wedding moment between a couple",
+              className: styles.sidePortrait,
+              y: yFast,
+            },
+            {
+              src: Image1,
+              alt: "Intimate private vows at a Boston wedding",
+              className: styles.sideLandscape,
+              y: ySlow,
+            },
+          ].map((img, i) => (
             <motion.div
-              initial={{ opacity: 0, y: "3em" }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
-              viewport={{ once: true }}
+              key={i}
+              className={`${styles.sideFrame} ${img.className}`}
+              initial={{ clipPath: "inset(8% 4% 8% 4%)" }}
+              whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+              transition={{
+                duration: 1.4,
+                ease: customEase,
+                delay: 0.15 * (i + 1),
+              }}
+              viewport={{ once: true, margin: "-15%" }}
             >
-              <Image
-                src={Image3}
-                alt="Candid wedding moments"
-                className={styles.image}
-                width={600}
-                height={900}
-                placeholder="blur"
-              />
+              <motion.div className={styles.frameInner} style={{ y: img.y }}>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  className={styles.image}
+                  placeholder="blur"
+                  sizes="(max-width: 991px) 50vw, 20vw"
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
-          <motion.div className={styles.row} style={{ y: y1 }}>
-            <motion.div
-              initial={{ opacity: 0, y: "3em" }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Image
-                src={Image4}
-                alt="Cinematic documentary wedding photography"
-                className={styles.image}
-                width={900}
-                height={600}
-                placeholder="blur"
-              />
-            </motion.div>
-          </motion.div>
+          ))}
         </div>
       </div>
     </section>
