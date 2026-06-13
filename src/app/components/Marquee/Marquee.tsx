@@ -2,12 +2,7 @@ import React from "react";
 import styles from "./Marquee.module.css";
 
 const words = [
-  "Documentary",
-  "Cinematic",
-  "Fine Art",
-  "Unposed",
-  "Storytelling",
-  "True Emotion",
+  "Documentary", "Devoted", "Cinematic", "Intimate", "Fine Art", "Intentional", "Candid", "Tender"
 ];
 
 /** Slow, infinite keyword strip — a quiet breath between the hero and the

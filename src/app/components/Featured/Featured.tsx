@@ -3,13 +3,15 @@
 import React, { useRef } from "react";
 import styles from "./Featured.module.css";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import Reveal from "../Reveal/Reveal";
+import HannahKisuk from "./fruitlands-museum-wedding-ceremony-00081.jpg"
+import EricaMike from "./white-cliffs-plymouth-wedding-ceremony-00062.jpg"
 
 interface Gallery {
   title: string;
-  heroImage: string;
+  heroImage: string | StaticImageData;
   smallImage: string;
   link: string;
   location: string;
@@ -17,11 +19,11 @@ interface Gallery {
 
 const galleries: Gallery[] = [
   {
-    title: "Alexandra + Adam",
-    heroImage: "/weddings/alex-adam/000046.jpg",
+    title: "Hannah + Kisuk",
+    heroImage: HannahKisuk,
     smallImage: "/weddings/alex-adam/000045.jpg",
-    link: "/wedding/alex-adam",
-    location: "Glen Island Harbour Club, New York",
+    link: "/wedding/hannah-kisuk",
+    location: "Fruitlands Museum, Massachusetts",
   },
   {
     title: "Maddy + Alex",
@@ -31,11 +33,11 @@ const galleries: Gallery[] = [
     location: "Smith Farm Gardens, Connecticut",
   },
   {
-    title: "Amy + Charlie",
-    heroImage: "/weddings/amy-charlie/000079.jpg",
+    title: "Erica + Mike",
+    heroImage: EricaMike,
     smallImage: "/weddings/amy-charlie/000099.jpg",
-    link: "/wedding/amy-charlie",
-    location: "The Evermore at Peirce Farm Estate, Massachusetts",
+    link: "/wedding/erica-mike",
+    location: "White Cliffs Country Club, Massachusetts",
   },
 ];
 
