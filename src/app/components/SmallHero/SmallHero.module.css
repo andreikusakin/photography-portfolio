@@ -1,18 +1,20 @@
 .container {
   overflow: hidden;
-  aspect-ratio: 21 / 9; 
+  /* Explicit 21:9 height (width * 9/21) rather than aspect-ratio, because
+     Safari won't treat an aspect-ratio-derived height as definite, so the
+     percentage-height chain below collapses and the image goes uncentered. */
+  height: calc(100vw * 9 / 21);
   position: relative;
   background-color: black;
 }
 
 .heroImage {
   width: 100%;
-  height: 100%;
-
+  /* Oversized + offset so the scroll parallax never exposes the frame edges */
+  height: calc(100% + 20em);
   position: absolute;
-  top: 0;
+  top: -10em;
   left: 0;
-
 }
 
 .heroImage.active {
@@ -22,9 +24,9 @@
 
 .heroImage img {
   width: 100%;
-  height: 60em;
+  height: 100%;
   object-fit: cover;
-  object-position: center ;
+  object-position: center;
 }
 
 .heroTextWrapper {
@@ -125,8 +127,8 @@ top: 0;
 }
 
 .heroImagesWrapper {
-  position: relative;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
 }
 
@@ -135,7 +137,6 @@ top: 0;
 
 @media screen and (max-width: 767px) {
   .container {
-    aspect-ratio: unset;
     height: 50vh;
   }
 
