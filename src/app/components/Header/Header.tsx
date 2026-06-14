@@ -116,7 +116,10 @@ export default function Header() {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={styles.header}
       style={{
-        position: "fixed",
+        // Desktop stays fixed for the shrink/settle-on-scroll behavior; on
+        // mobile it's absolute so the name sticks to the top of the page and
+        // scrolls away instead of following the viewport.
+        position: isDesktop ? "fixed" : "absolute",
         height,
         top: 0,
         backdropFilter: filterBlur,
