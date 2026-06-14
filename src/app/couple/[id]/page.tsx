@@ -31,14 +31,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: "The requested couple gallery could not be found.",
     };
   }
+  const titleBase = couple.venue
+    ? `${couple.name} at ${couple.venue}`
+    : `${couple.name} Couple Session`;
+
   return {
-    title: `${couple.name} Couple | Andrew Kusakin Photography`,
+    title: `${titleBase} | Andrew Kusakin Photography`,
     description: `The beautiful images of ${couple.name} at ${couple.venue} in ${couple.location}.`,
     alternates: {
       canonical: `/couple/${id}`,
     },
     openGraph: {
-      title: `${couple.name} Couple | Andrew Kusakin Photography`,
+      title: `${titleBase} | Andrew Kusakin Photography`,
       description: `The beautiful images of ${couple.name} at ${couple.venue} in ${couple.location}.`,
       type: "article",
       url: `${SITE_URL}/couple/${id}`,

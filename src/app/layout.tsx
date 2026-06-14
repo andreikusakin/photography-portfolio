@@ -48,17 +48,62 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationSchema = {
+// Canonical, site-wide business entity. Referenced by a stable @id so every
+// page reinforces the same local-business profile (name, location, service
+// area, price range) — strongest signal for local SEO.
+const businessSchema = {
   "@context": "https://schema.org",
-  "@type": "PhotographyBusiness",
+  "@type": ["LocalBusiness", "Photographer"],
+  "@id": "https://www.kusakinphoto.com/#business",
   name: "Andrew Kusakin Photography",
+  description:
+    "Boston-based fine art documentary wedding photographer serving New England including Cape Cod, Providence, Newport, and beyond.",
   url: "https://www.kusakinphoto.com",
   email: "andrew@kusakinphoto.com",
+  telephone: "+1-347-313-5300",
+  image: "https://www.kusakinphoto.com/card-image.jpg",
   logo: "https://www.kusakinphoto.com/logo.png",
+  priceRange: "$$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Boston",
+    addressRegion: "MA",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "42.3601",
+    longitude: "-71.0589",
+  },
+  areaServed: [
+    "Boston, MA",
+    "Cambridge, MA",
+    "Cape Cod, MA",
+    "The Berkshires, MA",
+    "Hartford, CT",
+    "Providence, RI",
+    "Newport, RI",
+    "Portsmouth, NH",
+    "Portland, ME",
+    "New England",
+  ].map((name) => ({ "@type": "Place", name })),
+  serviceType: [
+    "Wedding Photography",
+    "Engagement Photography",
+    "Portrait Photography",
+    "Event Photography",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-347-313-5300",
+    email: "andrew@kusakinphoto.com",
+    contactType: "customer service",
+    availableLanguage: "English",
+  },
   sameAs: [
-    "https://www.instagram.com/kusakinphoto",
-    "https://www.tiktok.com/kusakinphoto",
-
+    "https://www.instagram.com/kusakinphoto/",
+    "https://www.tiktok.com/@kusakinphoto",
+    "https://www.pinterest.com/kusakinphoto/",
   ],
 };
 
@@ -72,7 +117,7 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/ygj5rom.css" />
         <link rel="stylesheet" href="https://use.typekit.net/xyp4arb.css" />
-        <JsonLd data={organizationSchema} />
+        <JsonLd data={businessSchema} />
       </head>
       <body>
         <LenisScroll>

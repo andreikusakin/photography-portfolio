@@ -6,7 +6,6 @@ import OverlapImageSrc from "./smith-farm-gardens-wedding-ceremony.jpg";
 import styles from "./page.module.css";
 import Image from "next/image";
 import ContactForm from "../components/ContactForm/ContactForm";
-import JsonLd from "../components/JsonLd/JsonLd";
 
 export const metadata: Metadata = {
   title: "Contact | Boston Wedding Photographer | Andrew Kusakin Photography",
@@ -69,56 +68,9 @@ const businessInfo = {
   },
 };
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Photographer"],
-  name: businessInfo.name,
-  description:
-    "Boston-based wedding, engagement, and portrait photographer serving New England including Cape Cod, Providence, Newport, and beyond.",
-  telephone: businessInfo.phone,
-  email: businessInfo.email,
-  url: businessInfo.website,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: businessInfo.address.city,
-    addressRegion: businessInfo.address.state,
-    addressCountry: "US",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: businessInfo.geo.latitude,
-    longitude: businessInfo.geo.longitude,
-  },
-  areaServed: businessInfo.areaServed.map((area) => ({
-    "@type": "Place",
-    name: area,
-  })),
-  serviceType: [
-    "Wedding Photography",
-    "Engagement Photography",
-    "Portrait Photography",
-    "Family Photography",
-    "Event Photography",
-  ],
-  sameAs: [
-    "https://www.instagram.com/kusakinphoto/",
-    "https://www.tiktok.com/@kusakinphoto",
-    "https://www.pinterest.com/kusakinphoto/",
-  ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+1-347-313-5300",
-    contactType: "customer service",
-    email: "andrew@kusakinphoto.com",
-    availableLanguage: "English",
-  },
-};
-
 export default function ContactPage() {
   return (
     <div>
-      <JsonLd data={schema} />
-
       <SmallHero
         title="Let's Tell Your Story"
         image={HeroImage}

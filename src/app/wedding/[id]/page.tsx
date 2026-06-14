@@ -33,14 +33,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // Fold the venue into the title — couples search for venue names directly
+  const titleBase = wedding.venue
+    ? `${wedding.name}'s Wedding at ${wedding.venue}`
+    : `${wedding.name} Wedding`;
+
   return {
-    title: `${wedding.name} Wedding | Boston Wedding Photographer`,
+    title: `${titleBase} | Boston Wedding Photographer`,
     description: `The beautiful wedding of ${wedding.name} at ${wedding.venue} in ${wedding.location}.`,
     alternates: {
       canonical: `/wedding/${id}`,
     },
     openGraph: {
-      title: `${wedding.name} Wedding | Andrew Kusakin Photography`,
+      title: `${titleBase} | Andrew Kusakin Photography`,
       description: `View the beautiful wedding of ${wedding.name} at ${wedding.venue} in ${wedding.location}. Boston Wedding Photography by Andrew Kusakin.`,
       type: "article",
       url: `${SITE_URL}/wedding/${id}`,

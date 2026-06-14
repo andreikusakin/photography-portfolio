@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import styles from "./Faq.module.css";
 import { motion } from "motion/react";
+import JsonLd from "../JsonLd/JsonLd";
 
 const faqData = [
   {
@@ -42,6 +43,16 @@ const faqData = [
       "Absolutely. I always travel with backup gear, including an extra camera body, multiple lenses, and spare memory cards. This ensures that even if there's an unexpected issue, your coverage will continue uninterrupted.",
   },
 ];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqData.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 const containerVariants = {
   hidden: {
     opacity: 0,
@@ -68,6 +79,7 @@ const itemVariants = {
 export default function Faq() {
   return (
     <div className={styles.faq}>
+        <JsonLd data={faqSchema} />
         <h4>Frequently Asked Questions</h4>
 
         <motion.ul
