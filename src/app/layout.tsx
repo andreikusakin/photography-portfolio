@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: "https://www.kusakinphoto.com",
     images: [
       {
-        url: "https://www.kusakinphoto.com/logo.png",
+        url: "https://www.kusakinphoto.com/card-image.jpg",
         width: 1000,
         height: 1000,
         alt: "A candid photo from a wedding by Andrew Kusakin Photography",
