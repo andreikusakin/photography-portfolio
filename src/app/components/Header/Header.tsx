@@ -6,6 +6,14 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { usePathname } from "next/navigation";
 
+const navLinks = [
+  { name: "About", href: "/about" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Experience", href: "/experience" },
+  { name: "Pricing", href: "/pricing" },
+  // { name: "Journal", href: "/journal" },
+];
+
 export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
@@ -122,66 +130,55 @@ export default function Header() {
         Andrew Kusakin
       </Link>
       <nav>
-        <Link href="/about" className={styles.navLink}>
-          <div className={styles.navLinkText_wrapper}>
-            <span className={styles.navLinkText}>About</span>
-            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
-              About
-            </span>
-          </div>
-        </Link>
-        <Link href="/portfolio" className={styles.navLink}>
-          <div className={styles.navLinkText_wrapper}>
-            <span className={styles.navLinkText}>Portfolio</span>
-            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
-              Portfolio
-            </span>
-          </div>
-        </Link>
-        <Link href="/experience" className={styles.navLink}>
-          <div className={styles.navLinkText_wrapper}>
-            <span className={styles.navLinkText}>Experience</span>
-            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
-              Experience
-            </span>
-          </div>
-        </Link>
-
-        <Link href="/pricing" className={styles.navLink}>
-          <div className={styles.navLinkText_wrapper}>
-            <span className={styles.navLinkText}>Pricing</span>
-            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
-              Pricing
-            </span>
-          </div>
-        </Link>
-        {/* <Link href="/journal" className={styles.navLink}>
-          <div className={styles.navLinkText_wrapper}>
-            <span className={styles.navLinkText}>Journal</span>
-            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
-              Journal
-            </span>
-          </div>
-        </Link> */}
+        {navLinks.map((link) => {
+          const isActive = pathname === link.href;
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`${styles.navLink} ${
+                isActive ? styles.navLinkActive : ""
+              }`}
+              aria-current={isActive ? "page" : undefined}
+            >
+              <div className={styles.navLinkText_wrapper}>
+                <span className={styles.navLinkText}>{link.name}</span>
+                <span
+                  className={`${styles.navLinkText} ${styles.dublicate}`}
+                  aria-hidden="true"
+                >
+                  {link.name}
+                </span>
+              </div>
+            </Link>
+          );
+        })}
       </nav>
-      <Link href="/contact" className={styles.contact}>
-        <motion.button
+      {/* Anchor styled as a button — a real <button> here would nest an
+          interactive element inside the <Link> anchor (invalid markup) */}
+      <motion.div
+        className={styles.contact}
+        style={{
+          color: headerColor,
+          borderColor: buttonColor,
+        }}
+      >
+        <Link
+          href="/contact"
           className={styles.contactButton}
-          style={{
-            color: headerColor,
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderColor: buttonColor, // Framer Motion will animate this value directly
-          }}
+          aria-current={pathname === "/contact" ? "page" : undefined}
         >
           <div className={styles.navLinkText_wrapper}>
             <span className={styles.navLinkText}>Connect</span>
-            <span className={`${styles.navLinkText} ${styles.dublicate}`}>
+            <span
+              className={`${styles.navLinkText} ${styles.dublicate}`}
+              aria-hidden="true"
+            >
               Connect
             </span>
           </div>
-        </motion.button>
-      </Link>
+        </Link>
+      </motion.div>
     </motion.header>
   );
 }

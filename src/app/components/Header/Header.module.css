@@ -44,17 +44,39 @@
 
 .contact {
   justify-self: end; /* Locks contact button to the far right */
+  /* The bordered pill lives on the wrapper so the inner element can stay a
+     plain <Link> (no interactive <button> nested inside an anchor).
+     border-color + text color are animated inline by Framer Motion. */
+  border: 1px solid;
 }
 
 .contactButton {
+  display: block;
   position: relative;
   overflow: hidden;
   letter-spacing: 0.1em;
   padding: var(--space-md) var(--space-lg);
+  color: inherit;
 }
 
 .contact:hover .navLinkText {
   transform: translateY(-125%) rotate(0.001deg);
+}
+
+/* ---- Active page indicator ---- */
+.navLink {
+  position: relative;
+}
+
+.navLinkActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.45em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
 }
 
 @media screen and (max-width: 991px) {
