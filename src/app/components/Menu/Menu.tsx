@@ -148,10 +148,10 @@ export default function Menu() {
                   ))}
                 </div>
                 <a
-                  href="mailto:kusakinphoto@gmail.com"
+                  href="mailto:andrew@kusakinphoto.com"
                   className={styles.email}
                 >
-                  kusakinphoto@gmail.com
+                  andrew@kusakinphoto.com
                 </a>
               </motion.div>
             </motion.nav>

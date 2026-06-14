@@ -61,8 +61,8 @@ export default function Footer() {
           <span className={styles.label}>Contact</span>
           <ul>
             <li>
-              <a href="mailto:kusakinphoto@gmail.com" className={styles.navLink}>
-                kusakinphoto@gmail.com
+              <a href="mailto:andrew@kusakinphoto.com" className={styles.navLink}>
+                andrew@kusakinphoto.com
               </a>
             </li>
             <li>
