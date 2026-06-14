@@ -158,10 +158,26 @@
     margin-top: 0;
   }
 
+  /* Parallax image wrappers need a real width on mobile — the image's inner
+     layer is absolutely positioned, so the container otherwise collapses to
+     0 width and the image vanishes. */
+  .triptychItem {
+    width: 100%;
+    max-width: 16em;
+    /* Smaller portrait frames so three stacked don't run too long to scroll.
+       Inherited by ParallaxImage's .imageContainer via its mobile rule. */
+    --parallax-height-mobile: 20em;
+  }
+
   .featureInner,
   .featureReverse {
     flex-direction: column;
     gap: var(--space-xl);
+  }
+
+  .featureImage {
+    width: 100%;
+    max-width: 36em;
   }
 
   .featureBody {

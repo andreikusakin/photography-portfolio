@@ -20,6 +20,8 @@
 @media screen and (max-width: 991px) {
   .imageContainer {
     width: 100%;
-    height: 40em;
+    /* Defaults to 40em, but a consumer can shrink it by setting
+       --parallax-height-mobile on any ancestor (custom props inherit). */
+    height: var(--parallax-height-mobile, 40em);
   }
 }

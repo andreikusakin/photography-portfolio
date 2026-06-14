@@ -61,8 +61,8 @@ export default function page() {
               <ParallaxImage
                 src={img.src}
                 alt={img.alt}
-                width="22em"
-                height="30em"
+                width="30em"
+                height="40em"
               />
             </div>
           ))}

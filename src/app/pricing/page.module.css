@@ -261,6 +261,14 @@
     gap: var(--space-xl);
   }
 
+  /* Give the parallax image wrapper a real width: its inner layer is
+     absolutely positioned, so without this the container collapses to 0
+     and the image disappears on mobile. */
+  .packageImage {
+    width: 100%;
+    max-width: 36em;
+  }
+
   .packageBody {
     width: 100%;
     max-width: 36em;
