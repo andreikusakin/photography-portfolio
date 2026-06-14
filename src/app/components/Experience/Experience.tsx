@@ -45,7 +45,7 @@ export default function Experience() {
             <motion.div className={styles.imageWrapper} style={{ y: y1 }}>
               <Image
                 src={Image1}
-                alt="Andrew Kusakin, Wedding Photographer Based In Boston, Massachusetts"
+                alt="A candid moment from a wedding day, photographed by Andrew Kusakin"
                 height={900}
                 width={600}
                 quality={90}

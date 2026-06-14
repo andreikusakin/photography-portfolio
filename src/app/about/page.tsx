@@ -25,6 +25,7 @@ export default function About() {
         title="About Me"
         subtitle="The Person Behind the Photographs"
         image={Image2}
+        alt="Andrew Kusakin, fine art documentary wedding photographer based in Boston"
       />
       <div className={styles.container}>
 

@@ -33,6 +33,7 @@ export default function Journal() {
         title="Journal"
         subtitle="Stories from behind the camera"
         image={HeroImage}
+        alt="A behind-the-scenes wedding moment by Andrew Kusakin"
       />
       <div className={styles.container}>
         {posts.length === 0 ? (

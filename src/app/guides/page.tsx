@@ -31,6 +31,7 @@ export default function Guides() {
         title="Guides"
         subtitle="Everything you need to know"
         image={HeroImage}
+        alt="A wedding day moment by Andrew Kusakin, Boston wedding photographer"
       />
       <div className={styles.container}>
         {posts.length === 0 ? (

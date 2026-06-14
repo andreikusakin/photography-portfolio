@@ -35,6 +35,7 @@ export default function page() {
         image={HeroImage}
         title="Portfolio"
         subtitle="A Collection of Real Moments"
+        alt="A couple embracing at golden hour at a New England wedding, photographed by Andrew Kusakin"
       />
 
       {/* In-page index — smooth-scrolls to each collection */}
@@ -61,7 +62,7 @@ export default function page() {
           </>
         }
         images={weddingHighlights}
-        alt="Wedding highlight"
+        alt="Wedding and engagement photograph by Andrew Kusakin"
       />
 
       <PortfolioSection

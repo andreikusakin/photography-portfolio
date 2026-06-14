@@ -26,7 +26,7 @@ export default function AboutMe() {
             <motion.div className={styles.imageWrapper} style={{ y: y1 }}>
               <Image
                 src={Image1}
-                alt="Andrew Kusakin, Wedding Photographer Based In Boston, Massachusetts"
+                alt="Andrew Kusakin, fine art documentary wedding photographer based in Boston"
                 height={900}
                 width={600}
                 quality={90}

@@ -29,7 +29,11 @@ export default function GalleryList({ gallery }: { gallery: Gallery[] }) {
               <div className={styles.image}>
                 <Photo
                   src={gallery.cover?.src || ""}
-                  alt={gallery.name}
+                  alt={`${gallery.name} ${
+                    gallery.type === "couple" ? "couple session" : "wedding"
+                  }${gallery.venue ? ` at ${gallery.venue}` : ""}${
+                    gallery.location ? `, ${gallery.location}` : ""
+                  }`}
                   className={styles.coverImage}
                   width={gallery.cover?.width || 600}
                   height={gallery.cover?.height || 900}

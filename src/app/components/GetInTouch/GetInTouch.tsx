@@ -26,7 +26,7 @@ export default function GetInTouch() {
         >
           <Image
             src="/weddings/christi-adam/000049.jpg"
-            alt="contact"
+            alt="A wedding couple photographed by Andrew Kusakin, Boston wedding photographer"
             width={1500}
             height={1000}
           />

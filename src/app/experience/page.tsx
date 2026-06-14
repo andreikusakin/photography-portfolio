@@ -30,6 +30,7 @@ export default function page() {
         image={HeroImage}
         title="The Experience"
         subtitle="Fine Art Documentary Wedding Photography"
+        alt="A candid documentary moment from a wedding day, photographed by Andrew Kusakin"
       />
 
       {/* Opening statement — cinematic dark band */}

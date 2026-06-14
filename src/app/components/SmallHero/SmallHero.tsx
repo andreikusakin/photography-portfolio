@@ -7,14 +7,17 @@ import type { StaticImageData } from 'next/image';
 import { motion, useScroll, useTransform } from "motion/react";
 
 
-export default function SmallHero({ 
-  image, 
-  title, 
-  subtitle 
-}: { 
+export default function SmallHero({
+  image,
+  title,
+  subtitle,
+  alt,
+}: {
   image: StaticImageData;
   title: string;
   subtitle: string;
+  /** Per-page image alt; falls back to a generic brand line */
+  alt?: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -43,12 +46,14 @@ export default function SmallHero({
         >
           <Image
             src={image}
-            alt="Andrew Kusakin, Wedding Photographer Based In Boston, Massachusetts. Browse Portfolio"
+            alt={
+              alt ??
+              "Fine art documentary wedding photography by Andrew Kusakin, Boston"
+            }
             width={1500}
             height={1000}
-            style={{ objectFit: "cover"}}
+            style={{ objectFit: "cover" }}
             quality={90}
-           
             priority
           />
           

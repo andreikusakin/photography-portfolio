@@ -19,6 +19,7 @@ export default function ThankYouPage() {
         title="Message Sent!"
         image={HeroImage}
         subtitle="Thank you for reaching out. I'll be in touch within 48 hours."
+        alt="A joyful wedding celebration by Andrew Kusakin"
       />
       <div className={styles.wrapper}>
         <div className={styles.content}>

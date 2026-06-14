@@ -140,6 +140,7 @@ export default function page() {
         title="Pricing"
         subtitle="Boston Wedding Photographer"
         image={HeroImage}
+        alt="A fine art wedding portrait by Andrew Kusakin, Boston wedding photographer"
       />
 
       <div className={styles.container}>

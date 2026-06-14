@@ -123,6 +123,7 @@ export default function ContactPage() {
         title="Let's Tell Your Story"
         image={HeroImage}
         subtitle="Tell Me About the Day You're Planning"
+        alt="A candid wedding moment by Andrew Kusakin, Boston wedding photographer"
       />
 
       <div className={styles.container}>
