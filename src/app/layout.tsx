@@ -115,6 +115,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Warm up the font + image origins so TLS/connection setup runs in
+            parallel with (not after) the render-blocking font CSS. The Typekit
+            font files are CORS, so those preconnects need crossOrigin. */}
+        <link
+          rel="preconnect"
+          href="https://use.typekit.net"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://p.typekit.net"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href="https://images.kusakinphoto.com" />
         <link rel="stylesheet" href="https://use.typekit.net/ygj5rom.css" />
         <link rel="stylesheet" href="https://use.typekit.net/xyp4arb.css" />
         <JsonLd data={businessSchema} />
