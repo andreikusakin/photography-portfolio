@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence } from "motion/react";
 import Photo from "../Photo/Photo";
 import Lightbox from "../Lightbox/Lightbox";
+import styles from "./MasonryComponent.module.css";
 
 interface ImageData {
   alt: string;
@@ -103,15 +104,8 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
             <button
               type="button"
               key={item.src || i}
+              className={styles.tile}
               onClick={() => setLightboxIndex(item.index)}
-              style={{
-                display: "block",
-                width: "100%",
-                padding: 0,
-                border: "none",
-                background: "none",
-                cursor: "pointer",
-              }}
             >
               <Photo
                 src={item.src}
@@ -119,7 +113,6 @@ const MasonryComponent: React.FC<MasonryComponentProps> = ({ imagesData }) => {
                 width={item.width}
                 height={item.height}
                 sizes="(max-width: 768px) 100vw, (max-width: 991px) 50vw, 33vw"
-                style={{ display: "block" }}
               />
             </button>
           ))}
