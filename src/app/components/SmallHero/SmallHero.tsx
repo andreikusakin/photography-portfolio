@@ -67,7 +67,9 @@ export default function SmallHero({
             <span className={styles.lineMask}>
               <motion.span
                 className={styles.line}
-                initial={{ y: "110%" }}
+                /* 150% (not 110%) so the line fully clears the mask's extra
+                   bottom padding and no text peeks on the first frame */
+                initial={{ y: "150%" }}
                 animate={{ y: "0%" }}
                 transition={{
                   duration: 1.4,

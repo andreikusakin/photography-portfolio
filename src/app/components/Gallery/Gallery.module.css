@@ -75,7 +75,8 @@
 .lineMask {
   display: block;
   overflow: hidden;
-  padding: 0.08em 0.12em;
+  /* Extra bottom room so serif descenders (g, y, p) aren't clipped */
+  padding: 0.08em 0.12em 0.3em;
 }
 
 .line {
