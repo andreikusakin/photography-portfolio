@@ -53,54 +53,53 @@ const faqSchema = {
   })),
 };
 
+const customEase = [0.16, 1, 0.3, 1] as const;
+
 const containerVariants = {
-  hidden: {
-    opacity: 0,
-  },
+  hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.05,
-    },
+    transition: { delayChildren: 0.1, staggerChildren: 0.06 },
   },
 };
 const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 },
-  },
+  hidden: { opacity: 0, y: "1em" },
+  show: { opacity: 1, y: "0em", transition: { duration: 0.6, ease: customEase } },
 };
+
 export default function Faq() {
   return (
-    <div className={styles.faq}>
-        <JsonLd data={faqSchema} />
-        <h4>Frequently Asked Questions</h4>
+    <section className={styles.faq}>
+      <JsonLd data={faqSchema} />
 
-        <motion.ul
-          className={styles.faqList}
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-        >
-          {faqData.map((item, index) => (
-            <FAQItem
-              key={item.question}
-              index={index}
-              question={item.question}
-              answer={item.answer}
-            />
-          ))}
-        </motion.ul>
+      <div className={styles.header}>
+        <p className={styles.eyebrow}>Good to Know</p>
+        <h2 className={styles.heading}>
+          Frequently Asked <em>Questions</em>
+        </h2>
       </div>
-  ) }
 
-  const FAQItem = ({
+      <motion.ul
+        className={styles.list}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-10%" }}
+      >
+        {faqData.map((item, index) => (
+          <FAQItem
+            key={item.question}
+            index={index}
+            question={item.question}
+            answer={item.answer}
+          />
+        ))}
+      </motion.ul>
+    </section>
+  );
+}
+
+const FAQItem = ({
   index,
   question,
   answer,
@@ -110,35 +109,39 @@ export default function Faq() {
   answer: React.ReactNode;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggleFAQ = () => {
-    setIsOpen((prevState) => !prevState);
-  };
+  const panelId = `faq-panel-${index}`;
+  const buttonId = `faq-button-${index}`;
 
   return (
-    <motion.li className={styles.itemContainer} variants={itemVariants}>
-      <div className={styles.question}>
-        <motion.span
-          onClick={toggleFAQ}
-          whileHover={{ x: 10 }}
-          whileTap={{ x: 15 }}
+    <motion.li className={styles.item} variants={itemVariants}>
+      <h3 className={styles.questionHeading}>
+        <button
+          id={buttonId}
+          type="button"
+          className={`${styles.question} ${isOpen ? styles.questionOpen : ""}`}
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-expanded={isOpen}
+          aria-controls={panelId}
         >
-          {`0${index + 1}. `}
-          {question}
-        </motion.span>
-        <div className={styles.underline}></div>
-      </div>
+          <span className={styles.index}>
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className={styles.questionText}>{question}</span>
+          <span className={styles.indicator} aria-hidden="true"></span>
+        </button>
+      </h3>
 
       <motion.div
+        id={panelId}
+        aria-labelledby={buttonId}
         className={styles.answer}
         initial={false}
         animate={
           isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
         }
-        transition={{ duration: 0.3 }}
-        style={{ overflow: "hidden" }}
+        transition={{ duration: 0.45, ease: customEase }}
       >
-        <div style={{ paddingTop: "1em", paddingBottom: "1em" }}>{answer}</div>
+        <p className={styles.answerText}>{answer}</p>
       </motion.div>
     </motion.li>
   );
