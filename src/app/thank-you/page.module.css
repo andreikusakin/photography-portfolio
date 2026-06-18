@@ -1,29 +1,120 @@
-.content {
-  max-width: 50em;
-  text-align: center;
-  display: grid;
-  gap: 1.5em;
-  padding-top: 6em;
-  padding-bottom: 6em;
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
-.content h2 {
-    font-family: var(--font-serif);
-  font-weight: 400;
-  font-style: normal;
-  font-size: 3em;
-}
-.content p{ 
-  font-size: 1.2em;
-  opacity: 0.9;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
   align-items: center;
+  padding: var(--space-4xl) var(--container-padding);
+}
+
+.content {
+  width: 100%;
+  max-width: 38em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  opacity: 0.55;
+  margin-bottom: var(--space-md);
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-xl);
+  line-height: 1.1;
+  margin: 0 0 var(--space-xl);
+}
+
+.heading em {
+  font-style: italic;
+}
+
+/* ---- Numbered "what happens next" steps ---- */
+
+.steps {
+  list-style: none;
+  width: 100%;
+  margin: 0 0 var(--space-2xl);
+  padding: 0;
+  text-align: left;
+  border-top: 1px solid rgba(24, 23, 22, 0.12);
+}
+
+.step {
+  display: flex;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid rgba(24, 23, 22, 0.12);
+}
+
+.stepIndex {
+  flex: 0 0 2.2em;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: 0.16em;
+  opacity: 0.4;
+}
+
+.stepText {
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* ---- Gentle link back into the work ---- */
+
+.exploreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-black);
+}
+
+.exploreLabel {
+  position: relative;
+  padding-bottom: var(--space-xs);
+}
+
+.exploreLabel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--cubic-default);
+}
+
+.exploreLink:hover .exploreLabel::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.exploreArrow {
+  display: inline-block;
+  transition: transform 0.5s var(--cubic-default);
+}
+
+.exploreLink:hover .exploreArrow {
+  transform: translateX(0.3em);
+}
+
+@media screen and (max-width: 767px) {
+  .heading {
+    font-size: var(--text-lg);
+  }
 }
