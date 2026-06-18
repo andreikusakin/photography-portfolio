@@ -53,7 +53,7 @@ const packages: Package[] = [
         text: "A second storyteller to capture more angles, more candid moments, and a richer, more complete view of your day.",
       },
       {
-        label: "Engagement Session",
+        label: "Complementary Engagement Session",
         text: "Our chance to connect, have fun, and get you both comfortable in front of the camera before the big day. It makes a world of difference.",
       },
       {
@@ -108,7 +108,7 @@ const packages: Package[] = [
       "Let's celebrate your connection. Whether it's for your engagement, an anniversary, or just because, these sessions are relaxed, fun, and focused on capturing you as you truly are. We'll find a beautiful spot, put on some music, and create authentic portraits that feel like you.",
     note: "An engagement session is already included in the Full-Day Wedding package.",
     priceLabel: "Starting at",
-    price: "$400",
+    price: "$500",
     image: EngagementPhoto,
     alt: "Engagement and couple session photography",
   },
