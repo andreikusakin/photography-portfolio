@@ -11,7 +11,7 @@ const navLinks = [
   { name: "Portfolio", href: "/portfolio" },
   { name: "Experience", href: "/experience" },
   { name: "Pricing", href: "/pricing" },
-  // { name: "Journal", href: "/journal" },
+  { name: "Journal", href: "/journal" },
 ];
 
 export default function Header() {

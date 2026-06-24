@@ -26,6 +26,7 @@ function formatDate(date: string) {
 
 export default function Journal() {
   const posts = getAllPosts("blog");
+  const [featured, ...rest] = posts;
 
   return (
     <div>
@@ -35,39 +36,80 @@ export default function Journal() {
         image={HeroImage}
         alt="A behind-the-scenes wedding moment by Andrew Kusakin"
       />
+
       <div className={styles.container}>
         {posts.length === 0 ? (
-          <p className={styles.empty}>
-            New stories are on the way. Check back soon.
-          </p>
+          <div className={styles.empty}>
+            <p className={styles.emptyEyebrow}>The Journal</p>
+            <p className={styles.emptyText}>
+              New stories are on the way. Check back soon.
+            </p>
+          </div>
         ) : (
-          <ul className={styles.list}>
-            {posts.map((post) => (
-              <li key={post.slug} className={styles.card}>
-                <Link href={`/journal/${post.slug}`} className={styles.cardLink}>
-                  {post.coverImage && (
-                    <div className={styles.cover}>
-                      <JournalCover
-                        src={post.coverImage}
-                        width={900}
-                        height={600}
-                        alt={post.title}
-                        sizes="(max-width: 767px) 100vw, 50vw"
-                      />
-                    </div>
-                  )}
-                  <div className={styles.meta}>
-                    <time className={styles.date}>{formatDate(post.date)}</time>
-                    <h2 className={styles.title}>{post.title}</h2>
-                    {post.excerpt && (
-                      <p className={styles.excerpt}>{post.excerpt}</p>
-                    )}
-                    <span className={styles.read}>Read story</span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <>
+            {/* Latest story — full-width feature so the list never looks sparse */}
+            <Link
+              href={`/journal/${featured.slug}`}
+              className={styles.featured}
+            >
+              {featured.coverImage && (
+                <div className={styles.featuredCover}>
+                  <JournalCover
+                    src={featured.coverImage}
+                    width={1200}
+                    height={800}
+                    alt={featured.title}
+                    sizes="(max-width: 991px) 100vw, 58vw"
+                    priority
+                  />
+                </div>
+              )}
+              <div className={styles.featuredMeta}>
+                <p className={styles.eyebrow}>Latest Story</p>
+                <time className={styles.date}>{formatDate(featured.date)}</time>
+                <h2 className={styles.featuredTitle}>{featured.title}</h2>
+                {featured.excerpt && (
+                  <p className={styles.featuredExcerpt}>{featured.excerpt}</p>
+                )}
+                <span className={styles.read}>Read story</span>
+              </div>
+            </Link>
+
+            {rest.length > 0 && (
+              <ul className={styles.list}>
+                {rest.map((post) => (
+                  <li key={post.slug} className={styles.card}>
+                    <Link
+                      href={`/journal/${post.slug}`}
+                      className={styles.cardLink}
+                    >
+                      {post.coverImage && (
+                        <div className={styles.cover}>
+                          <JournalCover
+                            src={post.coverImage}
+                            width={900}
+                            height={600}
+                            alt={post.title}
+                            sizes="(max-width: 767px) 100vw, 50vw"
+                          />
+                        </div>
+                      )}
+                      <div className={styles.meta}>
+                        <time className={styles.date}>
+                          {formatDate(post.date)}
+                        </time>
+                        <h3 className={styles.title}>{post.title}</h3>
+                        {post.excerpt && (
+                          <p className={styles.excerpt}>{post.excerpt}</p>
+                        )}
+                        <span className={styles.read}>Read story</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
         )}
       </div>
       <GetInTouch />

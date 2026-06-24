@@ -147,9 +147,15 @@ export default async function JournalPost({ params }: Props) {
           <Link href="/journal" className={styles.back}>
             ← Journal
           </Link>
-          <time className={styles.date} dateTime={post.meta.date}>
-            {formatDate(post.meta.date)}
-          </time>
+          <p className={styles.metaRow}>
+            <time className={styles.date} dateTime={post.meta.date}>
+              {formatDate(post.meta.date)}
+            </time>
+            <span className={styles.dot} aria-hidden="true">
+              ·
+            </span>
+            <span className={styles.readingTime}>{minutes} min read</span>
+          </p>
           <h1 className={styles.title}>{post.meta.title}</h1>
           {post.meta.excerpt && (
             <p className={styles.excerpt}>{post.meta.excerpt}</p>
@@ -171,6 +177,15 @@ export default async function JournalPost({ params }: Props) {
 
         <div className={styles.content}>
           <MDXRemote source={post.content} components={components} />
+        </div>
+
+        <div className={styles.outro}>
+          <Link href="/journal" className={styles.backToJournal}>
+            <span className={styles.backArrow} aria-hidden="true">
+              &larr;
+            </span>
+            <span className={styles.backLabel}>Back to the Journal</span>
+          </Link>
         </div>
 
         <GetInTouch />

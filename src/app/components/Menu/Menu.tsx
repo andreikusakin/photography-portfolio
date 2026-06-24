@@ -14,7 +14,7 @@ const menuLinks = [
   { name: "About", href: "/about" },
   { name: "Experience", href: "/experience" },
   { name: "Pricing", href: "/pricing" },
-  // { name: "Journal", href: "/journal" },
+  { name: "Journal", href: "/journal" },
   { name: "Contact", href: "/contact" },
 ];
 
