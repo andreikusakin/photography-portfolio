@@ -29,7 +29,7 @@
   font-weight: 400;
   font-size: var(--text-xl);
   line-height: 1.1;
-  margin: 0 0 var(--space-xl);
+  margin: 0 0 var(--space-md);
 }
 
 .heading em {

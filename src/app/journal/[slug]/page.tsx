@@ -33,6 +33,13 @@ function cloudinaryOgUrl(publicId: string): string {
   return `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/${publicId}`;
 }
 
+// Local covers live under /public; remote covers are Cloudinary public IDs.
+function ogImageUrl(coverImage: string): string {
+  return coverImage.startsWith("/")
+    ? `${SITE_URL}${coverImage}`
+    : cloudinaryOgUrl(coverImage);
+}
+
 function readingTime(content: string): number {
   const text = content
     .replace(/<[^>]+>/g, "")
@@ -47,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { meta } = getPostBySlug(slug, "blog");
     const ogImage = meta.coverImage
-      ? cloudinaryOgUrl(meta.coverImage)
+      ? ogImageUrl(meta.coverImage)
       : `${SITE_URL}/logo.png`;
 
     return {
@@ -90,7 +97,7 @@ export default async function JournalPost({ params }: Props) {
   const minutes = readingTime(post.content);
   const postUrl = `${SITE_URL}/journal/${slug}`;
   const ogImage = post.meta.coverImage
-    ? cloudinaryOgUrl(post.meta.coverImage)
+    ? ogImageUrl(post.meta.coverImage)
     : `${SITE_URL}/logo.png`;
 
   const blogPostingSchema = {
@@ -166,8 +173,8 @@ export default async function JournalPost({ params }: Props) {
           <div className={styles.cover}>
             <JournalCover
               src={post.meta.coverImage}
-              width={1600}
-              height={1000}
+              width={2560}
+              height={1707}
               alt={post.meta.title}
               sizes="100vw"
               priority
