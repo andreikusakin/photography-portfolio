@@ -13,9 +13,18 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com",
         port: "",
-        pathname: "/**", 
+        pathname: "/**",
       },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/journal/welcome-to-the-journal",
+        destination: "/journal/how-i-found-my-way-to-weddings",
+        permanent: true,
+      },
+    ];
   },
 };
 

@@ -219,6 +219,7 @@ export const socials = [
 export const travel = [
   "/travel/000001.jpg",
   "/travel/000002.jpg",
+  "/travel/aruba.jpg",
   "/travel/000003.jpg",
   "/travel/000004.jpg",
   "/travel/000005.jpg",

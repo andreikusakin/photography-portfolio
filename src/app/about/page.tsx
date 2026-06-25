@@ -8,8 +8,9 @@ import GetInTouch from "../components/GetInTouch/GetInTouch";
 import Reveal from "../components/Reveal/Reveal";
 import Image2 from "./../../../public/about/ak2.jpg";
 import Image3 from "./../../../public/about/ak3.jpg";
-import Image4 from "./../../../public/about/ak4.jpg";
+// import Image4 from "./../../../public/about/ak4.jpg";
 import Image5 from "./../../../public/about/ak5.jpg";
+import Image6 from "./fruitlands-museum-wedding-ceremony-00018-2400.webp"
 
 export const metadata: Metadata = {
   title: "About Andrew Kusakin | Boston Wedding Photographer",
@@ -118,7 +119,7 @@ export default function About() {
               </p>
             </Reveal>
             <ParallaxImage
-              src={Image4}
+              src={Image6}
               alt="Documentary wedding photograph by Andrew Kusakin"
               width="30em"
               height="40em"

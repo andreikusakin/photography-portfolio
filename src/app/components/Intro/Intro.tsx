@@ -52,8 +52,7 @@ export default function Intro() {
             Cinematic <em>and</em> deeply human
           </h2>
           <p className={styles.lede}>
-            A unique, cinematic approach to fine art documentary wedding
-            photography — crafted with care down to the smallest detail.
+Bringing a unique, cinematic vision to fine art documentary wedding photography. Every fleeting moment is captured with care, down to the smallest detail.
           </p>
           <p className={styles.bodyText}>
             A wedding day is the people in it. Each image is shaped by the
