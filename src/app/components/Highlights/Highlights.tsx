@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import Image, { type StaticImageData } from "next/image";
 import styles from "./Highlights.module.css";
 
@@ -32,7 +32,7 @@ export default function Highlights({ images, alt = "Highlight" }: Props) {
 
   // Distance between a slide and its twin one copy over = exactly one loop. Using
   // the gap between equivalent slides keeps the math exact regardless of gaps.
-  const measure = () => {
+  const measure = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
     const first = track.children[0] as HTMLElement | undefined;
@@ -40,7 +40,7 @@ export default function Highlights({ images, alt = "Highlight" }: Props) {
     if (first && firstNext) {
       loopWidth.current = firstNext.offsetLeft - first.offsetLeft;
     }
-  };
+  }, [count]);
 
   const markActive = (slide: HTMLElement) => {
     if (activeSlide.current === slide) return;
@@ -103,7 +103,7 @@ export default function Highlights({ images, alt = "Highlight" }: Props) {
       window.removeEventListener("resize", onResize);
       if (stopTimer.current) window.clearTimeout(stopTimer.current);
     };
-  }, []);
+  }, [measure]);
 
   const onScroll = () => {
     detectActive();
