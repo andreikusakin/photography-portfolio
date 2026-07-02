@@ -1,0 +1,163 @@
+.wrapper {
+  background-color: var(--color-neutral-600);
+  color: var(--color-white);
+  overflow: hidden;
+  padding: var(--space-4xl) var(--container-padding);
+}
+
+.grid {
+  max-width: 90em;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  column-gap: var(--space-3xl);
+  align-items: start;
+}
+
+/* ---- Text flow ---- */
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.textFlow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-2xl);
+  line-height: 1.08;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heading em {
+  font-style: italic;
+}
+
+/* Each heading line rises out of an overflow mask (hero idiom) */
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0.12em;
+}
+
+.line {
+  display: block;
+  will-change: transform;
+}
+
+.text {
+  max-width: 30em;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* ---- Photograph constellation ---- */
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-neutral-700);
+}
+
+/* Oversized inner so the parallax drift never exposes the frame edges */
+.frameInner {
+  position: absolute;
+  inset: -7% 0;
+  will-change: transform;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Counterweight strip below the text, off the column's left axis */
+.strip {
+  width: 72%;
+  aspect-ratio: 4 / 3;
+  margin-top: var(--space-2xl);
+}
+
+.right {
+  position: relative;
+  /* Reserves room for the float frame hanging below the anchor */
+  margin-bottom: var(--space-2xl);
+}
+
+/* Dominant portrait anchoring the spread */
+.anchor {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+/* Small frame hanging off the anchor's corner, across the gutter */
+.float {
+  position: absolute;
+  width: 42%;
+  aspect-ratio: 2 / 3;
+  left: -18%;
+  bottom: calc(-1 * var(--space-2xl));
+  z-index: 2;
+}
+
+/* ---- Responsive ---- */
+
+@media screen and (max-width: 991px) {
+  .grid {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-2xl);
+  }
+
+  .strip {
+    width: 60%;
+  }
+
+  .right {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .float {
+    left: auto;
+    right: -4%;
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .heading {
+    font-size: var(--text-xl);
+  }
+
+  .strip {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+}

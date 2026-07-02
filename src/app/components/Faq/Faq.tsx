@@ -74,9 +74,7 @@ export default function Faq() {
 
       <div className={styles.header}>
         <p className={styles.eyebrow}>Good to Know</p>
-        <h2 className={styles.heading}>
-          Frequently Asked <em>Questions</em>
-        </h2>
+        <h2 className={styles.heading}>Frequently Asked Questions</h2>
       </div>
 
       <motion.ul

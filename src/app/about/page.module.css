@@ -42,11 +42,6 @@
   margin: 0;
 }
 
-.introText h2 em,
-.col h2 em {
-  font-style: italic;
-}
-
 .introText p {
   opacity: 0.8;
   line-height: 1.7;
@@ -126,6 +121,33 @@
   margin: 0;
 }
 
+/* Quiet text-link CTA (shrinking-underline idiom shared site-wide) */
+.cta {
+  align-self: flex-start;
+  margin-top: var(--space-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  position: relative;
+  padding-bottom: var(--space-xs);
+}
+
+.ctaLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform 0.6s var(--cubic-default);
+}
+
+.cta:hover .ctaLine {
+  transform: scaleX(0.35);
+}
+
 /* ── Pull quote ── */
 
 .quoteBand {
@@ -137,12 +159,13 @@
   padding: var(--space-3xl) var(--container-padding);
 }
 
+/* The page's statement moment — display scale, one italic accent inside */
 .quote {
   font-family: var(--font-serif);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: 400;
-  line-height: 1.3;
-  max-width: 18em;
+  line-height: 1.25;
+  max-width: 16em;
   margin: 0 auto;
 }
 
@@ -177,7 +200,7 @@
   }
 
   .quote {
-    font-size: var(--text-md);
+    font-size: var(--text-lg);
   }
 
   .twoCol,

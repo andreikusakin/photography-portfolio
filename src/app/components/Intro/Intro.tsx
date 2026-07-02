@@ -49,7 +49,7 @@ export default function Intro() {
         <Reveal className={styles.text} delay={0.15}>
           <p className={styles.eyebrow}>The Approach</p>
           <h2 className={styles.heading}>
-            Cinematic <em>and</em> deeply human
+            Cinematic and deeply human
           </h2>
           <p className={styles.lede}>
 Bringing a unique, cinematic vision to fine art documentary wedding photography. Every fleeting moment is captured with care, down to the smallest detail.
@@ -60,8 +60,9 @@ Bringing a unique, cinematic vision to fine art documentary wedding photography.
             them, the affection and the quiet truths that pass through a long
             day together.
           </p>
-          <Link href="/portfolio" className={styles.button}>
-            Browse Portfolio
+          <Link href="/portfolio" className={styles.cta}>
+            Browse the portfolio
+            <span className={styles.ctaLine} aria-hidden="true"></span>
           </Link>
         </Reveal>
 

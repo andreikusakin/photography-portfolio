@@ -10,194 +10,119 @@
   margin-bottom: var(--space-lg);
 }
 
-/* ---- Opening statement (cinematic dark band) ---- */
+/* ---- Guidance & care (warm editorial ledger) ---- */
 
-.opening {
-  background-color: var(--color-neutral-600);
-  color: var(--color-white);
-  padding: var(--space-4xl) var(--container-padding);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: var(--space-3xl);
-  row-gap: var(--space-3xl);
-  align-items: start;
-  max-width: var(--size-container-max);
-  margin: 0 auto;
-}
-
-.openingHead .eyebrow {
-  color: rgba(255, 255, 255, 0.6);
-  opacity: 1;
-}
-
-.openingHeading {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: var(--text-2xl);
-  line-height: 1.08;
-  margin: 0;
-}
-
-.openingHeading em {
-  font-style: italic;
-}
-
-.openingText {
-  align-self: end;
-}
-
-.openingText p {
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 34em;
-}
-
-/* Triptych spans the full grid width below the statement */
-.triptych {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-lg);
-  margin-top: var(--space-xl);
-}
-
-/* Gentle editorial stagger: lift the middle frame */
-.triptychItem:nth-child(2) {
-  margin-top: var(--space-2xl);
-}
-
-/* ---- Feature sections (alternating image / text) ---- */
-
-.feature {
-  padding: var(--space-4xl) var(--container-padding);
-}
-
-.featureWarm {
+.guidance {
   background-color: var(--color-button);
+  padding: var(--space-4xl) var(--container-padding);
 }
 
-.featureInner {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3xl);
-  max-width: var(--size-container-max);
+.guidanceInner {
+  max-width: 90em;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  column-gap: var(--space-3xl);
+  align-items: start;
 }
 
-.featureReverse {
-  flex-direction: row-reverse;
-}
-
-.featureImage {
-  flex: 0 0 auto;
-}
-
-.featureBody {
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: 34em;
+.guidanceLeft {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.featureHeading {
+.guidanceHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.guidanceHeading {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: var(--text-xl);
-  line-height: 1.1;
-  margin: 0 0 var(--space-md);
+  line-height: 1.05;
+  margin: 0;
 }
 
-.featureHeading em {
-  font-style: italic;
-}
-
-.featureText {
-  line-height: 1.8;
+.guidanceLede {
+  max-width: 24em;
+  line-height: 1.7;
   opacity: 0.85;
+  margin: 0;
 }
 
-.featureText + .featureText {
-  margin-top: var(--space-lg);
+.guidanceImage {
+  margin-top: var(--space-2xl);
 }
 
-.button {
-  display: inline-block;
-  margin-top: var(--space-xl);
-  padding: var(--space-md) var(--space-xl);
+/* Hairline-separated support items */
+.ledger {
+  display: flex;
+  flex-direction: column;
+}
+
+.ledgerItem {
+  display: grid;
+  grid-template-columns: 12em 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid rgba(24, 23, 22, 0.15);
+}
+
+.ledgerItem:last-child {
+  border-bottom: 1px solid rgba(24, 23, 22, 0.15);
+}
+
+.ledgerLabel {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  border: 1px solid currentColor;
-  transition: background 0.4s ease, color 0.4s ease;
+  letter-spacing: 0.16em;
+  padding-top: var(--space-xs);
 }
 
-.button:hover {
-  background: var(--color-black);
-  color: var(--color-button);
+.ledgerText {
+  line-height: 1.7;
+  opacity: 0.8;
+  margin: 0;
 }
 
 /* ---- Responsive ---- */
 
 @media screen and (max-width: 991px) {
-  .opening {
+  .guidanceInner {
     grid-template-columns: 1fr;
-    row-gap: var(--space-xl);
+    row-gap: var(--space-2xl);
   }
 
-  .openingText {
-    align-self: start;
-  }
-
-  .triptychItem:nth-child(2) {
-    margin-top: 0;
-  }
-
-  /* Parallax image wrappers need a real width on mobile — the image's inner
-     layer is absolutely positioned, so the container otherwise collapses to
-     0 width and the image vanishes. */
-  .triptychItem {
+  /* ParallaxImage's inner layer is absolutely positioned — the wrapper needs
+     a real width here or it collapses to 0 and the image vanishes. */
+  .guidanceImage {
     width: 100%;
-    max-width: 16em;
-    /* Smaller portrait frames so three stacked don't run too long to scroll.
-       Inherited by ParallaxImage's .imageContainer via its mobile rule. */
-    --parallax-height-mobile: 20em;
+    max-width: 26em;
   }
 
-  .featureInner,
-  .featureReverse {
-    flex-direction: column;
-    gap: var(--space-xl);
+  .ledgerItem {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
   }
 
-  .featureImage {
-    width: 100%;
-    max-width: 36em;
-  }
-
-  .featureBody {
-    width: 100%;
-    max-width: 40em;
+  .ledgerLabel {
+    padding-top: 0;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .opening {
+  .guidance {
     padding-top: var(--space-3xl);
     padding-bottom: var(--space-3xl);
   }
 
-  .openingHeading {
-    font-size: var(--text-xl);
-  }
-
-  .feature {
-    padding-top: var(--space-3xl);
-    padding-bottom: var(--space-3xl);
+  .guidanceHeading {
+    font-size: var(--text-lg);
   }
 }

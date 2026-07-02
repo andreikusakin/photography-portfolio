@@ -5,6 +5,7 @@ import Marquee from "./components/Marquee/Marquee";
 import Philosophy from "./components/Philosophy/Philosophy";
 import Featured from "./components/Featured/Featured";
 import Experience from "./components/Experience/Experience";
+import Testimonials from "./components/Testimonials/Testimonials";
 import GetInTouch from "./components/GetInTouch/GetInTouch";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Philosophy />
       <AboutMe />
       <Experience />
+      <Testimonials />
       <GetInTouch />
     </>
   );

@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import SmallHero from "../components/SmallHero/SmallHero";
 import ParallaxImage from "../components/ParallaxImage/ParallaxImage";
 import GetInTouch from "../components/GetInTouch/GetInTouch";
+import Testimonials from "../components/Testimonials/Testimonials";
 import Reveal from "../components/Reveal/Reveal";
 import Image2 from "./../../../public/about/ak2.jpg";
 import Image3 from "./../../../public/about/ak3.jpg";
@@ -40,9 +42,7 @@ export default function About() {
           />
           <Reveal className={styles.introText}>
             <p className={styles.eyebrow}>Nice to Meet You</p>
-            <h2>
-              Hi, I&apos;m <em>Andrew</em>.
-            </h2>
+            <h2>Hi, I&apos;m Andrew.</h2>
             <p>
               I am a photographer based in Boston. Having documented over a
               hundred weddings, I choose to focus on full-day coverage that
@@ -70,9 +70,7 @@ export default function About() {
             />
             <Reveal className={styles.col}>
               <p className={styles.eyebrow}>Philosophy</p>
-              <h2>
-                Cinema, art <em>and</em> classical form
-              </h2>
+              <h2>Cinema, art and classical form</h2>
               <p>
                 My visual language is shaped by cinema, classical painting, and
                 architecture. The lines of an old building, the deliberate light
@@ -105,9 +103,7 @@ export default function About() {
           <div className={`${styles.twoCol} ${styles.twoColReverse}`}>
             <Reveal className={styles.col}>
               <p className={styles.eyebrow}>Perspective</p>
-              <h2>
-                At the heart of <em>every</em> wedding
-              </h2>
+              <h2>At the heart of every wedding</h2>
               <p>
                 What draws me to this is people: the way two people are with
                 each other, and the way that closeness ripples outward to the
@@ -117,6 +113,10 @@ export default function About() {
                 across a long day. These are the moments a wedding is really
                 made of.
               </p>
+              <Link href="/portfolio" className={styles.cta}>
+                See the work
+                <span className={styles.ctaLine} aria-hidden="true"></span>
+              </Link>
             </Reveal>
             <ParallaxImage
               src={Image6}
@@ -128,6 +128,10 @@ export default function About() {
         </section>
 
       </div>
+
+      {/* — Kind words: proof from past clients before the ask — */}
+      <Testimonials />
+
       <GetInTouch />
     </div>
   );

@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 44em;
+  max-width: 50em;
   margin: 0 auto;
   padding: var(--space-4xl) var(--container-padding) var(--space-2xl);
 }
@@ -30,22 +30,18 @@
   margin-bottom: var(--space-lg);
 }
 
+/* One clean line at display scale — the SmallHero title owns the 2xl moment */
 .introHeading {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   line-height: 1.05;
   margin: 0;
 }
 
-.introHeading em,
-.packageTitle em,
-.detailsHeading em {
-  font-style: italic;
-}
-
 .introText {
   margin-top: var(--space-lg);
+  max-width: 40em;
   line-height: 1.7;
   opacity: 0.85;
 }
@@ -190,6 +186,33 @@
   line-height: 1;
 }
 
+/* Quiet text-link CTA per package (shrinking-underline idiom) */
+.packageCta {
+  align-self: flex-start;
+  margin-top: var(--space-xl);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  position: relative;
+  padding-bottom: var(--space-xs);
+}
+
+.packageCtaLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform 0.6s var(--cubic-default);
+}
+
+.packageCta:hover .packageCtaLine {
+  transform: scaleX(0.35);
+}
+
 /* ---- Travel & details (dark band) ---- */
 
 .details {
@@ -286,7 +309,7 @@
   }
 
   .introHeading {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
   }
 
   .packages {

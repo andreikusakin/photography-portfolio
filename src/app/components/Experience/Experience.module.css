@@ -1,52 +1,22 @@
 .wrapper {
   background-color: var(--color-button);
-  padding-top: var(--space-3xl);
-  padding-bottom: var(--space-3xl);
+  padding: var(--space-3xl) var(--container-padding);
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.grid {
+.inner {
+  max-width: 90em;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3xl);
+  flex-direction: column;
+  gap: var(--space-2xl);
 }
 
-.col1 {
-  width: 35em;
+.header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-lg);
-}
-
-.imageContainer {
-  width: 35em;
-  height: 50em;
-  overflow: hidden;
-  position: relative;
-}
-
-.imageWrapper {
-  width: 100%;
-  height: 110%;
-  position: absolute;
-  top: -5%;
-}
-
-.imageWrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.col2 {
-  position: relative;
 }
 
 .eyebrow {
@@ -55,72 +25,141 @@
   font-weight: 500;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
+  opacity: 0.6;
   margin: 0;
 }
 
-.col1 h3 em {
-  font-style: italic;
-}
-
-.col1 .eyebrow {
-  opacity: 0.6;
-}
-
-.col1 h3 {
+.heading {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-style: normal;
   font-size: var(--text-xl);
   line-height: 1.1;
   margin: 0;
 }
 
-.col1 p {
-  opacity: 0.8;
-  line-height: 1.7;
+/* ---- Numbered movements ---- */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2xl);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-lg);
+}
+
+/* Middle column drops for editorial rhythm (echoes Intro's counterweights) */
+.step:nth-child(2) {
+  margin-top: var(--space-2xl);
+}
+
+/* Photograph above each movement — clip-reveal idiom shared site-wide */
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-neutral-400);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.stepBody {
+  border-top: 1px solid rgba(24, 23, 22, 0.18);
+  padding-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.index {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: 0.16em;
+  opacity: 0.45;
+}
+
+.stepTitle {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-md);
+  line-height: 1.2;
   margin: 0;
 }
 
-.buttonWrapper button {
-  background: transparent;
-  border: 1px solid currentColor;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  padding: var(--space-md) var(--space-xl);
-  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+.stepText {
+  opacity: 0.8;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 30em;
 }
 
-.buttonWrapper button:hover {
-  background: var(--color-black);
-  color: var(--color-white);
-  border-color: var(--color-black);
+/* ---- Text-link CTA (shrinking underline, shared with Featured) ---- */
+
+.ctaRow {
+  display: flex;
 }
+
+.cta {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  position: relative;
+  padding-bottom: var(--space-xs);
+}
+
+.ctaLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform 0.6s var(--cubic-default);
+}
+
+.cta:hover .ctaLine {
+  transform: scaleX(0.35);
+}
+
+/* ---- Responsive ---- */
 
 @media screen and (max-width: 991px) {
-  .grid {
-    flex-direction: column-reverse;
+  .steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  /* No stagger when stacked */
+  .step:nth-child(2) {
+    margin-top: 0;
+  }
+
+  /* Landscape crop keeps the stacked section compact */
+  .imageFrame {
+    aspect-ratio: 3 / 2;
+  }
+
+  .stepText {
+    max-width: 34em;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .grid {
-    flex-direction: column-reverse;
-    gap: var(--space-xl);
-  }
-  .imageContainer {
-    width: 100vw;
-    height: 40em;
-  }
-  .imageWrapper {
-    top: 0;
-    position: relative;
+  .wrapper {
+    padding: var(--space-2xl) var(--container-padding);
   }
 
-  .col1 {
-    width: 100%;
-    padding: var(--space-md);
-  }
-  .col1 h3 {
+  .heading {
     font-size: var(--text-lg);
   }
 }

@@ -1,0 +1,236 @@
+.wrapper {
+  padding: var(--space-4xl) var(--container-padding);
+  max-width: var(--size-container-max);
+  margin: 0 auto;
+}
+
+/* ---- Section header ---- */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 50em;
+  margin: 0 auto var(--space-3xl);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  opacity: 0.55;
+  margin: 0 0 var(--space-lg);
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-xl);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.intro {
+  margin-top: var(--space-lg);
+  max-width: 36em;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* ---- Chapters along a drawing rail ---- */
+
+.chapters {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+  padding: var(--space-2xl) 0;
+}
+
+.rail {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: rgba(24, 23, 22, 0.12);
+}
+
+.railProgress {
+  position: absolute;
+  inset: 0;
+  background: var(--color-black);
+  transform-origin: top;
+}
+
+.chapter {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "body image";
+  column-gap: var(--space-3xl);
+  align-items: center;
+}
+
+.chapterFlip {
+  grid-template-areas: "image body";
+}
+
+/* Chapter marker sits on the rail */
+.dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--space-xs);
+  height: var(--space-xs);
+  border-radius: 50%;
+  background: var(--color-black);
+  /* Cream ring lifts the dot off the rail line */
+  box-shadow: 0 0 0 var(--space-xs) var(--color-background);
+  z-index: 1;
+}
+
+/* Text approaches the rail from its side */
+.chapterBody {
+  grid-area: body;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: var(--space-sm);
+}
+
+.chapterFlip .chapterBody {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.time {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: 0.16em;
+  opacity: 0.45;
+}
+
+.chapterTitle {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-lg);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.chapterText {
+  max-width: 24em;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.chapterImage {
+  grid-area: image;
+  position: relative;
+  width: 100%;
+  max-width: 36em;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-neutral-400);
+}
+
+.chapterFlip .chapterImage {
+  justify-self: end;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ---- Closing CTA ---- */
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-2xl);
+}
+
+.cta {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  position: relative;
+  padding-bottom: var(--space-xs);
+}
+
+.ctaLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform 0.6s var(--cubic-default);
+}
+
+.cta:hover .ctaLine {
+  transform: scaleX(0.35);
+}
+
+/* ---- Responsive ---- */
+
+@media screen and (max-width: 991px) {
+  /* Rail moves to the left edge; chapters hang off it */
+  .rail {
+    left: var(--space-xs);
+    transform: none;
+  }
+
+  .chapter,
+  .chapterFlip {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "body"
+      "image";
+    row-gap: var(--space-lg);
+    padding-left: var(--space-2xl);
+  }
+
+  .dot {
+    left: var(--space-xs);
+    top: var(--space-xs);
+    transform: translate(-50%, 0);
+  }
+
+  .chapterBody,
+  .chapterFlip .chapterBody {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .chapterImage,
+  .chapterFlip .chapterImage {
+    max-width: 100%;
+    justify-self: start;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .heading {
+    font-size: var(--text-lg);
+  }
+
+  .chapters {
+    gap: var(--space-2xl);
+  }
+}

@@ -37,14 +37,20 @@ export default function AboutMe() {
         </div>
         <Reveal className={styles.col2}>
           <p className={styles.eyebrow}>Behind the Camera</p>
-          <h3>
-            Hi, I&apos;m <em>Andrew</em>.
-          </h3>
+          <h3>Hi, I&apos;m Andrew.</h3>
 
-          <p className={styles.text}>
-            After more than a hundred weddings, I&apos;ve learned where to stand, when to step back, and how to let a day tell its own story. The way I see that story owes as much to cinematography, classical art, and architecture as it does to photography. Some frames I compose with care; most I simply watch for and catch as they happen.
-What draws me in is human connection, not only between two people but between them and the families and closest friends who came for them. I love photographing couples who are openly affectionate, the kind who reach and lean and hold on through a long day and never need to be told to look at each other.
-I&apos;m based in Boston, and glad to travel through New England and wherever the day leads.
+          <p className={styles.lede}>
+            After more than a hundred weddings, I&apos;ve learned where to
+            stand, when to step back, and how to let a day tell its own story.
+          </p>
+
+          <p className={styles.body}>
+            The way I see that story owes as much to cinematography, classical
+            art, and architecture as it does to photography. What draws me in
+            is human connection — couples who reach and lean and hold on
+            through a long day, and the families and closest friends who came
+            for them. I&apos;m based in Boston, and glad to travel through New
+            England and wherever the day leads.
           </p>
 
           <dl className={styles.stats}>
@@ -62,8 +68,9 @@ I&apos;m based in Boston, and glad to travel through New England and wherever th
             </div>
           </dl>
 
-          <Link href="/about" className={styles.buttonWrapper}>
-            <button>Read More</button>
+          <Link href="/about" className={styles.cta}>
+            More about me
+            <span className={styles.ctaLine} aria-hidden="true"></span>
           </Link>
         </Reveal>
       </div>

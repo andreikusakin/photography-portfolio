@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "./page.module.css";
 import HeroImage from "./../../../public/weddings/erin-kyle/000067.jpg";
 import IntimateImage from "./../../../public/weddings/alyssa-jonathan/000066.jpg";
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 type Package = {
   index: string;
   eyebrow: string;
-  title: React.ReactNode;
+  title: string;
   blurb: string;
   includes?: { label: string; text: string }[];
   note?: string;
@@ -36,11 +37,7 @@ const packages: Package[] = [
   {
     index: "01",
     eyebrow: "The Complete Story",
-    title: (
-      <>
-        Full-Day <em>Wedding</em>
-      </>
-    ),
+    title: "Full-Day Wedding",
     blurb:
       "Perfect for larger weddings (30+ guests) where you want the full narrative of your day captured without having to watch the clock. This is my signature offering, designed to document every chapter of your celebration, from the quiet moments of getting ready to the wild energy of the last dance.",
     includes: [
@@ -69,11 +66,7 @@ const packages: Package[] = [
   {
     index: "02",
     eyebrow: "Intimate",
-    title: (
-      <>
-        Weddings &amp; <em>Elopements</em>
-      </>
-    ),
+    title: "Weddings & Elopements",
     blurb:
       "Perfect for city hall ceremonies, adventurous elopements, or smaller celebrations with your closest loved ones (up to 30 guests). This package is designed to capture the heart of your intimate day with the same candid, documentary style.",
     includes: [
@@ -99,11 +92,7 @@ const packages: Package[] = [
   {
     index: "03",
     eyebrow: "Just the Two of You",
-    title: (
-      <>
-        Engagement &amp; <em>Couple Sessions</em>
-      </>
-    ),
+    title: "Engagement & Couple Sessions",
     blurb:
       "Let's celebrate your connection. Whether it's for your engagement, an anniversary, or just because, these sessions are relaxed, fun, and focused on capturing you as you truly are. We'll find a beautiful spot, put on some music, and create authentic portraits that feel like you.",
     note: "An engagement session is already included in the Full-Day Wedding package.",
@@ -146,9 +135,7 @@ export default function page() {
       <div className={styles.container}>
         <Reveal className={styles.intro}>
           <p className={styles.eyebrow}>The Investment</p>
-          <h2 className={styles.introHeading}>
-            Simple, honest <em>pricing</em>
-          </h2>
+          <h2 className={styles.introHeading}>Simple, honest pricing</h2>
           <p className={styles.introText}>
             My goal is to keep things simple and transparent. No hidden fees, no
             confusing packages — just a clear breakdown of my offerings so you
@@ -206,6 +193,11 @@ export default function page() {
                   <span className={styles.priceLabel}>{pkg.priceLabel}</span>
                   <span className={styles.priceValue}>{pkg.price}</span>
                 </div>
+
+                <Link href="/contact" className={styles.packageCta}>
+                  Check your date
+                  <span className={styles.packageCtaLine} aria-hidden="true"></span>
+                </Link>
               </Reveal>
             </article>
           ))}
@@ -216,7 +208,7 @@ export default function page() {
         <Reveal className={styles.detailsInner}>
           <p className={styles.detailsEyebrow}>The Fine Print</p>
           <h2 className={styles.detailsHeading}>
-            Travel &amp; <em>other details</em>
+            Travel &amp; other details
           </h2>
           <ul className={styles.detailsList}>
             {travelDetails.map((item) => (
@@ -229,8 +221,8 @@ export default function page() {
         </Reveal>
       </section>
 
-      <GetInTouch />
       <Faq />
+      <GetInTouch />
     </div>
   );
 }

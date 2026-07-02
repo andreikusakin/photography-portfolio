@@ -103,9 +103,12 @@ export default function Featured() {
     <section className={styles.wrapper}>
       <Reveal className={styles.header}>
         <p className={styles.eyebrow}>Selected Work</p>
-        <h2 className={styles.heading}>
-          Featured <em>stories</em>
-        </h2>
+        <div className={styles.headingRow}>
+          <h2 className={styles.heading}>Featured stories</h2>
+          <span className={styles.count} aria-hidden="true">
+            ({String(galleries.length).padStart(2, "0")})
+          </span>
+        </div>
       </Reveal>
 
       <div className={styles.stories}>
@@ -116,7 +119,8 @@ export default function Featured() {
 
       <Reveal className={styles.footerLink}>
         <Link href="/portfolio" className={styles.allLink}>
-          Browse the Full Portfolio
+          Browse the full portfolio
+          <span className={styles.allLinkLine} aria-hidden="true"></span>
         </Link>
       </Reveal>
     </section>

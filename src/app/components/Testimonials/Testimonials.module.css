@@ -1,0 +1,184 @@
+.wrapper {
+  padding: var(--space-3xl) var(--container-padding);
+  width: 100%;
+}
+
+/* Quote leads, image counterweights — mirror of AboutMe's portrait-left */
+.grid {
+  max-width: 90em;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 7fr 4fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xl);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin: 0;
+}
+
+/* Reserved height so prev/next controls don't jump between quotes */
+.quoteStage {
+  min-height: calc(var(--text-lg) * 1.3 * 4 + var(--space-2xl));
+}
+
+.figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.quote {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  line-height: 1.3;
+  margin: 0;
+  max-width: 24em;
+  quotes: "\201C" "\201D";
+}
+
+.quote::before {
+  content: open-quote;
+}
+
+.quote::after {
+  content: close-quote;
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.names {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.detail {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.55;
+}
+
+/* ---- Controls: prev · counter · next (counter idiom shared with Hero) ---- */
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.navButton {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  padding: var(--space-xs) 0;
+  background: none;
+  border: none;
+  color: inherit;
+  position: relative;
+  cursor: pointer;
+}
+
+.navButton::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--cubic-default);
+}
+
+.navButton:hover::after {
+  transform: scaleX(1);
+}
+
+.counter {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: 0.16em;
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.counterDivider,
+.counterTotal {
+  opacity: 0.5;
+}
+
+/* ---- Companion image ---- */
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: var(--color-neutral-300);
+}
+
+.imageInner {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ---- Responsive ---- */
+
+@media screen and (max-width: 991px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .imageFrame {
+    max-width: 28em;
+    justify-self: center;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: var(--space-2xl) var(--container-padding);
+  }
+
+  .quote {
+    font-size: var(--text-md);
+  }
+
+  .quoteStage {
+    min-height: calc(var(--text-md) * 1.35 * 5 + var(--space-2xl));
+  }
+
+  .imageFrame {
+    width: 100%;
+  }
+}

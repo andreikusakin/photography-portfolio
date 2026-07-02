@@ -4,23 +4,27 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 40em;
+  /* Near-viewport cinematic finale. Explicit min-height (not aspect-ratio)
+     so the box stays definite in Safari; content can still expand it. */
+  min-height: min(56.25vw, 92vh);
+  padding: var(--space-3xl) 0;
   position: relative;
   overflow: hidden;
 }
 
 .background {
-  width: 100%;
-  height: 150%;
   position: absolute;
+  inset: 0;
   background: var(--color-black);
-  z-index: -1;
+  z-index: 0;
+  overflow: hidden;
 }
 
+/* Oversized so the ±8em parallax drift never exposes the frame edges */
 .imageContainer {
-  width: 100%;
-  height: 120%;
-  opacity: 0.6;
+  position: absolute;
+  inset: -20% 0;
+  opacity: 0.55;
 }
 
 .imageContainer img {
@@ -31,8 +35,10 @@
 }
 
 .content {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  max-width: 46em;
+  max-width: 60em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,23 +58,40 @@
   opacity: 0.7;
 }
 
-.content h2 em {
-  font-style: italic;
-  text-transform: lowercase;
-}
-
-.content h2 {
-  font-size: var(--text-xl);
+/* The page's largest statement — the close answers the hero's opening */
+.heading {
   font-family: var(--font-serif);
+  font-size: var(--text-2xl);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.05;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.content p {
+.heading em {
+  font-style: italic;
+}
+
+/* Each heading line lives inside an overflow mask so it can rise into view */
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0.12em;
+}
+
+.line {
+  display: block;
+  will-change: transform;
+}
+
+.lede {
   max-width: 28em;
   line-height: 1.6;
   opacity: 0.85;
+  margin: 0;
 }
 
 .content button {
@@ -88,8 +111,30 @@
   border-color: var(--color-white);
 }
 
+/* Bookend: echoes the hero's location subline */
+.subline {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  opacity: 0.6;
+  margin: 0;
+  margin-top: var(--space-sm);
+}
+
+@media screen and (max-width: 991px) {
+  .heading {
+    font-size: var(--text-xl);
+  }
+}
+
 @media screen and (max-width: 767px) {
-  .content h2 {
+  .wrapper {
+    min-height: min(150vw, 92vh);
+    padding: var(--space-2xl) 0;
+  }
+
+  .heading {
     font-size: var(--text-lg);
   }
 }
