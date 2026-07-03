@@ -55,10 +55,10 @@ export default function Intro() {
 Bringing a unique, cinematic vision to fine art documentary wedding photography. Every fleeting moment is captured with care, down to the smallest detail.
           </p>
           <p className={styles.bodyText}>
-            A wedding day is the people in it. Each image is shaped by the
-            connection between two people and the company gathered around
-            them, the affection and the quiet truths that pass through a long
-            day together.
+            The work is documentary at its core: the day photographed as it
+            happens, from the first quiet hours to the last song, so the
+            gallery reads the way the day felt — a complete story, not a set
+            of portraits.
           </p>
           <Link href="/portfolio" className={styles.cta}>
             Browse the portfolio

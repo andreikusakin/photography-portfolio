@@ -1,11 +1,56 @@
+/* Editorial spread: large frames flank the statement in normal flow —
+   pair above, statement center, wide landscape below */
 .wrapper {
+  width: 100%;
+  max-width: 90em;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--container-padding);
+  overflow: hidden;
+}
+
+/* ---- Opening pair ---- */
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 4%;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-neutral-300);
+  will-change: transform;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Flower girl — the larger anchor of the pair */
+.frameA {
+  width: 26em;
+  aspect-ratio: 2 / 3;
+}
+
+/* Parents watching — smaller counterweight, dropped lower */
+.frameB {
+  width: 19em;
+  aspect-ratio: 2 / 3;
+  margin-top: var(--space-3xl);
+}
+
+/* ---- Statement ---- */
+
+.inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--space-4xl) var(--container-padding);
   max-width: 62em;
   margin: 0 auto;
+  padding: var(--space-2xl) 0 var(--space-3xl);
 }
 
 .eyebrow {
@@ -42,13 +87,79 @@
   margin-top: var(--space-2xl);
 }
 
+/* ---- Closing frame ---- */
+
+.bottomRow {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10%;
+}
+
+/* Golden-hour toast — wide, off the center axis */
+.frameC {
+  width: 34em;
+  aspect-ratio: 3 / 2;
+}
+
+/* ---- Responsive ---- */
+
+@media screen and (max-width: 991px) {
+  .frameA {
+    width: 18em;
+  }
+
+  .frameB {
+    width: 13em;
+    margin-top: var(--space-2xl);
+  }
+
+  .frameC {
+    width: 26em;
+  }
+
+  .topRow {
+    padding: 0 2%;
+  }
+
+  .bottomRow {
+    padding: 0 4%;
+  }
+}
+
 @media screen and (max-width: 767px) {
+  .wrapper {
+    padding: var(--space-2xl) var(--container-padding);
+  }
+
   .quote {
     font-size: var(--text-md);
     line-height: 1.45;
   }
 
-  .wrapper {
-    padding: var(--space-3xl) var(--container-padding);
+  .inner {
+    padding: var(--space-xl) 0 var(--space-2xl);
+  }
+
+  .frameA {
+    width: 13em;
+  }
+
+  .frameB {
+    width: 10em;
+    margin-top: var(--space-xl);
+  }
+
+  .frameC {
+    width: 20em;
+    max-width: 100%;
+  }
+
+  .topRow {
+    padding: 0;
+  }
+
+  .bottomRow {
+    padding: 0;
+    justify-content: flex-end;
   }
 }

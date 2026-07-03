@@ -21,7 +21,7 @@ const steps = [
   },
   {
     title: "Less posing, more living",
-    text: "A documentary approach means less time performing for a camera and more time inside the day itself — present with your people while the day tells its own story.",
+    text: "A documentary approach means less time performing for a camera and more time inside the day itself — with your people, not with a shot list.",
     image: "/weddings/erin-kyle/000050.jpg",
     alt: "A bride and groom caught mid-stride in a candid moment",
   },

@@ -72,7 +72,7 @@ export default function ContactPage() {
   return (
     <div>
       <SmallHero
-        title="Let's Tell Your Story"
+        title="Let's Talk"
         image={HeroImage}
         subtitle="Tell Me About the Day You're Planning"
         alt="A candid wedding moment by Andrew Kusakin, Boston wedding photographer"
@@ -98,6 +98,9 @@ export default function ContactPage() {
               within <em>48 hours</em>.
             </p>
 
+            {/* <p className={`${styles.eyebrow} ${styles.detailsEyebrow}`}>
+              The Details
+            </p> */}
             <dl className={styles.details}>
               <div className={styles.detailRow}>
                 <dt>Email</dt>
