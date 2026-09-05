@@ -1,0 +1,51 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  /* Explicit height (not aspect-ratio) so the box stays definite in Safari */
+  height: min(62vw, 85vh);
+  min-height: 24em;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+/* Oversized so the ±5% parallax drift never exposes the frame edges */
+.imageLayer {
+  position: absolute;
+  inset: -8% 0;
+  will-change: transform;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0) 30%
+  );
+  pointer-events: none;
+}
+
+/* Caption in the hero's bottom-rail voice */
+.caption {
+  position: absolute;
+  left: var(--container-padding);
+  bottom: var(--space-lg);
+  z-index: 1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    height: min(110vw, 70vh);
+  }
+}

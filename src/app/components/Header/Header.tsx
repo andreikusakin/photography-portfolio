@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
+import type { MotionStyle } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
@@ -22,34 +23,47 @@ export default function Header() {
     (pathname.startsWith("/guides/") && pathname !== "/guides");
   const [isDesktop, setIsDesktop] = useState(true);
   const [viewportHeight, setViewportHeight] = useState(0);
+  const [viewportWidth, setViewportWidth] = useState(0);
 
   useEffect(() => {
     const checkIfDesktop = () => {
       setIsDesktop(window.innerWidth > 991);
     };
 
-    const updateViewportHeight = () => {
+    const updateViewportSize = () => {
       setViewportHeight(window.innerHeight);
+      setViewportWidth(window.innerWidth);
     };
 
     checkIfDesktop();
-    updateViewportHeight();
+    updateViewportSize();
 
     window.addEventListener("resize", checkIfDesktop);
-    window.addEventListener("resize", updateViewportHeight);
+    window.addEventListener("resize", updateViewportSize);
 
     return () => {
       window.removeEventListener("resize", checkIfDesktop);
-      window.removeEventListener("resize", updateViewportHeight);
+      window.removeEventListener("resize", updateViewportSize);
     };
   }, []);
 
   const { scrollY } = useScroll();
 
+  // Home: the header settles exactly as the hero's bottom edge scrolls past.
+  // Derived from the hero's CSS height (min(75vw, 100vh) desktop, 150vw on
+  // phones) so the flip tracks content — a viewport-multiple magic number
+  // silently lands in the wrong place whenever section heights change.
+  const heroBottom =
+    viewportWidth <= 767
+      ? viewportWidth * 1.5
+      : Math.min(viewportWidth * 0.75, viewportHeight);
+
   const colorChangeStart = isHomePage
-    ? viewportHeight * 2.8
+    ? Math.max(heroBottom - 150, 1)
     : viewportHeight * 0.4;
-  const colorChangeEnd = isHomePage ? viewportHeight * 3 : viewportHeight * 0.6;
+  const colorChangeEnd = isHomePage
+    ? Math.max(heroBottom - 30, 2)
+    : viewportHeight * 0.6;
 
   const filterBlur = useTransform(
     scrollY,
@@ -94,6 +108,15 @@ export default function Header() {
     isMinimalHero
       ? ["rgba(24, 23, 22, 0.2)", "rgba(24, 23, 22, 0.2)"]
       : ["rgba(255, 255, 255, 0.2)", "rgba(24, 23, 22, 0.2)"],
+    { clamp: true }
+  );
+
+  // Inverse of headerColor — on hover the Connect box fills with the current
+  // text color (via background: currentColor), and the label flips to this.
+  const headerColorInverse = useTransform(
+    scrollY,
+    [colorChangeStart, colorChangeEnd],
+    isMinimalHero ? ["#ffffff", "#ffffff"] : ["#181716", "#ffffff"],
     { clamp: true }
   );
 
@@ -161,10 +184,13 @@ export default function Header() {
           interactive element inside the <Link> anchor (invalid markup) */}
       <motion.div
         className={styles.contact}
-        style={{
-          color: headerColor,
-          borderColor: buttonColor,
-        }}
+        style={
+          {
+            color: headerColor,
+            borderColor: buttonColor,
+            "--fill-text": headerColorInverse,
+          } as MotionStyle
+        }
       >
         <Link
           href="/contact"

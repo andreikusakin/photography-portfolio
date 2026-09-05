@@ -4,9 +4,9 @@ import Image from "next/image";
 import styles from "./Intro.module.css";
 import Link from "next/link";
 import Reveal from "../Reveal/Reveal";
-import Image1 from "./wedding-photography-private-wovs.jpg";
-import Image2 from "./wedding-first-look.jpg";
-import Image3 from "./wedding-couple.jpg";
+import Image1 from "./boston-wedding-photographer-andrew-kusakin-photography-3.jpg";
+import Image2 from "./boston-wedding-photographer-andrew-kusakin-photography-1.jpg";
+import Image3 from "./boston-wedding-photographer-andrew-kusakin-photography-2.jpg";
 
 import { motion, useScroll, useTransform } from "motion/react";
 

@@ -2,9 +2,9 @@ import AboutMe from "./components/AboutMe/AboutMe";
 import Hero from "./components/Hero/Hero";
 import Intro from "./components/Intro/Intro";
 import Marquee from "./components/Marquee/Marquee";
-import Philosophy from "./components/Philosophy/Philosophy";
+// import Philosophy from "./components/Philosophy/Philosophy";
 import Featured from "./components/Featured/Featured";
-import Experience from "./components/Experience/Experience";
+// import Experience from "./components/Experience/Experience";
 import Testimonials from "./components/Testimonials/Testimonials";
 import GetInTouch from "./components/GetInTouch/GetInTouch";
 
@@ -15,9 +15,9 @@ export default function Home() {
       <Marquee />
       <Intro />
       <Featured />
-      <Philosophy />
+      {/* <Philosophy /> */}
       <AboutMe />
-      <Experience />
+      {/* <Experience /> */}
       <Testimonials />
       <GetInTouch />
     </>

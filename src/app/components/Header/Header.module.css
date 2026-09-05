@@ -48,6 +48,18 @@
      plain <Link> (no interactive <button> nested inside an anchor).
      border-color + text color are animated inline by Framer Motion. */
   border: 1px solid;
+  background-color: transparent;
+  transition: background-color 0.4s ease;
+}
+
+/* Fill with whatever the header text color currently is (white over the
+   hero, dark once settled); the label flips to the Motion-driven inverse */
+.contact:hover {
+  background-color: currentColor;
+}
+
+.contact:hover .contactButton {
+  color: var(--fill-text, var(--color-background));
 }
 
 .contactButton {
@@ -57,6 +69,7 @@
   letter-spacing: 0.1em;
   padding: var(--space-md) var(--space-lg);
   color: inherit;
+  transition: color 0.4s ease;
 }
 
 .contact:hover .navLinkText {

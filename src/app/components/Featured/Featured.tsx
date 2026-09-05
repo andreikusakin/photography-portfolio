@@ -6,13 +6,13 @@ import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import Reveal from "../Reveal/Reveal";
-import HannahKisuk from "./fruitlands-museum-wedding-ceremony-00081.jpg"
-import EricaMike from "./white-cliffs-plymouth-wedding-ceremony-00062.jpg"
+import HannahKisuk from "./boston-wedding-photographer-andrew-kusakin-photography-1.jpg"
+import MaddyAlex from "./boston-wedding-photographer-andrew-kusakin-photography-2.jpg";
+import EricaMike from "./boston-wedding-photographer-andrew-kusakin-photography-3.jpg"
 
 interface Gallery {
   title: string;
   heroImage: string | StaticImageData;
-  smallImage: string;
   link: string;
   location: string;
 }
@@ -21,21 +21,18 @@ const galleries: Gallery[] = [
   {
     title: "Hannah + Kisuk",
     heroImage: HannahKisuk,
-    smallImage: "/weddings/alex-adam/000045.jpg",
     link: "/wedding/hannah-kisuk",
     location: "Fruitlands Museum, Massachusetts",
   },
   {
     title: "Maddy + Alex",
-    heroImage: "/weddings/maddy-alex/000130.jpg",
-    smallImage: "/weddings/maddy-alex/000050.jpg",
+    heroImage: MaddyAlex,
     link: "/wedding/maddy-alex",
     location: "Smith Farm Gardens, Connecticut",
   },
   {
     title: "Erica + Mike",
     heroImage: EricaMike,
-    smallImage: "/weddings/amy-charlie/000099.jpg",
     link: "/wedding/erica-mike",
     location: "White Cliffs Country Club, Massachusetts",
   },

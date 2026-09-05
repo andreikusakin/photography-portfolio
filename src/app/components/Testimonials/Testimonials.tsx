@@ -5,35 +5,49 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import styles from "./Testimonials.module.css";
 import Reveal from "../Reveal/Reveal";
+import Image1 from "./boston-wedding-photographer-andrew-kusakin-photography-1.jpg";
+import Image2 from "./boston-wedding-photographer-andrew-kusakin-photography-2.jpg";
+import Image3 from "./boston-wedding-photographer-andrew-kusakin-photography-3.jpg";
+import Image4 from "./boston-wedding-photographer-andrew-kusakin-photography-4.jpg";
 
 const customEase = [0.16, 1, 0.3, 1] as const;
 
-/* PLACEHOLDER COPY — swap every quote below for the couple's real words
-   before publishing. Images are placeholders from /public/weddings. */
+/* Real 5-star Google reviews, excerpted to fit the four-line quote stage.
+   Ellipses mark skipped text; everything shown is verbatim. Alt text is
+   deliberately generic — make it name the couple and venue only for images
+   that actually depict that reviewer's wedding. */
 const testimonials = [
   {
     quote:
-      "We barely noticed Andrew during the day — and somehow every moment we remember is in the gallery, looking better than we remember it.",
-    names: "Maddy + Alex",
-    detail: "Smith Farm Gardens, Connecticut",
-    image: "/weddings/maddy-alex/000125.jpg",
-    alt: "Maddy and Alex exchanging vows at Smith Farm Gardens in Connecticut",
+      "His photos capture how the day felt, not just how it looked, and every image feels artistic and beautiful without ever feeling staged or overly posed.",
+    names: "Kelsey & Colin",
+    detail: "Google Review",
+    image: Image1,
+    alt: "A couple during their wedding ceremony, photographed by Andrew Kusakin",
   },
   {
     quote:
-      "Andrew kept everything calm, even when the day wasn’t. Our families still talk about how easy he made everyone feel.",
-    names: "Erica + Mike",
-    detail: "White Cliffs Country Club, Massachusetts",
-    image: "/weddings/erica-mike/000040.jpg",
-    alt: "Erica smiling at Mike during their White Cliffs Country Club ceremony",
+      "We got a wonderful mix of romantic couples portraits and candid photos with our friends and family… so happy with all the beautiful memories he captured of our wedding day.",
+    names: "Mary & Ryan",
+    detail: "Google Review",
+    image: Image2,
+    alt: "A candid wedding moment photographed by Andrew Kusakin",
   },
   {
     quote:
-      "The gallery felt like our wedding and no one else’s — every person we love, exactly as they are.",
-    names: "Veronica + Joseph",
-    detail: "Bar Harbor, Maine",
-    image: "/weddings/veronica-joseph/000030.jpg",
-    alt: "Veronica and Joseph exchanging rings at their Bar Harbor wedding",
+      "Andrew was phenomenal to work with: thoughtful, considered, and consultative in his approach… We would hire him again in a heartbeat!",
+    names: "Thea & Fernando",
+    detail: "Google Review",
+    image: Image3,
+    alt: "A wedding couple photographed by Andrew Kusakin in New England",
+  },
+  {
+    quote:
+      "He took the time to get to know me and my husband, and planned his shots accordingly… He was such a pleasure to work with and I can’t recommend him enough.",
+    names: "Leah Doolittle",
+    detail: "Google Review",
+    image: Image4,
+    alt: "A wedding day moment photographed by Andrew Kusakin",
   },
 ];
 

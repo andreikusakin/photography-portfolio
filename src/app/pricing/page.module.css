@@ -186,6 +186,36 @@
   line-height: 1;
 }
 
+/* ---- Flagship (signature) treatment ---- */
+
+/* The signature package reads bigger in every register: wider body,
+   two-column includes, the price as a statement */
+.packageFlagship {
+  gap: var(--space-3xl);
+}
+
+.packageFlagship .packageBody {
+  max-width: 44em;
+}
+
+/* Four included items as a 2×2 grid — denser, more substantial.
+   Grid rows share height, so the hairlines stay aligned. */
+.packageFlagship .includes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--space-2xl);
+  border-bottom: 1px solid rgba(24, 23, 22, 0.12);
+}
+
+.packageFlagship .includeItem:last-child {
+  border-bottom: none;
+}
+
+/* The number as a statement */
+.packageFlagship .priceValue {
+  font-size: var(--text-2xl);
+}
+
 /* Quiet text-link CTA per package (shrinking-underline idiom) */
 .packageCta {
   align-self: flex-start;
@@ -282,6 +312,21 @@
   .packageReverse {
     flex-direction: column;
     gap: var(--space-xl);
+  }
+
+  /* Flagship stacks like the others; hierarchy carries through image size
+     and the statement price, not columns */
+  .packageFlagship .includes {
+    grid-template-columns: 1fr;
+    border-bottom: none;
+  }
+
+  .packageFlagship .includeItem:last-child {
+    border-bottom: 1px solid rgba(24, 23, 22, 0.12);
+  }
+
+  .packageFlagship .priceValue {
+    font-size: var(--text-xl);
   }
 
   /* Give the parallax image wrapper a real width: its inner layer is

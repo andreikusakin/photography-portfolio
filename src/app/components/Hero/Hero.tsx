@@ -7,55 +7,55 @@ import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 
 const images = [
   {
-    src: "/hero/1.jpg",
+    src: "/hero/boston-wedding-photographer-andrew-kusakin-photography-1.jpg",
     alt: "Michaela and David wedding photography at The Bradley Estate in Canton, MA",
     name: "Michaela + David",
     location: "Massachusetts",
   },
   {
-    src: "/hero/2.jpg",
+    src: "/hero/boston-wedding-photographer-andrew-kusakin-photography-2.jpg",
     alt: "Michaela and David wedding photography at The Bradley Estate in Canton, MA",
     name: "Michaela + David",
     location: "Massachusetts",
   },
   {
-    src: "/hero/3.jpg",
+    src: "/hero/boston-wedding-photographer-andrew-kusakin-photography-3.jpg",
     alt: "Hannah and Kisuk wedding photography at Fruitlands Museum in Harvard, MA",
     name: "Hannah + Kisuk",
     location: "Massachusetts",
   },
   {
-    src: "/hero/4.jpg",
+    src: "/hero/boston-wedding-photographer-andrew-kusakin-photography-4.jpg",
     alt: "Hannah and Kisuk wedding photography at Fruitlands Museum in Harvard, MA",
     name: "Hannah + Kisuk",
     location: "Massachusetts",
   },
   {
-    src: "/hero/5.jpg",
-    alt: "Gwen and Alec engagement photography at New England Botanic Garden at Tower Hill in Boylston, MA",
-    name: "Gwen + Alec",
+    src: "/hero/boston-wedding-photographer-andrew-kusakin-photography-5.jpg",
+    alt: "Cara and Jason wedding photography at Tupper Manor in Beverly, MA",
+    name: "Cara + Jason",
     location: "Massachusetts",
   },
   {
-    src: "/hero/6.jpg",
-    alt: "Gwen and Alec engagement photography at New England Botanic Garden at Tower Hill in Boylston, MA",
-    name: "Gwen + Alec",
+    src: "/hero/boston-wedding-photographer-andrew-kusakin-photography-6.jpg",
+    alt: "Cara and Jason wedding photography at Tupper Manor in Beverly, MA",
+    name: "Cara + Jason",
     location: "Massachusetts",
   },
     {
-    src: "/hero/bar-harbor-wedding-00021.jpg",
+    src: "/hero/boston-wedding-photographer-andrew-kusakin-photography-7.jpg",
     alt: "Veronica & Joseph wedding photography at Harborside Hotel in Bar Harbor, MA",
     name: "Veronica + Joseph",
     location: "Maine",
   },
      {
-    src: "/hero/bar-harbor-wedding-00053.jpg",
+    src: "/hero/boston-wedding-photographer-andrew-kusakin-photography-8.jpg",
     alt: "Veronica & Joseph wedding photography at Harborside Hotel in Bar Harbor, MA",
     name: "Veronica + Joseph",
     location: "Maine",
   },
   // {
-  //   src: "/hero/3.jpg",
+  //   src: "/hero/boston-wedding-photographer-andrew-kusakin-photography-3.jpg",
   //   alt: "Maddy and Alex wedding photography at Smith Farm Gardens in East Haddam, Connecticut",
   //   name: "Maddy + Alex",
   //   location: "Connecticut",
@@ -241,11 +241,11 @@ export default function Hero() {
       >
         {/* Inner div that receives the strong parallax scroll effect */}
         <motion.div className={styles.heroText} style={{ y: textY }}>
-          <motion.p className={styles.eyebrow} variants={fadeVariants}>
-            Fine Art Documentary Wedding Photography
-          </motion.p>
+          <motion.h1 className={styles.eyebrow} variants={fadeVariants}>
+            Boston Wedding Photographer
+          </motion.h1>
 
-          <h1 className={styles.mainHeading}>
+          <h2 className={styles.mainHeading}>
             <span className={styles.lineMask}>
               <motion.span className={styles.line} variants={lineVariants}>
                 Capturing your day
@@ -259,7 +259,7 @@ export default function Hero() {
                 as it truly happens
               </motion.span>
             </span>
-          </h1>
+          </h2>
 
           <motion.p className={styles.subline} variants={fadeVariants}>
             Boston · New England · Beyond

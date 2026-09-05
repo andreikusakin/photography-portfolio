@@ -6,6 +6,9 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import styles from "./Experience.module.css";
 import Reveal from "../Reveal/Reveal";
+import StepImage1 from "./boston-wedding-photographer-andrew-kusakin-photography-2.jpg";
+import StepImage2 from "./boston-wedding-photographer-andrew-kusakin-photography-3.jpg";
+import StepImage3 from "./boston-wedding-photographer-andrew-kusakin-photography-4.jpg";
 
 const customEase = [0.16, 1, 0.3, 1] as const;
 
@@ -16,19 +19,19 @@ const steps = [
   {
     title: "A calming presence",
     text: "I guide each story with a calming presence, creating an environment where you and the people you love feel at ease and open — because that is when images reveal true emotion.",
-    image: "/weddings/alyssa-jonathan/000010.jpg",
+    image: StepImage1,
     alt: "A couple walking hand in hand, at ease during their wedding day",
   },
   {
     title: "Less posing, more living",
     text: "A documentary approach means less time performing for a camera and more time inside the day itself — with your people, not with a shot list.",
-    image: "/weddings/erin-kyle/000050.jpg",
+    image: StepImage2,
     alt: "A bride and groom caught mid-stride in a candid moment",
   },
   {
     title: "An honest gallery",
     text: "What you keep is a gallery of honest photographs — the look, the laugh, the held hand — that feels unmistakably like you.",
-    image: "/weddings/amy-charlie/000090.jpg",
+    image: StepImage3,
     alt: "A first dance surrounded by the wedding party",
   },
 ];

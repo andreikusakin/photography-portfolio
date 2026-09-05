@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./AboutMe.module.css";
-import Image1 from "./../../../../public/about/ak1.jpg";
+import Image1 from "./../../../../public/about/boston-wedding-photographer-andrew-kusakin-photography-1.jpg";
 import Reveal from "../Reveal/Reveal";
 
 import Link from "next/link";

@@ -31,13 +31,16 @@ type Package = {
   image: typeof HeroImage;
   alt: string;
   reverse?: boolean;
+  /** Signature offering — larger image, two-column includes, statement price */
+  flagship?: boolean;
 };
 
 const packages: Package[] = [
   {
     index: "01",
-    eyebrow: "The Complete Story",
-    title: "Full-Day Wedding",
+    eyebrow: "The Signature",
+    title: "The Complete Story",
+    flagship: true,
     blurb:
       "Perfect for larger weddings (30+ guests) where you want the full narrative of your day captured without having to watch the clock. This is my signature offering, designed to document every chapter of your celebration, from the quiet moments of getting ready to the wild energy of the last dance.",
     includes: [
@@ -95,7 +98,7 @@ const packages: Package[] = [
     title: "Engagement & Couple Sessions",
     blurb:
       "Let's celebrate your connection. Whether it's for your engagement, an anniversary, or just because, these sessions are relaxed, fun, and focused on capturing you as you truly are. We'll find a beautiful spot, put on some music, and create authentic portraits that feel like you.",
-    note: "An engagement session is already included in the Full-Day Wedding package.",
+    note: "An engagement session is already included in The Complete Story package.",
     priceLabel: "Starting at",
     price: "$500",
     image: EngagementPhoto,
@@ -154,13 +157,13 @@ export default function page() {
               key={pkg.index}
               className={`${styles.package} ${
                 pkg.reverse ? styles.packageReverse : ""
-              }`}
+              } ${pkg.flagship ? styles.packageFlagship : ""}`}
             >
               <div className={styles.packageImage}>
                 <ParallaxImage
                   src={pkg.image}
-                  width="32em"
-                  height="44em"
+                  width={pkg.flagship ? "38em" : "32em"}
+                  height={pkg.flagship ? "50em" : "44em"}
                   alt={pkg.alt}
                 />
               </div>

@@ -5,6 +5,7 @@ import styles from "./GetInTouch.module.css";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
+import BackgroundImage from "./boston-wedding-photographer-andrew-kusakin-photography-1.jpg";
 
 const customEase = [0.16, 1, 0.3, 1] as const;
 
@@ -49,7 +50,7 @@ export default function GetInTouch() {
       <div className={styles.background}>
         <motion.div className={styles.imageContainer} style={{ y: y1 }}>
           <Image
-            src="/weddings/christi-adam/000049.jpg"
+            src={BackgroundImage}
             alt="A wedding couple photographed by Andrew Kusakin, Boston wedding photographer"
             width={1500}
             height={1000}
